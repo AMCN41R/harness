@@ -11,7 +11,6 @@ namespace Harness
 
         private IntegrationTestSettings Settings { get; set; }
 
-
         protected MongoIntegrationBase()
         {
             this.FileSystem = new FileSystemHelper();
@@ -47,8 +46,6 @@ namespace Harness
             var settingsManager = new SettingsManager(this.FileSystem);
             this.Settings = settingsManager.GetSettings(configFilePath);
         }
-
-
 
     }
 }

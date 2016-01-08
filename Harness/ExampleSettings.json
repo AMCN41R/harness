@@ -1,0 +1,19 @@
+{
+	"SaveOutput" : false,
+	"Databases" : [
+		{
+			"DatabaseName" : "TestDb1",
+			"ConnectionString" : "connString"
+			"Collections" : [
+				{
+					"CollectionName" : "TestCollection1",
+					"DataFileLocation" : "c:\test\location.json"
+				},
+				{
+					"CollectionName" : "TestCollection2",
+					"DataFileLocation" : "c:\test\location2.json"
+				}
+			]
+		}
+	]
+}
