@@ -1,13 +1,13 @@
-﻿using Harness.FileSystem;
+﻿using System.IO.Abstractions;
 using MongoDbUnit.Settings;
 
 namespace Harness.Settings
 {
     internal class SettingsManager
     {
-        private readonly IFileSystemHelper FileSystem;
+        private readonly IFileSystem FileSystem;
 
-        public SettingsManager(IFileSystemHelper fileSystem)
+        public SettingsManager(IFileSystem fileSystem)
         {
             this.FileSystem = fileSystem;
         }

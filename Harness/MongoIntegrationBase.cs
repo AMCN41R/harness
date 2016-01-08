@@ -1,5 +1,5 @@
-﻿using Harness.Attributes;
-using Harness.FileSystem;
+﻿using System.IO.Abstractions;
+using Harness.Attributes;
 using Harness.Settings;
 using MongoDbUnit.Settings;
 
@@ -7,13 +7,13 @@ namespace Harness
 {
     public abstract class MongoIntegrationBase
     {
-        internal IFileSystemHelper FileSystem { get; set; }
+        internal IFileSystem FileSystem { get; set; }
 
         private IntegrationTestSettings Settings { get; set; }
 
         protected MongoIntegrationBase()
         {
-            this.FileSystem = new FileSystemHelper();
+            this.FileSystem = new FileSystem();
 
 
             // Look for the MongoIntegrationTestClass attribute
