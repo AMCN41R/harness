@@ -3,7 +3,7 @@ using System.Web.Script.Serialization;
 
 namespace Harness.Settings
 {
-    public class SettingsManager : ISettingsManager
+    internal class SettingsManager : ISettingsManager
     {
         private readonly IFileSystem FileSystem;
 
@@ -18,13 +18,22 @@ namespace Harness.Settings
 
         public MongoConfiguration GetMongoConfiguration(string configFilePath)
         {
-            var jss = new JavaScriptSerializer();
+            if(string.IsNullOrWhiteSpace(configFilePath))
+            {
+                return null;
+            }
+
+            if(!this.FileSystem.File.Exists(configFilePath))
+            {
+                return null;
+            }
 
             var json = 
                 this.FileSystem.File.ReadAllText(configFilePath);
 
-            return 
-                jss.Deserialize<MongoConfiguration>(json);
+            return
+                new JavaScriptSerializer()
+                    .Deserialize<MongoConfiguration>(json);
 
         }
 

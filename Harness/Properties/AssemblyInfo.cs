@@ -35,5 +35,6 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
-// Expose internal classes to unit test projects.
+// Expose internal classes to script and unit test projects.
 [assembly: InternalsVisibleTo("Harness.UnitTests")]
+[assembly: InternalsVisibleTo("Harness.FSharp.Scripts")]
