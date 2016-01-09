@@ -70,6 +70,7 @@
     <Compile Include="Comparer\ObjectComparer.cs" />
     <Compile Include="Comparer\ObjectComparerTests.cs" />
     <Compile Include="ExtensionsTests.cs" />
+    <Compile Include="MongoIntegrationBaseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SettingsTests\SettingsManagerTests.cs" />
   </ItemGroup>

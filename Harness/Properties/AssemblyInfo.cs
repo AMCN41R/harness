@@ -38,3 +38,4 @@ using System.Runtime.InteropServices;
 // Expose internal classes to script and unit test projects.
 [assembly: InternalsVisibleTo("Harness.UnitTests")]
 [assembly: InternalsVisibleTo("Harness.FSharp.Scripts")]
+[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]

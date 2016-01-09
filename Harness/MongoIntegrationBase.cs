@@ -24,7 +24,8 @@ namespace Harness
 
             if (mongoTestClassAttribute == null)
             {
-                throw new RequiredAttributeNotFoundException("Insert some helpful message here");
+                throw new RequiredAttributeNotFoundException(
+                    "Insert some helpful message here");
             }
 
 
@@ -48,8 +49,9 @@ namespace Harness
 
         private void LoadSettings(string configFilePath)
         {
-            var settingsManager = this.SettingsManager;
-            this.Settings = settingsManager.GetMongoConfiguration(configFilePath);
+            this.Settings = 
+                this.SettingsManager
+                    .GetMongoConfiguration(configFilePath);
         }
 
         private void ConfigureMongo()
