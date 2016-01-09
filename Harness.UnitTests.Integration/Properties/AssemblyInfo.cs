@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Harness")]
+[assembly: AssemblyTitle("Harness.UnitTests.Integration")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Harness")]
+[assembly: AssemblyProduct("Harness.UnitTests.Integration")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b2594702-a5a6-430b-81c1-e1263af4df0e")]
+[assembly: Guid("5bc88bba-1cdf-45e2-9f69-e33975b55ec1")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -34,9 +34,3 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-
-// Expose internal classes to script and unit test projects.
-[assembly: InternalsVisibleTo("Harness.UnitTests")]
-[assembly: InternalsVisibleTo("Harness.UnitTests.Integration")]
-[assembly: InternalsVisibleTo("Harness.FSharp.Scripts")]
-[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
