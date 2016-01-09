@@ -1,20 +1,22 @@
-﻿using System.IO.Abstractions;
-using Harness.Attributes;
+﻿using Harness.Attributes;
 using Harness.Settings;
-using MongoDbUnit.Settings;
 
 namespace Harness
 {
     public abstract class MongoIntegrationBase
     {
-        internal IFileSystem FileSystem { get; set; }
 
-        private IntegrationTestSettings Settings { get; set; }
+        private MongoConfiguration Settings { get; set; }
 
-        protected MongoIntegrationBase()
+        private ISettingsManager SettingsManager { get; }
+
+        protected MongoIntegrationBase() : this(new SettingsManager())
         {
-            this.FileSystem = new FileSystem();
+        }
 
+        internal MongoIntegrationBase(ISettingsManager settingsManager)
+        {
+            this.SettingsManager = settingsManager;
 
             // Look for the MongoIntegrationTestClass attribute
             var mongoTestClassAttribute =
@@ -39,13 +41,27 @@ namespace Harness
             // Load the mongo settings from the config file
             LoadSettings(configFilePath);
 
+
+            this.ConfigureMongo();
+
         }
 
         private void LoadSettings(string configFilePath)
         {
-            var settingsManager = new SettingsManager(this.FileSystem);
-            this.Settings = settingsManager.GetSettings(configFilePath);
+            var settingsManager = this.SettingsManager;
+            this.Settings = settingsManager.GetMongoConfiguration(configFilePath);
         }
 
+        private void ConfigureMongo()
+        {
+            MongoSessionManager().Build();
+        }
+
+        /// <summary>
+        /// Factory method to return live implementation of IMongoSessionManager
+        /// that can be overrdden and mocked for unit testing.
+        /// </summary>
+        internal virtual IMongoSessionManager MongoSessionManager() 
+            => new MongoSessionManager(this.Settings);
     }
 }

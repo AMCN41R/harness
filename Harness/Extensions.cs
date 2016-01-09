@@ -5,9 +5,7 @@ namespace Harness
 {
     internal static class Extensions
     {
-        public static T GetAttribute<T>(this Type type) where T : class
-        {
-            return type.GetCustomAttributes(typeof(T), true).FirstOrDefault() as T;
-        }
+        public static T GetAttribute<T>(this Type type) where T : class 
+            => type.GetCustomAttributes(typeof(T), true).FirstOrDefault() as T;
     }
 }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harness", "Harness\Harness.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harness.UnitTests", "Harness.UnitTests\Harness.UnitTests.csproj", "{4222E65A-0A1D-4512-9AB4-100E1DEF0A62}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Harness.FSharp.Scripts", "Harness.FSharp.Scripts\Harness.FSharp.Scripts.fsproj", "{94763621-0B44-470B-A01C-35004C52F733}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4222E65A-0A1D-4512-9AB4-100E1DEF0A62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4222E65A-0A1D-4512-9AB4-100E1DEF0A62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4222E65A-0A1D-4512-9AB4-100E1DEF0A62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94763621-0B44-470B-A01C-35004C52F733}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94763621-0B44-470B-A01C-35004C52F733}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94763621-0B44-470B-A01C-35004C52F733}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94763621-0B44-470B-A01C-35004C52F733}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

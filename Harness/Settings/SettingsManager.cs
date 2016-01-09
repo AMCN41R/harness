@@ -1,20 +1,31 @@
 ﻿using System.IO.Abstractions;
-using MongoDbUnit.Settings;
+using System.Web.Script.Serialization;
 
 namespace Harness.Settings
 {
-    internal class SettingsManager
+    public class SettingsManager : ISettingsManager
     {
         private readonly IFileSystem FileSystem;
+
+        public SettingsManager() : this(new FileSystem())
+        {
+        }
 
         public SettingsManager(IFileSystem fileSystem)
         {
             this.FileSystem = fileSystem;
         }
 
-        public IntegrationTestSettings GetSettings(string configFilePath)
+        public MongoConfiguration GetMongoConfiguration(string configFilePath)
         {
-            return null;
+            var jss = new JavaScriptSerializer();
+
+            var json = 
+                this.FileSystem.File.ReadAllText(configFilePath);
+
+            return 
+                jss.Deserialize<MongoConfiguration>(json);
+
         }
 
     }
