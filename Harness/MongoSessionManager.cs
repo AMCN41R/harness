@@ -104,7 +104,7 @@ namespace Harness
             // Insert the data into the collection
             foreach (var line in lines)
             {
-                collection.InsertOneAsync(BsonDocument.Parse(line));
+                collection.InsertOne(BsonDocument.Parse(line));
             }
 
         }

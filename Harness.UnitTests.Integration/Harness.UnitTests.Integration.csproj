@@ -76,10 +76,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MongoSessionManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Harness\Harness.csproj">
+      <Project>{b2594702-a5a6-430b-81c1-e1263af4df0e}</Project>
+      <Name>Harness</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
