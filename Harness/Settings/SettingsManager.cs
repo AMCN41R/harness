@@ -18,17 +18,12 @@ namespace Harness.Settings
 
         public MongoConfiguration GetMongoConfiguration(string configFilePath)
         {
-            if(string.IsNullOrWhiteSpace(configFilePath))
+            if (!configFilePath.IsValidFileIn(this.FileSystem))
             {
                 return null;
             }
 
-            if(!this.FileSystem.File.Exists(configFilePath))
-            {
-                return null;
-            }
-
-            var json = 
+            var json =
                 this.FileSystem.File.ReadAllText(configFilePath);
 
             return

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO.Abstractions;
 using Xunit;
 using NSubstitute;
@@ -70,6 +71,30 @@ namespace Harness.UnitTests.SettingsTests
 
             // Assert
             ObjectComparer.AssertObjectsAreEqual(expected, result);
+
+        }
+
+        [Fact]
+        public void GetMongoConfiguration_GivenMalformedJson_ThrowsArgumentExcpetion()
+        {
+            // Arrange
+            var badJson = "{\"SaveOutput\": false \"SomethigElse\": true";
+
+            var fakeFileSystem = Substitute.For<IFileSystem>();
+            fakeFileSystem
+                .File
+                .ReadAllText(Arg.Any<string>())
+                .Returns(badJson);
+            fakeFileSystem
+                .File
+                .Exists(Arg.Any<string>())
+                .Returns(true);
+
+            var classUnderTest = new SettingsManager(fakeFileSystem);
+
+            // Act / Assert
+            Assert.Throws<ArgumentException>(
+                () => classUnderTest.GetMongoConfiguration("anyFilePath"));
 
         }
 
