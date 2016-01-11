@@ -1,7 +1,10 @@
-﻿namespace Harness
+﻿using System;
+
+namespace Harness
 {
-    internal interface IMongoSessionManager
+    internal interface IMongoSessionManager : IDisposable
     {
         void Build();
+        void SaveOutput();
     }
 }

@@ -10,6 +10,7 @@ namespace Harness
     {
 
         private MongoConfiguration Settings { get; }
+
         private IFileSystem FileSystem { get; }
 
         private Dictionary<string, IMongoClient> MongoClients { get; }
@@ -19,6 +20,12 @@ namespace Harness
         {
         }
 
+
+        /// <summary>
+        /// Internal constructor to allow IFileSystem injection for testing.
+        /// </summary>
+        /// <param name="settings"></param>
+        /// <param name="fileSystem"></param>
         internal MongoSessionManager(
             MongoConfiguration settings, IFileSystem fileSystem)
         {
@@ -33,11 +40,6 @@ namespace Harness
             foreach (var database in this.Settings.Databases)
             {
                 this.CreateDatabase(database);
-            }
-
-            if (this.Settings.SaveOutput)
-            {
-                SaveOutput();
             }
         }
 
@@ -85,16 +87,18 @@ namespace Harness
         private void CreateCollection(
             IMongoDatabase database, CollectionConfig config)
         {
-            // Load the test data from the specified file
-            var lines = 
-                this.FileSystem
-                    .File
-                    .ReadAllLines(config.DataFileLocation);
-
             // Drop the collection is specified
             if (config.DropFirst)
             {
                 database.DropCollection(config.CollectionName);
+            }
+
+            // Load the test data from the specified file
+            var lines = GetTestDataFromFile(config.DataFileLocation);
+
+            if (lines == null)
+            {
+                return;
             }
 
             // Get the collection
@@ -109,9 +113,32 @@ namespace Harness
 
         }
 
-        private void SaveOutput()
+
+        private string[] GetTestDataFromFile(string path)
         {
-            // Save output.
+            if (!path.IsValidFileIn(this.FileSystem))
+            {
+                return null;
+            }
+
+            return
+                this.FileSystem
+                    .File
+                    .ReadAllLines(path);
+
+        }
+
+        public void SaveOutput()
+        {
+            if (this.Settings.SaveOutput)
+            {
+                // Save Output
+            }
+        }
+
+        public void Dispose()
+        {
+            // Cleanup
         }
     }
 }

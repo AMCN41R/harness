@@ -1,9 +1,10 @@
-﻿using Harness.Attributes;
+﻿using System;
+using Harness.Attributes;
 using Harness.Settings;
 
 namespace Harness
 {
-    public abstract class MongoIntegrationBase
+    public abstract class MongoIntegrationBase : IDisposable
     {
 
         private MongoConfiguration Settings { get; set; }
@@ -49,21 +50,30 @@ namespace Harness
 
         private void LoadSettings(string configFilePath)
         {
-            this.Settings = 
+            this.Settings =
                 this.SettingsManager
                     .GetMongoConfiguration(configFilePath);
         }
 
         private void ConfigureMongo()
         {
-            MongoSessionManager().Build();
+            this.MongoSessionManager().Build();
         }
 
         /// <summary>
         /// Factory method to return live implementation of IMongoSessionManager
         /// that can be overrdden and mocked for unit testing.
         /// </summary>
-        internal virtual IMongoSessionManager MongoSessionManager() 
+        internal virtual IMongoSessionManager MongoSessionManager()
             => new MongoSessionManager(this.Settings);
+
+        public void Dispose()
+        {
+            if (this.Settings.SaveOutput)
+            {
+                this.MongoSessionManager().SaveOutput();
+                this.MongoSessionManager().Dispose();
+            }
+        }
     }
 }
