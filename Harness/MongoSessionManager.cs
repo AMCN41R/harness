@@ -116,7 +116,7 @@ namespace Harness
 
         private string[] GetTestDataFromFile(string path)
         {
-            if (!path.IsValidFileIn(this.FileSystem))
+            if (!this.FileSystem.ValidateFile(path))
             {
                 return null;
             }

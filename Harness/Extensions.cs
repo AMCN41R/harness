@@ -32,21 +32,17 @@ namespace Harness
         /// <returns>
         /// False if the file does not exist on the given file system 
         /// or if the filepath is empty, null or whitespace, otherwise returns 
-        /// true
+        /// true.
         /// </returns>
-        public static bool IsValidFileIn(this string filepath, IFileSystem fileSystem)
+        public static bool ValidateFile(this IFileSystem fileSystem, string filepath)
         {
             if (string.IsNullOrWhiteSpace(filepath))
             {
                 return false;
             }
 
-            if (fileSystem.File.Exists(filepath))
-            {
-                return false;
-            }
-
-            return true;
+            return fileSystem.File.Exists(filepath);
         }
+
     }
 }

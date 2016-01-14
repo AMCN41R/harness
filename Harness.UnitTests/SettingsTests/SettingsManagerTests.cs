@@ -30,6 +30,28 @@ namespace Harness.UnitTests.SettingsTests
         }
 
         [Fact]
+        public void GetMongoConfiguration_PassPathThatDoesNotHaveJsonExtension_ThrowsArgumentOutOfRangeException()
+        {
+            // Arrange
+            var fakeFileSystem = Substitute.For<IFileSystem>();
+            fakeFileSystem
+                .File
+                .Exists(Arg.Any<string>())
+                .Returns(true);
+            fakeFileSystem
+                .Path
+                .GetExtension(Arg.Any<string>())
+                .Returns("doc");
+
+            var classUnderTest = new SettingsManager(fakeFileSystem);
+
+            // Act / Assert
+            Assert.Throws<ArgumentOutOfRangeException>(
+                () => classUnderTest.GetMongoConfiguration("anyFilePath.doc"));
+
+        }
+
+        [Fact]
         public void GetMongoConfiguration_WhenFileDoesNotExist_ReturnsNull()
         {
             // Arrange
@@ -42,7 +64,8 @@ namespace Harness.UnitTests.SettingsTests
             var classUnderTest = new SettingsManager(fakeFileSystem);
 
             // Act
-            var result = classUnderTest.GetMongoConfiguration("anyFilePath");
+            var result = 
+                classUnderTest.GetMongoConfiguration("anyFilePath.json");
 
             // Assert
             Assert.Null(result);
@@ -53,6 +76,8 @@ namespace Harness.UnitTests.SettingsTests
         public void GetMongoConfiguration_GivenValidJson_ReturnsExpectedSettings()
         {
             // Arrange
+            var testFilePath = "anyFilePath.json";
+
             var fakeFileSystem = Substitute.For<IFileSystem>();
             fakeFileSystem
                 .File
@@ -62,12 +87,17 @@ namespace Harness.UnitTests.SettingsTests
                 .File
                 .Exists(Arg.Any<string>())
                 .Returns(true);
+            fakeFileSystem
+                .Path
+                .GetExtension(testFilePath)
+                .Returns("json");
 
             var classUnderTest = new SettingsManager(fakeFileSystem);
 
             // Act
             var expected = this.TestSettings;
-            var result = classUnderTest.GetMongoConfiguration("anyFilePath");
+            var result = 
+                classUnderTest.GetMongoConfiguration(testFilePath);
 
             // Assert
             ObjectComparer.AssertObjectsAreEqual(expected, result);
@@ -78,6 +108,7 @@ namespace Harness.UnitTests.SettingsTests
         public void GetMongoConfiguration_GivenMalformedJson_ThrowsArgumentExcpetion()
         {
             // Arrange
+            var testFilePath = "anyFilePath.json";
             var badJson = "{\"SaveOutput\": false \"SomethigElse\": true";
 
             var fakeFileSystem = Substitute.For<IFileSystem>();
@@ -89,12 +120,16 @@ namespace Harness.UnitTests.SettingsTests
                 .File
                 .Exists(Arg.Any<string>())
                 .Returns(true);
+            fakeFileSystem
+                .Path
+                .GetExtension(testFilePath)
+                .Returns("json");
 
             var classUnderTest = new SettingsManager(fakeFileSystem);
 
             // Act / Assert
             Assert.Throws<ArgumentException>(
-                () => classUnderTest.GetMongoConfiguration("anyFilePath"));
+                () => classUnderTest.GetMongoConfiguration(testFilePath));
 
         }
 
