@@ -1,6 +1,6 @@
 ﻿namespace Harness.Settings
 {
-    public interface ISettingsManager
+    internal interface ISettingsManager
     {
         MongoConfiguration GetMongoConfiguration(string configFilePath);
     }
