@@ -11,10 +11,26 @@ namespace Harness
 
         private ISettingsManager SettingsManager { get; }
 
+        /// <summary>
+        /// Constructs a new instance of the MongoIntegrationBase class.
+        /// This base class expects the inheriting class to have the 
+        /// <see cref="MongoIntegrationTestClass"/> attribute. During 
+        /// construction, it will attempt to load a Mongo configuration 
+        /// settings file and put any specified databases in the required 
+        /// state. If the attribute is not present, a 
+        /// <see cref=" RequiredAttributeNotFoundException"/> will be thrown.
+        /// If a configuration filepath is not specified on the atribute, a 
+        /// default value of [ClassName].json will be used.
+        /// </summary>
         protected MongoIntegrationBase() : this(new SettingsManager())
         {
         }
 
+        /// <summary>
+        /// Internal constructor to allow <see cref="ISettingsManager"/> 
+        /// injection for testing.
+        /// </summary>
+        /// <param name="settingsManager"></param>
         internal MongoIntegrationBase(ISettingsManager settingsManager)
         {
             this.SettingsManager = settingsManager;
@@ -48,6 +64,12 @@ namespace Harness
 
         }
 
+        /// <summary>
+        /// Attempts to load mog coniguration settings from the gicen filepath.
+        /// </summary>
+        /// <param name="configFilePath">
+        /// The path to the Mongo configuration settings file.
+        /// </param>
         private void LoadSettings(string configFilePath)
         {
             this.Settings =
@@ -61,7 +83,7 @@ namespace Harness
         }
 
         /// <summary>
-        /// Factory method to return live implementation of IMongoSessionManager
+        /// Internal factory method to return live implementation of IMongoSessionManager
         /// that can be overrdden and mocked for unit testing.
         /// </summary>
         internal virtual IMongoSessionManager MongoSessionManager()

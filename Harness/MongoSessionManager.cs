@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO.Abstractions;
 using Harness.Settings;
 using MongoDB.Bson;
@@ -6,23 +7,32 @@ using MongoDB.Driver;
 
 namespace Harness
 {
-    public class MongoSessionManager : IMongoSessionManager
+    internal class MongoSessionManager : IMongoSessionManager
     {
-
+        /// <summary>
+        /// The Mongo configuration settins to use.
+        /// </summary>
         private MongoConfiguration Settings { get; }
 
+        /// <summary>
+        /// Seam for he file system implementation.
+        /// </summary>
         private IFileSystem FileSystem { get; }
 
         private Dictionary<string, IMongoClient> MongoClients { get; }
 
+        /// <summary>
+        /// Creates a new instance of the MongoSessionManager.
+        /// </summary>
+        /// <param name="settings"></param>
         public MongoSessionManager(MongoConfiguration settings)
             : this(settings, new FileSystem())
         {
         }
 
-
         /// <summary>
-        /// Internal constructor to allow IFileSystem injection for testing.
+        /// Internal constructor to allow <see cref="IFileSystem"/> injection 
+        /// for testing.
         /// </summary>
         /// <param name="settings"></param>
         /// <param name="fileSystem"></param>
@@ -35,6 +45,10 @@ namespace Harness
             this.MongoClients = new Dictionary<string, IMongoClient>();
         }
 
+        /// <summary>
+        /// Configures the state of a Mongo database using the provided 
+        /// settings.
+        /// </summary>
         public void Build()
         {
             foreach (var database in this.Settings.Databases)
@@ -72,11 +86,14 @@ namespace Harness
 
         private IMongoClient GetMongoClient(string connectionString)
         {
+            // Check if we have already cached a connection to to the 
+            // required mongo database, and return it if we have.
             if (this.MongoClients.ContainsKey(connectionString))
             {
                 return this.MongoClients[connectionString];
             }
 
+            // Otherwise, create a new connection and cache it for later.
             var mongoClient = new MongoClient(connectionString);
             this.MongoClients.Add(connectionString, mongoClient);
 
@@ -116,11 +133,13 @@ namespace Harness
 
         private string[] GetTestDataFromFile(string path)
         {
+            // Return null if th given filepath is not valid
             if (!this.FileSystem.ValidateFile(path))
             {
                 return null;
             }
 
+            // Read and return all lines from the file
             return
                 this.FileSystem
                     .File
@@ -136,9 +155,29 @@ namespace Harness
             }
         }
 
+        #region IDispoable
+
+        private bool Disposed { get; set; }
+
         public void Dispose()
         {
-            // Cleanup
+            this.Dispose(true);
+            GC.SuppressFinalize(this);
         }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!this.Disposed)
+            {
+                if (disposing)
+                {
+
+                }
+
+                this.Disposed = true;
+            }
+        }
+
+        #endregion
     }
 }
