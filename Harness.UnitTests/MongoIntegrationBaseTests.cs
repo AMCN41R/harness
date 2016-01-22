@@ -87,7 +87,7 @@ namespace Harness.UnitTests
 
         }
 
-        [MongoIntegrationTestClass(ConfigFilePath = "TestPath")]
+        [MongoIntegrationTestClassAttribute(ConfigFilePath = "TestPath")]
         private class TestableMongoIntegrationBase : MongoIntegrationBase
         {
             public bool SessionManagerReceivedCallToBuild { get; private set; }
@@ -111,7 +111,7 @@ namespace Harness.UnitTests
             }
         }
 
-        [MongoIntegrationTestClass]
+        [MongoIntegrationTestClassAttribute]
         private class TestableMongoIntegrationBaseNoFilePath 
             : MongoIntegrationBase
         {

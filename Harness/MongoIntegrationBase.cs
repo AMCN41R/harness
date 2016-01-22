@@ -14,13 +14,12 @@ namespace Harness
         /// <summary>
         /// Constructs a new instance of the MongoIntegrationBase class.
         /// This base class expects the inheriting class to have the 
-        /// <see cref="MongoIntegrationTestClass"/> attribute. During 
+        /// <see cref="MongoIntegrationTestClassAttribute"/> attribute. During 
         /// construction, it will attempt to load a Mongo configuration 
         /// settings file and put any specified databases in the required 
-        /// state. If the attribute is not present, a 
-        /// <see cref=" RequiredAttributeNotFoundException"/> will be thrown.
-        /// If a configuration filepath is not specified on the atribute, a 
-        /// default value of [ClassName].json will be used.
+        /// state. If the attribute is not present, or a configuration filepath 
+        /// is not specified on the atribute, a default value of 
+        /// [ClassName].json will be used.
         /// </summary>
         protected MongoIntegrationBase() : this(new SettingsManager())
         {
@@ -35,21 +34,21 @@ namespace Harness
         {
             this.SettingsManager = settingsManager;
 
+            var configFilePath = string.Empty;
+
             // Look for the MongoIntegrationTestClass attribute
             var mongoTestClassAttribute =
-               this.GetType().GetAttribute<MongoIntegrationTestClass>();
+               this.GetType().GetAttribute<MongoIntegrationTestClassAttribute>();
 
-            if (mongoTestClassAttribute == null)
+            if (mongoTestClassAttribute != null)
             {
-                throw new RequiredAttributeNotFoundException(
-                    "Insert some helpful message here");
+                // If the attribute is found, get the path to the config file, 
+                // or set to default based on class name if not specified.
+                configFilePath = mongoTestClassAttribute.ConfigFilePath;
             }
 
-
-            // If the attribute is found, get the path to the config file, 
-            // or set to default based on class name if not specified.
-            var configFilePath = mongoTestClassAttribute.ConfigFilePath;
-
+            // Set the filepath to the default value if the attribute is not 
+            // present, or if the value is an empty string.
             if (string.IsNullOrEmpty(configFilePath))
             {
                 configFilePath = $"{this.GetType().Name}.json";

@@ -9,7 +9,7 @@ namespace Harness.UnitTests.AttributesTests
         public void ConfigFilePath_WhenNewInstanceIsCreated_IsSetToEmptyString()
         {
             // Arrange
-            var classUnderTest = new MongoIntegrationTestClass();
+            var classUnderTest = new MongoIntegrationTestClassAttribute();
 
             // Act
             Assert.Equal(string.Empty, classUnderTest.ConfigFilePath);
@@ -21,7 +21,7 @@ namespace Harness.UnitTests.AttributesTests
         {
             // Arange
             var classUnderTest =
-                new MongoIntegrationTestClass
+                new MongoIntegrationTestClassAttribute
                 {
                     ConfigFilePath = "Test\\file.json"
                 };

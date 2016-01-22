@@ -61,8 +61,8 @@
     <Compile Include="IMongoSessionManager.cs" />
     <Compile Include="Settings\ISettingsManager.cs" />
     <Compile Include="MongoIntegrationBase.cs" />
-    <Compile Include="Attributes\MongoIntegrationTest.cs" />
-    <Compile Include="Attributes\MongoIntegrationTestClass.cs" />
+    <Compile Include="Attributes\MongoIntegrationTestAttribute.cs" />
+    <Compile Include="Attributes\MongoIntegrationTestClassAttribute.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="MongoSessionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
