@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="AttributesTests\MongoIntegrationTestTests.cs" />
     <Compile Include="AttributesTests\HarnessConfigAttributeTests.cs" />
+    <Compile Include="AttributesTests\RequiredAttributeNotFoundExceptionTests.cs" />
     <Compile Include="Comparer\ComparerException.cs" />
     <Compile Include="Comparer\ObjectComparer.cs" />
     <Compile Include="Comparer\ObjectComparerTests.cs" />
