@@ -3,13 +3,13 @@ using Xunit;
 
 namespace Harness.UnitTests.AttributesTests
 {
-    public class MongoIntegrationTestClassTests
+    public class HarnessConfigAttributeTests
     {
         [Fact]
         public void ConfigFilePath_WhenNewInstanceIsCreated_IsSetToEmptyString()
         {
             // Arrange
-            var classUnderTest = new MongoIntegrationTestClassAttribute();
+            var classUnderTest = new HarnessConfigAttribute();
 
             // Act
             Assert.Equal(string.Empty, classUnderTest.ConfigFilePath);
@@ -21,7 +21,7 @@ namespace Harness.UnitTests.AttributesTests
         {
             // Arange
             var classUnderTest =
-                new MongoIntegrationTestClassAttribute
+                new HarnessConfigAttribute
                 {
                     ConfigFilePath = "Test\\file.json"
                 };

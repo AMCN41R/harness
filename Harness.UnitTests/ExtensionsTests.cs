@@ -14,11 +14,11 @@ namespace Harness.UnitTests
 
             // Act
             var result = 
-                testClass.GetType().GetAttribute<MongoIntegrationTestClassAttribute>();
+                testClass.GetType().GetAttribute<HarnessConfigAttribute>();
 
             // Assert
             Assert.NotNull(result);
-            Assert.IsType<MongoIntegrationTestClassAttribute>(result);
+            Assert.IsType<HarnessConfigAttribute>(result);
 
         }
 
@@ -30,7 +30,7 @@ namespace Harness.UnitTests
 
             // Act
             var result =
-                testClass.GetType().GetAttribute<MongoIntegrationTestClassAttribute>();
+                testClass.GetType().GetAttribute<HarnessConfigAttribute>();
 
             // Assert
             Assert.Null(result);
@@ -45,14 +45,14 @@ namespace Harness.UnitTests
 
             // Act
             var result =
-                testClass.GetType().GetAttribute<MongoIntegrationTestClassAttribute>();
+                testClass.GetType().GetAttribute<HarnessConfigAttribute>();
 
             // Assert
             Assert.Null(result);
 
         }
 
-        [MongoIntegrationTestClassAttribute]
+        [HarnessConfigAttribute]
         private class ExtensionsTestClass
         {
         }

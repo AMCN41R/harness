@@ -1,7 +1,7 @@
-﻿using Xunit;
+﻿using System.Collections.Generic;
+using Xunit;
 using NSubstitute;
 using Harness.Attributes;
-using Harness.Settings;
 
 namespace Harness.UnitTests
 {
@@ -9,150 +9,125 @@ namespace Harness.UnitTests
     {
         /// <summary>
         /// Using a derived class with the correct attribute that specifies a 
-        /// filepath, passes the filepath to the SettingsManager, calls the 
-        /// GetMongoConfiguration method and calls the SessionManager Build
-        /// method.
+        /// filepath, passes the filepath to the HarnessManager, and calls the
+        /// Using(string) method with the expected filepath and calls the 
+        /// Build() method.
         /// </summary>
         [Fact]
         public void MongoIntegrationBase_AttributeAndFilePath_MakesCorrectCalls()
         {
             // Arrange
-            var filePathReceivedBySettingsManager = string.Empty;
-
-            var fakeSettingsManager = Substitute.For<ISettingsManager>();
-            fakeSettingsManager
-                .GetMongoConfiguration(Arg.Any<string>())
-                .Returns(new MongoConfiguration());
-            fakeSettingsManager
-                .GetMongoConfiguration(Arg.Do<string>(
-                    x => filePathReceivedBySettingsManager = x));
+            var fakeHarnessManager = Substitute.For<IHarnessManager>();
+            fakeHarnessManager
+                .Using(Arg.Any<string>())
+                .Returns(fakeHarnessManager);
+            fakeHarnessManager
+                .Build()
+                .ReturnsForAnyArgs(
+                    new Dictionary<string, MongoDB.Driver.IMongoClient>());
 
             // Act
+            // ReSharper disable once UnusedVariable
             var classUnderTest =
-                new TestableMongoIntegrationBase(fakeSettingsManager);
+                new TestableMongoIntegrationBase(fakeHarnessManager);
 
             // Assert
-            Assert.True(classUnderTest.SessionManagerReceivedCallToBuild);
-            Assert.Equal("TestPath", filePathReceivedBySettingsManager);
+            fakeHarnessManager.Received().Using("TestPath");
+            fakeHarnessManager.Received().Build();
 
         }
 
         /// <summary>
         /// Using a derived class with the correct attribute that does not
         /// specify a filepath, passes the default filepath to the 
-        /// SettingsManager, calls the GetMongoConfiguration method and calls 
-        /// the SessionManager Build method.
+        /// Using(string) method of the HarnessManager, and then calls the 
+        /// Build method.
         /// </summary>
         [Fact]
         public void MongoIntegrationBase_AttributeOnly_MakesCorrectCalls()
         {
             // Arrange
-            var filePathReceivedBySettingsManager = string.Empty;
-
-            var fakeSettingsManager = Substitute.For<ISettingsManager>();
-            fakeSettingsManager
-                .GetMongoConfiguration(Arg.Any<string>())
-                .Returns(new MongoConfiguration());
-            fakeSettingsManager
-                .GetMongoConfiguration(Arg.Do<string>(
-                    x => filePathReceivedBySettingsManager = x));
+            var fakeHarnessManager = Substitute.For<IHarnessManager>();
+            fakeHarnessManager
+                .Using(Arg.Any<string>())
+                .Returns(fakeHarnessManager);
+            fakeHarnessManager
+                .Build()
+                .ReturnsForAnyArgs(
+                    new Dictionary<string, MongoDB.Driver.IMongoClient>());
 
             // Act
+            // ReSharper disable once UnusedVariable
             var classUnderTest =
-                new TestableMongoIntegrationBaseNoFilePath(fakeSettingsManager);
+                new TestableMongoIntegrationBaseNoFilePath(fakeHarnessManager);
 
             // Assert
-            Assert.True(classUnderTest.SessionManagerReceivedCallToBuild);
-            Assert.Equal(
-                "TestableMongoIntegrationBaseNoFilePath.json", 
-                filePathReceivedBySettingsManager
-                );
+            fakeHarnessManager.Received().Using(
+                "TestableMongoIntegrationBaseNoFilePath.json");
+            fakeHarnessManager.Received().Build();
 
         }
 
         /// <summary>
-        /// Using a derived class with no attribute, the base class throws
-        /// a RequiredAttributeNotFoundException.
+        /// Using a derived class with no attribute, the base class passes the 
+        /// default filepath to the Using(string) method of the HarnessManager, 
+        /// and then calls the Build method.
         /// </summary>
         [Fact]
         public void 
             MongoIntegrationBase_NoAttribute_ThrowsException()
         {
             // Arrange
-            var fakeSettingsManager = Substitute.For<ISettingsManager>();
+            var fakeHarnessManager = Substitute.For<IHarnessManager>();
+            fakeHarnessManager
+                .Using(Arg.Any<string>())
+                .Returns(fakeHarnessManager);
+            fakeHarnessManager
+                .Build()
+                .ReturnsForAnyArgs(
+                    new Dictionary<string, MongoDB.Driver.IMongoClient>());
 
-            // Act / Assert
-            Assert.Throws<RequiredAttributeNotFoundException>(() =>
-                new TestableMongoIntegrationBaseWithoutAttribute(fakeSettingsManager));
+            // Act
+            // ReSharper disable once UnusedVariable
+            var classUnderTest =
+                new TestableMongoIntegrationBaseWithoutAttribute(fakeHarnessManager);
 
+            // Assert
+            fakeHarnessManager.Received().Using(
+                "TestableMongoIntegrationBaseWithoutAttribute.json");
+            fakeHarnessManager.Received().Build();
         }
 
-        [MongoIntegrationTestClassAttribute(ConfigFilePath = "TestPath")]
-        private class TestableMongoIntegrationBase : MongoIntegrationBase
+        [HarnessConfig(ConfigFilePath = "TestPath")]
+        private class TestableMongoIntegrationBase : HarnessBase
         {
-            public bool SessionManagerReceivedCallToBuild { get; private set; }
-
-            public TestableMongoIntegrationBase(ISettingsManager settingsManager)
-                : base(settingsManager)
+            public TestableMongoIntegrationBase(IHarnessManager harnessManager)
+                : base(harnessManager)
             {
             }
-
-            internal override IMongoSessionManager MongoSessionManager()
-            {
-                var fakeMongoSessionManager =
-                    Substitute.For<IMongoSessionManager>();
-
-                fakeMongoSessionManager
-                    .When(x => x.Build())
-                    .Do(x => this.SessionManagerReceivedCallToBuild = true);
-
-                return fakeMongoSessionManager;
-
-            }
+            
         }
 
-        [MongoIntegrationTestClassAttribute]
+        [HarnessConfig]
         private class TestableMongoIntegrationBaseNoFilePath 
-            : MongoIntegrationBase
+            : HarnessBase
         {
-            public bool SessionManagerReceivedCallToBuild { get; private set; }
-
-            public TestableMongoIntegrationBaseNoFilePath(ISettingsManager settingsManager)
-                : base(settingsManager)
+            public TestableMongoIntegrationBaseNoFilePath(IHarnessManager harnessManager)
+                : base(harnessManager)
             {
             }
-
-            internal override IMongoSessionManager MongoSessionManager()
-            {
-                var fakeMongoSessionManager =
-                    Substitute.For<IMongoSessionManager>();
-
-                fakeMongoSessionManager
-                    .When(x => x.Build())
-                    .Do(x => this.SessionManagerReceivedCallToBuild = true);
-
-                return fakeMongoSessionManager;
-
-            }
+            
         }
 
         private class TestableMongoIntegrationBaseWithoutAttribute
-            : MongoIntegrationBase
+            : HarnessBase
         {
             public TestableMongoIntegrationBaseWithoutAttribute(
-                ISettingsManager settingsManager)
-                : base(settingsManager)
+                IHarnessManager harnessManager)
+                : base(harnessManager)
             {
             }
-
-            internal override IMongoSessionManager MongoSessionManager()
-            {
-                var fakeMongoSessionManager =
-                    Substitute.For<IMongoSessionManager>();
-
-                return fakeMongoSessionManager;
-
-            }
+            
         }
 
     }

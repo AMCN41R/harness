@@ -1,7 +1,7 @@
 ﻿
 namespace Harness.Settings
 {
-    internal class CollectionConfig
+    public class CollectionConfig
     {
         /// <summary>
         /// Gets or sets the name of the MongoDb collection.

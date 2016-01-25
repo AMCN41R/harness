@@ -3,7 +3,7 @@
 namespace Harness.Attributes
 {
     [AttributeUsage(AttributeTargets.Method)]
-    public class MongoIntegrationTestAttribute : Attribute
+    public class HarnessTestAttribute : Attribute
     {
         /// <summary>
         /// Set to false to tell the Harness integration test runner to 
@@ -11,7 +11,7 @@ namespace Harness.Attributes
         /// </summary>
         public bool Skip { get; set; }
 
-        public MongoIntegrationTestAttribute()
+        public HarnessTestAttribute()
         {
             this.Skip = false;
         }

@@ -2,7 +2,7 @@
 
 namespace Harness.Settings
 {
-    internal class MongoConfiguration
+    public class MongoConfiguration
     {
         /// <summary>
         /// Gets or sets whether to save a mongo dump of the database state

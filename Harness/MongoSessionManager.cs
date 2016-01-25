@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO.Abstractions;
 using Harness.Settings;
 using MongoDB.Bson;
@@ -19,6 +18,9 @@ namespace Harness
         /// </summary>
         private IFileSystem FileSystem { get; }
 
+        /// <summary>
+        /// TODO:
+        /// </summary>
         private Dictionary<string, IMongoClient> MongoClients { get; }
 
         /// <summary>
@@ -49,12 +51,15 @@ namespace Harness
         /// Configures the state of a Mongo database using the provided 
         /// settings.
         /// </summary>
-        public void Build()
+        public Dictionary<string, IMongoClient> Build()
         {
             foreach (var database in this.Settings.Databases)
             {
                 this.CreateDatabase(database);
             }
+
+            return this.MongoClients;
+
         }
 
         private void CreateDatabase(DatabaseConfig config)
@@ -147,6 +152,9 @@ namespace Harness
 
         }
 
+        /// <summary>
+        /// TODO:
+        /// </summary>
         public void SaveOutput()
         {
             if (this.Settings.SaveOutput)
@@ -154,30 +162,6 @@ namespace Harness
                 // Save Output
             }
         }
-
-        #region IDispoable
-
-        private bool Disposed { get; set; }
-
-        public void Dispose()
-        {
-            this.Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!this.Disposed)
-            {
-                if (disposing)
-                {
-
-                }
-
-                this.Disposed = true;
-            }
-        }
-
-        #endregion
+        
     }
 }

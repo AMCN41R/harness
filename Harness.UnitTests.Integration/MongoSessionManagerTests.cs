@@ -18,6 +18,10 @@ namespace Harness.UnitTests.Integration
             var fakeFileSystem = Substitute.For<IFileSystem>();
             fakeFileSystem
                 .File
+                .Exists(Arg.Any<string>())
+                .Returns(true);
+            fakeFileSystem
+                .File
                 .ReadAllLines(Arg.Any<string>())
                 .Returns(this.TestData);
 

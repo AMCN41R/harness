@@ -58,11 +58,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\RequiredAttributeNotFoundException.cs" />
+    <Compile Include="HarnessManager.cs" />
+    <Compile Include="IHarnessManager.cs" />
     <Compile Include="IMongoSessionManager.cs" />
     <Compile Include="Settings\ISettingsManager.cs" />
-    <Compile Include="MongoIntegrationBase.cs" />
-    <Compile Include="Attributes\MongoIntegrationTestAttribute.cs" />
-    <Compile Include="Attributes\MongoIntegrationTestClassAttribute.cs" />
+    <Compile Include="HarnessBase.cs" />
+    <Compile Include="Attributes\HarnessTestAttribute.cs" />
+    <Compile Include="Attributes\HarnessConfigAttribute.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="MongoSessionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

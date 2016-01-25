@@ -1,10 +1,11 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using MongoDB.Driver;
 
 namespace Harness
 {
-    internal interface IMongoSessionManager : IDisposable
+    internal interface IMongoSessionManager
     {
-        void Build();
+        Dictionary<string, IMongoClient> Build();
         void SaveOutput();
     }
 }

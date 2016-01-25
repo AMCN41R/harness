@@ -1,0 +1,76 @@
+﻿using System;
+using Harness.Attributes;
+
+namespace Harness
+{
+    public abstract class HarnessBase : IDisposable
+    {
+
+        private string ConfigFilepath { get; }
+
+        private IHarnessManager HarnessManager { get; }
+
+        /// <summary>
+        /// Constructs a new instance of the MongoIntegrationBase class.
+        /// This base class expects the inheriting class to have the 
+        /// <see cref="HarnessConfigAttribute"/> attribute. During 
+        /// construction, it will attempt to load a Mongo configuration 
+        /// settings file and put any specified databases in the required 
+        /// state. If the attribute is not present, or a configuration filepath 
+        /// is not specified on the atribute, a default value of 
+        /// [ClassName].json will be used.
+        /// </summary>
+        protected HarnessBase() : this(new HarnessManager())
+        {
+        }
+
+        /// <summary>
+        /// Internal constructor to allow <see cref="IHarnessManager"/> 
+        /// injection for testing.
+        /// </summary>
+        /// <param name="harnessManager"></param>
+        internal HarnessBase(IHarnessManager harnessManager)
+        {
+            this.HarnessManager = harnessManager;
+
+            var configFilePath = string.Empty;
+
+            // Look for the HarnessConfigAttribute attribute
+            var mongoTestClassAttribute =
+               this.GetType().GetAttribute<HarnessConfigAttribute>();
+
+            if (mongoTestClassAttribute != null)
+            {
+                // If the attribute is found, get the path to the config file, 
+                // or set to default based on class name if not specified.
+                configFilePath = mongoTestClassAttribute.ConfigFilePath;
+            }
+
+            // Set the filepath to the default value if the attribute is not 
+            // present, or if the value is an empty string.
+            if (string.IsNullOrEmpty(configFilePath))
+            {
+                configFilePath = $"{this.GetType().Name}.json";
+            }
+
+            this.ConfigFilepath = configFilePath;
+
+            this.ConfigureMongo();
+
+        }
+
+        private void ConfigureMongo()
+        {
+            this.HarnessManager
+                .Using(this.ConfigFilepath)
+                .Build();
+
+        }
+
+
+        public void Dispose()
+        {
+            // TODO:
+        }
+    }
+}

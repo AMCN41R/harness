@@ -8,7 +8,7 @@ namespace Harness.Attributes
     /// <remarks>
     /// <example>
     /// <code lang="C#">
-    /// [MongoIntegrationTestClass(ConfigFilePath = "..\\HarnessConfig.json")]
+    /// [HarnessConfig(ConfigFilePath = "..\\HarnessConfig.json")]
     /// public class MyMongoIntegrationTests
     /// {
     ///     [Fact]
@@ -21,14 +21,14 @@ namespace Harness.Attributes
     /// </example>
     /// </remarks>
     [AttributeUsage(AttributeTargets.Class)]
-    public class MongoIntegrationTestClassAttribute : Attribute
+    public class HarnessConfigAttribute : Attribute
     {
         /// <summary>
         /// The path to the Harness configuration file.
         /// </summary>
         public string ConfigFilePath { get; set; }
 
-        public MongoIntegrationTestClassAttribute()
+        public HarnessConfigAttribute()
         {
             this.ConfigFilePath = string.Empty;
         }

@@ -2,7 +2,7 @@
 
 namespace Harness.Settings
 {
-    internal class DatabaseConfig
+    public class DatabaseConfig
     {
         /// <summary>
         /// Gets or sets the database name.

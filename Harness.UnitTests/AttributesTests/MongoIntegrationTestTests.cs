@@ -9,7 +9,7 @@ namespace Harness.UnitTests.AttributesTests
         public void Skip_WhenNewInstanceIsCreated_IsSetToFalse()
         {
             // Arrange
-            var classUnderTest = new MongoIntegrationTestAttribute();
+            var classUnderTest = new HarnessTestAttribute();
 
             // Assert
             Assert.False(classUnderTest.Skip);
@@ -20,7 +20,7 @@ namespace Harness.UnitTests.AttributesTests
         public void Skip_SetToTrue_GetReturnsTrue()
         {
             // Arrange
-            var classUnderTest = new MongoIntegrationTestAttribute {Skip = true};
+            var classUnderTest = new HarnessTestAttribute {Skip = true};
 
             // Act
             var result = classUnderTest.Skip;
