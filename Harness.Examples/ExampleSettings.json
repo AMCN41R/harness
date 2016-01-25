@@ -1,0 +1,24 @@
+{
+  "SaveOutput": false,
+  "Databases": [
+    {
+      "DatabaseName": "TestDb1",
+      "ConnectionString": "mongodb://localhost:27017",
+      "DatabaseNameSuffix": "",
+      "CollectionNameSuffix": "",
+      "DropFirst": false,
+      "Collections": [
+        {
+          "CollectionName": "TestCollection1",
+          "DataFileLocation": "Collection1.json",
+          "DropFirst": false
+        },
+        {
+          "CollectionName": "TestCollection2",
+          "DataFileLocation": "Collection2.json",
+          "DropFirst": false
+        }
+      ]
+    }
+  ]
+}

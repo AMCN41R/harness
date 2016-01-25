@@ -53,7 +53,7 @@ namespace Harness.Settings
                 return null;
             }
             
-            if (this.FileSystem.Path.GetExtension(configFilePath) != "json")
+            if (this.FileSystem.Path.GetExtension(configFilePath) != ".json")
             {
                 throw new ArgumentOutOfRangeException(
                     nameof(configFilePath),

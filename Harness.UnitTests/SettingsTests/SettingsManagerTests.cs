@@ -90,7 +90,7 @@ namespace Harness.UnitTests.SettingsTests
             fakeFileSystem
                 .Path
                 .GetExtension(testFilePath)
-                .Returns("json");
+                .Returns(".json");
 
             var classUnderTest = new SettingsManager(fakeFileSystem);
 
@@ -123,7 +123,7 @@ namespace Harness.UnitTests.SettingsTests
             fakeFileSystem
                 .Path
                 .GetExtension(testFilePath)
-                .Returns("json");
+                .Returns(".json");
 
             var classUnderTest = new SettingsManager(fakeFileSystem);
 
