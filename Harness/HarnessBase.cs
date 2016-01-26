@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Harness.Attributes;
+using MongoDB.Driver;
 
 namespace Harness
 {
@@ -9,6 +11,10 @@ namespace Harness
         private string ConfigFilepath { get; }
 
         private IHarnessManager HarnessManager { get; }
+
+        private Dictionary<string, IMongoClient> Connections { get; set; }
+
+        protected Dictionary<string, IMongoClient> MongoConnections => this.Connections;
 
         /// <summary>
         /// Constructs a new instance of the MongoIntegrationBase class.
@@ -61,9 +67,10 @@ namespace Harness
 
         private void ConfigureMongo()
         {
-            this.HarnessManager
-                .Using(this.ConfigFilepath)
-                .Build();
+            this.Connections =
+                this.HarnessManager
+                    .Using(this.ConfigFilepath)
+                    .Build();
 
         }
 
