@@ -3,7 +3,7 @@
   "Databases": [
     {
       "DatabaseName": "TestDb1",
-      "ConnectionString": "mongodb://localhost:27017",
+      "ConnectionString": "mongodb://localhost:20719",
       "DatabaseNameSuffix": "",
       "CollectionNameSuffix": "",
       "DropFirst": false,

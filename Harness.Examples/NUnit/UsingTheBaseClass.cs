@@ -1,12 +1,13 @@
 ﻿using Harness.Attributes;
-using Xunit;
+using NUnit.Framework;
 
-namespace Harness.Examples.XUnit
+namespace Harness.Examples.NUnit
 {
+    [TestFixture]
     [HarnessConfig(ConfigFilePath = "ExampleSettings.json")]
     public class UsingTheBaseClass : HarnessBase
     {
-        [Fact]
+        [Test]
         public void Test1()
         {
             // Arrange
@@ -16,11 +17,11 @@ namespace Harness.Examples.XUnit
             var result = classUnderTest.GetCollectionRecordCount("TestCollection1");
 
             // Assert
-            Assert.Equal(2, result);
+            Assert.AreEqual(2, result);
 
         }
 
-        [Fact]
+        [Test]
         public void Test2()
         {
             // Arrange
@@ -31,10 +32,9 @@ namespace Harness.Examples.XUnit
             var result = classUnderTest.GetCollectionRecordCount(mongoClient, "TestCollection1");
 
             // Assert
-            Assert.Equal(2, result);
+            Assert.AreEqual(2, result);
 
         }
 
     }
-
 }
