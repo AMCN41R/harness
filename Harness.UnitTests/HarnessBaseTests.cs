@@ -5,7 +5,7 @@ using Harness.Attributes;
 
 namespace Harness.UnitTests
 {
-    public class MongoIntegrationBaseTests
+    public class HarnessBaseTests
     {
         /// <summary>
         /// Using a derived class with the correct attribute that specifies a 
@@ -14,7 +14,7 @@ namespace Harness.UnitTests
         /// Build() method.
         /// </summary>
         [Fact]
-        public void MongoIntegrationBase_AttributeAndFilePath_MakesCorrectCalls()
+        public void HarnessBase_AttributeAndFilePath_MakesCorrectCalls()
         {
             // Arrange
             var fakeHarnessManager = Substitute.For<IHarnessManager>();
@@ -29,7 +29,7 @@ namespace Harness.UnitTests
             // Act
             // ReSharper disable once UnusedVariable
             var classUnderTest =
-                new TestableMongoIntegrationBase(fakeHarnessManager);
+                new TestableHarnessBase(fakeHarnessManager);
 
             // Assert
             fakeHarnessManager.Received().Using("TestPath");
@@ -44,7 +44,7 @@ namespace Harness.UnitTests
         /// Build method.
         /// </summary>
         [Fact]
-        public void MongoIntegrationBase_AttributeOnly_MakesCorrectCalls()
+        public void HarnessBase_AttributeOnly_MakesCorrectCalls()
         {
             // Arrange
             var fakeHarnessManager = Substitute.For<IHarnessManager>();
@@ -59,11 +59,11 @@ namespace Harness.UnitTests
             // Act
             // ReSharper disable once UnusedVariable
             var classUnderTest =
-                new TestableMongoIntegrationBaseNoFilePath(fakeHarnessManager);
+                new TestableHarnessBaseNoFilePath(fakeHarnessManager);
 
             // Assert
             fakeHarnessManager.Received().Using(
-                "TestableMongoIntegrationBaseNoFilePath.json");
+                "TestableHarnessBaseNoFilePath.json");
             fakeHarnessManager.Received().Build();
 
         }
@@ -74,8 +74,8 @@ namespace Harness.UnitTests
         /// and then calls the Build method.
         /// </summary>
         [Fact]
-        public void 
-            MongoIntegrationBase_NoAttribute_ThrowsException()
+        public void
+            HarnessBase_NoAttribute_ThrowsException()
         {
             // Arrange
             var fakeHarnessManager = Substitute.For<IHarnessManager>();
@@ -90,44 +90,44 @@ namespace Harness.UnitTests
             // Act
             // ReSharper disable once UnusedVariable
             var classUnderTest =
-                new TestableMongoIntegrationBaseWithoutAttribute(fakeHarnessManager);
+                new TestableHarnessBaseWithoutAttribute(fakeHarnessManager);
 
             // Assert
             fakeHarnessManager.Received().Using(
-                "TestableMongoIntegrationBaseWithoutAttribute.json");
+                "TestableHarnessBaseWithoutAttribute.json");
             fakeHarnessManager.Received().Build();
         }
 
         [HarnessConfig(ConfigFilePath = "TestPath")]
-        private class TestableMongoIntegrationBase : HarnessBase
+        private class TestableHarnessBase : HarnessBase
         {
-            public TestableMongoIntegrationBase(IHarnessManager harnessManager)
+            public TestableHarnessBase(IHarnessManager harnessManager)
                 : base(harnessManager)
             {
             }
-            
+
         }
 
         [HarnessConfig]
-        private class TestableMongoIntegrationBaseNoFilePath 
+        private class TestableHarnessBaseNoFilePath
             : HarnessBase
         {
-            public TestableMongoIntegrationBaseNoFilePath(IHarnessManager harnessManager)
+            public TestableHarnessBaseNoFilePath(IHarnessManager harnessManager)
                 : base(harnessManager)
             {
             }
-            
+
         }
 
-        private class TestableMongoIntegrationBaseWithoutAttribute
+        private class TestableHarnessBaseWithoutAttribute
             : HarnessBase
         {
-            public TestableMongoIntegrationBaseWithoutAttribute(
+            public TestableHarnessBaseWithoutAttribute(
                 IHarnessManager harnessManager)
                 : base(harnessManager)
             {
             }
-            
+
         }
 
     }
