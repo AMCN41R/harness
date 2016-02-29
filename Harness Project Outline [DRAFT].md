@@ -9,6 +9,8 @@ Harness will be open source, available to download via nuget, and is available n
 
 [Harness on github](https://github.com/Branded3/Harness)
 
+Harness borrows ideas from [NDBUnit](https://github.com/NDbUnit/NDbUnit).
+
 ## Design Basics ##
 The basic design principle is to have a set of classes that will put one or more Mongo databases in a state defined by a json settings file, using data from one or more json/bson data files. The data file could be a mongo dump, bson file, or new-line delimited json file that could be parsed as a bson document.
 
