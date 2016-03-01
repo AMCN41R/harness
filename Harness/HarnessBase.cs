@@ -69,7 +69,7 @@ namespace Harness
         {
             this.Connections =
                 this.HarnessManager
-                    .Using(this.ConfigFilepath)
+                    .UsingSettings(this.ConfigFilepath)
                     .Build();
 
         }

@@ -17,7 +17,7 @@ namespace Harness.UnitTests
 
             // Act
             var classUnderTest = new HarnessManager(fakeSettingsManager);
-            classUnderTest.Using("TestPath");
+            classUnderTest.UsingSettings("TestPath");
 
             // Assert
             fakeSettingsManager.Received().GetMongoConfiguration("TestPath");

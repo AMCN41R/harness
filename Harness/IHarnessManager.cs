@@ -6,9 +6,9 @@ namespace Harness
 {
     public interface IHarnessManager
     {
-        IHarnessManager Using(string filepath);
+        IHarnessManager UsingSettings(string filepath);
 
-        IHarnessManager Using(MongoConfiguration configuration);
+        IHarnessManager UsingSettings(MongoConfiguration configuration);
 
         Dictionary<string, IMongoClient> Build();
     }

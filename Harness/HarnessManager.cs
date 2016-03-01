@@ -19,7 +19,7 @@ namespace Harness
             this.SettingsManager = settingsManager;
         }
 
-        public IHarnessManager Using(string filepath)
+        public IHarnessManager UsingSettings(string filepath)
         {
             this.Configuration =
                 this.SettingsManager
@@ -28,7 +28,7 @@ namespace Harness
             return this;
         }
 
-        public IHarnessManager Using(MongoConfiguration configuration)
+        public IHarnessManager UsingSettings(MongoConfiguration configuration)
         {
             this.Configuration = configuration;
             return this;
@@ -39,8 +39,9 @@ namespace Harness
 
 
         /// <summary>
-        /// Internal factory method to return live implementation of IMongoSessionManager
-        /// that can be overrdden and mocked for unit testing.
+        /// Internal factory method to return live implementation of 
+        /// IMongoSessionManager that can be overrdden and mocked for 
+        /// unit testing.
         /// </summary>
         internal virtual IMongoSessionManager MongoSessionManager()
             => new MongoSessionManager(this.Configuration);

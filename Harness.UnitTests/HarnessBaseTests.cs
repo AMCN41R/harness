@@ -19,7 +19,7 @@ namespace Harness.UnitTests
             // Arrange
             var fakeHarnessManager = Substitute.For<IHarnessManager>();
             fakeHarnessManager
-                .Using(Arg.Any<string>())
+                .UsingSettings(Arg.Any<string>())
                 .Returns(fakeHarnessManager);
             fakeHarnessManager
                 .Build()
@@ -32,7 +32,7 @@ namespace Harness.UnitTests
                 new TestableHarnessBase(fakeHarnessManager);
 
             // Assert
-            fakeHarnessManager.Received().Using("TestPath");
+            fakeHarnessManager.Received().UsingSettings("TestPath");
             fakeHarnessManager.Received().Build();
 
         }
@@ -49,7 +49,7 @@ namespace Harness.UnitTests
             // Arrange
             var fakeHarnessManager = Substitute.For<IHarnessManager>();
             fakeHarnessManager
-                .Using(Arg.Any<string>())
+                .UsingSettings(Arg.Any<string>())
                 .Returns(fakeHarnessManager);
             fakeHarnessManager
                 .Build()
@@ -62,7 +62,7 @@ namespace Harness.UnitTests
                 new TestableHarnessBaseNoFilePath(fakeHarnessManager);
 
             // Assert
-            fakeHarnessManager.Received().Using(
+            fakeHarnessManager.Received().UsingSettings(
                 "TestableHarnessBaseNoFilePath.json");
             fakeHarnessManager.Received().Build();
 
@@ -80,7 +80,7 @@ namespace Harness.UnitTests
             // Arrange
             var fakeHarnessManager = Substitute.For<IHarnessManager>();
             fakeHarnessManager
-                .Using(Arg.Any<string>())
+                .UsingSettings(Arg.Any<string>())
                 .Returns(fakeHarnessManager);
             fakeHarnessManager
                 .Build()
@@ -93,7 +93,7 @@ namespace Harness.UnitTests
                 new TestableHarnessBaseWithoutAttribute(fakeHarnessManager);
 
             // Assert
-            fakeHarnessManager.Received().Using(
+            fakeHarnessManager.Received().UsingSettings(
                 "TestableHarnessBaseWithoutAttribute.json");
             fakeHarnessManager.Received().Build();
         }
