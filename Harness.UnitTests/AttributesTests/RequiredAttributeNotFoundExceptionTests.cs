@@ -17,7 +17,7 @@ namespace Harness.UnitTests.AttributesTests
         }
 
         [Fact]
-        public void New_MessageAndInnerExceptio_BaseParametersAreSet()
+        public void New_MessageAndInnerException_BaseParametersAreSet()
         {
             var ex = Assert.Throws<RequiredAttributeNotFoundException>(
                 () => ExceptionTestClass.ThrowWithMessageAndInnerException());

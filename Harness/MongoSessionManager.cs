@@ -138,8 +138,10 @@ namespace Harness
                 return null;
             }
 
+            var fileText = this.FileSystem.File.ReadAllText(path);
+
             var itemArray =
-                JsonConvert.DeserializeObject(this.FileSystem.File.ReadAllText(path)) as JArray;
+                JsonConvert.DeserializeObject(fileText) as JArray;
 
             return itemArray?.Select(x => BsonDocument.Parse(x.ToString()));
         }
@@ -154,11 +156,5 @@ namespace Harness
                 // Save Output
             }
         }
-
-    }
-
-    public class TestData
-    {
-        public List<string> Objs { get; set; }
     }
 }

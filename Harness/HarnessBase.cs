@@ -5,16 +5,22 @@ using MongoDB.Driver;
 
 namespace Harness
 {
-    public abstract class HarnessBase : IDisposable
+    public abstract class HarnessBase
     {
+        /// <summary>
+        /// Gets or sets the filepath of the mongo configuration file.
+        /// </summary>
+        private string ConfigFilepath { get; set; }
 
-        private string ConfigFilepath { get; }
+        /// <summary>
+        /// Gets or sets whether the database build should happen automatically.
+        /// </summary>
+        private bool AutoRun { get; set; }
 
+        /// <summary>
+        /// Gets the <see cref="IHarnessManager"/> implementation.
+        /// </summary>
         private IHarnessManager HarnessManager { get; }
-
-        private Dictionary<string, IMongoClient> Connections { get; set; }
-
-        protected Dictionary<string, IMongoClient> MongoConnections => this.Connections;
 
         /// <summary>
         /// Constructs a new instance of the MongoIntegrationBase class.
@@ -43,14 +49,18 @@ namespace Harness
 
             this.HarnessManager = harnessManager;
 
-            this.ConfigFilepath = this.GetConfigFilepath();
+            this.GetAttributeSettings();
 
-            this.ConfigureMongo();
+            if (this.AutoRun)
+            {
+                this.BuildDatabase();
+            }
         }
-
-        private string GetConfigFilepath()
+        
+        private void GetAttributeSettings()
         {
             var configFilePath = string.Empty;
+            var autoRun = true;
 
             // Look for the HarnessConfigAttribute attribute
             var mongoTestClassAttribute =
@@ -61,6 +71,9 @@ namespace Harness
                 // If the attribute is found, get the path to the config file, 
                 // or set to default based on class name if not specified.
                 configFilePath = mongoTestClassAttribute.ConfigFilePath;
+
+                // Get the AutoRun value
+                autoRun = mongoTestClassAttribute.AutoRun;
             }
 
             // Set the filepath to the default value if the attribute is not 
@@ -70,20 +83,38 @@ namespace Harness
                 configFilePath = $"{this.GetType().Name}.json";
             }
 
-            return configFilePath;
+            this.ConfigFilepath = configFilePath;
+            this.AutoRun = autoRun;
         }
 
-        private void ConfigureMongo()
+
+
+        /// <summary>
+        /// Gets or sets the dictionary of mongo clients. The key is the 
+        /// mongo server connection string.
+        /// </summary>
+        public Dictionary<string, IMongoClient> MongoConnections { get; private set; }
+
+        /// <summary>
+        /// Puts the databases into the state defined in the given configuration file.
+        /// This method can only be called if the <see cref="HarnessConfigAttribute"/>
+        /// AutoRun property is set to false.
+        /// </summary>
+        public void BuildDatabase()
         {
-            this.Connections =
+            if (!AutoRun)
+            {
+                throw new HarnessBaseException(
+                    "The current instance is not configured to allow a manual build."
+                );
+            }
+
+            this.MongoConnections =
                 this.HarnessManager
                     .UsingSettings(this.ConfigFilepath)
                     .Build();
         }
 
-        public void Dispose()
-        {
-            // TODO: Dispose the mongo connections
-        }
+
     }
 }

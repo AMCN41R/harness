@@ -83,6 +83,7 @@
     <Compile Include="Comparer\ObjectComparer.cs" />
     <Compile Include="Comparer\ObjectComparerTests.cs" />
     <Compile Include="ExtensionsTests.cs" />
+    <Compile Include="HarnessBaseExceptionTests.cs" />
     <Compile Include="HarnessManagerTests.cs" />
     <Compile Include="HarnessBaseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

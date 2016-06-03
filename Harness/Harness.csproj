@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\RequiredAttributeNotFoundException.cs" />
+    <Compile Include="HarnessBaseException.cs" />
     <Compile Include="HarnessManager.cs" />
     <Compile Include="IHarnessManager.cs" />
     <Compile Include="IMongoSessionManager.cs" />

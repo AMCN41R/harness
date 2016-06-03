@@ -7,9 +7,9 @@ namespace Harness.Settings
     internal class SettingsManager : ISettingsManager
     {
         /// <summary>
-        ///  The file system implementation to use.
+        ///  Gets the <see cref="IFileSystem"/> implementation.
         /// </summary>
-        private readonly IFileSystem FileSystem;
+        private IFileSystem FileSystem { get; }
 
         /// <summary>
         /// Main entry point that constructs a new instance of the 

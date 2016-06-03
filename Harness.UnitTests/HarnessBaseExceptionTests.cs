@@ -1,15 +1,14 @@
 ﻿using System;
-using Harness.Settings;
 using Xunit;
 
-namespace Harness.UnitTests.SettingsTests
+namespace Harness.UnitTests
 {
-    public class SettingsManagerExceptionTests
+    public class HarnessBaseExceptionTests
     {
         [Fact]
         public void New_Message_BaseMessageIsSet()
         {
-            var ex = Assert.Throws<SettingsManagerException>(
+            var ex = Assert.Throws<HarnessBaseException>(
                 () => ExceptionTestClass.ThrowWithMessage());
 
             Assert.Equal("TestMessage", ex.Message);
@@ -19,7 +18,7 @@ namespace Harness.UnitTests.SettingsTests
         [Fact]
         public void New_MessageAndInnerException_BaseParametersAreSet()
         {
-            var ex = Assert.Throws<SettingsManagerException>(
+            var ex = Assert.Throws<HarnessBaseException>(
                 () => ExceptionTestClass.ThrowWithMessageAndInnerException());
 
             Assert.Equal("TestMessage", ex.Message);
@@ -31,13 +30,13 @@ namespace Harness.UnitTests.SettingsTests
         {
             public static void ThrowWithMessage()
             {
-                throw new SettingsManagerException(
+                throw new HarnessBaseException(
                     "TestMessage");
             }
 
             public static void ThrowWithMessageAndInnerException()
             {
-                throw new SettingsManagerException(
+                throw new HarnessBaseException(
                     "TestMessage",
                     new Exception("InnerMessage"));
             }
