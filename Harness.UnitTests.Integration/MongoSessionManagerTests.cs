@@ -32,7 +32,7 @@ namespace Harness.UnitTests.Integration
             classUnderTest.Build();
 
             // Assert
-            var client = new MongoClient("mongodb://localhost:27017");
+            var client = new MongoClient("mongodb://192.168.99.100:27017");
             var countCollection1 = 
                 client
                     .GetDatabase("TestDb1")
@@ -75,7 +75,7 @@ namespace Harness.UnitTests.Integration
                             new DatabaseConfig
                             {
                                 DatabaseName = "TestDb1",
-                                ConnectionString = "mongodb://localhost:27017",
+                                ConnectionString = "mongodb://192.168.99.100:27017",
                                 DatabaseNameSuffix = "",
                                 CollectionNameSuffix = "",
                                 DropFirst = true,

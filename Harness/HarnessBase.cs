@@ -34,11 +34,22 @@ namespace Harness
         /// Internal constructor to allow <see cref="IHarnessManager"/> 
         /// injection for testing.
         /// </summary>
-        /// <param name="harnessManager"></param>
         internal HarnessBase(IHarnessManager harnessManager)
         {
+            if (harnessManager == null)
+            {
+                throw new ArgumentNullException(nameof(harnessManager));
+            }
+
             this.HarnessManager = harnessManager;
 
+            this.ConfigFilepath = this.GetConfigFilepath();
+
+            this.ConfigureMongo();
+        }
+
+        private string GetConfigFilepath()
+        {
             var configFilePath = string.Empty;
 
             // Look for the HarnessConfigAttribute attribute
@@ -54,15 +65,12 @@ namespace Harness
 
             // Set the filepath to the default value if the attribute is not 
             // present, or if the value is an empty string.
-            if (string.IsNullOrEmpty(configFilePath))
+            if (string.IsNullOrWhiteSpace(configFilePath))
             {
                 configFilePath = $"{this.GetType().Name}.json";
             }
 
-            this.ConfigFilepath = configFilePath;
-
-            this.ConfigureMongo();
-
+            return configFilePath;
         }
 
         private void ConfigureMongo()
@@ -71,13 +79,11 @@ namespace Harness
                 this.HarnessManager
                     .UsingSettings(this.ConfigFilepath)
                     .Build();
-
         }
-
 
         public void Dispose()
         {
-            // TODO:
+            // TODO: Dispose the mongo connections
         }
     }
 }

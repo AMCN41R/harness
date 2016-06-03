@@ -34,15 +34,28 @@ namespace Harness
         /// or if the filepath is empty, null or whitespace, otherwise returns 
         /// true.
         /// </returns>
-        public static bool ValidateFile(this IFileSystem fileSystem, string filepath)
+        public static ValidationResult ValidateFile(this IFileSystem fileSystem, string filepath)
         {
+            var isValid = true;
+            var message = "OK";
+
             if (string.IsNullOrWhiteSpace(filepath))
             {
-                return false;
+                isValid = false;
+                message = "Filepath cannot be null, empty or whitespace.";
             }
 
-            return fileSystem.File.Exists(filepath);
-        }
+            if (!fileSystem.File.Exists(filepath))
+            {
+                isValid = false;
+                message = "File cannot be found or does not exist.";
+            }
 
+            return new ValidationResult
+            {
+                IsValid = isValid,
+                Message = message
+            };
+        }
     }
 }

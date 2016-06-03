@@ -9,7 +9,7 @@ namespace Harness.Attributes
     /// <example>
     /// <code lang="C#">
     /// [HarnessConfig(ConfigFilePath = "..\\HarnessConfig.json")]
-    /// public class MyMongoIntegrationTests
+    /// public class MyMongoIntegrationTests : HarnessBase
     /// {
     ///     [Fact]
     ///     public void Test()

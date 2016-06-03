@@ -86,7 +86,9 @@
     <Compile Include="HarnessManagerTests.cs" />
     <Compile Include="HarnessBaseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettingsTests\SettingsManagerExceptionTests.cs" />
     <Compile Include="SettingsTests\SettingsManagerTests.cs" />
+    <Compile Include="ValidationResultTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Harness\Harness.csproj">

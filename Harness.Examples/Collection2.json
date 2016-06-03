@@ -1,2 +1,12 @@
-{"_id":{"$oid":"56a69c36d1894801d0ce3d05"},"Col1b":"Value1b","Col2b":"Value2b"}
-{"_id":{"$oid":"56a69c36d1894801d0ce3d06"},"Col1b":"Value3b","Col2b":"Value4b"}
+[
+  {
+    "_id": { "$oid": "56a69c36d1894801d0ce3d05" },
+    "Col1b": "Value1b",
+    "Col2b": "Value2b"
+  },
+  {
+    "_id": { "$oid": "56a69c36d1894801d0ce3d06" },
+    "Col1b": "Value3b",
+    "Col2b": "Value4b"
+  }
+]

@@ -1,6 +1,8 @@
 ﻿using System;
 using Xunit;
 using Harness.Attributes;
+using System.IO.Abstractions;
+using NSubstitute;
 
 namespace Harness.UnitTests
 {
@@ -13,7 +15,7 @@ namespace Harness.UnitTests
             var testClass = new ExtensionsTestClass();
 
             // Act
-            var result = 
+            var result =
                 testClass.GetType().GetAttribute<HarnessConfigAttribute>();
 
             // Assert
@@ -50,6 +52,50 @@ namespace Harness.UnitTests
             // Assert
             Assert.Null(result);
 
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(" ")]
+        [InlineData(null)]
+        public void ValidateFile_NullEmptyAndWhiteSpaceFilename_ReturnsFalseValidationResult(string value)
+        {
+            // Arrange
+            var fakeFileSystem = Substitute.For<IFileSystem>();
+
+            // Act
+            var result = fakeFileSystem.ValidateFile(value);
+
+            // Assert
+            Assert.False(result.IsValid);
+        }
+
+        [Fact]
+        public void ValidateFile_FilepathThatDoesNotExist_ReturnsFalseValidationResult()
+        {
+            // Arrange
+            var fakeFileSystem = Substitute.For<IFileSystem>();
+            fakeFileSystem.File.Exists(Arg.Any<string>()).Returns(false);
+
+            // Act
+            var result = fakeFileSystem.ValidateFile("filepath");
+
+            // Assert
+            Assert.False(result.IsValid);
+        }
+
+        [Fact]
+        public void ValidateFile_FilepathThatExists_ReturnsTrueValidationResult()
+        {
+            // Arrange
+            var fakeFileSystem = Substitute.For<IFileSystem>();
+            fakeFileSystem.File.Exists(Arg.Any<string>()).Returns(true);
+
+            // Act
+            var result = fakeFileSystem.ValidateFile("filepath");
+
+            // Assert
+            Assert.True(result.IsValid);
         }
 
         [HarnessConfigAttribute]

@@ -3,18 +3,21 @@ using System.IO.Abstractions;
 using Harness.Settings;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using System.Linq;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Harness
 {
     internal class MongoSessionManager : IMongoSessionManager
     {
         /// <summary>
-        /// The Mongo configuration settins to use.
+        /// Gets the Mongo configuration settings.
         /// </summary>
         private MongoConfiguration Settings { get; }
 
         /// <summary>
-        /// Seam for he file system implementation.
+        /// Gets the file system implementation.
         /// </summary>
         private IFileSystem FileSystem { get; }
 
@@ -26,18 +29,15 @@ namespace Harness
         /// <summary>
         /// Creates a new instance of the MongoSessionManager.
         /// </summary>
-        /// <param name="settings"></param>
+        /// <param name="settings">THe <see cref="MongoConfiguration"/> settings to use.</param>
         public MongoSessionManager(MongoConfiguration settings)
             : this(settings, new FileSystem())
         {
         }
 
         /// <summary>
-        /// Internal constructor to allow <see cref="IFileSystem"/> injection 
-        /// for testing.
+        /// Internal constructor to allow dependency injection for unit testing.
         /// </summary>
-        /// <param name="settings"></param>
-        /// <param name="fileSystem"></param>
         internal MongoSessionManager(
             MongoConfiguration settings, IFileSystem fileSystem)
         {
@@ -48,8 +48,8 @@ namespace Harness
         }
 
         /// <summary>
-        /// Configures the state of a Mongo database using the provided 
-        /// settings.
+        /// Configures the state of one or more Mongo databases using the 
+        /// provided settings.
         /// </summary>
         public Dictionary<string, IMongoClient> Build()
         {
@@ -59,7 +59,6 @@ namespace Harness
             }
 
             return this.MongoClients;
-
         }
 
         private void CreateDatabase(DatabaseConfig config)
@@ -91,7 +90,7 @@ namespace Harness
 
         private IMongoClient GetMongoClient(string connectionString)
         {
-            // Check if we have already cached a connection to to the 
+            // Check if we have already cached a connection to the 
             // required mongo database, and return it if we have.
             if (this.MongoClients.ContainsKey(connectionString))
             {
@@ -100,10 +99,10 @@ namespace Harness
 
             // Otherwise, create a new connection and cache it for later.
             var mongoClient = new MongoClient(connectionString);
+
             this.MongoClients.Add(connectionString, mongoClient);
 
             return mongoClient;
-
         }
 
         private void CreateCollection(
@@ -128,28 +127,21 @@ namespace Harness
                 database.GetCollection<BsonDocument>(config.CollectionName);
 
             // Insert the data into the collection
-            foreach (var line in lines)
-            {
-                collection.InsertOne(BsonDocument.Parse(line));
-            }
-
+            collection.InsertMany(lines);
         }
 
-
-        private string[] GetTestDataFromFile(string path)
+        private IEnumerable<BsonDocument> GetTestDataFromFile(string path)
         {
-            // Return null if th given filepath is not valid
-            if (!this.FileSystem.ValidateFile(path))
+            // Return null if the given filepath is not valid
+            if (!this.FileSystem.ValidateFile(path)?.IsValid ?? false)
             {
                 return null;
             }
 
-            // Read and return all lines from the file
-            return
-                this.FileSystem
-                    .File
-                    .ReadAllLines(path);
+            var itemArray =
+                JsonConvert.DeserializeObject(this.FileSystem.File.ReadAllText(path)) as JArray;
 
+            return itemArray?.Select(x => BsonDocument.Parse(x.ToString()));
         }
 
         /// <summary>
@@ -162,6 +154,11 @@ namespace Harness
                 // Save Output
             }
         }
-        
+
+    }
+
+    public class TestData
+    {
+        public List<string> Objs { get; set; }
     }
 }

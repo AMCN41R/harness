@@ -15,18 +15,15 @@ namespace Harness.UnitTests.SettingsTests
         [InlineData(" ")]
         [InlineData("    ")]
         [InlineData(null)]
-        public void GetMongoConfiguration_PassNullEmptyOrWhiteSpace_ReturnsNull(string testValue)
+        public void GetMongoConfiguration_PassNullEmptyOrWhiteSpace_ThrowsSettingsManagerException(string testValue)
         {
             // Arrange
             var fakeFileSystem = Substitute.For<IFileSystem>();
             var classUnderTest = new SettingsManager(fakeFileSystem);
 
-            // Act
-            var result = classUnderTest.GetMongoConfiguration(testValue);
-
-            // Assert
-            Assert.Null(result);
-
+            // Act / Assert
+            Assert.Throws<SettingsManagerException>(
+                () => classUnderTest.GetMongoConfiguration(testValue));
         }
 
         [Fact]
@@ -52,7 +49,7 @@ namespace Harness.UnitTests.SettingsTests
         }
 
         [Fact]
-        public void GetMongoConfiguration_WhenFileDoesNotExist_ReturnsNull()
+        public void GetMongoConfiguration_WhenFileDoesNotExist_ThrowsSettingsManagerException()
         {
             // Arrange
             var fakeFileSystem = Substitute.For<IFileSystem>();
@@ -63,13 +60,9 @@ namespace Harness.UnitTests.SettingsTests
 
             var classUnderTest = new SettingsManager(fakeFileSystem);
 
-            // Act
-            var result = 
-                classUnderTest.GetMongoConfiguration("anyFilePath.json");
-
-            // Assert
-            Assert.Null(result);
-
+            // Act / Assert
+            Assert.Throws<SettingsManagerException>(
+                () => classUnderTest.GetMongoConfiguration("anyFilePath.json"));
         }
 
         [Fact]
@@ -96,7 +89,7 @@ namespace Harness.UnitTests.SettingsTests
 
             // Act
             var expected = this.TestSettings;
-            var result = 
+            var result =
                 classUnderTest.GetMongoConfiguration(testFilePath);
 
             // Assert

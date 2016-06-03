@@ -21,38 +21,25 @@ namespace Harness.Settings
         }
 
         /// <summary>
-        /// Additional constructer to allow injection of alternative 
-        /// <see cref="IFileSystem"/> implementation. Designed for unit test
-        /// dependancy injection.
+        /// Internal constructor to allow dependancy injection for unit testing.
         /// </summary>
-        /// <param name="fileSystem"></param>
-        public SettingsManager(IFileSystem fileSystem)
+        internal SettingsManager(IFileSystem fileSystem)
         {
             this.FileSystem = fileSystem;
         }
 
-        /// <summary>
-        /// Loads and deserializes the given JSON file to a new instance of 
-        /// <see cref="MongoConfiguration"/>.
-        /// </summary>
-        /// <param name="configFilePath">The file JSON path to load.</param>
-        /// <returns>
-        /// A new instance of <see cref="MongoConfiguration"/>.
-        /// </returns>
-        /// <exception cref="ArgumentOutOfRangeException">
-        /// Thrown when the iven filepath's extension is not .json.
-        /// </exception>
-        /// <exception cref="ArgumentException">
-        /// Thrown when the contents loaded from the given filepath cannot be 
-        /// deserialized.
-        /// </exception>
+        /// <inheritdoc />
         public MongoConfiguration GetMongoConfiguration(string configFilePath)
         {
-            if (!this.FileSystem.ValidateFile(configFilePath))
+            var fileValidationResult =
+                this.FileSystem.ValidateFile(configFilePath);
+
+            if (!fileValidationResult?.IsValid ?? false)
             {
-                return null;
+                throw new SettingsManagerException(
+                    fileValidationResult?.Message ?? "Unable to validate filepath");
             }
-            
+
             if (this.FileSystem.Path.GetExtension(configFilePath) != ".json")
             {
                 throw new ArgumentOutOfRangeException(
@@ -66,8 +53,6 @@ namespace Harness.Settings
             return
                 new JavaScriptSerializer()
                     .Deserialize<MongoConfiguration>(json);
-
         }
-
     }
 }

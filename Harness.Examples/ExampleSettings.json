@@ -3,10 +3,10 @@
   "Databases": [
     {
       "DatabaseName": "TestDb1",
-      "ConnectionString": "mongodb://localhost:20719",
+      "ConnectionString": "mongodb://192.168.99.100:27017",
       "DatabaseNameSuffix": "",
       "CollectionNameSuffix": "",
-      "DropFirst": false,
+      "DropFirst": true,
       "Collections": [
         {
           "CollectionName": "TestCollection1",

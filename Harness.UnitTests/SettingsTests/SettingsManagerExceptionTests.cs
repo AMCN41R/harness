@@ -1,15 +1,15 @@
 ﻿using System;
+using Harness.Settings;
 using Xunit;
-using Harness.Attributes;
 
-namespace Harness.UnitTests.AttributesTests
+namespace Harness.UnitTests.SettingsTests
 {
-    public class RequiredAttributeNotFoundExceptionTests
+    class SettingsManagerExceptionTests
     {
         [Fact]
         public void New_Message_BaseMessageIsSet()
         {
-            var ex = Assert.Throws<RequiredAttributeNotFoundException>(
+            var ex = Assert.Throws<SettingsManagerException>(
                 () => ExceptionTestClass.ThrowWithMessage());
 
             Assert.Equal("TestMessage", ex.Message);
@@ -19,7 +19,7 @@ namespace Harness.UnitTests.AttributesTests
         [Fact]
         public void New_MessageAndInnerExceptio_BaseParametersAreSet()
         {
-            var ex = Assert.Throws<RequiredAttributeNotFoundException>(
+            var ex = Assert.Throws<SettingsManagerException>(
                 () => ExceptionTestClass.ThrowWithMessageAndInnerException());
 
             Assert.Equal("TestMessage", ex.Message);
@@ -31,13 +31,13 @@ namespace Harness.UnitTests.AttributesTests
         {
             public static void ThrowWithMessage()
             {
-                throw new RequiredAttributeNotFoundException(
+                throw new SettingsManagerException(
                     "TestMessage");
             }
 
             public static void ThrowWithMessageAndInnerException()
             {
-                throw new RequiredAttributeNotFoundException(
+                throw new SettingsManagerException(
                     "TestMessage",
                     new Exception("InnerMessage"));
             }
