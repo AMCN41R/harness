@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Harness.UnitTests.Integration")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Harness.UnitTests")]
+[assembly: AssemblyDescription("Harness.UnitTests")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Harness.UnitTests.Integration")]
+[assembly: AssemblyCompany("AMCN41R")]
+[assembly: AssemblyProduct("Harness.UnitTests")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("5bc88bba-1cdf-45e2-9f69-e33975b55ec1")]
+[assembly: Guid("4222e65a-0a1d-4512-9ab4-100e1def0a62")]
 
 // Version information for an assembly consists of the following four values:
 //

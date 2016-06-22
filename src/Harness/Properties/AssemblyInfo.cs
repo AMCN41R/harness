@@ -1,14 +1,15 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Harness.Examples")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Harness")]
+[assembly: AssemblyDescription("Harness is a .NET library designed to manage the state of a Mongo database during testing.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Harness.Examples")]
+[assembly: AssemblyCompany("AMCN41R")]
+[assembly: AssemblyProduct("Harness")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("adc8bd0e-43f5-4b86-9742-f8999979f20f")]
+[assembly: Guid("b2594702-a5a6-430b-81c1-e1263af4df0e")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -33,3 +34,9 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+
+// Expose internal classes to script and unit test projects.
+[assembly: InternalsVisibleTo("Harness.UnitTests")]
+[assembly: InternalsVisibleTo("Harness.UnitTests.Integration")]
+[assembly: InternalsVisibleTo("Harness.FSharp.Scripts")]
+[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
