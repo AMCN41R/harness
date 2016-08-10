@@ -15,4 +15,11 @@ namespace Harness.Settings
         /// </summary>
         public List<DatabaseConfig> Databases { get; set; }
     }
+
+    public class MongoConfigurationBuilder
+    {
+        private MongoConfiguration Config { get; }
+
+
+    }
 }

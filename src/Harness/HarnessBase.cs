@@ -56,7 +56,7 @@ namespace Harness
                 this.BuildDatabase();
             }
         }
-        
+
         private void GetAttributeSettings()
         {
             var configFilePath = string.Empty;
@@ -87,11 +87,9 @@ namespace Harness
             this.AutoRun = autoRun;
         }
 
-
-
         /// <summary>
-        /// Gets or sets the dictionary of mongo clients. The key is the 
-        /// mongo server connection string.
+        /// Gets or sets the dictionary of mongo clients.
+        /// The mongo server connection string is used as the key.
         /// </summary>
         public Dictionary<string, IMongoClient> MongoConnections { get; private set; }
 
