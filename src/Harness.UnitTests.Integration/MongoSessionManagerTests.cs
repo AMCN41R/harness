@@ -22,7 +22,7 @@ namespace Harness.UnitTests.Integration
                 .Returns(true);
             fakeFileSystem
                 .File
-                .ReadAllLines(Arg.Any<string>())
+                .ReadAllText(Arg.Any<string>())
                 .Returns(this.TestData);
 
             var classUnderTest =
@@ -32,8 +32,8 @@ namespace Harness.UnitTests.Integration
             classUnderTest.Build();
 
             // Assert
-            var client = new MongoClient("mongodb://192.168.99.100:27017");
-            var countCollection1 = 
+            var client = new MongoClient("mongodb://localhost:27017");
+            var countCollection1 =
                 client
                     .GetDatabase("TestDb1")
                     .GetCollection<BsonDocument>("TestCollection1")
@@ -56,26 +56,25 @@ namespace Harness.UnitTests.Integration
 
 
 
-        private string[] TestData
-            => new[]
-            {
-                "{\"Col1b\": \"Value1b\", \"Col2b\": \"Value2b\"}",
-                "{\"Col1b\": \"Value3b\", \"Col2b\": \"Value4b\"}"
-            };
+        private string TestData
+            =>
+            "[" +
+            "{\"Col1b\": \"Value1b\", \"Col2b\": \"Value2b\"}," +
+            "{\"Col1b\": \"Value3b\", \"Col2b\": \"Value4b\"}" +
+            "]";
 
 
         private MongoConfiguration TestSettings
             =>
                 new MongoConfiguration
                 {
-                    SaveOutput = false,
                     Databases =
                         new List<DatabaseConfig>
                         {
                             new DatabaseConfig
                             {
                                 DatabaseName = "TestDb1",
-                                ConnectionString = "mongodb://192.168.99.100:27017",
+                                ConnectionString = "mongodb://localhost:27017",
                                 DatabaseNameSuffix = "",
                                 CollectionNameSuffix = "",
                                 DropFirst = true,

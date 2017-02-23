@@ -127,8 +127,7 @@ namespace Harness.UnitTests.SettingsTests
         }
 
         private string TestSettingsString
-            => "{\"SaveOutput\": false," +
-                "\"Databases\": [{" +
+            => "{\"Databases\": [{" +
                 "\"DatabaseName\": \"TestDb1\"," +
                 "\"ConnectionString\": \"mongodb://localhost:27017\"," +
                 "\"DatabaseNameSuffix\": \"\"," +
@@ -146,7 +145,6 @@ namespace Harness.UnitTests.SettingsTests
             =>
                 new MongoConfiguration
                 {
-                    SaveOutput = false,
                     Databases =
                         new List<DatabaseConfig>
                         {

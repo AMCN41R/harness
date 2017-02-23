@@ -26,7 +26,7 @@ namespace Harness.Examples.NUnit
         {
             // Arrange
             var classUnderTest = new ClassUnderTest();
-            var mongoClient = base.MongoConnections["mongodb://localhost:20719"];
+            var mongoClient = base.MongoConnections["mongodb://localhost:27017"];
 
             // Act
             var result = classUnderTest.GetCollectionRecordCount(mongoClient, "TestCollection1");

@@ -8,7 +8,7 @@ namespace Harness.Attributes
     /// <remarks>
     /// <example>
     /// <code lang="C#">
-    /// [HarnessConfig(ConfigFilePath = "..\\HarnessConfig.json")]
+    /// [HarnessConfig(ConfigFilePath = "HarnessConfig.json")]
     /// public class MyMongoIntegrationTests : HarnessBase
     /// {
     ///     [Fact]
@@ -20,7 +20,7 @@ namespace Harness.Attributes
     /// </code>
     /// <example>
     /// <code lang="C#">
-    /// [HarnessConfig(ConfigFilePath = "..\\HarnessConfig.json", AutoRun = false)]
+    /// [HarnessConfig(ConfigFilePath = "HarnessConfig.json", AutoRun = false)]
     /// public class MyMongoIntegrationTests : HarnessBase
     /// {
     ///     [Fact]
@@ -56,7 +56,6 @@ namespace Harness.Attributes
         public HarnessConfigAttribute()
         {
             this.ConfigFilePath = string.Empty;
-
             this.AutoRun = true;
         }
     }

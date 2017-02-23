@@ -17,7 +17,7 @@ namespace Harness.Examples
         /// </summary>
         public int GetCollectionRecordCount(string collectionName)
         {
-            var client = new MongoClient("mongodb://192.168.99.100:27017");
+            var client = new MongoClient("mongodb://localhost:27017");
 
             var db = client.GetDatabase("TestDb1");
 
@@ -27,7 +27,7 @@ namespace Harness.Examples
         }
 
         /// <summary>
-        /// A sample method that connections to the given mongo client and 
+        /// A sample method that connects to the given mongo client and 
         /// returns a count of records in the given collection.
         /// </summary>
         public int GetCollectionRecordCount(IMongoClient client, string collectionName)

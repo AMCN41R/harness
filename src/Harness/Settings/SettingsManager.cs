@@ -7,11 +7,6 @@ namespace Harness.Settings
     internal class SettingsManager : ISettingsManager
     {
         /// <summary>
-        ///  Gets the <see cref="IFileSystem"/> implementation.
-        /// </summary>
-        private IFileSystem FileSystem { get; }
-
-        /// <summary>
         /// Main entry point that constructs a new instance of the 
         /// SetttingsManager class with the default <see cref="IFileSystem"/> 
         /// implementation.
@@ -27,6 +22,12 @@ namespace Harness.Settings
         {
             this.FileSystem = fileSystem;
         }
+
+        /// <summary>
+        ///  Gets the <see cref="IFileSystem"/> implementation.
+        /// </summary>
+        private IFileSystem FileSystem { get; }
+
 
         /// <inheritdoc />
         public MongoConfiguration GetMongoConfiguration(string configFilePath)

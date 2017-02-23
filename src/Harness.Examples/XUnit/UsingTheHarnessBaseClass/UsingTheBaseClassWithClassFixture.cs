@@ -4,7 +4,6 @@ using Xunit;
 
 namespace Harness.Examples.XUnit.UsingTheHarnessBaseClass
 {
-
     [HarnessConfig(ConfigFilePath = "ExampleSettings.json")]
     public class DatabaseFixture : HarnessBase, IDisposable
     {
@@ -19,6 +18,7 @@ namespace Harness.Examples.XUnit.UsingTheHarnessBaseClass
         }
     }
 
+    [Collection("Example.Tests")]
     public class UsingTheBaseClassWithClassFixture : IClassFixture<DatabaseFixture>
     {
         private DatabaseFixture Fixture { get; }
@@ -46,8 +46,8 @@ namespace Harness.Examples.XUnit.UsingTheHarnessBaseClass
         {
             // Arrange
             var classUnderTest = new ClassUnderTest();
-            var mongoClient = this.Fixture.MongoConnections["mongodb://localhost:20719"];
-            
+            var mongoClient = this.Fixture.MongoConnections["mongodb://localhost:27017"];
+
             // Act
             var result = classUnderTest.GetCollectionRecordCount(mongoClient, "TestCollection1");
 

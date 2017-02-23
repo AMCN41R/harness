@@ -4,7 +4,7 @@ using MongoDB.Driver;
 
 namespace Harness
 {
-    public interface IHarnessManager
+    internal interface IHarnessManager
     {
         IHarnessManager UsingSettings(string filepath);
 

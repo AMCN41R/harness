@@ -12,21 +12,6 @@ namespace Harness
     internal class MongoSessionManager : IMongoSessionManager
     {
         /// <summary>
-        /// Gets the Mongo configuration settings.
-        /// </summary>
-        private MongoConfiguration Settings { get; }
-
-        /// <summary>
-        /// Gets the file system implementation.
-        /// </summary>
-        private IFileSystem FileSystem { get; }
-
-        /// <summary>
-        /// TODO:
-        /// </summary>
-        private Dictionary<string, IMongoClient> MongoClients { get; }
-
-        /// <summary>
         /// Creates a new instance of the MongoSessionManager.
         /// </summary>
         /// <param name="settings">THe <see cref="MongoConfiguration"/> settings to use.</param>
@@ -46,6 +31,21 @@ namespace Harness
 
             this.MongoClients = new Dictionary<string, IMongoClient>();
         }
+
+        /// <summary>
+        /// Gets the Mongo configuration settings.
+        /// </summary>
+        private MongoConfiguration Settings { get; }
+
+        /// <summary>
+        /// Gets the file system implementation.
+        /// </summary>
+        private IFileSystem FileSystem { get; }
+
+        /// <summary>
+        /// TODO:
+        /// </summary>
+        private Dictionary<string, IMongoClient> MongoClients { get; }
 
         /// <summary>
         /// Configures the state of one or more Mongo databases using the 
@@ -144,17 +144,6 @@ namespace Harness
                 JsonConvert.DeserializeObject(fileText) as JArray;
 
             return itemArray?.Select(x => BsonDocument.Parse(x.ToString()));
-        }
-
-        /// <summary>
-        /// TODO:
-        /// </summary>
-        public void SaveOutput()
-        {
-            if (this.Settings.SaveOutput)
-            {
-                // Save Output
-            }
         }
     }
 }

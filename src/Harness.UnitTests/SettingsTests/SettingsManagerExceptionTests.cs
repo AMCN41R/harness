@@ -23,7 +23,7 @@ namespace Harness.UnitTests.SettingsTests
                 () => ExceptionTestClass.ThrowWithMessageAndInnerException());
 
             Assert.Equal("TestMessage", ex.Message);
-            Assert.Equal("InnerMessage", ex.InnerException.Message);
+            Assert.Equal("InnerMessage", ex.InnerException?.Message);
 
         }
 

@@ -8,10 +8,9 @@
     <owners>Alex McNair</owners>
     <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
     <projectUrl>http://github.com/AMCN41R/Harness</projectUrl>
-    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <description>Harness is a .NET library designed to manage the state of a Mongo database during testing.</description>
-    <releaseNotes>Initial BETA release. Please see the documentation online.</releaseNotes>
+    <description>Harness is a .NET library designed to manage the state of one or more Mongo databases during testing.</description>
+    <releaseNotes>Please see documentation online.</releaseNotes>
     <copyright>Copyright 2016</copyright>
     <tags>Mongo MongoDB XUnit NUnit Testing NDBUnit Harness</tags>
   </metadata>

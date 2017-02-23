@@ -8,21 +8,6 @@ namespace Harness
     public abstract class HarnessBase
     {
         /// <summary>
-        /// Gets or sets the filepath of the mongo configuration file.
-        /// </summary>
-        private string ConfigFilepath { get; set; }
-
-        /// <summary>
-        /// Gets or sets whether the database build should happen automatically.
-        /// </summary>
-        private bool AutoRun { get; set; }
-
-        /// <summary>
-        /// Gets the <see cref="IHarnessManager"/> implementation.
-        /// </summary>
-        private IHarnessManager HarnessManager { get; }
-
-        /// <summary>
         /// Constructs a new instance of the MongoIntegrationBase class.
         /// This base class expects the inheriting class to have the 
         /// <see cref="HarnessConfigAttribute"/> attribute. During 
@@ -53,9 +38,30 @@ namespace Harness
 
             if (this.AutoRun)
             {
-                this.BuildDatabase();
+                this.Build();
             }
         }
+
+        /// <summary>
+        /// Gets or sets the dictionary of mongo clients.
+        /// The mongo server connection string is used as the key.
+        /// </summary>
+        public Dictionary<string, IMongoClient> MongoConnections { get; private set; }
+
+        /// <summary>
+        /// Gets or sets the filepath of the mongo configuration file.
+        /// </summary>
+        private string ConfigFilepath { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether the database build should happen automatically.
+        /// </summary>
+        private bool AutoRun { get; set; }
+
+        /// <summary>
+        /// Gets the <see cref="IHarnessManager"/> implementation.
+        /// </summary>
+        private IHarnessManager HarnessManager { get; }
 
         private void GetAttributeSettings()
         {
@@ -88,31 +94,28 @@ namespace Harness
         }
 
         /// <summary>
-        /// Gets or sets the dictionary of mongo clients.
-        /// The mongo server connection string is used as the key.
-        /// </summary>
-        public Dictionary<string, IMongoClient> MongoConnections { get; private set; }
-
-        /// <summary>
         /// Puts the databases into the state defined in the given configuration file.
         /// This method can only be called if the <see cref="HarnessConfigAttribute"/>
         /// AutoRun property is set to false.
         /// </summary>
         public void BuildDatabase()
         {
-            if (!AutoRun)
+            if (this.AutoRun)
             {
                 throw new HarnessBaseException(
                     "The current instance is not configured to allow a manual build."
                 );
             }
 
+            this.Build();
+        }
+
+        private void Build()
+        {
             this.MongoConnections =
                 this.HarnessManager
                     .UsingSettings(this.ConfigFilepath)
                     .Build();
         }
-
-
     }
 }

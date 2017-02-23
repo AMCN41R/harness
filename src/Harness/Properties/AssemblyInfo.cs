@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Harness")]
-[assembly: AssemblyDescription("Harness is a .NET library designed to manage the state of a Mongo database during testing.")]
+[assembly: AssemblyDescription("Harness is a .NET library designed to manage the state of one or more Mongo databases during testing.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("AMCN41R")]
 [assembly: AssemblyProduct("Harness")]

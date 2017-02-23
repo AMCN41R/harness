@@ -10,10 +10,5 @@ namespace Harness
         /// </summary>
         /// <returns></returns>
         Dictionary<string, IMongoClient> Build();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        void SaveOutput();
     }
 }

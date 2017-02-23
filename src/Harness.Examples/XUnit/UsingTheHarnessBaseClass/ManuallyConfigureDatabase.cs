@@ -6,8 +6,8 @@ namespace Harness.Examples.XUnit.UsingTheHarnessBaseClass
     // To use Harness:
     // - add the HarnessConfig attribute to the class that contains the tests
     // - specify the relative path to the Harness settings file by setting the ConfigFilePath variable
-    // - specify AUtoRun = false to stop the databases being created
-    // - have the class that contains the tests extend HarnessBase on class construction.
+    // - specify AutoRun = false to stop the databases from being automatically created
+    // - have the class that contains the tests extend HarnessBase
 
     // Setting AutoRun = false, tells the HarnessBase class not to setup the 
     // databases until the BuildDatabase() method is called.
@@ -17,6 +17,7 @@ namespace Harness.Examples.XUnit.UsingTheHarnessBaseClass
     // in the tests. This is exposed as a a Dictionary<string, IMongoClient>
     // where the dictionary key in the mongo server connection string.
 
+    [Collection("Example.Tests")]
     [HarnessConfig(ConfigFilePath = "ExampleSettings.json", AutoRun = false)]
     public class ManuallyConfigureDatabase : HarnessBase
     {
@@ -53,7 +54,7 @@ namespace Harness.Examples.XUnit.UsingTheHarnessBaseClass
             // Rather than create a new one, we can re-use the one that was 
             // created by the HarnessBase class when it was setting up the 
             // databases.
-            var mongoClient = base.MongoConnections["mongodb://localhost:20719"];
+            var mongoClient = base.MongoConnections["mongodb://localhost:27017"];
 
             // Act
             var result = classUnderTest.GetCollectionRecordCount(mongoClient, "TestCollection1");

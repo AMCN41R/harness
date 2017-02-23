@@ -4,13 +4,9 @@ using MongoDB.Driver;
 
 namespace Harness
 {
-    public class HarnessManager : IHarnessManager
+    internal class HarnessManager : IHarnessManager
     {
-        private MongoConfiguration Configuration { get; set; }
-
-        private ISettingsManager SettingsManager { get; }
-
-        public HarnessManager() : this(new SettingsManager())
+        internal HarnessManager() : this(new SettingsManager())
         {
         }
 
@@ -18,6 +14,10 @@ namespace Harness
         {
             this.SettingsManager = settingsManager;
         }
+
+        private MongoConfiguration Configuration { get; set; }
+
+        private ISettingsManager SettingsManager { get; }
 
         public IHarnessManager UsingSettings(string filepath)
         {
@@ -40,7 +40,7 @@ namespace Harness
 
         /// <summary>
         /// Internal factory method to return live implementation of 
-        /// IMongoSessionManager that can be overrdden and mocked for 
+        /// IMongoSessionManager that can be overridden and mocked for 
         /// unit testing.
         /// </summary>
         internal virtual IMongoSessionManager MongoSessionManager()

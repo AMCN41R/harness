@@ -1,9 +1,8 @@
 {
-  "SaveOutput": false,
   "Databases": [
     {
       "DatabaseName": "TestDb1",
-      "ConnectionString": "mongodb://192.168.99.100:27017",
+      "ConnectionString": "mongodb://localhost:27017",
       "DatabaseNameSuffix": "",
       "CollectionNameSuffix": "",
       "DropFirst": true,
