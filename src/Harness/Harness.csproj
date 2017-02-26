@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\RequiredAttributeNotFoundException.cs" />
+    <Compile Include="Guard.cs" />
     <Compile Include="HarnessBaseException.cs" />
     <Compile Include="HarnessManager.cs" />
     <Compile Include="IHarnessManager.cs" />
@@ -79,6 +80,8 @@
     <Compile Include="Settings\CollectionConfig.cs" />
     <Compile Include="Settings\DatabaseConfig.cs" />
     <Compile Include="Settings\MongoConfiguration.cs" />
+    <Compile Include="Settings\SettingsBuilder.cs" />
+    <Compile Include="Settings\SettingsBuilderException.cs" />
     <Compile Include="Settings\SettingsManager.cs" />
     <Compile Include="Settings\SettingsManagerException.cs" />
     <Compile Include="ValidationResult.cs" />
