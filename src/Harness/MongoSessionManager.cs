@@ -69,7 +69,7 @@ namespace Harness
             // Concat the database sufix and name if a suffix is specified
             var databaseName =
                 string.IsNullOrWhiteSpace(config.DatabaseNameSuffix)
-                    ? config.DatabaseNameSuffix + config.DatabaseName
+                    ? $"{config.DatabaseName}{config.DatabaseNameSuffix}"
                     : config.DatabaseName;
 
             // Drop the database is specified
@@ -84,7 +84,7 @@ namespace Harness
             // Add the collections to the database
             foreach (var collection in config.Collections)
             {
-                this.CreateCollection(database, collection);
+                this.CreateCollection(database, collection, config.CollectionNameSuffix);
             }
         }
 
@@ -106,12 +106,18 @@ namespace Harness
         }
 
         private void CreateCollection(
-            IMongoDatabase database, CollectionConfig config)
+            IMongoDatabase database, CollectionConfig config, string collectionSuffix)
         {
+            // Concat the database sufix and name if a suffix is specified
+            var collectionName =
+                string.IsNullOrWhiteSpace(collectionSuffix)
+                    ? $"{config.CollectionName}{collectionSuffix}"
+                    : config.CollectionName;
+
             // Drop the collection is specified
             if (config.DropFirst)
             {
-                database.DropCollection(config.CollectionName);
+                database.DropCollection(collectionName);
             }
 
             // Load the test data from the specified file
@@ -124,7 +130,7 @@ namespace Harness
 
             // Get the collection
             var collection =
-                database.GetCollection<BsonDocument>(config.CollectionName);
+                database.GetCollection<BsonDocument>(collectionName);
 
             // Insert the data into the collection
             collection.InsertMany(lines);
