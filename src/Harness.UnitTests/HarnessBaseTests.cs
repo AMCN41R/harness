@@ -17,14 +17,16 @@ namespace Harness.UnitTests
         public void HarnessBase_AttributeAndFilePath_MakesCorrectCalls()
         {
             // Arrange
-            var fakeHarnessManager = Substitute.For<IHarnessManager>();
-            fakeHarnessManager
-                .UsingSettings(Arg.Any<string>())
-                .Returns(fakeHarnessManager);
-            fakeHarnessManager
+            var fakeBuilder = Substitute.For<IHarnessManagerBuilder>();
+            fakeBuilder
                 .Build()
                 .ReturnsForAnyArgs(
                     new Dictionary<string, MongoDB.Driver.IMongoClient>());
+
+            var fakeHarnessManager = Substitute.For<IHarnessManager>();
+            fakeHarnessManager
+                .UsingSettings(Arg.Any<string>())
+                .Returns(fakeBuilder);
 
             // Act
             // ReSharper disable once UnusedVariable
@@ -33,8 +35,7 @@ namespace Harness.UnitTests
 
             // Assert
             fakeHarnessManager.Received().UsingSettings("TestPath");
-            fakeHarnessManager.Received().Build();
-
+            fakeBuilder.Received().Build();
         }
 
         /// <summary>
@@ -47,14 +48,17 @@ namespace Harness.UnitTests
         public void HarnessBase_AttributeOnly_MakesCorrectCalls()
         {
             // Arrange
+            // Arrange
+            var fakeBuilder = Substitute.For<IHarnessManagerBuilder>();
+            fakeBuilder
+                .Build()
+                .ReturnsForAnyArgs(
+                     new Dictionary<string, MongoDB.Driver.IMongoClient>());
+
             var fakeHarnessManager = Substitute.For<IHarnessManager>();
             fakeHarnessManager
                 .UsingSettings(Arg.Any<string>())
-                .Returns(fakeHarnessManager);
-            fakeHarnessManager
-                .Build()
-                .ReturnsForAnyArgs(
-                    new Dictionary<string, MongoDB.Driver.IMongoClient>());
+                .Returns(fakeBuilder);
 
             // Act
             // ReSharper disable once UnusedVariable
@@ -62,10 +66,8 @@ namespace Harness.UnitTests
                 new TestableHarnessBaseNoFilePath(fakeHarnessManager);
 
             // Assert
-            fakeHarnessManager.Received().UsingSettings(
-                "TestableHarnessBaseNoFilePath.json");
-            fakeHarnessManager.Received().Build();
-
+            fakeHarnessManager.Received().UsingSettings("TestableHarnessBaseNoFilePath.json");
+            fakeBuilder.Received().Build();
         }
 
         /// <summary>
@@ -78,14 +80,16 @@ namespace Harness.UnitTests
             HarnessBase_NoAttribute_ThrowsException()
         {
             // Arrange
-            var fakeHarnessManager = Substitute.For<IHarnessManager>();
-            fakeHarnessManager
-                .UsingSettings(Arg.Any<string>())
-                .Returns(fakeHarnessManager);
-            fakeHarnessManager
+            var fakeBuilder = Substitute.For<IHarnessManagerBuilder>();
+            fakeBuilder
                 .Build()
                 .ReturnsForAnyArgs(
                     new Dictionary<string, MongoDB.Driver.IMongoClient>());
+
+            var fakeHarnessManager = Substitute.For<IHarnessManager>();
+            fakeHarnessManager
+                .UsingSettings(Arg.Any<string>())
+                .Returns(fakeBuilder);
 
             // Act
             // ReSharper disable once UnusedVariable
@@ -93,9 +97,8 @@ namespace Harness.UnitTests
                 new TestableHarnessBaseWithoutAttribute(fakeHarnessManager);
 
             // Assert
-            fakeHarnessManager.Received().UsingSettings(
-                "TestableHarnessBaseWithoutAttribute.json");
-            fakeHarnessManager.Received().Build();
+            fakeHarnessManager.Received().UsingSettings("TestableHarnessBaseWithoutAttribute.json");
+            fakeBuilder.Received().Build();
         }
 
         [HarnessConfig(ConfigFilePath = "TestPath")]

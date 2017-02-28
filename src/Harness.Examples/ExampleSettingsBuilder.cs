@@ -19,7 +19,7 @@ namespace Harness.Examples
                     .DropDatabaseFirst()
                     .AddCollection("col1", true, "path1")
                     .AddCollection("col2", true, "path2")
-                    .Done();
+                    .Build();
 
 
         }

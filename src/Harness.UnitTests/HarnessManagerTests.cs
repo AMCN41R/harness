@@ -10,13 +10,13 @@ namespace Harness.UnitTests
         public void Using_PassFilepath_PassesFilepathToCorrectSettingsManagerMethod()
         {
             // Arrange
-            var fakeSettingsManager = Substitute.For < ISettingsManager>();
+            var fakeSettingsManager = Substitute.For<ISettingsLoader>();
             fakeSettingsManager
                 .GetMongoConfiguration(Arg.Any<string>())
                 .Returns(new MongoConfiguration());
 
             // Act
-            var classUnderTest = new HarnessManager(fakeSettingsManager);
+            IHarnessManager classUnderTest = new HarnessManager(fakeSettingsManager);
             classUnderTest.UsingSettings("TestPath");
 
             // Assert
@@ -24,6 +24,6 @@ namespace Harness.UnitTests
 
         }
 
-        
+
     }
 }

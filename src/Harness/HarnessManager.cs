@@ -4,37 +4,37 @@ using MongoDB.Driver;
 
 namespace Harness
 {
-    internal class HarnessManager : IHarnessManager
+    public class HarnessManager : IHarnessManager, IHarnessManagerBuilder
     {
-        internal HarnessManager() : this(new SettingsManager())
+        public HarnessManager() : this(new SettingsLoader())
         {
         }
 
-        internal HarnessManager(ISettingsManager settingsManager)
+        internal HarnessManager(ISettingsLoader settingsLoader)
         {
-            this.SettingsManager = settingsManager;
+            this.SettingsLoader = settingsLoader;
         }
 
         private MongoConfiguration Configuration { get; set; }
 
-        private ISettingsManager SettingsManager { get; }
+        private ISettingsLoader SettingsLoader { get; }
 
-        public IHarnessManager UsingSettings(string filepath)
+        public IHarnessManagerBuilder UsingSettings(string filepath)
         {
             this.Configuration =
-                this.SettingsManager
+                this.SettingsLoader
                     .GetMongoConfiguration(filepath);
 
             return this;
         }
 
-        public IHarnessManager UsingSettings(MongoConfiguration configuration)
+        public IHarnessManagerBuilder UsingSettings(MongoConfiguration configuration)
         {
             this.Configuration = configuration;
             return this;
         }
 
-        public Dictionary<string, IMongoClient> Build()
+        Dictionary<string, IMongoClient> IHarnessManagerBuilder.Build()
             => this.MongoSessionManager().Build();
 
 
@@ -46,5 +46,17 @@ namespace Harness
         internal virtual IMongoSessionManager MongoSessionManager()
             => new MongoSessionManager(this.Configuration);
 
+    }
+
+    public interface IHarnessManager
+    {
+        IHarnessManagerBuilder UsingSettings(string filepath);
+
+        IHarnessManagerBuilder UsingSettings(MongoConfiguration configuration);
+    }
+
+    public interface IHarnessManagerBuilder
+    {
+        Dictionary<string, IMongoClient> Build();
     }
 }

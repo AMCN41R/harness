@@ -4,21 +4,35 @@ using System.Web.Script.Serialization;
 
 namespace Harness.Settings
 {
-    internal class SettingsManager : ISettingsManager
+    internal interface ISettingsLoader
+    {
+        /// <summary>
+        /// Loads a JSON file using the given path and deserializes it to a new 
+        /// instance of <see cref="MongoConfiguration"/>.
+        /// </summary>
+        /// <param name="configFilePath">The path of the JSON file to load.</param>
+        /// <returns>A new instance of <see cref="MongoConfiguration"/>.</returns>
+        /// <exception cref="SettingsLoaderException">Thrown if the given filepath is invalid.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when the given filepath's extension is not .json.</exception>
+        /// <exception cref="ArgumentException">Thrown when the contents loaded from the given filepath cannot be deserialized.</exception>
+        MongoConfiguration GetMongoConfiguration(string configFilePath);
+    }
+
+    internal class SettingsLoader : ISettingsLoader
     {
         /// <summary>
         /// Main entry point that constructs a new instance of the 
-        /// SetttingsManager class with the default <see cref="IFileSystem"/> 
+        /// SetttingsLoader class with the default <see cref="IFileSystem"/> 
         /// implementation.
         /// </summary>
-        public SettingsManager() : this(new FileSystem())
+        public SettingsLoader() : this(new FileSystem())
         {
         }
 
         /// <summary>
         /// Internal constructor to allow dependancy injection for unit testing.
         /// </summary>
-        internal SettingsManager(IFileSystem fileSystem)
+        internal SettingsLoader(IFileSystem fileSystem)
         {
             this.FileSystem = fileSystem;
         }
@@ -37,7 +51,7 @@ namespace Harness.Settings
 
             if (!fileValidationResult?.IsValid ?? false)
             {
-                throw new SettingsManagerException(
+                throw new SettingsLoaderException(
                     fileValidationResult?.Message ?? "Unable to validate filepath");
             }
 
@@ -51,6 +65,7 @@ namespace Harness.Settings
             var json =
                 this.FileSystem.File.ReadAllText(configFilePath);
 
+            // TODO: Use Newtonsoft
             return
                 new JavaScriptSerializer()
                     .Deserialize<MongoConfiguration>(json);

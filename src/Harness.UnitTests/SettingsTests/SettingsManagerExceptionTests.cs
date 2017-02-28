@@ -9,7 +9,7 @@ namespace Harness.UnitTests.SettingsTests
         [Fact]
         public void New_Message_BaseMessageIsSet()
         {
-            var ex = Assert.Throws<SettingsManagerException>(
+            var ex = Assert.Throws<SettingsLoaderException>(
                 () => ExceptionTestClass.ThrowWithMessage());
 
             Assert.Equal("TestMessage", ex.Message);
@@ -19,7 +19,7 @@ namespace Harness.UnitTests.SettingsTests
         [Fact]
         public void New_MessageAndInnerException_BaseParametersAreSet()
         {
-            var ex = Assert.Throws<SettingsManagerException>(
+            var ex = Assert.Throws<SettingsLoaderException>(
                 () => ExceptionTestClass.ThrowWithMessageAndInnerException());
 
             Assert.Equal("TestMessage", ex.Message);
@@ -31,13 +31,13 @@ namespace Harness.UnitTests.SettingsTests
         {
             public static void ThrowWithMessage()
             {
-                throw new SettingsManagerException(
+                throw new SettingsLoaderException(
                     "TestMessage");
             }
 
             public static void ThrowWithMessageAndInnerException()
             {
-                throw new SettingsManagerException(
+                throw new SettingsLoaderException(
                     "TestMessage",
                     new Exception("InnerMessage"));
             }

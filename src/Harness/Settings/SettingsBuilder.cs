@@ -24,7 +24,7 @@ namespace Harness.Settings
             return this;
         }
 
-        MongoConfiguration ISettingsBuilder.Done()
+        MongoConfiguration ISettingsBuilder.Build()
         {
             return this.Config;
         }
@@ -113,7 +113,7 @@ namespace Harness.Settings
             return this;
         }
 
-        MongoConfiguration ISettingsBuilderAddMoreCollections.Done()
+        MongoConfiguration ISettingsBuilderAddMoreCollections.Build()
         {
             return this.Config;
         }
@@ -155,7 +155,9 @@ namespace Harness.Settings
                     $"An error occurred trying to add a collection to the database {this.CurrentDatabaseName}.");
             }
 
-            if (db.Collections.SingleOrDefault(x => x.CollectionName == name) != null)
+            var collection = db.Collections?.SingleOrDefault(x => x.CollectionName == name);
+
+            if (collection != null)
             {
                 throw new SettingsBuilderException(
                    $"Cannot add collection with name {name} because it has already been added to this configuration.");
@@ -181,7 +183,7 @@ namespace Harness.Settings
     {
         ISettingsBuilderConnectionString AddDatabase(string name);
 
-        MongoConfiguration Done();
+        MongoConfiguration Build();
     }
 
     public interface ISettingsBuilderConnectionString
@@ -206,6 +208,6 @@ namespace Harness.Settings
 
         ISettingsBuilderConnectionString AddAnotherDatabase(string name);
 
-        MongoConfiguration Done();
+        MongoConfiguration Build();
     }
 }

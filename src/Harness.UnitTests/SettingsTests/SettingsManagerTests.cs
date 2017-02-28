@@ -19,10 +19,10 @@ namespace Harness.UnitTests.SettingsTests
         {
             // Arrange
             var fakeFileSystem = Substitute.For<IFileSystem>();
-            var classUnderTest = new SettingsManager(fakeFileSystem);
+            var classUnderTest = new SettingsLoader(fakeFileSystem);
 
             // Act / Assert
-            Assert.Throws<SettingsManagerException>(
+            Assert.Throws<SettingsLoaderException>(
                 () => classUnderTest.GetMongoConfiguration(testValue));
         }
 
@@ -40,7 +40,7 @@ namespace Harness.UnitTests.SettingsTests
                 .GetExtension(Arg.Any<string>())
                 .Returns("doc");
 
-            var classUnderTest = new SettingsManager(fakeFileSystem);
+            var classUnderTest = new SettingsLoader(fakeFileSystem);
 
             // Act / Assert
             Assert.Throws<ArgumentOutOfRangeException>(
@@ -58,10 +58,10 @@ namespace Harness.UnitTests.SettingsTests
                 .Exists(Arg.Any<string>())
                 .Returns(false);
 
-            var classUnderTest = new SettingsManager(fakeFileSystem);
+            var classUnderTest = new SettingsLoader(fakeFileSystem);
 
             // Act / Assert
-            Assert.Throws<SettingsManagerException>(
+            Assert.Throws<SettingsLoaderException>(
                 () => classUnderTest.GetMongoConfiguration("anyFilePath.json"));
         }
 
@@ -85,7 +85,7 @@ namespace Harness.UnitTests.SettingsTests
                 .GetExtension(testFilePath)
                 .Returns(".json");
 
-            var classUnderTest = new SettingsManager(fakeFileSystem);
+            var classUnderTest = new SettingsLoader(fakeFileSystem);
 
             // Act
             var expected = this.TestSettings;
@@ -118,7 +118,7 @@ namespace Harness.UnitTests.SettingsTests
                 .GetExtension(testFilePath)
                 .Returns(".json");
 
-            var classUnderTest = new SettingsManager(fakeFileSystem);
+            var classUnderTest = new SettingsLoader(fakeFileSystem);
 
             // Act / Assert
             Assert.Throws<ArgumentException>(
