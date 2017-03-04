@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Harness.Attributes;
 using MongoDB.Driver;
 
@@ -27,10 +26,7 @@ namespace Harness
         /// </summary>
         internal HarnessBase(IHarnessManager harnessManager)
         {
-            if (harnessManager == null)
-            {
-                throw new ArgumentNullException(nameof(harnessManager));
-            }
+            Guard.AgainstNullArgument(harnessManager, nameof(harnessManager));
 
             this.HarnessManager = harnessManager;
 
@@ -38,15 +34,20 @@ namespace Harness
 
             if (this.AutoRun)
             {
-                this.Build();
+                this.BuildDatabases();
             }
         }
 
         /// <summary>
-        /// Gets or sets the dictionary of mongo clients.
+        /// Gets the dictionary of mongo clients.
         /// The mongo server connection string is used as the key.
         /// </summary>
-        public Dictionary<string, IMongoClient> MongoConnections { get; private set; }
+        public Dictionary<string, IMongoClient> MongoConnections => this.Connections;
+
+        /// <summary>
+        /// Backing property for <see cref="MongoConnections"/>.
+        /// </summary>
+        private Dictionary<string, IMongoClient> Connections { get; set; }
 
         /// <summary>
         /// Gets or sets the filepath of the mongo configuration file.
@@ -62,6 +63,23 @@ namespace Harness
         /// Gets the <see cref="IHarnessManager"/> implementation.
         /// </summary>
         private IHarnessManager HarnessManager { get; }
+
+        /// <summary>
+        /// Puts the databases into the state defined in the given configuration file.
+        /// This method can only be called if the <see cref="HarnessConfigAttribute"/>
+        /// AutoRun property is set to false.
+        /// </summary>
+        public void Build()
+        {
+            if (this.AutoRun)
+            {
+                throw new HarnessBaseException(
+                    "The current instance is not configured to allow a manual build."
+                );
+            }
+
+            this.BuildDatabases();
+        }
 
         private void GetAttributeSettings()
         {
@@ -93,26 +111,9 @@ namespace Harness
             this.AutoRun = autoRun;
         }
 
-        /// <summary>
-        /// Puts the databases into the state defined in the given configuration file.
-        /// This method can only be called if the <see cref="HarnessConfigAttribute"/>
-        /// AutoRun property is set to false.
-        /// </summary>
-        public void BuildDatabase()
+        private void BuildDatabases()
         {
-            if (this.AutoRun)
-            {
-                throw new HarnessBaseException(
-                    "The current instance is not configured to allow a manual build."
-                );
-            }
-
-            this.Build();
-        }
-
-        private void Build()
-        {
-            this.MongoConnections =
+            this.Connections =
                 this.HarnessManager
                     .UsingSettings(this.ConfigFilepath)
                     .Build();

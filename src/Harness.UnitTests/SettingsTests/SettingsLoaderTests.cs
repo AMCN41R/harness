@@ -4,11 +4,10 @@ using System.IO.Abstractions;
 using Xunit;
 using NSubstitute;
 using Harness.Settings;
-using Harness.UnitTests.Comparer;
 
 namespace Harness.UnitTests.SettingsTests
 {
-    public class SettingsManagerTests
+    public class SettingsLoaderTests
     {
         [Theory]
         [InlineData("")]
@@ -85,16 +84,18 @@ namespace Harness.UnitTests.SettingsTests
                 .GetExtension(testFilePath)
                 .Returns(".json");
 
+            var expected = this.TestSettings;
+
             var classUnderTest = new SettingsLoader(fakeFileSystem);
 
+
             // Act
-            var expected = this.TestSettings;
             var result =
                 classUnderTest.GetMongoConfiguration(testFilePath);
 
-            // Assert
-            ObjectComparer.AssertObjectsAreEqual(expected, result);
 
+            // Assert
+            Assert.Equal(expected, result, Comparers.HarnessConfigurationComparer());
         }
 
         [Fact]
@@ -121,7 +122,7 @@ namespace Harness.UnitTests.SettingsTests
             var classUnderTest = new SettingsLoader(fakeFileSystem);
 
             // Act / Assert
-            Assert.Throws<ArgumentException>(
+            Assert.Throws<Newtonsoft.Json.JsonReaderException>(
                 () => classUnderTest.GetMongoConfiguration(testFilePath));
 
         }
@@ -141,9 +142,9 @@ namespace Harness.UnitTests.SettingsTests
                 "\"DataFileLocation\": \"TestData\\\\Collection2.json\"," +
                 "\"DropFirst\": false}]}]}";
 
-        private MongoConfiguration TestSettings
+        private HarnessConfiguration TestSettings
             =>
-                new MongoConfiguration
+                new HarnessConfiguration
                 {
                     Databases =
                         new List<DatabaseConfig>

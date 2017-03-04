@@ -1,213 +1,182 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 
 namespace Harness.Settings
 {
+    /// <summary>
+    /// A fluent api that lets you build the Harness configuration object in 
+    /// code instead of using an external json file.
+    /// </summary>
     public class SettingsBuilder :
         ISettingsBuilder,
         ISettingsBuilderConnectionString,
-        ISettingsBuilderDatabseOptions,
+        ISettingsBuilderDatabaseOptions,
         ISettingsBuilderAddMoreCollections
     {
         public SettingsBuilder()
         {
-            this.Config = new MongoConfiguration();
+            this.Config = new HarnessConfiguration();
         }
 
-        private MongoConfiguration Config { get; }
+        /// <summary>
+        /// Gets the <see cref="HarnessConfiguration"/> object.
+        /// </summary>
+        private HarnessConfiguration Config { get; }
 
+        /// <summary>
+        /// Gets the name of the database that is currently being configured.
+        /// </summary>
         private string CurrentDatabaseName { get; set; }
 
+        /// <inheritdoc />
         public ISettingsBuilderConnectionString AddDatabase(string name)
         {
-            this.AddDatabaseToConfig(name);
+            this.Config.AddDatabase(name);
+            this.CurrentDatabaseName = name;
             return this;
         }
 
-        MongoConfiguration ISettingsBuilder.Build()
+        /// <inheritdoc />
+        HarnessConfiguration ISettingsBuilder.Build()
         {
             return this.Config;
         }
 
-        ISettingsBuilderDatabseOptions ISettingsBuilderConnectionString.WithConnectionString(string connectionString)
+        /// <inheritdoc />
+        ISettingsBuilderDatabaseOptions ISettingsBuilderConnectionString.WithConnectionString(string connectionString)
         {
-            Guard.AgainstNullEmptyOrWhitespace(nameof(connectionString));
+            Guard.AgainstNullEmptyOrWhitespace(connectionString, nameof(connectionString));
 
-            var db = this.GetDatabaseConfig(this.CurrentDatabaseName);
-
-            if (db == null)
-            {
-                throw new SettingsBuilderException(
-                    $"An error occurred trying to add the connection string to the database {this.CurrentDatabaseName}.");
-            }
-
-            db.ConnectionString = connectionString;
+            this.GetDatabaseConfig().SetValue(x => x.ConnectionString = connectionString);
 
             return this;
         }
 
-        ISettingsBuilderDatabseOptions ISettingsBuilderDatabseOptions.WithDatabaseNameSuffix(string suffix)
+        /// <inheritdoc />
+        ISettingsBuilderDatabaseOptions ISettingsBuilderDatabaseOptions.WithDatabaseNameSuffix(string suffix)
         {
-            Guard.AgainstNullEmptyOrWhitespace(nameof(suffix));
+            Guard.AgainstNullEmptyOrWhitespace(suffix, nameof(suffix));
 
-            var db = this.GetDatabaseConfig(this.CurrentDatabaseName);
-
-            if (db == null)
-            {
-                throw new SettingsBuilderException(
-                    $"An error occurred trying to add configuration for the database {this.CurrentDatabaseName}.");
-            }
-
-            db.DatabaseNameSuffix = suffix;
+            this.GetDatabaseConfig().SetValue(x => x.DatabaseNameSuffix = suffix);
 
             return this;
         }
 
-        ISettingsBuilderDatabseOptions ISettingsBuilderDatabseOptions.WithCollectionNameSuffix(string suffix)
+        /// <inheritdoc />
+        ISettingsBuilderDatabaseOptions ISettingsBuilderDatabaseOptions.WithCollectionNameSuffix(string suffix)
         {
-            Guard.AgainstNullEmptyOrWhitespace(nameof(suffix));
+            Guard.AgainstNullEmptyOrWhitespace(suffix, nameof(suffix));
 
-            var db = this.GetDatabaseConfig(this.CurrentDatabaseName);
-
-            if (db == null)
-            {
-                throw new SettingsBuilderException(
-                    $"An error occurred trying to add configuration for the database {this.CurrentDatabaseName}.");
-            }
-
-            db.CollectionNameSuffix = suffix;
+            this.GetDatabaseConfig().SetValue(x => x.CollectionNameSuffix = suffix);
 
             return this;
         }
 
-        ISettingsBuilderDatabseOptions ISettingsBuilderDatabseOptions.DropDatabaseFirst()
+        /// <inheritdoc />
+        ISettingsBuilderDatabaseOptions ISettingsBuilderDatabaseOptions.DropDatabaseFirst()
         {
-            var db = this.GetDatabaseConfig(this.CurrentDatabaseName);
-
-            if (db == null)
-            {
-                throw new SettingsBuilderException(
-                    $"An error occurred trying to add configuration for the database {this.CurrentDatabaseName}.");
-            }
-
-            db.DropFirst = true;
-
+            this.GetDatabaseConfig().SetValue(x => x.DropFirst = true);
             return this;
         }
 
-        ISettingsBuilderAddMoreCollections ISettingsBuilderDatabseOptions.AddCollection(string name, bool dropFirst, string fileLocation)
+        /// <inheritdoc />
+        ISettingsBuilderAddMoreCollections ISettingsBuilderDatabaseOptions.AddCollection(string name, bool dropFirst, string fileLocation)
         {
-            this.AddCollectionToConfig(name, dropFirst, fileLocation);
+            this.GetDatabaseConfig().AddCollection(name, dropFirst, fileLocation);
             return this;
         }
 
+        /// <inheritdoc />
         ISettingsBuilderAddMoreCollections ISettingsBuilderAddMoreCollections.AddCollection(string name, bool dropFirst, string fileLocation)
         {
-            this.AddCollectionToConfig(name, dropFirst, fileLocation);
+            this.GetDatabaseConfig().AddCollection(name, dropFirst, fileLocation);
             return this;
         }
 
+        /// <inheritdoc />
         ISettingsBuilderConnectionString ISettingsBuilderAddMoreCollections.AddAnotherDatabase(string name)
         {
-            this.AddDatabaseToConfig(name);
+            this.Config.AddDatabase(name);
+            this.CurrentDatabaseName = name;
             return this;
         }
 
-        MongoConfiguration ISettingsBuilderAddMoreCollections.Build()
+        /// <inheritdoc />
+        HarnessConfiguration ISettingsBuilderAddMoreCollections.Build()
         {
             return this.Config;
         }
 
-        private DatabaseConfig GetDatabaseConfig(string name)
+        /// <inheritdoc />
+        ISettingsBuilderAddMoreCollections ISettingsBuilderDatabaseOptions.AddCollection(string name, bool dropFirst, IDataProvider dataProvider)
         {
-            return this.Config.Databases.SingleOrDefault(x => x.DatabaseName == name);
+            this.GetDatabaseConfig().AddDataProviderCollection(name, dropFirst, dataProvider);
+            return this;
         }
 
-        private void AddDatabaseToConfig(string name)
+        /// <inheritdoc />
+        ISettingsBuilderAddMoreCollections ISettingsBuilderAddMoreCollections.AddCollection(string name, bool dropFirst, IDataProvider dataProvider)
         {
-            Guard.AgainstNullEmptyOrWhitespace(nameof(name));
-
-            if (this.Config.Databases == null)
-            {
-                this.Config.Databases = new List<DatabaseConfig>();
-            }
-
-            if (this.GetDatabaseConfig(name) != null)
-            {
-                throw new SettingsBuilderException(
-                    $"Cannot add database with name {name} because it has already been added to this configuration.");
-            }
-
-            this.Config.Databases.Add(new DatabaseConfig { DatabaseName = name });
-            this.CurrentDatabaseName = name;
+            this.GetDatabaseConfig().AddDataProviderCollection(name, dropFirst, dataProvider);
+            return this;
         }
 
-        private void AddCollectionToConfig(string name, bool dropFirst, string fileLocation)
+        private DatabaseConfig GetDatabaseConfig()
         {
-            Guard.AgainstNullEmptyOrWhitespace(nameof(name));
-            Guard.AgainstNullEmptyOrWhitespace(nameof(fileLocation));
-
-            var db = this.GetDatabaseConfig(this.CurrentDatabaseName);
-
-            if (db == null)
-            {
-                throw new SettingsBuilderException(
-                    $"An error occurred trying to add a collection to the database {this.CurrentDatabaseName}.");
-            }
-
-            var collection = db.Collections?.SingleOrDefault(x => x.CollectionName == name);
-
-            if (collection != null)
-            {
-                throw new SettingsBuilderException(
-                   $"Cannot add collection with name {name} because it has already been added to this configuration.");
-            }
-
-            if (db.Collections == null)
-            {
-                db.Collections = new List<CollectionConfig>();
-            }
-
-            db.Collections.Add(
-                new CollectionConfig
-                {
-                    CollectionName = name,
-                    DropFirst = dropFirst,
-                    DataFileLocation = fileLocation
-                }
-            );
+            return this.Config.Databases.SingleOrDefault(x => x.DatabaseName == this.CurrentDatabaseName);
         }
     }
 
     public interface ISettingsBuilder
     {
+        /// <summary>
+        /// Adds a new database configuration to the <see cref="HarnessConfiguration"/> object. 
+        /// </summary>
+        /// <param name="name">The name of the MongoDb database.</param>
+        /// <returns>
+        /// An <see cref="ISettingsBuilderConnectionString"/> instance.
+        /// </returns>
         ISettingsBuilderConnectionString AddDatabase(string name);
 
-        MongoConfiguration Build();
+        /// <summary>
+        /// Builds the finshed configuration.
+        /// </summary>
+        /// <returns>A <see cref="HarnessConfiguration"/> instance.</returns>
+        HarnessConfiguration Build();
     }
 
     public interface ISettingsBuilderConnectionString
     {
-        ISettingsBuilderDatabseOptions WithConnectionString(string connectionString);
+        /// <summary>
+        /// Adds the connection string to the current database configuration.
+        /// </summary>
+        /// <param name="connectionString">The MongoDb connection string.</param>
+        /// <returns>
+        /// An <see cref="ISettingsBuilderDatabaseOptions"/> instance.
+        /// </returns>
+        ISettingsBuilderDatabaseOptions WithConnectionString(string connectionString);
     }
 
-    public interface ISettingsBuilderDatabseOptions
+    public interface ISettingsBuilderDatabaseOptions
     {
-        ISettingsBuilderDatabseOptions WithDatabaseNameSuffix(string suffix);
+        ISettingsBuilderDatabaseOptions WithDatabaseNameSuffix(string suffix);
 
-        ISettingsBuilderDatabseOptions WithCollectionNameSuffix(string suffix);
+        ISettingsBuilderDatabaseOptions WithCollectionNameSuffix(string suffix);
 
-        ISettingsBuilderDatabseOptions DropDatabaseFirst();
+        ISettingsBuilderDatabaseOptions DropDatabaseFirst();
 
         ISettingsBuilderAddMoreCollections AddCollection(string name, bool dropFirst, string fileLocation);
+
+        ISettingsBuilderAddMoreCollections AddCollection(string name, bool dropFirst, IDataProvider dataProvider);
     }
 
     public interface ISettingsBuilderAddMoreCollections
     {
         ISettingsBuilderAddMoreCollections AddCollection(string name, bool dropFirst, string fileLocation);
 
+        ISettingsBuilderAddMoreCollections AddCollection(string name, bool dropFirst, IDataProvider dataProvider);
+
         ISettingsBuilderConnectionString AddAnotherDatabase(string name);
 
-        MongoConfiguration Build();
+        HarnessConfiguration Build();
     }
 }

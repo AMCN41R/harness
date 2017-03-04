@@ -2,7 +2,7 @@
 
 namespace Harness.Settings
 {
-    public class MongoConfiguration
+    public class HarnessConfiguration
     {
         /// <summary>
         /// Gets or sets the list of database configurations.

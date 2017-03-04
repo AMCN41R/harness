@@ -4,7 +4,7 @@ using Xunit;
 
 namespace Harness.UnitTests.SettingsTests
 {
-    public class SettingsManagerExceptionTests
+    public class SettingsLoaderExceptionTests
     {
         [Fact]
         public void New_Message_BaseMessageIsSet()

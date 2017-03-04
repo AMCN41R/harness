@@ -28,7 +28,7 @@ namespace Harness.Examples.XUnit.UsingTheHarnessBaseClass
 
             // As AutoRun is set to false on the class attribute, the BuildDatabase()
             // must be called to tell the HarnessBase class to setup the databases.
-            base.BuildDatabase();
+            base.Build();
 
             var classUnderTest = new ClassUnderTest();
 
@@ -46,7 +46,7 @@ namespace Harness.Examples.XUnit.UsingTheHarnessBaseClass
 
             // As AutoRun is set to false on the class attribute, the BuildDatabase()
             // must be called to tell the HarnessBase class to setup the databases.
-            base.BuildDatabase();
+            base.Build();
 
             var classUnderTest = new ClassUnderTest();
 

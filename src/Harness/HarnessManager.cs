@@ -15,12 +15,21 @@ namespace Harness
             this.SettingsLoader = settingsLoader;
         }
 
-        private MongoConfiguration Configuration { get; set; }
+        /// <summary>
+        /// Gets or sets the <see cref="HarnessConfiguration"/>.
+        /// </summary>
+        private HarnessConfiguration Configuration { get; set; }
 
+        /// <summary>
+        /// Gets the <see cref="ISettingsLoader"/> instance.
+        /// </summary>
         private ISettingsLoader SettingsLoader { get; }
 
+        /// <inheritdoc />
         public IHarnessManagerBuilder UsingSettings(string filepath)
         {
+            Guard.AgainstNullEmptyOrWhitespace(filepath, nameof(filepath));
+
             this.Configuration =
                 this.SettingsLoader
                     .GetMongoConfiguration(filepath);
@@ -28,12 +37,16 @@ namespace Harness
             return this;
         }
 
-        public IHarnessManagerBuilder UsingSettings(MongoConfiguration configuration)
+        /// <inheritdoc />
+        public IHarnessManagerBuilder UsingSettings(HarnessConfiguration configuration)
         {
+            Guard.AgainstNullArgument(configuration, nameof(configuration));
+
             this.Configuration = configuration;
             return this;
         }
 
+        /// <inheritdoc />
         Dictionary<string, IMongoClient> IHarnessManagerBuilder.Build()
             => this.MongoSessionManager().Build();
 
@@ -45,14 +58,13 @@ namespace Harness
         /// </summary>
         internal virtual IMongoSessionManager MongoSessionManager()
             => new MongoSessionManager(this.Configuration);
-
     }
 
     public interface IHarnessManager
     {
         IHarnessManagerBuilder UsingSettings(string filepath);
 
-        IHarnessManagerBuilder UsingSettings(MongoConfiguration configuration);
+        IHarnessManagerBuilder UsingSettings(HarnessConfiguration configuration);
     }
 
     public interface IHarnessManagerBuilder

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO.Abstractions;
-using System.Web.Script.Serialization;
+using Newtonsoft.Json;
 
 namespace Harness.Settings
 {
@@ -8,14 +8,14 @@ namespace Harness.Settings
     {
         /// <summary>
         /// Loads a JSON file using the given path and deserializes it to a new 
-        /// instance of <see cref="MongoConfiguration"/>.
+        /// instance of <see cref="HarnessConfiguration"/>.
         /// </summary>
         /// <param name="configFilePath">The path of the JSON file to load.</param>
-        /// <returns>A new instance of <see cref="MongoConfiguration"/>.</returns>
+        /// <returns>A new instance of <see cref="HarnessConfiguration"/>.</returns>
         /// <exception cref="SettingsLoaderException">Thrown if the given filepath is invalid.</exception>
         /// <exception cref="ArgumentOutOfRangeException">Thrown when the given filepath's extension is not .json.</exception>
         /// <exception cref="ArgumentException">Thrown when the contents loaded from the given filepath cannot be deserialized.</exception>
-        MongoConfiguration GetMongoConfiguration(string configFilePath);
+        HarnessConfiguration GetMongoConfiguration(string configFilePath);
     }
 
     internal class SettingsLoader : ISettingsLoader
@@ -42,9 +42,8 @@ namespace Harness.Settings
         /// </summary>
         private IFileSystem FileSystem { get; }
 
-
         /// <inheritdoc />
-        public MongoConfiguration GetMongoConfiguration(string configFilePath)
+        public HarnessConfiguration GetMongoConfiguration(string configFilePath)
         {
             var fileValidationResult =
                 this.FileSystem.ValidateFile(configFilePath);
@@ -62,13 +61,9 @@ namespace Harness.Settings
                     "Invalid file type. File must be a .json file.");
             }
 
-            var json =
-                this.FileSystem.File.ReadAllText(configFilePath);
+            var json = this.FileSystem.File.ReadAllText(configFilePath);
 
-            // TODO: Use Newtonsoft
-            return
-                new JavaScriptSerializer()
-                    .Deserialize<MongoConfiguration>(json);
+            return JsonConvert.DeserializeObject<HarnessConfiguration>(json);
         }
     }
 }

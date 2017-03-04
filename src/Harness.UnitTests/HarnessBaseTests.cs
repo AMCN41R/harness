@@ -76,8 +76,7 @@ namespace Harness.UnitTests
         /// and then calls the Build method.
         /// </summary>
         [Fact]
-        public void
-            HarnessBase_NoAttribute_ThrowsException()
+        public void HarnessBase_NoAttribute_ThrowsException()
         {
             // Arrange
             var fakeBuilder = Substitute.For<IHarnessManagerBuilder>();
@@ -100,6 +99,83 @@ namespace Harness.UnitTests
             fakeHarnessManager.Received().UsingSettings("TestableHarnessBaseWithoutAttribute.json");
             fakeBuilder.Received().Build();
         }
+
+        [Fact]
+        public void Build_AutoRunSetToTrue_ThrowsHarnessBaseException()
+        {
+            // Arrange
+            var fakeBuilder = Substitute.For<IHarnessManagerBuilder>();
+            fakeBuilder
+                .Build()
+                .ReturnsForAnyArgs(
+                    new Dictionary<string, MongoDB.Driver.IMongoClient>());
+
+            var fakeHarnessManager = Substitute.For<IHarnessManager>();
+            fakeHarnessManager
+                .UsingSettings(Arg.Any<string>())
+                .Returns(fakeBuilder);
+
+            var classUnderTest = new TestableHarnessBase(fakeHarnessManager);
+
+            // Act / Assert
+            Assert.Throws<HarnessBaseException>(() => classUnderTest.Build());
+        }
+
+        [Fact]
+        public void Build_AutoRunSetToFalse_MakesExpectedCalls()
+        {
+            // Arrange
+            var fakeBuilder = Substitute.For<IHarnessManagerBuilder>();
+            fakeBuilder
+                .Build()
+                .ReturnsForAnyArgs(
+                    new Dictionary<string, MongoDB.Driver.IMongoClient>());
+
+            var fakeHarnessManager = Substitute.For<IHarnessManager>();
+            fakeHarnessManager
+                .UsingSettings(Arg.Any<string>())
+                .Returns(fakeBuilder);
+
+            var classUnderTest = new TestableHarnessBaseAutoRunFalse(fakeHarnessManager);
+
+
+            // Act
+            classUnderTest.Build();
+
+
+            // Assert
+            fakeHarnessManager.Received().UsingSettings("TestPath");
+            fakeBuilder.Received().Build();
+        }
+
+        [Fact]
+        public void HarnessBase_AutoRunSetToFalse_DoesNotMakeAnyCalls()
+        {
+            // Arrange
+            var fakeBuilder = Substitute.For<IHarnessManagerBuilder>();
+            fakeBuilder
+                .Build()
+                .ReturnsForAnyArgs(
+                    new Dictionary<string, MongoDB.Driver.IMongoClient>());
+
+            var fakeHarnessManager = Substitute.For<IHarnessManager>();
+            fakeHarnessManager
+                .UsingSettings(Arg.Any<string>())
+                .Returns(fakeBuilder);
+
+
+
+            // Act
+            // ReSharper disable once UnusedVariable
+            var classUnderTest = new TestableHarnessBaseAutoRunFalse(fakeHarnessManager);
+
+
+            // Assert
+            fakeHarnessManager.DidNotReceive().UsingSettings(Arg.Any<string>());
+            fakeBuilder.DidNotReceive().Build();
+        }
+
+        #region Helpers
 
         [HarnessConfig(ConfigFilePath = "TestPath")]
         private class TestableHarnessBase : HarnessBase
@@ -133,5 +209,16 @@ namespace Harness.UnitTests
 
         }
 
+        [HarnessConfig(ConfigFilePath = "TestPath", AutoRun = false)]
+        private class TestableHarnessBaseAutoRunFalse : HarnessBase
+        {
+            public TestableHarnessBaseAutoRunFalse(IHarnessManager harnessManager)
+                : base(harnessManager)
+            {
+            }
+
+        }
+
+        #endregion
     }
 }

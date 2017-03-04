@@ -3,7 +3,8 @@
 namespace Harness.Attributes
 {
     /// <summary>
-    /// 
+    /// An attribute that can be added to a test class or text fixture class to 
+    /// set options for the <see cref="HarnessBase"/> class.
     /// </summary>
     /// <remarks>
     /// <example>

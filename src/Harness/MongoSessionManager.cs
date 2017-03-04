@@ -4,8 +4,6 @@ using Harness.Settings;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Linq;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace Harness
 {
@@ -14,8 +12,8 @@ namespace Harness
         /// <summary>
         /// Creates a new instance of the MongoSessionManager.
         /// </summary>
-        /// <param name="settings">THe <see cref="MongoConfiguration"/> settings to use.</param>
-        public MongoSessionManager(MongoConfiguration settings)
+        /// <param name="settings">THe <see cref="HarnessConfiguration"/> settings to use.</param>
+        public MongoSessionManager(HarnessConfiguration settings)
             : this(settings, new FileSystem())
         {
         }
@@ -24,7 +22,7 @@ namespace Harness
         /// Internal constructor to allow dependency injection for unit testing.
         /// </summary>
         internal MongoSessionManager(
-            MongoConfiguration settings, IFileSystem fileSystem)
+            HarnessConfiguration settings, IFileSystem fileSystem)
         {
             this.Settings = settings;
             this.FileSystem = fileSystem;
@@ -35,7 +33,7 @@ namespace Harness
         /// <summary>
         /// Gets the Mongo configuration settings.
         /// </summary>
-        private MongoConfiguration Settings { get; }
+        private HarnessConfiguration Settings { get; }
 
         /// <summary>
         /// Gets the file system implementation.
@@ -43,7 +41,7 @@ namespace Harness
         private IFileSystem FileSystem { get; }
 
         /// <summary>
-        /// TODO:
+        /// Gets the dictionary of mongo clients.
         /// </summary>
         private Dictionary<string, IMongoClient> MongoClients { get; }
 
@@ -121,12 +119,12 @@ namespace Harness
             }
 
             // Load the test data from the specified file
-            var lines = GetTestDataFromFile(config.DataFileLocation);
+            var provider =
+                config.DataProvider
+                ?? new FromJsonFileDataProvider(config.DataFileLocation, this.FileSystem);
 
-            if (lines == null)
-            {
-                return;
-            }
+            var lines = provider.GetData().Select(x => x.ToBsonDocument()).ToList();
+
 
             // Get the collection
             var collection =
@@ -134,22 +132,6 @@ namespace Harness
 
             // Insert the data into the collection
             collection.InsertMany(lines);
-        }
-
-        private IEnumerable<BsonDocument> GetTestDataFromFile(string path)
-        {
-            // Return null if the given filepath is not valid
-            if (!this.FileSystem.ValidateFile(path)?.IsValid ?? false)
-            {
-                return null;
-            }
-
-            var fileText = this.FileSystem.File.ReadAllText(path);
-
-            var itemArray =
-                JsonConvert.DeserializeObject(fileText) as JArray;
-
-            return itemArray?.Select(x => BsonDocument.Parse(x.ToString()));
         }
     }
 }

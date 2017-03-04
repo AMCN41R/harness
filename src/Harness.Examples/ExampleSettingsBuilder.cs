@@ -4,7 +4,7 @@ namespace Harness.Examples
 {
     public class ExampleSettingsBuilder
     {
-        public MongoConfiguration GetSettings()
+        public HarnessConfiguration GetSettings()
         {
             return
                 new SettingsBuilder()

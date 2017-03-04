@@ -13,7 +13,5 @@ namespace Harness.Attributes
             : base(message, innerException)
         {
         }
-
     }
-
 }
