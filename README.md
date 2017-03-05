@@ -12,7 +12,22 @@ Harness was inspired by [NDBUnit](https://github.com/NDbUnit/NDbUnit).
 ## Basic Usage
 Harness will put one or more Mongo databases into a state defined by a json settings file and one or more json data files.
 
-### Example settings file, 'ExampleSettings.json'
+### Settings File
+The settings file must have a .json extension. It is a json object that contains a `Databases` property that is an array of `Database` objects.
+
+#### Database Object
+- **DatabseName**: The name of the database that will be used. 
+- **ConnectionString**: The connection string of the mongo server where the database should be created. 
+- **CollectionNameSuffix**: A string that will be added to the end of each collection name specified in the collections array. 
+- **DropFirst**: A boolean value that indicates whether or not this database should be dropped if it already exists, and re-created. 
+- **Collections**: An array of `Collection` objects. 
+
+#### Collection Object
+- **CollectionName**: The name of the collection that will be used. 
+- **DropFirst**: A boolean value that indicates whether or not this collection should be dropped if it already exists, and re-created. 
+- **DataFileLocation**: The path to the json file that contains the data that should be inserted into this collection.
+
+#### Example settings file, 'ExampleSettings.json'
 ```
 {
     "Databases": [
@@ -38,7 +53,10 @@ Harness will put one or more Mongo databases into a state defined by a json sett
 }
 ```
 
-### Example data file, 'Collection1.json'
+### Data File
+Test data files must have a .json extension and contain an array of json objects.
+
+#### Example data file, 'Collection1.json'
 ```
 [
     {
@@ -77,16 +95,6 @@ public class AutoConfigureDatabase : HarnessBase
 }
 ```
 
-## Settings File
-TODO
-
-## Data File
-TODO
-Test data files must have a .json extension and contain an array or json objects.
-
-## HarnessConfig Attribute
-TODO
-
 ## HarnessBase Class
 The HarnessBase class is an abstract class that, during construction, loads the Harness settings and data files, and configures the Mongo instance defined inside the settings file.
 Using the HarnessBase class with a Harness Settings file and a Harness Data file(s) is the simplest and easiest way to configure a Mongo instance...
@@ -96,10 +104,10 @@ Using the HarnessBase class with a Harness Settings file and a Harness Data file
 3.	Make your test class extend HarnessBase
 4.	Optionally annotate your test class with the HarnessConfig attribute to specify the file path of your settings file. If the attribute is not present, or a configuration file path is not specified on the attribute, a default value of [ClassName].json will be used.
 
-##### Manual #####
+### Manual
 A manual version on the HarnessBase class will work in the same way (inheritance and attribute) but will require a method call to configure Mongo, rather than it happening in the constructor.
 
-##### XUnit Test Fixture #####
+### XUnit Test Fixture
 A version that is configured to work with the XUnit class fixture design (a shared context between tests, similar to NUnit SetUp and TearDown). The default behaviour of XUnit is to create a new instance of the test class for each test inside it. If using the HarnessBase, this would result in the database being deleted (depending on the settings) and re-created for every test. Using this base class will ensure this only happens once for a group of tests.
 
 
@@ -142,7 +150,7 @@ public class AutoConfigureDatabase : HarnessBase
         // Rather than create a new one, we can re-use the one that was 
         // created by the HarnessBase class when it was setting up the 
         // databases.
-        var mongoClient = base.MongoConnections["mongodb://localhost:20719"];
+        var mongoClient = this.MongoConnections["mongodb://localhost:20719"];
 
         // Act
         var result = classUnderTest.GetCollectionRecordCount(mongoClient, "TestCollection1");
@@ -157,7 +165,7 @@ public class AutoConfigureDatabase : HarnessBase
 To use Harness:
 - add the HarnessConfig attribute to the class that contains the tests 
 - specify the relative path to the Harness settings file by setting the ConfigFilePath variable 
-- specify AUtoRun = false to stop the databases being created 
+- specify `AutoRun = false` to stop the databases being created 
 - have the class that contains the tests extend HarnessBase on class construction 
 
 Setting AutoRun = false, tells the HarnessBase class not to setup the databases until the BuildDatabase() method is called.
@@ -175,7 +183,7 @@ public class ManuallyConfigureDatabase : HarnessBase
 
         // As AutoRun is set to false on the class attribute, the BuildDatabase()
         // must be called to tell the HarnessBase class to setup the databases.
-        base.BuildDatabase();
+        this.BuildDatabase();
 
         var classUnderTest = new ClassUnderTest();
 
@@ -193,10 +201,10 @@ public class ManuallyConfigureDatabase : HarnessBase
 
         // As AutoRun is set to false on the class attribute, the BuildDatabase()
         // must be called to tell the HarnessBase class to setup the databases.
-        base.BuildDatabase();
+        this.BuildDatabase();
 
         var classUnderTest = new ClassUnderTest();
-        var mongoClient = base.MongoConnections["mongodb://localhost:20719"];
+        var mongoClient = this.MongoConnections["mongodb://localhost:20719"];
 
         // Act
         var result = classUnderTest.GetCollectionRecordCount(mongoClient, "TestCollection1");
@@ -208,7 +216,7 @@ public class ManuallyConfigureDatabase : HarnessBase
 ```
 
 ### Test Fixture Configuration
-To use Harness with an Xunit ClassFixture:
+To use Harness with an XUnit ClassFixture:
 - add the HarnessConfig attribute to the class fixture.
 - specify the relative path to the Harness settings file by setting the ConfigFilePath variable
 - have the class fixture extend HarnessBase
@@ -339,7 +347,7 @@ var mongoClients =
         .Build();
 ```
 
-#### Xunit Example
+### XUnit Example
 Here, we call build() in the test class constructor which means the configuration will run before each test in the class is executed...
 ```csharp
 public class SettingsBuilderWithDataFiles
