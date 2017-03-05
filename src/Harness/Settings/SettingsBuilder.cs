@@ -52,16 +52,6 @@ namespace Harness.Settings
         }
 
         /// <inheritdoc />
-        ISettingsBuilderDatabaseOptions ISettingsBuilderDatabaseOptions.WithDatabaseNameSuffix(string suffix)
-        {
-            Guard.AgainstNullEmptyOrWhitespace(suffix, nameof(suffix));
-
-            this.GetDatabaseConfig().SetValue(x => x.DatabaseNameSuffix = suffix);
-
-            return this;
-        }
-
-        /// <inheritdoc />
         ISettingsBuilderDatabaseOptions ISettingsBuilderDatabaseOptions.WithCollectionNameSuffix(string suffix)
         {
             Guard.AgainstNullEmptyOrWhitespace(suffix, nameof(suffix));
@@ -158,8 +148,6 @@ namespace Harness.Settings
 
     public interface ISettingsBuilderDatabaseOptions
     {
-        ISettingsBuilderDatabaseOptions WithDatabaseNameSuffix(string suffix);
-
         ISettingsBuilderDatabaseOptions WithCollectionNameSuffix(string suffix);
 
         ISettingsBuilderDatabaseOptions DropDatabaseFirst();

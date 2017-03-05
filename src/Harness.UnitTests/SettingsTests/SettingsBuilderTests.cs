@@ -19,7 +19,6 @@ namespace Harness.UnitTests.SettingsTests
                         CollectionNameSuffix = "CS-1",
                         ConnectionString = "connString-1",
                         DatabaseName = "DB-1",
-                        DatabaseNameSuffix = "DS-1",
                         DropFirst = true,
                         Collections = new List<CollectionConfig>
                         {
@@ -42,7 +41,6 @@ namespace Harness.UnitTests.SettingsTests
                         CollectionNameSuffix = "CS-2",
                         ConnectionString = "connString-2",
                         DatabaseName = "DB-2",
-                        DatabaseNameSuffix = "DS-2",
                         DropFirst = true,
                         Collections = new List<CollectionConfig>
                         {
@@ -68,14 +66,12 @@ namespace Harness.UnitTests.SettingsTests
                 new SettingsBuilder()
                     .AddDatabase("DB-1")
                     .WithConnectionString("connString-1")
-                    .WithDatabaseNameSuffix("DS-1")
                     .WithCollectionNameSuffix("CS-1")
                     .DropDatabaseFirst()
                     .AddCollection("C-1", true, "file-1")
                     .AddCollection("C-2", true, "file-2")
                     .AddAnotherDatabase("DB-2")
                     .WithConnectionString("connString-2")
-                    .WithDatabaseNameSuffix("DS-2")
                     .WithCollectionNameSuffix("CS-2")
                     .DropDatabaseFirst()
                     .AddCollection("C-3", true, "file-3")

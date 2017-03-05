@@ -102,16 +102,6 @@ namespace Harness.Settings
             return db;
         }
 
-        public static string GetDatabaseName(this DatabaseConfig config)
-        {
-            Guard.AgainstNullArgument(config, nameof(config));
-
-            return
-                string.IsNullOrWhiteSpace(config.DatabaseNameSuffix)
-                    ? config.DatabaseName
-                    : $"{config.DatabaseName}{config.DatabaseNameSuffix}";
-        }
-
         public static string GetCollectionName(this CollectionConfig config, string suffix)
         {
             Guard.AgainstNullArgument(config, nameof(config));

@@ -17,9 +17,8 @@ namespace Harness.Examples.XUnit.UsingTheHarnessManager
         {
             var settings =
                 new SettingsBuilder()
-                    .AddDatabase("TestDb")
+                    .AddDatabase("TestDb1")
                     .WithConnectionString("mongodb://localhost:27017")
-                    .WithDatabaseNameSuffix("1")
                     .DropDatabaseFirst()
                     .AddCollection("col1", true, "Collection1.json")
                     .AddCollection("col2", true, "Collection2.json")

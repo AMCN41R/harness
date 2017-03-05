@@ -23,7 +23,6 @@ namespace Harness.UnitTests
             return new GenericComparer<DatabaseConfig>(
                 (x, y) => x.DropFirst == y.DropFirst,
                 (x, y) => string.Equals(x.DatabaseName, y.DatabaseName),
-                (x, y) => string.Equals(x.DatabaseNameSuffix, y.DatabaseNameSuffix),
                 (x, y) => string.Equals(x.CollectionNameSuffix, y.CollectionNameSuffix),
                 (x, y) => string.Equals(x.ConnectionString, y.ConnectionString),
                 (x, y) => (x.Collections == null && y.Collections == null) || x.Collections.SequenceEqual(y.Collections, CollectionConfigComparer())

@@ -358,7 +358,6 @@ namespace Harness.UnitTests.SettingsTests
                 CollectionNameSuffix = "c_suffix",
                 ConnectionString = "conn_string",
                 DatabaseName = "db_name",
-                DatabaseNameSuffix = "db_suffix",
                 DropFirst = false
             };
 
@@ -367,7 +366,6 @@ namespace Harness.UnitTests.SettingsTests
                 CollectionNameSuffix = "c_suffix",
                 ConnectionString = "conn_string",
                 DatabaseName = "db_name",
-                DatabaseNameSuffix = "db_suffix",
                 DropFirst = true
             };
 
@@ -376,56 +374,6 @@ namespace Harness.UnitTests.SettingsTests
 
             // Assert
             Assert.Equal(expected, result, Comparers.DatabaseConfigComparer());
-        }
-
-        [Fact]
-        public void GetDatabaseName_NullConfig_ThrowsArgumentNullException()
-        {
-            Assert.Throws<ArgumentNullException>(() => (null as DatabaseConfig).GetDatabaseName());
-        }
-
-        [Theory]
-        [InlineData("")]
-        [InlineData(" ")]
-        [InlineData(null)]
-        public void GetDatabaseName_ConfigWithNullEmptyOrWhitespaceSuffix_ReturnsDatabaseName(string value)
-        {
-            // Arrange
-            var config = new DatabaseConfig
-            {
-                DatabaseName = "test",
-                DatabaseNameSuffix = value
-            };
-
-            var expected = "test";
-
-            // Act
-            var result = config.GetDatabaseName();
-
-            // Assert
-            Assert.Equal(expected, result);
-        }
-
-        [Theory]
-        [InlineData("test")]
-        [InlineData(" test")]
-        [InlineData("-test")]
-        public void GetDatabaseName_ConfigWithDatabaseNameSuffix_ReturnsExpectedDatabaseName(string value)
-        {
-            // Arrange
-            var config = new DatabaseConfig
-            {
-                DatabaseName = "db",
-                DatabaseNameSuffix = value
-            };
-
-            var expected = $"db{value}";
-
-            // Act
-            var result = config.GetDatabaseName();
-
-            // Assert
-            Assert.Equal(expected, result);
         }
 
         [Fact]

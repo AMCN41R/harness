@@ -75,17 +75,14 @@ namespace Harness
             // Get the mongo client
             var client = GetMongoClient(config.ConnectionString);
 
-            // Concat the database sufix and name if a suffix is specified
-            var databaseName = config.GetDatabaseName();
-
             // Drop the database is specified
             if (config.DropFirst)
             {
-                client.DropDatabase(databaseName);
+                client.DropDatabase(config.DatabaseName);
             }
 
             // Get the database
-            var database = client.GetDatabase(databaseName);
+            var database = client.GetDatabase(config.DatabaseName);
 
             // Add the collections to the database
             foreach (var collection in config.Collections)

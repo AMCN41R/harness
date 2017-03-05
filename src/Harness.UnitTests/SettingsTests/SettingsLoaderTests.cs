@@ -153,7 +153,6 @@ namespace Harness.UnitTests.SettingsTests
                             {
                                 DatabaseName = "TestDb1",
                                 ConnectionString = "mongodb://localhost:27017",
-                                DatabaseNameSuffix = "",
                                 CollectionNameSuffix = "",
                                 DropFirst = false,
                                 Collections =

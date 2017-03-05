@@ -19,7 +19,6 @@ Harness will put one or more Mongo databases into a state defined by a json sett
         {
             "DatabaseName": "TestDb1",
             "ConnectionString": "mongodb://localhost:27017",
-            "DatabaseNameSuffix": "",
             "CollectionNameSuffix": "",
             "DropFirst": true,
             "Collections": [
@@ -288,9 +287,8 @@ This example creates a configuration for one database called 'TestDb', that has 
 ```csharp
 var settings =
     new SettingsBuilder()
-        .AddDatabase("TestDb")
+        .AddDatabase("TestDb1")
         .WithConnectionString("mongodb://localhost:27017")
-        .WithDatabaseNameSuffix("1")
         .DropDatabaseFirst()
         .AddCollection("col1", true, "path/to/Collection1.json")
         .AddCollection("col2", true, "path/to/Collection2.json")
@@ -350,9 +348,8 @@ public class SettingsBuilderWithDataFiles
     {
         var settings =
             new SettingsBuilder()
-                .AddDatabase("TestDb")
+                .AddDatabase("TestDb1")
                 .WithConnectionString("mongodb://localhost:27017")
-                .WithDatabaseNameSuffix("1")
                 .DropDatabaseFirst()
                 .AddCollection("col1", true, "path/to/Collection1.json")
                 .AddCollection("col2", true, "path/to/Collection2.json")

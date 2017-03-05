@@ -15,11 +15,6 @@ namespace Harness.Settings
         public string ConnectionString { get; set; }
 
         /// <summary>
-        /// Gets or sets the the string to add as a suffix to the database name.
-        /// </summary>
-        public string DatabaseNameSuffix { get; set; }
-
-        /// <summary>
         /// Gets or sets the the string to add as a suffix to each of the 
         /// collection names.
         /// </summary>
