@@ -16,7 +16,7 @@ namespace Harness.Examples.XUnit.UsingTheHarnessManager
                     .AddDatabase("TestDb1")
                     .WithConnectionString("mongodb://localhost:27017")
                     .DropDatabaseFirst()
-                    .AddCollection("col1", true, new PersonDataProvider())
+                    .AddCollection<Person>("col1", true, new PersonDataProvider())
                     .Build();
 
             this.MongoConnections =

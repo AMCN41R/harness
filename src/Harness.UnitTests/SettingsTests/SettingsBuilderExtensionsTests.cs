@@ -216,15 +216,11 @@ namespace Harness.UnitTests.SettingsTests
             Assert.Equal(expected, result, Comparers.DatabaseConfigComparer());
         }
 
-
-
-
-
         [Fact]
         public void AddDataProviderCollection_NullConfig_ThorwsArgumentNullException()
         {
             Assert.Throws<ArgumentNullException>(
-                () => (null as DatabaseConfig).AddDataProviderCollection("name", true, new TestDataProvider()));
+                () => (null as DatabaseConfig).AddDataProviderCollection<object>("name", true, new TestDataProvider()));
         }
 
         [Theory]
@@ -234,14 +230,14 @@ namespace Harness.UnitTests.SettingsTests
         public void AddDataProviderCollection_NullEmptyOrWhitespaceName_ThorwsArgumentNullException(string value)
         {
             Assert.Throws<ArgumentNullException>(
-                () => new DatabaseConfig().AddDataProviderCollection(value, true, new TestDataProvider()));
+                () => new DatabaseConfig().AddDataProviderCollection<object>(value, true, new TestDataProvider()));
         }
 
         [Fact]
         public void AddDataProviderCollection_NullProvider_ThorwsArgumentNullException()
         {
             Assert.Throws<ArgumentNullException>(
-                () => new DatabaseConfig().AddDataProviderCollection("name", true, null));
+                () => new DatabaseConfig().AddDataProviderCollection<object>("name", true, null));
         }
 
         [Fact]
@@ -258,7 +254,7 @@ namespace Harness.UnitTests.SettingsTests
 
             // Act / Assert
             Assert.Throws<SettingsBuilderException>(
-                () => config.AddDataProviderCollection("name", true, new TestDataProvider()));
+                () => config.AddDataProviderCollection<object>("name", true, new TestDataProvider()));
         }
 
         [Fact]
@@ -285,7 +281,7 @@ namespace Harness.UnitTests.SettingsTests
             };
 
             // Act
-            var result = config.AddDataProviderCollection("name", true, new TestDataProvider());
+            var result = config.AddDataProviderCollection<object>("name", true, new TestDataProvider());
 
             // Assert
             Assert.Equal(expected, result, Comparers.DatabaseConfigComparer());
@@ -333,7 +329,7 @@ namespace Harness.UnitTests.SettingsTests
             };
 
             // Act
-            var result = config.AddDataProviderCollection("name-2", false, new TestDataProvider());
+            var result = config.AddDataProviderCollection<object>("name-2", false, new TestDataProvider());
 
             // Assert
             Assert.Equal(expected, result, Comparers.DatabaseConfigComparer());
@@ -381,6 +377,104 @@ namespace Harness.UnitTests.SettingsTests
             // Assert
             Assert.Equal(expected, result, Comparers.DatabaseConfigComparer());
         }
+
+        [Fact]
+        public void GetDatabaseName_NullConfig_ThrowsArgumentNullException()
+        {
+            Assert.Throws<ArgumentNullException>(() => (null as DatabaseConfig).GetDatabaseName());
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(" ")]
+        [InlineData(null)]
+        public void GetDatabaseName_ConfigWithNullEmptyOrWhitespaceSuffix_ReturnsDatabaseName(string value)
+        {
+            // Arrange
+            var config = new DatabaseConfig
+            {
+                DatabaseName = "test",
+                DatabaseNameSuffix = value
+            };
+
+            var expected = "test";
+
+            // Act
+            var result = config.GetDatabaseName();
+
+            // Assert
+            Assert.Equal(expected, result);
+        }
+
+        [Theory]
+        [InlineData("test")]
+        [InlineData(" test")]
+        [InlineData("-test")]
+        public void GetDatabaseName_ConfigWithDatabaseNameSuffix_ReturnsExpectedDatabaseName(string value)
+        {
+            // Arrange
+            var config = new DatabaseConfig
+            {
+                DatabaseName = "db",
+                DatabaseNameSuffix = value
+            };
+
+            var expected = $"db{value}";
+
+            // Act
+            var result = config.GetDatabaseName();
+
+            // Assert
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void GetCollectionName_NullConfig_ThrowsArgumentNullException()
+        {
+            Assert.Throws<ArgumentNullException>(
+                () => (null as CollectionConfig).GetCollectionName("suffix"));
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(" ")]
+        [InlineData(null)]
+        public void GetCollectionName_NullEmptyOrWhitespaceSuffix_ReturnsCollectionName(string value)
+        {
+            // Arrange
+            var config = new CollectionConfig
+            {
+                CollectionName = "collection"
+            };
+
+            // Act
+            var result = config.GetCollectionName(value);
+
+            // Assert
+            Assert.Equal("collection", result);
+        }
+
+        [Theory]
+        [InlineData("test")]
+        [InlineData(" test")]
+        [InlineData("-test")]
+        public void GetCollectionName_ValidSuffix_ReturnsExpectedCollectionName(string value)
+        {
+            // Arrange
+            var config = new CollectionConfig
+            {
+                CollectionName = "collection"
+            };
+
+            var expected = $"collection{value}";
+
+            // Act
+            var result = config.GetCollectionName(value);
+
+            // Assert
+            Assert.Equal(expected, result);
+        }
+
 
         #region Helpers
 

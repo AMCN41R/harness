@@ -69,7 +69,7 @@ namespace Harness.Settings
             return db;
         }
 
-        public static DatabaseConfig AddDataProviderCollection(this DatabaseConfig db, string name, bool dropFirst, IDataProvider dataProvider)
+        public static DatabaseConfig AddDataProviderCollection<T>(this DatabaseConfig db, string name, bool dropFirst, IDataProvider dataProvider)
         {
             Guard.AgainstNullArgument(db, nameof(db));
             Guard.AgainstNullEmptyOrWhitespace(name, nameof(name));
@@ -94,11 +94,32 @@ namespace Harness.Settings
                     CollectionName = name,
                     DropFirst = dropFirst,
                     DataFileLocation = null,
-                    DataProvider = dataProvider
+                    DataProvider = dataProvider,
+                    DataProviderType = typeof(T)
                 }
             );
 
             return db;
+        }
+
+        public static string GetDatabaseName(this DatabaseConfig config)
+        {
+            Guard.AgainstNullArgument(config, nameof(config));
+
+            return
+                string.IsNullOrWhiteSpace(config.DatabaseNameSuffix)
+                    ? config.DatabaseName
+                    : $"{config.DatabaseName}{config.DatabaseNameSuffix}";
+        }
+
+        public static string GetCollectionName(this CollectionConfig config, string suffix)
+        {
+            Guard.AgainstNullArgument(config, nameof(config));
+
+            return
+                string.IsNullOrWhiteSpace(suffix)
+                    ? config.CollectionName
+                    : $"{config.CollectionName}{suffix}";
         }
     }
 }

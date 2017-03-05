@@ -68,10 +68,10 @@
     <Compile Include="Guard.cs" />
     <Compile Include="HarnessBaseException.cs" />
     <Compile Include="HarnessManager.cs" />
-    <Compile Include="IMongoSessionManager.cs" />
     <Compile Include="HarnessBase.cs" />
     <Compile Include="Attributes\HarnessConfigAttribute.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="MongoClientFactory.cs" />
     <Compile Include="MongoSessionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\CollectionConfig.cs" />

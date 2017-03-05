@@ -1,4 +1,9 @@
-﻿namespace Harness.Settings
+﻿using System;
+using MongoDB.Bson;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+
+namespace Harness.Settings
 {
     public class CollectionConfig
     {
@@ -20,10 +25,16 @@
         public IDataProvider DataProvider { get; set; }
 
         /// <summary>
+        /// Gets or sets the object type that the <see cref="DataProvider"/> provides.
+        /// </summary>
+        internal Type DataProviderType { get; set; } = typeof(BsonDocument);
+
+        /// <summary>
         /// Gets or sets the path to the test data file. This is only used when
         /// importing data from an external json file, and is turned into 
         /// an instance of <see cref="FromJsonFileDataProvider"/>.
         /// </summary>
-        public string DataFileLocation { get; set; }
+        [JsonProperty]
+        internal string DataFileLocation { get; set; }
     }
 }

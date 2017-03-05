@@ -107,16 +107,16 @@ namespace Harness.Settings
         }
 
         /// <inheritdoc />
-        ISettingsBuilderAddMoreCollections ISettingsBuilderDatabaseOptions.AddCollection(string name, bool dropFirst, IDataProvider dataProvider)
+        ISettingsBuilderAddMoreCollections ISettingsBuilderDatabaseOptions.AddCollection<T>(string name, bool dropFirst, IDataProvider dataProvider)
         {
-            this.GetDatabaseConfig().AddDataProviderCollection(name, dropFirst, dataProvider);
+            this.GetDatabaseConfig().AddDataProviderCollection<T>(name, dropFirst, dataProvider);
             return this;
         }
 
         /// <inheritdoc />
-        ISettingsBuilderAddMoreCollections ISettingsBuilderAddMoreCollections.AddCollection(string name, bool dropFirst, IDataProvider dataProvider)
+        ISettingsBuilderAddMoreCollections ISettingsBuilderAddMoreCollections.AddCollection<T>(string name, bool dropFirst, IDataProvider dataProvider)
         {
-            this.GetDatabaseConfig().AddDataProviderCollection(name, dropFirst, dataProvider);
+            this.GetDatabaseConfig().AddDataProviderCollection<T>(name, dropFirst, dataProvider);
             return this;
         }
 
@@ -166,14 +166,14 @@ namespace Harness.Settings
 
         ISettingsBuilderAddMoreCollections AddCollection(string name, bool dropFirst, string fileLocation);
 
-        ISettingsBuilderAddMoreCollections AddCollection(string name, bool dropFirst, IDataProvider dataProvider);
+        ISettingsBuilderAddMoreCollections AddCollection<T>(string name, bool dropFirst, IDataProvider dataProvider);
     }
 
     public interface ISettingsBuilderAddMoreCollections
     {
         ISettingsBuilderAddMoreCollections AddCollection(string name, bool dropFirst, string fileLocation);
 
-        ISettingsBuilderAddMoreCollections AddCollection(string name, bool dropFirst, IDataProvider dataProvider);
+        ISettingsBuilderAddMoreCollections AddCollection<T>(string name, bool dropFirst, IDataProvider dataProvider);
 
         ISettingsBuilderConnectionString AddAnotherDatabase(string name);
 
