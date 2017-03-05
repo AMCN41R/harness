@@ -1,0 +1,22 @@
+{
+  "Databases": [
+    {
+      "DatabaseName": "TestDb1",
+      "ConnectionString": "mongodb://localhost:27017",
+      "CollectionNameSuffix": "",
+      "DropFirst": false,
+      "Collections": [
+        {
+          "CollectionName": "TestCollection1",
+          "DataFileLocation": "C:\\TestData\\Collection1.json",
+          "DropFirst": false
+        },
+        {
+          "CollectionName": "TestCollection2",
+          "DataFileLocation": "C:\\TestData\\Collection2.json",
+          "DropFirst": false
+        }
+      ]
+    }
+  ]
+}
