@@ -87,6 +87,9 @@
     <Compile Include="XUnit\UsingTheHarnessBaseClass\AutoConfigureDatabase.cs" />
     <Compile Include="XUnit\UsingTheHarnessBaseClass\UsingTheBaseClassWithClassFixture.cs" />
     <Compile Include="XUnit\UsingTheHarnessBaseClass\ManuallyConfigureDatabase.cs" />
+    <Compile Include="XUnit\UsingTheHarnessManager\DataProviders\Person.cs" />
+    <Compile Include="XUnit\UsingTheHarnessManager\SettingsBuilderClassFixtureFreshBuild.cs" />
+    <Compile Include="XUnit\UsingTheHarnessManager\SettingsBuilderClassFixtureOneBuild.cs" />
     <Compile Include="XUnit\UsingTheHarnessManager\SettingsBuilderWithDataFiles.cs" />
     <Compile Include="XUnit\UsingTheHarnessManager\SettingsBuilderWithDataProvider.cs" />
   </ItemGroup>

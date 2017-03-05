@@ -83,6 +83,7 @@ TODO
 
 ## Data File
 TODO
+Test data files must have a .json extension and contain an array or json objects.
 
 ## HarnessConfig Attribute
 TODO
@@ -196,11 +197,6 @@ public class ManuallyConfigureDatabase : HarnessBase
         base.BuildDatabase();
 
         var classUnderTest = new ClassUnderTest();
-
-        // The method we are testing needs an instance of IMongoClient.
-        // Rather than create a new one, we can re-use the one that was 
-        // created by the HarnessBase class when it was setting up the 
-        // databases.
         var mongoClient = base.MongoConnections["mongodb://localhost:20719"];
 
         // Act
@@ -213,7 +209,189 @@ public class ManuallyConfigureDatabase : HarnessBase
 ```
 
 ### Test Fixture Configuration
-TODO
+To use Harness with an Xunit ClassFixture:
+- add the HarnessConfig attribute to the class fixture.
+- specify the relative path to the Harness settings file by setting the ConfigFilePath variable
+- have the class fixture extend HarnessBase
 
-## Advanced Configuration with the HarnessManager Class [Coming Soon]
-The HarnessManager class allows full control of all the features that Harness provides. It gives full control over the Harness settings and control/access to the data and underlying connection objects. It allows the user to build settings and configurations dynamically and without the need of an external settings file. It allows the user to configure a mongo instance from inside a test, or class of their choosing, or to create their own base class.
+When a test is run, the HarnessBase class will use the settings file to 
+put the mongo databases specified within it into the desired state.
+This will happen automatically when the class constructor is called.
+
+The HarnessBase class exposes the IMongoClient objects that it created
+while setting up the databases so that, if required, they can be re-used
+in the tests. This is exposed as a a `Dictionary<string, IMongoClient>`
+where the dictionary key is the mongo server connection string.
+
+```csharp
+[HarnessConfig(ConfigFilePath = "ExampleSettings.json")]
+public class DatabaseFixture : HarnessBase, IDisposable
+{
+    public DatabaseFixture()
+    {
+        // Any other setup stuff...
+    }
+
+    public void Dispose()
+    {
+        // Any cleaning up...
+    }
+}
+
+public class UsingTheBaseClassWithClassFixture : IClassFixture<DatabaseFixture>
+{
+    public UsingTheBaseClassWithClassFixture(DatabaseFixture fixture)
+    {
+        this.Fixture = fixture;
+    }
+
+    private DatabaseFixture Fixture { get; }
+
+    [Fact]
+    public void Test1()
+    {
+        // Arrange
+        var classUnderTest = new ClassUnderTest();
+
+        // Act
+        var result = classUnderTest.GetCollectionRecordCount("TestCollection1");
+
+        // Assert
+        Assert.Equal(2, result);
+    }
+
+    [Fact]
+    public void Test2()
+    {
+        // Arrange
+        var classUnderTest = new ClassUnderTest();
+        var mongoClient = this.Fixture.MongoConnections["mongodb://localhost:27017"];
+
+        // Act
+        var result = classUnderTest.GetCollectionRecordCount(mongoClient, "TestCollection1");
+
+        // Assert
+        Assert.Equal(2, result);
+    }
+}
+```
+
+
+## Fluent Configuration with the SettingsBuilder and HarnessManager classes
+With the SettingsBuilder and HarnessManager you can use Harness to setup your Mongo databases without the need for configuration files.
+
+### SettingsBuilder
+The SettingsBuilder class provides a fluent api to build a configuration object for the HarnessManager. You can continue to use json files to load test data, or implement the IDataProvider interface to give Harness the data from code.
+
+#### Example using json files
+This example creates a configuration for one database called 'TestDb', that has two collections...
+```csharp
+var settings =
+    new SettingsBuilder()
+        .AddDatabase("TestDb")
+        .WithConnectionString("mongodb://localhost:27017")
+        .WithDatabaseNameSuffix("1")
+        .DropDatabaseFirst()
+        .AddCollection("col1", true, "path/to/Collection1.json")
+        .AddCollection("col2", true, "path/to/Collection2.json")
+        .Build();
+```
+
+#### Example using IDataProvider
+This example creates a configuration for a database called 'TestDb2', that has one collection...
+```csharp
+var settings =
+    new SettingsBuilder()
+        .AddDatabase("TestDb2")
+        .WithConnectionString("mongodb://localhost:27017")
+        .DropDatabaseFirst()
+        .AddCollection<Person>("people", true, new PersonDataProvider())
+        .Build();
+
+
+public class PersonDataProvider : IDataProvider
+{
+    public IEnumerable<object> GetData()
+    {
+        return new List<Person>
+        {
+            new Person {FirstName = "Peter", LastName = "Venkman", Age = 31},
+            new Person {FirstName = "Ray", LastName = "Stantz", Age = 32},
+            new Person {FirstName = "Egon", LastName = "Spengler", Age = 33}
+        };
+    }
+}
+
+public class Person
+{
+    public ObjectId Id { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public int Age { get; set; }
+}
+```
+
+### HarnessManager
+Once you have your settings object, you can pass it to the HarnessManager and use it to setup the database. The `build()` method returns a `Dictionary<string, IMongoClient>` containing the MongoClient instances (one per unique connection string in the settings) for re-use. The dictionary key if the connection string.
+
+```csharp
+var mongoClients =
+    new HarnessManager()
+        .UsingSettings(settings) // the settings object built using the SettingsBuilder
+        .Build();
+```
+
+#### Xunit Example
+Here, we call build() in the test class constructor which means the configuration will run before each test in the class is executed...
+```csharp
+public class SettingsBuilderWithDataFiles
+{
+    public SettingsBuilderWithDataFiles()
+    {
+        var settings =
+            new SettingsBuilder()
+                .AddDatabase("TestDb")
+                .WithConnectionString("mongodb://localhost:27017")
+                .WithDatabaseNameSuffix("1")
+                .DropDatabaseFirst()
+                .AddCollection("col1", true, "path/to/Collection1.json")
+                .AddCollection("col2", true, "path/to/Collection2.json")
+                .Build();
+
+        this.MongoConnections =
+            new HarnessManager()
+                .UsingSettings(settings)
+                .Build();
+    }
+
+    private Dictionary<string, IMongoClient> MongoConnections { get; }
+
+    [Fact]
+    public void Test1()
+    {
+        // Arrange
+        var classUnderTest = new ClassUnderTest();
+
+        // Act
+        var result = classUnderTest.GetCollectionRecordCount("col1");
+
+        // Assert
+        Assert.Equal(2, result);
+    }
+
+    [Fact]
+    public void Test2()
+    {
+        // Arrange
+        var classUnderTest = new ClassUnderTest();
+        var mongoClient = this.MongoConnections["mongodb://localhost:27017"];
+
+        // Act
+        var result = classUnderTest.GetCollectionRecordCount(mongoClient, "col1");
+
+        // Assert
+        Assert.Equal(2, result);
+    }
+}
+```
+

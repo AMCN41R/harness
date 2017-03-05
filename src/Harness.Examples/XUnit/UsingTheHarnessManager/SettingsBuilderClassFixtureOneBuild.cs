@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Harness.Examples.XUnit.UsingTheHarnessManager.DataProviders;
 using Harness.Settings;
 using MongoDB.Driver;
@@ -7,9 +8,9 @@ using Xunit;
 namespace Harness.Examples.XUnit.UsingTheHarnessManager
 {
     [Collection("Example.Tests")]
-    public class SettingsBuilderWithDataProvider
+    public class DatabaseBuildFixture : IDisposable
     {
-        public SettingsBuilderWithDataProvider()
+        public DatabaseBuildFixture()
         {
             var settings =
                 new SettingsBuilder()
@@ -23,9 +24,28 @@ namespace Harness.Examples.XUnit.UsingTheHarnessManager
                 new HarnessManager()
                     .UsingSettings(settings)
                     .Build();
+
+
+            // Any other setup stuff...
         }
 
-        private Dictionary<string, IMongoClient> MongoConnections { get; }
+        public void Dispose()
+        {
+            // Any cleaning up...
+        }
+
+        public Dictionary<string, IMongoClient> MongoConnections { get; }
+    }
+
+    [Collection("Example.Tests")]
+    public class SettingsBuilderClassFixtureOneBuild : IClassFixture<DatabaseBuildFixture>
+    {
+        public SettingsBuilderClassFixtureOneBuild(DatabaseBuildFixture fixture)
+        {
+            this.Fixture = fixture;
+        }
+
+        private DatabaseBuildFixture Fixture { get; }
 
         [Fact]
         public void Test1()
@@ -50,7 +70,7 @@ namespace Harness.Examples.XUnit.UsingTheHarnessManager
             // Rather than create a new one, we can re-use the one that was 
             // created by the HarnessManager class when it was setting up the 
             // databases.
-            var mongoClient = this.MongoConnections["mongodb://localhost:27017"];
+            var mongoClient = this.Fixture.MongoConnections["mongodb://localhost:27017"];
 
             // Act
             var result = classUnderTest.GetCollectionRecordCount<Person>(mongoClient, "people");

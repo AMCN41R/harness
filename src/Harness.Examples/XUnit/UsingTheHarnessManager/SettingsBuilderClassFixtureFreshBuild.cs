@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Harness.Examples.XUnit.UsingTheHarnessManager.DataProviders;
 using Harness.Settings;
 using MongoDB.Driver;
@@ -7,9 +8,9 @@ using Xunit;
 namespace Harness.Examples.XUnit.UsingTheHarnessManager
 {
     [Collection("Example.Tests")]
-    public class SettingsBuilderWithDataProvider
+    public class DatabaseSetupFixture : IDisposable
     {
-        public SettingsBuilderWithDataProvider()
+        public DatabaseSetupFixture()
         {
             var settings =
                 new SettingsBuilder()
@@ -19,10 +20,26 @@ namespace Harness.Examples.XUnit.UsingTheHarnessManager
                     .AddCollection<Person>("people", true, new PersonDataProvider())
                     .Build();
 
-            this.MongoConnections =
-                new HarnessManager()
-                    .UsingSettings(settings)
-                    .Build();
+            this.HarnessBuilder = new HarnessManager().UsingSettings(settings);
+
+
+            // Any other setup stuff...
+        }
+
+        public void Dispose()
+        {
+            // Any cleaning up...
+        }
+
+        public IHarnessManagerBuilder HarnessBuilder { get; }
+    }
+
+    [Collection("Example.Tests")]
+    public class SettingsBuilderClassFixtureFreshBuild : IClassFixture<DatabaseSetupFixture>
+    {
+        public SettingsBuilderClassFixtureFreshBuild(DatabaseSetupFixture fixture)
+        {
+            this.MongoConnections = fixture.HarnessBuilder.Build();
         }
 
         private Dictionary<string, IMongoClient> MongoConnections { get; }
