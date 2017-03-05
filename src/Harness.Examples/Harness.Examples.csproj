@@ -87,7 +87,8 @@
     <Compile Include="XUnit\UsingTheHarnessBaseClass\AutoConfigureDatabase.cs" />
     <Compile Include="XUnit\UsingTheHarnessBaseClass\UsingTheBaseClassWithClassFixture.cs" />
     <Compile Include="XUnit\UsingTheHarnessBaseClass\ManuallyConfigureDatabase.cs" />
-    <Compile Include="XUnit\UsingTheHarnessManager\SettingsBuilderWIthDataFiles.cs" />
+    <Compile Include="XUnit\UsingTheHarnessManager\SettingsBuilderWithDataFiles.cs" />
+    <Compile Include="XUnit\UsingTheHarnessManager\SettingsBuilderWithDataProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ExampleSettings.json">

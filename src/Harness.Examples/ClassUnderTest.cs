@@ -15,13 +15,13 @@ namespace Harness.Examples
         /// connects to the database and returns a count of records in the 
         /// given collection.
         /// </summary>
-        public int GetCollectionRecordCount(string collectionName)
+        public int GetCollectionRecordCount<T>(string collectionName)
         {
             var client = new MongoClient("mongodb://localhost:27017");
 
             var db = client.GetDatabase("TestDb1");
 
-            var collection = db.GetCollection<BsonDocument>(collectionName);
+            var collection = db.GetCollection<T>(collectionName);
 
             return collection.AsQueryable().ToList().Count;
         }
@@ -30,11 +30,11 @@ namespace Harness.Examples
         /// A sample method that connects to the given mongo client and 
         /// returns a count of records in the given collection.
         /// </summary>
-        public int GetCollectionRecordCount(IMongoClient client, string collectionName)
+        public int GetCollectionRecordCount<T>(IMongoClient client, string collectionName)
         {
             var db = client.GetDatabase("TestDb1");
 
-            var collection = db.GetCollection<BsonDocument>(collectionName);
+            var collection = db.GetCollection<T>(collectionName);
 
             return collection.AsQueryable().ToList().Count;
         }

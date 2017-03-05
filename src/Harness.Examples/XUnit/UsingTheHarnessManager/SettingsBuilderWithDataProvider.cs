@@ -6,23 +6,17 @@ using Xunit;
 
 namespace Harness.Examples.XUnit.UsingTheHarnessManager
 {
-    // Instead of using a config file and extending the HarnessBase class, you
-    // can use the Harness fluent api to build a settings object and setup one
-    // or more mongo databases.
-
     [Collection("Example.Tests")]
-    public class SettingsBuilderWithDataFiles
+    public class SettingsBuilderWithDataProvider
     {
-        public SettingsBuilderWithDataFiles()
+        public SettingsBuilderWithDataProvider()
         {
             var settings =
                 new SettingsBuilder()
-                    .AddDatabase("TestDb")
+                    .AddDatabase("TestDb1")
                     .WithConnectionString("mongodb://localhost:27017")
-                    .WithDatabaseNameSuffix("1")
                     .DropDatabaseFirst()
-                    .AddCollection("col1", true, "Collection1.json")
-                    .AddCollection("col2", true, "Collection2.json")
+                    .AddCollection("col1", true, new PersonDataProvider())
                     .Build();
 
             this.MongoConnections =
@@ -40,10 +34,10 @@ namespace Harness.Examples.XUnit.UsingTheHarnessManager
             var classUnderTest = new ClassUnderTest();
 
             // Act
-            var result = classUnderTest.GetCollectionRecordCount<BsonDocument>("col1");
+            var result = classUnderTest.GetCollectionRecordCount<Person>("col1");
 
             // Assert
-            Assert.Equal(2, result);
+            Assert.Equal(3, result);
         }
 
         [Fact]
@@ -59,10 +53,34 @@ namespace Harness.Examples.XUnit.UsingTheHarnessManager
             var mongoClient = this.MongoConnections["mongodb://localhost:27017"];
 
             // Act
-            var result = classUnderTest.GetCollectionRecordCount<BsonDocument>(mongoClient, "col1");
+            var result = classUnderTest.GetCollectionRecordCount<Person>(mongoClient, "col1");
 
             // Assert
-            Assert.Equal(2, result);
+            Assert.Equal(3, result);
         }
+    }
+
+    public class PersonDataProvider : IDataProvider
+    {
+        public IEnumerable<object> GetData()
+        {
+            return new List<Person>
+            {
+                new Person {FirstName = "Peter", LastName = "Venkman", Age = 31},
+                new Person {FirstName = "Ray", LastName = "Stantz", Age = 32},
+                new Person {FirstName = "Egon", LastName = "Spengler", Age = 33}
+            };
+        }
+    }
+
+    public class Person
+    {
+        public ObjectId Id { get; set; }
+
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public int Age { get; set; }
     }
 }

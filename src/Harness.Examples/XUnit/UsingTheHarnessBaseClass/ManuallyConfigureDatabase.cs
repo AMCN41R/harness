@@ -1,4 +1,5 @@
 ﻿using Harness.Attributes;
+using MongoDB.Bson;
 using Xunit;
 
 namespace Harness.Examples.XUnit.UsingTheHarnessBaseClass
@@ -15,7 +16,7 @@ namespace Harness.Examples.XUnit.UsingTheHarnessBaseClass
     // The HarnessBase class exposes the IMongoClient objects that it created
     // while setting up the databases so that, if required, they can be re-used
     // in the tests. This is exposed as a a Dictionary<string, IMongoClient>
-    // where the dictionary key in the mongo server connection string.
+    // where the dictionary key is the mongo server connection string.
 
     [Collection("Example.Tests")]
     [HarnessConfig(ConfigFilePath = "ExampleSettings.json", AutoRun = false)]
@@ -28,12 +29,12 @@ namespace Harness.Examples.XUnit.UsingTheHarnessBaseClass
 
             // As AutoRun is set to false on the class attribute, the BuildDatabase()
             // must be called to tell the HarnessBase class to setup the databases.
-            base.Build();
+            this.Build();
 
             var classUnderTest = new ClassUnderTest();
 
             // Act
-            var result = classUnderTest.GetCollectionRecordCount("TestCollection1");
+            var result = classUnderTest.GetCollectionRecordCount<BsonDocument>("TestCollection1");
 
             // Assert
             Assert.Equal(2, result);
@@ -46,7 +47,7 @@ namespace Harness.Examples.XUnit.UsingTheHarnessBaseClass
 
             // As AutoRun is set to false on the class attribute, the BuildDatabase()
             // must be called to tell the HarnessBase class to setup the databases.
-            base.Build();
+            this.Build();
 
             var classUnderTest = new ClassUnderTest();
 
@@ -54,10 +55,10 @@ namespace Harness.Examples.XUnit.UsingTheHarnessBaseClass
             // Rather than create a new one, we can re-use the one that was 
             // created by the HarnessBase class when it was setting up the 
             // databases.
-            var mongoClient = base.MongoConnections["mongodb://localhost:27017"];
+            var mongoClient = this.MongoConnections["mongodb://localhost:27017"];
 
             // Act
-            var result = classUnderTest.GetCollectionRecordCount(mongoClient, "TestCollection1");
+            var result = classUnderTest.GetCollectionRecordCount<BsonDocument>(mongoClient, "TestCollection1");
 
             // Assert
             Assert.Equal(2, result);
