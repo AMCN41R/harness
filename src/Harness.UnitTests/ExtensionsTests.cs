@@ -1,7 +1,6 @@
 ﻿using System;
 using Xunit;
 using Harness.Attributes;
-using System.IO.Abstractions;
 using NSubstitute;
 
 namespace Harness.UnitTests
@@ -75,7 +74,7 @@ namespace Harness.UnitTests
         {
             // Arrange
             var fakeFileSystem = Substitute.For<IFileSystem>();
-            fakeFileSystem.File.Exists(Arg.Any<string>()).Returns(false);
+            fakeFileSystem.FileExists(Arg.Any<string>()).Returns(false);
 
             // Act
             var result = fakeFileSystem.ValidateFile("filepath");
@@ -89,7 +88,7 @@ namespace Harness.UnitTests
         {
             // Arrange
             var fakeFileSystem = Substitute.For<IFileSystem>();
-            fakeFileSystem.File.Exists(Arg.Any<string>()).Returns(true);
+            fakeFileSystem.FileExists(Arg.Any<string>()).Returns(true);
 
             // Act
             var result = fakeFileSystem.ValidateFile("filepath");

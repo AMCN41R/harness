@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO.Abstractions;
 using Newtonsoft.Json;
 
 namespace Harness.Settings
@@ -54,14 +53,14 @@ namespace Harness.Settings
                     fileValidationResult?.Message ?? "Unable to validate filepath");
             }
 
-            if (this.FileSystem.Path.GetExtension(configFilePath) != ".json")
+            if (this.FileSystem.GetFileExtension(configFilePath) != ".json")
             {
                 throw new ArgumentOutOfRangeException(
                     nameof(configFilePath),
                     "Invalid file type. File must be a .json file.");
             }
 
-            var json = this.FileSystem.File.ReadAllText(configFilePath);
+            var json = this.FileSystem.ReadAllText(configFilePath);
 
             return JsonConvert.DeserializeObject<HarnessConfiguration>(json);
         }

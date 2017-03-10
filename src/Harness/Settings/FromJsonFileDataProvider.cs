@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO.Abstractions;
 using System.Linq;
 using MongoDB.Bson;
 using Newtonsoft.Json;
@@ -60,14 +59,14 @@ namespace Harness.Settings
                 );
             }
 
-            if (this.FileSystem.Path.GetExtension(this.Filepath) != ".json")
+            if (this.FileSystem.GetFileExtension(this.Filepath) != ".json")
             {
                 throw new ArgumentOutOfRangeException(
                     nameof(this.Filepath),
                     "Invalid file type. File must be a .json file.");
             }
 
-            var fileText = this.FileSystem.File.ReadAllText(this.Filepath);
+            var fileText = this.FileSystem.ReadAllText(this.Filepath);
 
             var itemArray =
                 JsonConvert.DeserializeObject(fileText) as JArray;

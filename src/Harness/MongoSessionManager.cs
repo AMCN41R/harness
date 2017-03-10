@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.IO.Abstractions;
 using Harness.Settings;
 using MongoDB.Bson;
 using MongoDB.Driver;

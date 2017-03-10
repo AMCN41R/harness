@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO.Abstractions;
 using Xunit;
 using NSubstitute;
 using Harness.Settings;
@@ -31,12 +30,10 @@ namespace Harness.UnitTests.SettingsTests
             // Arrange
             var fakeFileSystem = Substitute.For<IFileSystem>();
             fakeFileSystem
-                .File
-                .Exists(Arg.Any<string>())
+                .FileExists(Arg.Any<string>())
                 .Returns(true);
             fakeFileSystem
-                .Path
-                .GetExtension(Arg.Any<string>())
+                .GetFileExtension(Arg.Any<string>())
                 .Returns("doc");
 
             var classUnderTest = new SettingsLoader(fakeFileSystem);
@@ -53,8 +50,7 @@ namespace Harness.UnitTests.SettingsTests
             // Arrange
             var fakeFileSystem = Substitute.For<IFileSystem>();
             fakeFileSystem
-                .File
-                .Exists(Arg.Any<string>())
+                .FileExists(Arg.Any<string>())
                 .Returns(false);
 
             var classUnderTest = new SettingsLoader(fakeFileSystem);
@@ -72,16 +68,13 @@ namespace Harness.UnitTests.SettingsTests
 
             var fakeFileSystem = Substitute.For<IFileSystem>();
             fakeFileSystem
-                .File
                 .ReadAllText(Arg.Any<string>())
                 .Returns(this.TestSettingsString);
             fakeFileSystem
-                .File
-                .Exists(Arg.Any<string>())
+                .FileExists(Arg.Any<string>())
                 .Returns(true);
             fakeFileSystem
-                .Path
-                .GetExtension(testFilePath)
+                .GetFileExtension(testFilePath)
                 .Returns(".json");
 
             var expected = this.TestSettings;
@@ -107,16 +100,13 @@ namespace Harness.UnitTests.SettingsTests
 
             var fakeFileSystem = Substitute.For<IFileSystem>();
             fakeFileSystem
-                .File
                 .ReadAllText(Arg.Any<string>())
                 .Returns(badJson);
             fakeFileSystem
-                .File
-                .Exists(Arg.Any<string>())
+                .FileExists(Arg.Any<string>())
                 .Returns(true);
             fakeFileSystem
-                .Path
-                .GetExtension(testFilePath)
+                .GetFileExtension(testFilePath)
                 .Returns(".json");
 
             var classUnderTest = new SettingsLoader(fakeFileSystem);

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO.Abstractions;
 using System.Linq;
 
 namespace Harness
@@ -45,7 +44,7 @@ namespace Harness
                 message = "Filepath cannot be null, empty or whitespace.";
             }
 
-            if (!fileSystem.File.Exists(filepath))
+            if (!fileSystem.FileExists(filepath))
             {
                 isValid = false;
                 message = "File cannot be found or does not exist.";
