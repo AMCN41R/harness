@@ -76,7 +76,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataProviders\Person.cs" />
     <Compile Include="FileSystem\FileSystemTests.cs" />
+    <Compile Include="MongoSessionManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
