@@ -9,6 +9,12 @@ Harness is an open source project, licensed under the [MIT License](https://gith
 
 Harness was inspired by [NDBUnit](https://github.com/NDbUnit/NDbUnit).
 
+## Getting Harness
+Harness is availble on [nuget](https://www.nuget.org/packages/Harness/1.0.0) and can be installed with...
+```
+Install-Package Harness
+```
+
 ## Basic Usage
 Harness will put one or more Mongo databases into a state defined by a json settings file and one or more json data files.
 
