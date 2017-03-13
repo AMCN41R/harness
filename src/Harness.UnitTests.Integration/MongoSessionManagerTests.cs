@@ -65,36 +65,45 @@ namespace Harness.UnitTests.Integration
         [Fact]
         public async Task Build_DontDrop_BuildsDatabase()
         {
-            // Arrange
-            var mongo = new MongoClient();
-            var db = mongo.GetDatabase("testExisting");
-            var collection = db.GetCollection<Person>("people");
-
-            await collection.InsertOneAsync(new Person
+            IMongoDatabase database = null;
+            try
             {
-                FirstName = "John",
-                LastName = "Smith",
-                Age = 33
-            });
+                // Arrange
+                var mongo = new MongoClient();
+                database = mongo.GetDatabase("testExisting");
+                var collection = database.GetCollection<Person>("people");
 
-            var settings =
-                new SettingsBuilder()
-                    .AddDatabase("testExisting")
-                    .WithConnectionString("mongodb://localhost:27017")
-                    .AddCollection<Person>("people", false, new PersonDataProvider())
-                    .Build();
+                await collection.InsertOneAsync(new Person
+                {
+                    FirstName = "John",
+                    LastName = "Smith",
+                    Age = 33
+                });
 
-            var sut = new MongoSessionManager(settings);
+                var settings =
+                    new SettingsBuilder()
+                        .AddDatabase("testExisting")
+                        .WithConnectionString("mongodb://localhost:27017")
+                        .AddCollection<Person>("people", false, new PersonDataProvider())
+                        .Build();
+
+                var sut = new MongoSessionManager(settings);
 
 
-            // Act
-            sut.Build();
+                // Act
+                sut.Build();
 
 
-            // Assert
-            var people = await collection.Find(new BsonDocument()).ToListAsync();
+                // Assert
+                var people = await collection.Find(new BsonDocument()).ToListAsync();
 
-            Assert.Equal(4, people.Count);
+                Assert.Equal(4, people.Count);
+
+            }
+            finally
+            {
+                database?.DropCollection("people");
+            }
         }
     }
 }
