@@ -1,20 +1,20 @@
 {
   "Databases": [
     {
-      "DatabaseName": "TestDb1",
-      "ConnectionString": "mongodb://localhost:27017",
-      "CollectionNameSuffix": "",
-      "DropFirst": true,
-      "Collections": [
+      "databaseName": "TestDb1",
+      "connectionString": "mongodb://localhost:27017",
+      "collectionNameSuffix": "",
+      "dropFirst": true,
+      "collections": [
         {
-          "CollectionName": "TestCollection1",
-          "DataFileLocation": "Collection1.json",
-          "DropFirst": false
+          "collectionName": "TestCollection1",
+          "dataFileLocation": "Collection1.json",
+          "dropFirst": false
         },
         {
-          "CollectionName": "TestCollection2",
-          "DataFileLocation": "Collection2.json",
-          "DropFirst": false
+          "collectionName": "TestCollection2",
+          "dataFileLocation": "Collection2.json",
+          "dropFirst": false
         }
       ]
     }

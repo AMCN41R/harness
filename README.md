@@ -19,39 +19,39 @@ Install-Package Harness
 Harness will put one or more Mongo databases into a state defined by a json settings file and one or more json data files.
 
 ### Settings File
-The settings file must have a .json extension. It is a json object that contains a `Databases` property that is an array of `Database` objects.
+The settings file must have a .json extension. It is a json object that contains a `databases` property that is an array of `database` objects.
 
 #### Database Object
-- **DatabseName**: The name of the database that will be used. 
-- **ConnectionString**: The connection string of the mongo server where the database should be created. 
-- **CollectionNameSuffix**: A string that will be added to the end of each collection name specified in the collections array. 
-- **DropFirst**: A boolean value that indicates whether or not this database should be dropped if it already exists, and re-created. 
-- **Collections**: An array of `Collection` objects. 
+- **databseName**: The name of the database that will be used. 
+- **connectionString**: The connection string of the mongo server where the database should be created. 
+- **collectionNameSuffix**: A string that will be added to the end of each collection name specified in the collections array. 
+- **dropFirst**: A boolean value that indicates whether or not this database should be dropped if it already exists, and re-created. 
+- **collections**: An array of `collection` objects. 
 
 #### Collection Object
-- **CollectionName**: The name of the collection that will be used. 
-- **DropFirst**: A boolean value that indicates whether or not this collection should be dropped if it already exists, and re-created. 
-- **DataFileLocation**: The path to the json file that contains the data that should be inserted into this collection.
+- **collectionName**: The name of the collection that will be used. 
+- **dropFirst**: A boolean value that indicates whether or not this collection should be dropped if it already exists, and re-created. 
+- **dataFileLocation**: The path to the json file that contains the data that should be inserted into this collection.
 
 #### Example settings file, 'ExampleSettings.json'
 ```
 {
-    "Databases": [
+    "databases": [
         {
-            "DatabaseName": "TestDb1",
-            "ConnectionString": "mongodb://localhost:27017",
-            "CollectionNameSuffix": "",
-            "DropFirst": true,
-            "Collections": [
+            "databaseName": "TestDb1",
+            "connectionString": "mongodb://localhost:27017",
+            "collectionNameSuffix": "",
+            "dropFirst": true,
+            "collections": [
                 {
-                    "CollectionName": "TestCollection1",
-                    "DataFileLocation": "Collection1.json",
-                    "DropFirst": false
+                    "collectionName": "TestCollection1",
+                    "dataFileLocation": "Collection1.json",
+                    "dropFirst": false
                 },
                 {
-                    "CollectionName": "TestCollection2",
-                    "DataFileLocation": "Collection2.json",
-                    "DropFirst": false
+                    "collectionName": "TestCollection2",
+                    "dataFileLocation": "Collection2.json",
+                    "dropFirst": false
                 }
             ]
         }
