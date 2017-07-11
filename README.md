@@ -78,7 +78,7 @@ Test data files must have a .json extension and contain an array of json objects
 ]
 ```
 
-Point your test class at the settings file using the HarnessConfig attribute, and extend HarnessBase to have the database configuration run before each test.
+Point your test class at the settings file using the `HarnessConfig` attribute, and extend `HarnessBase` to have the database configuration run before each test.
 
 
 ### Example test class using XUnit
@@ -102,32 +102,32 @@ public class AutoConfigureDatabase : HarnessBase
 ```
 
 ## HarnessBase Class
-The HarnessBase class is an abstract class that, during construction, loads the Harness settings and data files, and configures the Mongo instance defined inside the settings file.
-Using the HarnessBase class with a Harness Settings file and a Harness Data file(s) is the simplest and easiest way to configure a Mongo instance...
+The `HarnessBase` class is an abstract class that, during construction, loads the Harness settings and data files, and configures the Mongo instance defined inside the settings file.
+Using the `HarnessBase` class with a Harness Settings file and a Harness Data file(s) is the simplest and easiest way to configure a Mongo instance...
 
 1.	Create json file containing an array of json objects (one file per mongo collection)
 2.	Create a settings file
-3.	Make your test class extend HarnessBase
-4.	Optionally annotate your test class with the HarnessConfig attribute to specify the file path of your settings file. If the attribute is not present, or a configuration file path is not specified on the attribute, a default value of [ClassName].json will be used.
+3.	Make your test class extend `HarnessBase`
+4.	Optionally annotate your test class with the `HarnessConfig` attribute to specify the file path of your settings file. If the attribute is not present, or a configuration file path is not specified on the attribute, a default value of [ClassName].json will be used.
 
 ### Manual
-A manual version on the HarnessBase class will work in the same way (inheritance and attribute) but will require a method call to configure Mongo, rather than it happening in the constructor.
+A manual version on the `HarnessBase` class will work in the same way (inheritance and attribute) but will require a method call to configure Mongo, rather than it happening in the constructor.
 
 ### XUnit Test Fixture
-A version that is configured to work with the XUnit class fixture design (a shared context between tests, similar to NUnit SetUp and TearDown). The default behaviour of XUnit is to create a new instance of the test class for each test inside it. If using the HarnessBase, this would result in the database being deleted (depending on the settings) and re-created for every test. Using this base class will ensure this only happens once for a group of tests.
+A version that is configured to work with the XUnit class fixture design (a shared context between tests, similar to NUnit SetUp and TearDown). The default behaviour of XUnit is to create a new instance of the test class for each test inside it. If using the `HarnessBase`, this would result in the database being deleted (depending on the settings) and re-created for every test. Using this base class will ensure this only happens once for a group of tests.
 
 
 ## XUnit Examples
 
 ### Auto Configuration
 To use Harness:
-- add the HarnessConfig attribute to the class that contains the tests 
+- add the `HarnessConfig` attribute to the class that contains the tests 
 - specify the relative path to the Harness settings file by setting the ConfigFilePath variable 
-- have the class that contains the tests extend HarnessBase 
+- have the class that contains the tests extend `HarnessBase` 
 
-When a test is run, the HarnessBase class will use the settings file to put the mongo databases specified within it into the desired state. This will happen automatically when the class constructor is called.
+When a test is run, the `HarnessBase` class will use the settings file to put the mongo databases specified within it into the desired state. This will happen automatically when the class constructor is called.
 
-The HarnessBase class exposes the IMongoClient objects that it created while setting up the databases so that, if required, they can be re-used in the tests. This is exposed as a a `Dictionary<string, IMongoClient>` where the dictionary key in the mongo server connection string.
+The `HarnessBase` class exposes the `IMongoClient` objects that it created while setting up the databases so that, if required, they can be re-used in the tests. This is exposed as a a `Dictionary<string, IMongoClient>` where the dictionary key in the mongo server connection string.
 
 ```csharp
 [HarnessConfig(ConfigFilePath = "ExampleSettings.json")]
@@ -169,14 +169,14 @@ public class AutoConfigureDatabase : HarnessBase
 
 ### Manual Configuration
 To use Harness:
-- add the HarnessConfig attribute to the class that contains the tests 
+- add the `HarnessConfig` attribute to the class that contains the tests 
 - specify the relative path to the Harness settings file by setting the ConfigFilePath variable 
 - specify `AutoRun = false` to stop the databases being created 
-- have the class that contains the tests extend HarnessBase on class construction 
+- have the class that contains the tests extend `HarnessBase` on class construction 
 
-Setting AutoRun = false, tells the HarnessBase class not to setup the databases until the BuildDatabase() method is called.
+Setting AutoRun = false, tells the `HarnessBase` class not to setup the databases until the BuildDatabase() method is called.
 
-The HarnessBase class exposes the IMongoClient objects that it created while setting up the databases so that, if required, they can be re-used in the tests. This is exposed as a a `Dictionary<string, IMongoClient>` where the dictionary key in the mongo server connection string.
+The `HarnessBase` class exposes the IMongoClient objects that it created while setting up the databases so that, if required, they can be re-used in the tests. This is exposed as a a `Dictionary<string, IMongoClient>` where the dictionary key in the mongo server connection string.
 
 ```csharp
 [HarnessConfig(ConfigFilePath = "ExampleSettings.json", AutoRun = false)]
@@ -223,15 +223,15 @@ public class ManuallyConfigureDatabase : HarnessBase
 
 ### Test Fixture Configuration
 To use Harness with an XUnit ClassFixture:
-- add the HarnessConfig attribute to the class fixture.
+- add the `HarnessConfig` attribute to the class fixture.
 - specify the relative path to the Harness settings file by setting the ConfigFilePath variable
-- have the class fixture extend HarnessBase
+- have the class fixture extend `HarnessBase`
 
-When a test is run, the HarnessBase class will use the settings file to 
+When a test is run, the `HarnessBase` class will use the settings file to 
 put the mongo databases specified within it into the desired state.
 This will happen automatically when the class constructor is called.
 
-The HarnessBase class exposes the IMongoClient objects that it created
+The `HarnessBase` class exposes the IMongoClient objects that it created
 while setting up the databases so that, if required, they can be re-used
 in the tests. This is exposed as a a `Dictionary<string, IMongoClient>`
 where the dictionary key is the mongo server connection string.
@@ -291,13 +291,13 @@ public class UsingTheBaseClassWithClassFixture : IClassFixture<DatabaseFixture>
 
 
 ## Fluent Configuration with the SettingsBuilder and HarnessManager classes
-With the SettingsBuilder and HarnessManager you can use Harness to setup your Mongo databases without the need for configuration files.
+With the `SettingsBuilder` and `HarnessManager` you can use Harness to setup your Mongo databases without the need for configuration files.
 
 ### SettingsBuilder
-The SettingsBuilder class provides a fluent api to build a configuration object for the HarnessManager. You can continue to use json files to load test data, or implement the IDataProvider interface to give Harness the data from code.
+The `SettingsBuilder` class provides a fluent api to build a configuration object for the `HarnessManager`. You can continue to use json files to load test data, or implement the `IDataProvider` interface to give Harness the data from code.
 
 #### Example using json files
-This example creates a configuration for one database called 'TestDb', that has two collections...
+This example creates a configuration for one database called 'TestDb1', that has two collections...
 ```csharp
 var settings =
     new SettingsBuilder()
@@ -344,7 +344,7 @@ public class Person
 ```
 
 ### HarnessManager
-Once you have your settings object, you can pass it to the HarnessManager and use it to setup the database. The `build()` method returns a `Dictionary<string, IMongoClient>` containing the MongoClient instances (one per unique connection string in the settings) for re-use. The dictionary key if the connection string.
+Once you have your settings object, you can pass it to the `HarnessManager` and use it to setup the database. The `build()` method returns a `Dictionary<string, IMongoClient>` containing the MongoClient instances (one per unique connection string in the settings) for re-use. The dictionary key if the connection string.
 
 ```csharp
 var mongoClients =
@@ -354,7 +354,7 @@ var mongoClients =
 ```
 
 ### XUnit Example
-Here, we call build() in the test class constructor which means the configuration will run before each test in the class is executed...
+Here, we call `build()` in the test class constructor which means the configuration will run before each test in the class is executed...
 ```csharp
 public class SettingsBuilderWithDataFiles
 {
