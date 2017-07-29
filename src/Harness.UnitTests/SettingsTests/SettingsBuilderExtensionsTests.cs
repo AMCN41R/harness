@@ -59,11 +59,11 @@ namespace Harness.UnitTests.SettingsTests
 
 
             // Act
-            var result = config.AddDatabase("test");
+            config.AddDatabase("test");
 
 
             // Assert
-            Assert.Equal(expected, result, Comparers.HarnessConfigurationComparer());
+            Assert.Equal(expected, config, Comparers.HarnessConfigurationComparer());
         }
 
         [Fact]
@@ -89,11 +89,11 @@ namespace Harness.UnitTests.SettingsTests
 
 
             // Act
-            var result = config.AddDatabase("second test");
+            config.AddDatabase("second test");
 
 
             // Assert
-            Assert.Equal(expected, result, Comparers.HarnessConfigurationComparer());
+            Assert.Equal(expected, config, Comparers.HarnessConfigurationComparer());
         }
 
         [Fact]
@@ -164,10 +164,10 @@ namespace Harness.UnitTests.SettingsTests
             };
 
             // Act
-            var result = config.AddCollection("name", true, "location");
+            config.AddCollection("name", true, "location");
 
             // Assert
-            Assert.Equal(expected, result, Comparers.DatabaseConfigComparer());
+            Assert.Equal(expected, config, Comparers.DatabaseConfigComparer());
         }
 
         [Fact]
@@ -210,10 +210,10 @@ namespace Harness.UnitTests.SettingsTests
             };
 
             // Act
-            var result = config.AddCollection("name-2", false, "location-2");
+            config.AddCollection("name-2", false, "location-2");
 
             // Assert
-            Assert.Equal(expected, result, Comparers.DatabaseConfigComparer());
+            Assert.Equal(expected, config, Comparers.DatabaseConfigComparer());
         }
 
         [Fact]
@@ -281,12 +281,12 @@ namespace Harness.UnitTests.SettingsTests
             };
 
             // Act
-            var result = config.AddDataProviderCollection<object>("name", true, new TestDataProvider());
+            config.AddDataProviderCollection<object>("name", true, new TestDataProvider());
 
             // Assert
-            Assert.Equal(expected, result, Comparers.DatabaseConfigComparer());
-            Assert.NotNull(result.Collections[0].DataProvider);
-            Assert.IsType<TestDataProvider>(result.Collections[0].DataProvider);
+            Assert.Equal(expected, config, Comparers.DatabaseConfigComparer());
+            Assert.NotNull(config.Collections[0].DataProvider);
+            Assert.IsType<TestDataProvider>(config.Collections[0].DataProvider);
         }
 
         [Fact]
@@ -329,10 +329,10 @@ namespace Harness.UnitTests.SettingsTests
             };
 
             // Act
-            var result = config.AddDataProviderCollection<object>("name-2", false, new TestDataProvider());
+            config.AddDataProviderCollection<object>("name-2", false, new TestDataProvider());
 
             // Assert
-            Assert.Equal(expected, result, Comparers.DatabaseConfigComparer());
+            Assert.Equal(expected, config, Comparers.DatabaseConfigComparer());
         }
 
         [Fact]
@@ -370,10 +370,10 @@ namespace Harness.UnitTests.SettingsTests
             };
 
             // Act
-            var result = config.SetValue(x => x.DropFirst = true);
+            config.SetValue(x => x.DropFirst = true);
 
             // Assert
-            Assert.Equal(expected, result, Comparers.DatabaseConfigComparer());
+            Assert.Equal(expected, config, Comparers.DatabaseConfigComparer());
         }
 
         [Fact]

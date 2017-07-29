@@ -6,7 +6,7 @@ namespace Harness.Settings
 {
     internal static class SettingsBuilderExtensions
     {
-        public static HarnessConfiguration AddDatabase(this HarnessConfiguration config, string name)
+        internal static void AddDatabase(this HarnessConfiguration config, string name)
         {
             Guard.AgainstNullArgument(config, nameof(config));
             Guard.AgainstNullEmptyOrWhitespace(name, nameof(name));
@@ -23,21 +23,17 @@ namespace Harness.Settings
             }
 
             config.Databases.Add(new DatabaseConfig { DatabaseName = name });
-
-            return config;
         }
 
-        public static DatabaseConfig SetValue(this DatabaseConfig config, Action<DatabaseConfig> setter)
+        internal static void SetValue(this DatabaseConfig config, Action<DatabaseConfig> setter)
         {
             Guard.AgainstNullArgument(config, nameof(config));
             Guard.AgainstNullArgument(setter, nameof(setter));
 
             setter(config);
-
-            return config;
         }
 
-        public static DatabaseConfig AddCollection(this DatabaseConfig db, string name, bool dropFirst, string fileLocation)
+        internal static void AddCollection(this DatabaseConfig db, string name, bool dropFirst, string fileLocation)
         {
             Guard.AgainstNullArgument(db, nameof(db));
             Guard.AgainstNullEmptyOrWhitespace(name, nameof(name));
@@ -65,11 +61,9 @@ namespace Harness.Settings
                     DataProvider = null
                 }
             );
-
-            return db;
         }
 
-        public static DatabaseConfig AddDataProviderCollection<T>(this DatabaseConfig db, string name, bool dropFirst, IDataProvider dataProvider)
+        internal static void AddDataProviderCollection<T>(this DatabaseConfig db, string name, bool dropFirst, IDataProvider dataProvider)
         {
             Guard.AgainstNullArgument(db, nameof(db));
             Guard.AgainstNullEmptyOrWhitespace(name, nameof(name));
@@ -98,11 +92,9 @@ namespace Harness.Settings
                     DataProviderType = typeof(T)
                 }
             );
-
-            return db;
         }
 
-        public static string GetCollectionName(this CollectionConfig config, string suffix)
+        internal static string GetCollectionName(this CollectionConfig config, string suffix)
         {
             Guard.AgainstNullArgument(config, nameof(config));
 
