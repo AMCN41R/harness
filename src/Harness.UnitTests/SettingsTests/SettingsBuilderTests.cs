@@ -70,7 +70,7 @@ namespace Harness.UnitTests.SettingsTests
                     .DropDatabaseFirst()
                     .AddCollection("C-1", true, "file-1")
                     .AddCollection("C-2", true, "file-2")
-                    .AddAnotherDatabase("DB-2")
+                    .AddDatabase("DB-2")
                     .WithConnectionString("connString-2")
                     .WithCollectionNameSuffix("CS-2")
                     .DropDatabaseFirst()

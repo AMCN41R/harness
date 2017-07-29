@@ -36,18 +36,11 @@ namespace Harness.Settings
         }
 
         /// <inheritdoc />
-        HarnessConfiguration ISettingsBuilder.Build()
-        {
-            return this.Config;
-        }
-
-        /// <inheritdoc />
         ISettingsBuilderDatabaseOptions ISettingsBuilderConnectionString.WithConnectionString(string connectionString)
         {
             Guard.AgainstNullEmptyOrWhitespace(connectionString, nameof(connectionString));
 
             this.GetDatabaseConfig().SetValue(x => x.ConnectionString = connectionString);
-
             return this;
         }
 
@@ -57,7 +50,6 @@ namespace Harness.Settings
             Guard.AgainstNullEmptyOrWhitespace(suffix, nameof(suffix));
 
             this.GetDatabaseConfig().SetValue(x => x.CollectionNameSuffix = suffix);
-
             return this;
         }
 
@@ -83,7 +75,7 @@ namespace Harness.Settings
         }
 
         /// <inheritdoc />
-        ISettingsBuilderConnectionString ISettingsBuilderAddMoreCollections.AddAnotherDatabase(string name)
+        ISettingsBuilderConnectionString ISettingsBuilderAddMoreCollections.AddDatabase(string name)
         {
             this.Config.AddDatabase(name);
             this.CurrentDatabaseName = name;
@@ -126,12 +118,6 @@ namespace Harness.Settings
         /// An <see cref="ISettingsBuilderConnectionString"/> instance.
         /// </returns>
         ISettingsBuilderConnectionString AddDatabase(string name);
-
-        /// <summary>
-        /// Builds the finshed configuration.
-        /// </summary>
-        /// <returns>A <see cref="HarnessConfiguration"/> instance.</returns>
-        HarnessConfiguration Build();
     }
 
     public interface ISettingsBuilderConnectionString
@@ -163,7 +149,7 @@ namespace Harness.Settings
 
         ISettingsBuilderAddMoreCollections AddCollection<T>(string name, bool dropFirst, IDataProvider dataProvider);
 
-        ISettingsBuilderConnectionString AddAnotherDatabase(string name);
+        ISettingsBuilderConnectionString AddDatabase(string name);
 
         HarnessConfiguration Build();
     }

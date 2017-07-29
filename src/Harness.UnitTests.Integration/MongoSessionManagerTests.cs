@@ -21,7 +21,7 @@ namespace Harness.UnitTests.Integration
                     .DropDatabaseFirst()
                     .AddCollection("col1", true, "Collection1.json")
                     .AddCollection<Person>("people", true, new PersonDataProvider())
-                    .AddAnotherDatabase("test2")
+                    .AddDatabase("test2")
                     .WithConnectionString("mongodb://localhost:27017")
                     .DropDatabaseFirst()
                     .AddCollection("col2", true, "Collection2.json")
