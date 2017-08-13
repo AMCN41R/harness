@@ -1,7 +1,6 @@
 ﻿using System;
 using MongoDB.Bson;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 namespace Harness.Settings
 {

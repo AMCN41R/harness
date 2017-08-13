@@ -1,21 +1,29 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Harness.Settings;
 using Harness.UnitTests.Integration.DataProviders;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Driver;
 using Xunit;
 
 namespace Harness.UnitTests.Integration
 {
-    public class MongoSessionManagerTests
+    public class MongoSessionManagerTests : IDisposable
     {
+        private IMongoClient Client { get; set; }
+
+        private List<string> DbNames { get; } = new List<string>();
+
         [Fact]
         public async Task Build_DropEverything_BuildsDatabase()
         {
             // Arrange
             var settings =
                 new SettingsBuilder()
+                    .AddConvention(new CamelCaseElementNameConvention(), x => true)
                     .AddDatabase("test1")
                     .WithConnectionString("mongodb://localhost:27017")
                     .DropDatabaseFirst()
@@ -29,6 +37,9 @@ namespace Harness.UnitTests.Integration
 
             var sut = new MongoSessionManager(settings);
 
+            this.DbNames.Add("test1");
+            this.DbNames.Add("test2");
+
 
             // Act
             var connections = sut.Build();
@@ -37,9 +48,9 @@ namespace Harness.UnitTests.Integration
             // Assert
             Assert.Equal(1, connections.Count);
 
-            var mongo = connections["mongodb://localhost:27017"];
+            this.Client = connections["mongodb://localhost:27017"];
 
-            var test1 = mongo.GetDatabase("test1");
+            var test1 = this.Client.GetDatabase("test1");
             var col1 = test1.GetCollection<BsonDocument>("col1");
             var results1 = (await col1.FindAsync<BsonDocument>(new BsonDocument())).ToList();
             Assert.Equal(2, results1.Count);
@@ -56,7 +67,7 @@ namespace Harness.UnitTests.Integration
             Assert.True(people[1].Equals(data[1]));
             Assert.True(people[2].Equals(data[2]));
 
-            var test2 = mongo.GetDatabase("test2");
+            var test2 = this.Client.GetDatabase("test2");
             var col2 = test2.GetCollection<BsonDocument>("col2");
             var results2 = (await col2.FindAsync<BsonDocument>(new BsonDocument())).ToList();
             Assert.Equal(2, results2.Count);
@@ -82,6 +93,7 @@ namespace Harness.UnitTests.Integration
 
                 var settings =
                     new SettingsBuilder()
+                        .AddConvention(new List<IConvention> { new CamelCaseElementNameConvention()}, x => true)
                         .AddDatabase("testExisting")
                         .WithConnectionString("mongodb://localhost:27017")
                         .AddCollection<Person>("people", false, new PersonDataProvider())
@@ -104,6 +116,11 @@ namespace Harness.UnitTests.Integration
             {
                 database?.DropCollection("people");
             }
+        }
+
+        public void Dispose()
+        {
+            this.DbNames?.ForEach(x => this.Client?.DropDatabase(x));
         }
     }
 }

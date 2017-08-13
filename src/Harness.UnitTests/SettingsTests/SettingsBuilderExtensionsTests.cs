@@ -2,11 +2,81 @@
 using System.Collections.Generic;
 using Harness.Settings;
 using Xunit;
+using MongoDB.Bson.Serialization.Conventions;
 
 namespace Harness.UnitTests.SettingsTests
 {
     public class SettingsBuilderExtensionsTests
     {
+        [Fact]
+        public void SetConventions_NullConfig_ThrowsArgumentNullException()
+        {
+            Assert.Throws<ArgumentNullException>(
+                () => (null as HarnessConfiguration)
+                        .SetConventions(new ConventionPack(), x => true));
+        }
+
+        [Fact]
+        public void SetConventions_NullConventionPack_ThrowsArgumentNullException()
+        {
+            Assert.Throws<ArgumentNullException>(
+                () => new HarnessConfiguration()
+                        .SetConventions(null, x => true));
+        }
+
+        [Fact]
+        public void SetConventions_NullFilter_ThrowsArgumentNullException()
+        {
+            Assert.Throws<ArgumentNullException>(
+                () => new HarnessConfiguration()
+                        .SetConventions(new ConventionPack(), null));
+        }
+
+        [Fact]
+        public void SetConventions_ValidConfigAndConventionPack_AddsConventionsToConfig()
+        {
+            // Arrange
+            var pack = new ConventionPack { new CamelCaseElementNameConvention() };
+
+            var config = new HarnessConfiguration
+            {
+                Databases = new List<DatabaseConfig>
+                {
+                    new DatabaseConfig
+                    {
+                        ConnectionString = "connString",
+                        DatabaseName = "dbName",
+                        DropFirst = true,
+                    }
+                }
+            };
+
+            var expected = new HarnessConfiguration
+            {
+                Databases = new List<DatabaseConfig>
+                {
+                    new DatabaseConfig
+                    {
+                        ConnectionString = "connString",
+                        DatabaseName = "dbName",
+                        DropFirst = true,
+                    }
+                },
+                Conventions = new ConventionConfig
+                {
+                    Name = "conventions",
+                    ConventionPack = pack,
+                    Filter = x => true
+                }
+            };
+
+            // Act
+            config.SetConventions(pack, x => true);
+
+            // Assert
+            Assert.Equal(expected, config, Comparers.HarnessConfigurationComparer());
+        }
+
         [Fact]
         public void AddDatabase_NullConfig_ThrowsArgumentNullException()
         {
@@ -72,6 +142,7 @@ namespace Harness.UnitTests.SettingsTests
             // Arrange
             var config = new HarnessConfiguration
             {
+                Conventions = null,
                 Databases = new List<DatabaseConfig>
                 {
                     new DatabaseConfig { DatabaseName = "test" }
@@ -80,6 +151,7 @@ namespace Harness.UnitTests.SettingsTests
 
             var expected = new HarnessConfiguration
             {
+                Conventions = null,
                 Databases = new List<DatabaseConfig>
                 {
                     new DatabaseConfig { DatabaseName = "test" },

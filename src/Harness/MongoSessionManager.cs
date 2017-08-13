@@ -3,6 +3,7 @@ using Harness.Settings;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Linq;
+using MongoDB.Bson.Serialization.Conventions;
 
 namespace Harness
 {
@@ -61,6 +62,15 @@ namespace Harness
         /// </summary>
         public Dictionary<string, IMongoClient> Build()
         {
+            if (this.Settings.Conventions != null)
+            {
+                ConventionRegistry.Register(
+                    this.Settings.Conventions.Name,
+                    this.Settings.Conventions.ConventionPack,
+                    this.Settings.Conventions.Filter.Compile()
+                );
+            }
+
             foreach (var database in this.Settings.Databases)
             {
                 this.CreateDatabase(database);

@@ -1,4 +1,8 @@
 ﻿using System.Linq;
+using MongoDB.Bson.Serialization.Conventions;
+using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace Harness.Settings
 {
@@ -8,6 +12,7 @@ namespace Harness.Settings
     /// </summary>
     public class SettingsBuilder :
         ISettingsBuilder,
+        ISettingsBuilderDatabase,
         ISettingsBuilderConnectionString,
         ISettingsBuilderDatabaseOptions,
         ISettingsBuilderAddMoreCollections
@@ -30,8 +35,48 @@ namespace Harness.Settings
         /// <inheritdoc />
         public ISettingsBuilderConnectionString AddDatabase(string name)
         {
+            Guard.AgainstNullEmptyOrWhitespace(name, nameof(name));
+
             this.Config.AddDatabase(name);
             this.CurrentDatabaseName = name;
+            return this;
+        }
+
+        /// <inheritdoc />
+        public ISettingsBuilderDatabase AddConvention(IConvention convention, Expression<Func<Type, bool>> filter)
+        {
+            Guard.AgainstNullArgument(convention, nameof(convention));
+            Guard.AgainstNullArgument(filter, nameof(filter));
+
+            this.Config.SetConventions(new ConventionPack {convention}, filter);
+            return this;
+        }
+
+        /// <inheritdoc />
+        public ISettingsBuilderDatabase AddConvention(IList<IConvention> conventions, Expression<Func<Type, bool>> filter)
+        {
+            Guard.AgainstNullArgument(conventions, nameof(conventions));
+            Guard.AgainstNullArgument(filter, nameof(filter));
+
+            if (!conventions.Any())
+            {
+                return this;
+            }
+
+            var pack = new ConventionPack();
+            pack.AddRange(conventions);
+
+            this.Config.SetConventions(pack, filter);
+            return this;
+        }
+
+        /// <inheritdoc />
+        public ISettingsBuilderDatabase AddConvention(IConventionPack conventions, Expression<Func<Type, bool>> filter)
+        {
+            Guard.AgainstNullArgument(conventions, nameof(conventions));
+            Guard.AgainstNullArgument(filter, nameof(filter));
+
+            this.Config.SetConventions(conventions, filter);
             return this;
         }
 
@@ -63,6 +108,9 @@ namespace Harness.Settings
         /// <inheritdoc />
         ISettingsBuilderAddMoreCollections ISettingsBuilderDatabaseOptions.AddCollection(string name, bool dropFirst, string fileLocation)
         {
+            Guard.AgainstNullEmptyOrWhitespace(name, nameof(name));
+            Guard.AgainstNullEmptyOrWhitespace(fileLocation, nameof(fileLocation));
+
             this.GetDatabaseConfig().AddCollection(name, dropFirst, fileLocation);
             return this;
         }
@@ -70,6 +118,9 @@ namespace Harness.Settings
         /// <inheritdoc />
         ISettingsBuilderAddMoreCollections ISettingsBuilderAddMoreCollections.AddCollection(string name, bool dropFirst, string fileLocation)
         {
+            Guard.AgainstNullEmptyOrWhitespace(name, nameof(name));
+            Guard.AgainstNullEmptyOrWhitespace(fileLocation, nameof(fileLocation));
+
             this.GetDatabaseConfig().AddCollection(name, dropFirst, fileLocation);
             return this;
         }
@@ -77,6 +128,8 @@ namespace Harness.Settings
         /// <inheritdoc />
         ISettingsBuilderConnectionString ISettingsBuilderAddMoreCollections.AddDatabase(string name)
         {
+            Guard.AgainstNullEmptyOrWhitespace(name, nameof(name));
+
             this.Config.AddDatabase(name);
             this.CurrentDatabaseName = name;
             return this;
@@ -91,6 +144,9 @@ namespace Harness.Settings
         /// <inheritdoc />
         ISettingsBuilderAddMoreCollections ISettingsBuilderDatabaseOptions.AddCollection<T>(string name, bool dropFirst, IDataProvider dataProvider)
         {
+            Guard.AgainstNullEmptyOrWhitespace(name, nameof(name));
+            Guard.AgainstNullArgument(dataProvider, nameof(dataProvider));
+
             this.GetDatabaseConfig().AddDataProviderCollection<T>(name, dropFirst, dataProvider);
             return this;
         }
@@ -98,6 +154,9 @@ namespace Harness.Settings
         /// <inheritdoc />
         ISettingsBuilderAddMoreCollections ISettingsBuilderAddMoreCollections.AddCollection<T>(string name, bool dropFirst, IDataProvider dataProvider)
         {
+            Guard.AgainstNullEmptyOrWhitespace(name, nameof(name));
+            Guard.AgainstNullArgument(dataProvider, nameof(dataProvider));
+
             this.GetDatabaseConfig().AddDataProviderCollection<T>(name, dropFirst, dataProvider);
             return this;
         }
@@ -109,6 +168,48 @@ namespace Harness.Settings
     }
 
     public interface ISettingsBuilder
+    {
+        /// <summary>
+        /// Adds a convention to the Mongo ConventionRegistry.
+        /// </summary>
+        /// <param name="convention">The convention to add.</param>
+        /// <param name="filter">
+        /// The filter to select the types to which the convention will be applied.
+        /// </param>
+        /// <returns></returns>
+        ISettingsBuilderDatabase AddConvention(IConvention convention, Expression<Func<Type, bool>> filter);
+
+        /// <summary>
+        /// Adds conventions to the Mongo ConventionRegistry.
+        /// </summary>
+        /// <param name="conventions">The conventions to add.</param>
+        /// <param name="filter">
+        /// The filter to select the types to which the convention will be applied.
+        /// </param>
+        /// <returns></returns>
+        ISettingsBuilderDatabase AddConvention(IList<IConvention> conventions, Expression<Func<Type, bool>> filter);
+
+        /// <summary>
+        /// Adds a conventions to the Mongo ConventionRegistry.
+        /// </summary>
+        /// <param name="conventions">The convention to add.</param>
+        /// <param name="filter">
+        /// The filter to select the types to which the convention will be applied.
+        /// </param>
+        /// <returns></returns>
+        ISettingsBuilderDatabase AddConvention(IConventionPack conventions, Expression<Func<Type, bool>> filter);
+
+        /// <summary>
+        /// Adds a new database configuration to the <see cref="HarnessConfiguration"/> object. 
+        /// </summary>
+        /// <param name="name">The name of the MongoDb database.</param>
+        /// <returns>
+        /// An <see cref="ISettingsBuilderConnectionString"/> instance.
+        /// </returns>
+        ISettingsBuilderConnectionString AddDatabase(string name);
+    }
+
+    public interface ISettingsBuilderDatabase
     {
         /// <summary>
         /// Adds a new database configuration to the <see cref="HarnessConfiguration"/> object. 

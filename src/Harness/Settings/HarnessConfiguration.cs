@@ -7,6 +7,11 @@ namespace Harness.Settings
         /// <summary>
         /// Gets or sets the list of database configurations.
         /// </summary>
-        public List<DatabaseConfig> Databases { get; set; }
+        public IList<DatabaseConfig> Databases { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Mongo conventions to apply.
+        /// </summary>
+        public ConventionConfig Conventions { get; set; }
     }
 }

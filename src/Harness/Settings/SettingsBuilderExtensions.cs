@@ -1,11 +1,29 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using MongoDB.Bson.Serialization.Conventions;
 
 namespace Harness.Settings
 {
     internal static class SettingsBuilderExtensions
     {
+        internal static void SetConventions(this HarnessConfiguration config, IConventionPack pack, Expression<Func<Type, bool>> filter)
+        {
+            Guard.AgainstNullArgument(config, nameof(config));
+            Guard.AgainstNullArgument(pack, nameof(pack));
+            Guard.AgainstNullArgument(filter, nameof(filter));
+
+            var convention = new ConventionConfig
+            {
+                Name = "conventions",
+                ConventionPack = pack,
+                Filter = filter
+            };
+
+            config.Conventions = convention;
+        }
+
         internal static void AddDatabase(this HarnessConfiguration config, string name)
         {
             Guard.AgainstNullArgument(config, nameof(config));

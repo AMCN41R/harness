@@ -73,6 +73,7 @@
     <Compile Include="MongoSessionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\CollectionConfig.cs" />
+    <Compile Include="Settings\ConventionConfig.cs" />
     <Compile Include="Settings\DatabaseConfig.cs" />
     <Compile Include="Settings\FromJsonFileDataProvider.cs" />
     <Compile Include="Settings\IDataProvider.cs" />

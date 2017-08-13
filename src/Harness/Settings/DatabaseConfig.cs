@@ -30,6 +30,6 @@ namespace Harness.Settings
         /// Gets or sets the list of <see cref="CollectionConfig"/> items to 
         /// add to the database.
         /// </summary>
-        public List<CollectionConfig> Collections { get; set; }
+        public IList<CollectionConfig> Collections { get; set; }
     }
 }

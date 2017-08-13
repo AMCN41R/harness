@@ -10,6 +10,9 @@ namespace Harness
         {
         }
 
+        /// <summary>
+        /// Internal constructor to allow dependency injection for unit testing.
+        /// </summary>
         internal HarnessManager(ISettingsLoader settingsLoader)
         {
             this.SettingsLoader = settingsLoader;
