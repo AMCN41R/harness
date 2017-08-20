@@ -3,14 +3,14 @@
 Harness is a .NET library designed to manage the state of a Mongo database during testing.
 
 ## About
-Harness is designed to aid unit and integration testing by putting a Mongo database in a known state at the beginning of test, or suite of tests. The framework allows you to control your code’s dependency on a Mongo database, therefore increasing test consistency and repeat-ability.
+Harness is designed to aid unit and integration testing by putting a Mongo database in a known state at the beginning of a test, or suite of tests. The framework allows you to control your code’s dependency on a Mongo database, therefore increasing test consistency and repeat-ability.
 
 Harness is an open source project, licensed under the [MIT License](https://github.com/AMCN41R/Harness/blob/dev/LICENSE)
 
 Harness was inspired by [NDBUnit](https://github.com/NDbUnit/NDbUnit).
 
 ## Getting Harness
-Harness is availble on [nuget](https://www.nuget.org/packages/Harness/1.0.0) and can be installed with...
+Harness is availble on [nuget](https://www.nuget.org/packages/Harness) and can be installed with...
 ```
 Install-Package Harness
 ```
@@ -19,7 +19,7 @@ Install-Package Harness
 Harness will put one or more Mongo databases into a state defined by a json settings file and one or more json data files.
 
 ### Settings File
-The settings file must have a .json extension. It is a json object that contains a `databases` property that is an array of `database` objects.
+The settings file must have a `.json` extension. It is a json object that contains a `databases` property that is an array of `database` objects.
 
 #### Database Object
 - **databseName**: The name of the database that will be used. 
@@ -60,7 +60,7 @@ The settings file must have a .json extension. It is a json object that contains
 ```
 
 ### Data File
-Test data files must have a .json extension and contain an array of json objects.
+Test data files must have a `.json` extension and contain an array of json objects.
 
 #### Example data file, 'Collection1.json'
 ```
@@ -103,18 +103,12 @@ public class AutoConfigureDatabase : HarnessBase
 
 ## HarnessBase Class
 The `HarnessBase` class is an abstract class that, during construction, loads the Harness settings and data files, and configures the Mongo instance defined inside the settings file.
-Using the `HarnessBase` class with a Harness Settings file and a Harness Data file(s) is the simplest and easiest way to configure a Mongo instance...
+Using the `HarnessBase` class with a Harness Settings file and Harness Data file(s) is the simplest and easiest way to configure a Mongo instance...
 
-1.	Create json file containing an array of json objects (one file per mongo collection)
+1.	Create a json file containing an array of json objects (one file per mongo collection)
 2.	Create a settings file
 3.	Make your test class extend `HarnessBase`
 4.	Optionally annotate your test class with the `HarnessConfig` attribute to specify the file path of your settings file. If the attribute is not present, or a configuration file path is not specified on the attribute, a default value of [ClassName].json will be used.
-
-### Manual
-A manual version on the `HarnessBase` class will work in the same way (inheritance and attribute) but will require a method call to configure Mongo, rather than it happening in the constructor.
-
-### XUnit Test Fixture
-A version that is configured to work with the XUnit class fixture design (a shared context between tests, similar to NUnit SetUp and TearDown). The default behaviour of XUnit is to create a new instance of the test class for each test inside it. If using the `HarnessBase`, this would result in the database being deleted (depending on the settings) and re-created for every test. Using this base class will ensure this only happens once for a group of tests.
 
 
 ## XUnit Examples
@@ -125,9 +119,9 @@ To use Harness:
 - specify the relative path to the Harness settings file by setting the ConfigFilePath variable 
 - have the class that contains the tests extend `HarnessBase` 
 
-When a test is run, the `HarnessBase` class will use the settings file to put the mongo databases specified within it into the desired state. This will happen automatically when the class constructor is called.
+When a test is run, the `HarnessBase` class will use the settings file to put the Mongo databases specified within it into the desired state. This will happen automatically when the class is constructed.
 
-The `HarnessBase` class exposes the `IMongoClient` objects that it created while setting up the databases so that, if required, they can be re-used in the tests. This is exposed as a a `Dictionary<string, IMongoClient>` where the dictionary key in the mongo server connection string.
+The `HarnessBase` class exposes the `IMongoClient` objects that it created while setting up the databases so that, if required, they can be re-used in the tests. This is exposed as a `Dictionary<string, IMongoClient>` where the dictionary key is the mongo server connection string.
 
 ```csharp
 [HarnessConfig(ConfigFilePath = "ExampleSettings.json")]
@@ -176,7 +170,7 @@ To use Harness:
 
 Setting AutoRun = false, tells the `HarnessBase` class not to setup the databases until the BuildDatabase() method is called.
 
-The `HarnessBase` class exposes the IMongoClient objects that it created while setting up the databases so that, if required, they can be re-used in the tests. This is exposed as a a `Dictionary<string, IMongoClient>` where the dictionary key in the mongo server connection string.
+The `HarnessBase` class exposes the IMongoClient objects that it created while setting up the databases so that, if required, they can be re-used in the tests. This is exposed as a `Dictionary<string, IMongoClient>` where the dictionary key is the mongo server connection string.
 
 ```csharp
 [HarnessConfig(ConfigFilePath = "ExampleSettings.json", AutoRun = false)]
@@ -233,7 +227,7 @@ This will happen automatically when the class constructor is called.
 
 The `HarnessBase` class exposes the IMongoClient objects that it created
 while setting up the databases so that, if required, they can be re-used
-in the tests. This is exposed as a a `Dictionary<string, IMongoClient>`
+in the tests. This is exposed as a `Dictionary<string, IMongoClient>`
 where the dictionary key is the mongo server connection string.
 
 ```csharp
@@ -291,7 +285,7 @@ public class UsingTheBaseClassWithClassFixture : IClassFixture<DatabaseFixture>
 
 
 ## Fluent Configuration with the SettingsBuilder and HarnessManager classes
-With the `SettingsBuilder` and `HarnessManager` you can use Harness to setup your Mongo databases without the need for configuration files.
+With the `SettingsBuilder` and `HarnessManager` classes you can use Harness to setup your Mongo databases without the need for configuration files.
 
 ### SettingsBuilder
 The `SettingsBuilder` class provides a fluent api to build a configuration object for the `HarnessManager`. You can continue to use json files to load test data, or implement the `IDataProvider` interface to give Harness the data from code.
@@ -341,6 +335,19 @@ public class Person
     public string LastName { get; set; }
     public int Age { get; set; }
 }
+```
+
+#### Adding Mongo Conventions
+The `SettingsBuilder` api also allows you to register global Mongo conventions before the configuration is run. This example shows how to add the `CamelCaseElementNameConvention` to all classes whose namespace starts with "MyProject"...
+```csharp
+var settings =
+    new SettingsBuilder()
+        .AddConvention(new CamelCaseElementNameConvention(), x => x.Namespace.StartsWith("MyProject"))
+        .AddDatabase("TestDb1")
+        .WithConnectionString("mongodb://localhost:27017")
+        .DropDatabaseFirst()
+        .AddCollection("col1", true, "path/to/Collection1.json")
+        .Build();
 ```
 
 ### HarnessManager
