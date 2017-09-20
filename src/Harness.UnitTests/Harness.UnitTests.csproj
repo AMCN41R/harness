@@ -134,11 +134,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttributesTests\HarnessConfigAttributeTests.cs" />
-    <Compile Include="AttributesTests\RequiredAttributeNotFoundExceptionTests.cs" />
     <Compile Include="Comparers.cs" />
     <Compile Include="ExtensionsTests.cs" />
     <Compile Include="GenericComparer.cs" />
-    <Compile Include="HarnessBaseExceptionTests.cs" />
     <Compile Include="HarnessManagerTests.cs" />
     <Compile Include="HarnessBaseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

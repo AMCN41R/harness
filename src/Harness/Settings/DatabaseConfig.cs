@@ -2,6 +2,9 @@
 
 namespace Harness.Settings
 {
+    /// <summary>
+    /// Represents the database configuration options.
+    /// </summary>
     public class DatabaseConfig
     {
         /// <summary>

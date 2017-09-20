@@ -2,6 +2,9 @@
 
 namespace Harness.Settings
 {
+    /// <summary>
+    /// Represents the Harness configuration options.
+    /// </summary>
     public class HarnessConfiguration
     {
         /// <summary>

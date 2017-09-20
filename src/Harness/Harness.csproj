@@ -62,14 +62,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\RequiredAttributeNotFoundException.cs" />
     <Compile Include="FileSystemAbstraction.cs" />
     <Compile Include="Guard.cs" />
-    <Compile Include="HarnessBaseException.cs" />
     <Compile Include="HarnessManager.cs" />
     <Compile Include="HarnessBase.cs" />
     <Compile Include="Attributes\HarnessConfigAttribute.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="IFileSystem.cs" />
     <Compile Include="MongoClientFactory.cs" />
     <Compile Include="MongoSessionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

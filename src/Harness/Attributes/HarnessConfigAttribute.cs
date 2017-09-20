@@ -19,7 +19,6 @@ namespace Harness.Attributes
     ///     }
     /// }
     /// </code>
-    /// <example>
     /// <code lang="C#">
     /// [HarnessConfig(ConfigFilePath = "HarnessConfig.json", AutoRun = false)]
     /// public class MyMongoIntegrationTests : HarnessBase
@@ -27,13 +26,12 @@ namespace Harness.Attributes
     ///     [Fact]
     ///     public void Test()
     ///     {
-    ///         base.BuildDatabase();
+    ///         base.Build();
     /// 
     ///         // Test something...
     ///     }
     /// }
     /// </code>
-    /// </example>
     /// </example>
     /// </remarks>
     [AttributeUsage(AttributeTargets.Class)]
@@ -54,6 +52,9 @@ namespace Harness.Attributes
         /// </summary>
         public bool AutoRun { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HarnessConfigAttribute"/> class.
+        /// </summary>
         public HarnessConfigAttribute()
         {
             this.ConfigFilePath = string.Empty;

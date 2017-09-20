@@ -5,3 +5,4 @@ obj/
 .vs/
 /*.user
 packages
+src/Harness.Docs/Help/

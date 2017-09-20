@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Xunit;
 using NSubstitute;
 using Harness.Attributes;
@@ -101,7 +102,7 @@ namespace Harness.UnitTests
         }
 
         [Fact]
-        public void Build_AutoRunSetToTrue_ThrowsHarnessBaseException()
+        public void Build_AutoRunSetToTrue_ThrowsInvalidOperationException()
         {
             // Arrange
             var fakeBuilder = Substitute.For<IHarnessManagerBuilder>();
@@ -118,7 +119,7 @@ namespace Harness.UnitTests
             var classUnderTest = new TestableHarnessBase(fakeHarnessManager);
 
             // Act / Assert
-            Assert.Throws<HarnessBaseException>(() => classUnderTest.Build());
+            Assert.Throws<InvalidOperationException>(() => classUnderTest.Build());
         }
 
         [Fact]

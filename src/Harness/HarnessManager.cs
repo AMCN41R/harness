@@ -4,8 +4,12 @@ using MongoDB.Driver;
 
 namespace Harness
 {
+    /// <inheritdoc />
     public class HarnessManager : IHarnessManager, IHarnessManagerBuilder
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HarnessManager"/> class.
+        /// </summary>
         public HarnessManager() : this(new SettingsLoader())
         {
         }
@@ -63,15 +67,35 @@ namespace Harness
             => new MongoSessionManager(this.Configuration);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IHarnessManager
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filepath"></param>
+        /// <returns></returns>
         IHarnessManagerBuilder UsingSettings(string filepath);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="configuration"></param>
+        /// <returns></returns>
         IHarnessManagerBuilder UsingSettings(HarnessConfiguration configuration);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IHarnessManagerBuilder
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         Dictionary<string, IMongoClient> Build();
     }
 }

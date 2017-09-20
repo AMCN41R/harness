@@ -17,6 +17,9 @@ namespace Harness.Settings
         ISettingsBuilderDatabaseOptions,
         ISettingsBuilderAddMoreCollections
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SettingsBuilder"/> class.
+        /// </summary>
         public SettingsBuilder()
         {
             this.Config = new HarnessConfiguration();

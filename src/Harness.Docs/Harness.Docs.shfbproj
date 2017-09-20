@@ -28,7 +28,7 @@
     </TransformComponentArguments>
     <SaveComponentCacheCapacity>100</SaveComponentCacheCapacity>
     <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
-    <HelpFileFormat>Markdown</HelpFileFormat>
+    <HelpFileFormat>Website</HelpFileFormat>
     <IndentHtml>False</IndentHtml>
     <KeepLogFile>True</KeepLogFile>
     <DisableCodeBlockComponent>False</DisableCodeBlockComponent>
@@ -42,7 +42,7 @@
     <SyntaxFilters>C#, Visual Basic, F#</SyntaxFilters>
     <SdkLinkTarget>Blank</SdkLinkTarget>
     <RootNamespaceContainer>False</RootNamespaceContainer>
-    <PresentationStyle>Markdown</PresentationStyle>
+    <PresentationStyle>VS2013</PresentationStyle>
     <Preliminary>False</Preliminary>
     <NamingMethod>Guid</NamingMethod>
     <HelpTitle>Harness API</HelpTitle>
@@ -51,8 +51,10 @@
     </RootNamespaceTitle>
     <NamespaceSummaries>
       <NamespaceSummaryItem name="Harness" isDocumented="True" xmlns="">Harness Summary</NamespaceSummaryItem>
-<NamespaceSummaryItem name="Harness.Attributes" isDocumented="True" xmlns="">Harness Attributes Summary</NamespaceSummaryItem>
-<NamespaceSummaryItem name="Harness.Settings" isDocumented="True" xmlns="">Harness Settings Summary</NamespaceSummaryItem></NamespaceSummaries>
+      <NamespaceSummaryItem name="Harness.Attributes" isDocumented="True" xmlns="">Harness Attributes Summary</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Harness.Settings" isDocumented="True" xmlns="">Harness Settings Summary</NamespaceSummaryItem>
+    </NamespaceSummaries>
+    <VisibleItems>InheritedMembers, Protected, ProtectedInternalAsProtected</VisibleItems>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
 			 the build.  The others are optional common platform types that may appear. -->

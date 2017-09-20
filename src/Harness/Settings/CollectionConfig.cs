@@ -4,6 +4,9 @@ using Newtonsoft.Json;
 
 namespace Harness.Settings
 {
+    /// <summary>
+    /// Represents the collection configuration options.
+    /// </summary>
     public class CollectionConfig
     {
         /// <summary>

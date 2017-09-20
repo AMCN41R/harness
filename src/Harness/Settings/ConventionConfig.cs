@@ -4,6 +4,9 @@ using MongoDB.Bson.Serialization.Conventions;
 
 namespace Harness.Settings
 {
+    /// <summary>
+    /// Represents the convention configuration options.
+    /// </summary>
     public class ConventionConfig
     {
         /// <summary>

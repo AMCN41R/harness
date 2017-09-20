@@ -1,21 +1,58 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Harness.Attributes;
 using MongoDB.Driver;
 
 namespace Harness
 {
+    /// <summary>
+    /// A base class that can be used in conjunction with the <see cref="HarnessConfigAttribute"/>
+    /// to configure one or more Mongo databases.
+    /// </summary>
+    /// <remarks>
+    /// This class expects the class that extends it to have the <see cref="HarnessConfigAttribute"/> attribute.
+    /// During construction, it will attempt to load a configuration file, and 
+    /// put any specified databases into the required state.
+    /// If the attribute is not present, or there is no valid filepath for the
+    /// configuration file, a default value of [ClassName].json will be used.
+    /// <example>
+    /// <code lang="C#">
+    /// [HarnessConfig(ConfigFilePath = "HarnessConfig.json")]
+    /// public class MyMongoIntegrationTests : HarnessBase
+    /// {
+    ///     [Fact]
+    ///     public void Test()
+    ///     {
+    ///         // Test something...
+    ///     }
+    /// }
+    /// </code>
+    /// <code lang="C#">
+    /// [HarnessConfig(ConfigFilePath = "HarnessConfig.json", AutoRun = false)]
+    /// public class MyMongoIntegrationTests : HarnessBase
+    /// {
+    ///     [Fact]
+    ///     public void Test()
+    ///     {
+    ///         base.Build();
+    /// 
+    ///         // Test something...
+    ///     }
+    /// }
+    /// </code>
+    /// </example>
+    /// </remarks>
     public abstract class HarnessBase
     {
         /// <summary>
-        /// Constructs a new instance of the MongoIntegrationBase class.
-        /// This base class expects the inheriting class to have the 
-        /// <see cref="HarnessConfigAttribute"/> attribute. During 
-        /// construction, it will attempt to load a Mongo configuration 
-        /// settings file and put any specified databases in the required 
-        /// state. If the attribute is not present, or a configuration filepath 
-        /// is not specified on the atribute, a default value of 
-        /// [ClassName].json will be used.
+        /// Initializes a new instance of the <see cref="HarnessBase"/> class.
         /// </summary>
+        /// <remarks>
+        /// During construction, it will attempt to load a configuration file, and 
+        /// put any specified databases into the required state.
+        /// If the attribute is not present, or there is no valid filepath for the
+        /// configuration file, a default value of [ClassName].json will be used.
+        /// </remarks>
         protected HarnessBase() : this(new HarnessManager())
         {
         }
@@ -39,8 +76,7 @@ namespace Harness
         }
 
         /// <summary>
-        /// Gets the dictionary of mongo clients.
-        /// The mongo server connection string is used as the key.
+        /// Gets the dictionary of mongo clients, whose key is the mongo server connection string.
         /// </summary>
         public Dictionary<string, IMongoClient> MongoConnections => this.Connections;
 
@@ -69,11 +105,29 @@ namespace Harness
         /// This method can only be called if the <see cref="HarnessConfigAttribute"/>
         /// AutoRun property is set to false.
         /// </summary>
+        /// <remarks>
+        /// <example>
+        /// <code lang="C#">
+        /// [HarnessConfig(ConfigFilePath = "HarnessConfig.json", AutoRun = false)]
+        /// public class MyMongoIntegrationTests : HarnessBase
+        /// {
+        ///     [Fact]
+        ///     public void Test()
+        ///     {
+        ///         base.Build();
+        /// 
+        ///         // Test something...
+        ///     }
+        /// }
+        /// </code>
+        /// </example>
+        /// </remarks>
+        /// <exception cref="InvalidOperationException">Thrown if the method is called when the <see cref="AutoRun"/> property is set to true.</exception>
         public void Build()
         {
             if (this.AutoRun)
             {
-                throw new HarnessBaseException(
+                throw new InvalidOperationException(
                     "The current instance is not configured to allow a manual build."
                 );
             }
