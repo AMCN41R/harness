@@ -139,6 +139,7 @@
     <Compile Include="GenericComparer.cs" />
     <Compile Include="HarnessManagerTests.cs" />
     <Compile Include="HarnessBaseTests.cs" />
+    <Compile Include="MongoSessionManagerFactoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SettingsTests\SettingsBuilderExtensionsTests.cs" />
     <Compile Include="SettingsTests\SettingsBuilderTests.cs" />

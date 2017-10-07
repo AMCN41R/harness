@@ -69,6 +69,7 @@
     <Compile Include="HarnessConfigAttribute.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="IFileSystem.cs" />
+    <Compile Include="IMongoSessionManagerFactory.cs" />
     <Compile Include="MongoClientFactory.cs" />
     <Compile Include="MongoSessionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

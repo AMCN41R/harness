@@ -1,7 +1,7 @@
 ﻿using System;
 using Harness.Settings;
-using Xunit;
 using NSubstitute;
+using Xunit;
 
 namespace Harness.UnitTests
 {
@@ -16,7 +16,10 @@ namespace Harness.UnitTests
                 .GetMongoConfiguration(Arg.Any<string>())
                 .Returns(new HarnessConfiguration());
 
-            IHarnessManager classUnderTest = new HarnessManager(fakeSettingsManager);
+            var fakeSessionFactory = Substitute.For<IMongoSessionManagerFactory>();
+
+            IHarnessManager classUnderTest = 
+                new HarnessManager(fakeSettingsManager, fakeSessionFactory);
 
             // Act
             classUnderTest.UsingSettings("TestPath");
@@ -33,7 +36,9 @@ namespace Harness.UnitTests
         {
             // Arrange
             var fakeSettingsManager = Substitute.For<ISettingsLoader>();
-            var classUnderTest = new HarnessManager(fakeSettingsManager);
+            var fakeSessionFactory = Substitute.For<IMongoSessionManagerFactory>();
+            var classUnderTest = 
+                new HarnessManager(fakeSettingsManager, fakeSessionFactory);
 
             // Act / Assert
             Assert.Throws<ArgumentNullException>(() => classUnderTest.UsingSettings(value));
@@ -44,7 +49,9 @@ namespace Harness.UnitTests
         {
             // Arrange
             var fakeSettingsManager = Substitute.For<ISettingsLoader>();
-            var classUnderTest = new HarnessManager(fakeSettingsManager);
+            var fakeSessionFactory = Substitute.For<IMongoSessionManagerFactory>();
+            var classUnderTest = 
+                new HarnessManager(fakeSettingsManager, fakeSessionFactory);
 
             // Act / Assert
             Assert.Throws<ArgumentNullException>(() => classUnderTest.UsingSettings(null as HarnessConfiguration));

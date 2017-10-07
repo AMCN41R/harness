@@ -86,16 +86,17 @@ namespace Harness
         /// <summary>
         /// Initializes a new instance of the <see cref="HarnessManager"/> class.
         /// </summary>
-        public HarnessManager() : this(new SettingsLoader())
+        public HarnessManager() : this(new SettingsLoader(), new MongoSessionManagerFactory())
         {
         }
 
         /// <summary>
         /// Internal constructor to allow dependency injection for unit testing.
         /// </summary>
-        internal HarnessManager(ISettingsLoader settingsLoader)
+        internal HarnessManager(ISettingsLoader settingsLoader, IMongoSessionManagerFactory mongoFactory)
         {
             this.SettingsLoader = settingsLoader;
+            this.MongoFactory = mongoFactory;
         }
 
         /// <summary>
@@ -107,6 +108,11 @@ namespace Harness
         /// Gets the <see cref="ISettingsLoader"/> instance.
         /// </summary>
         private ISettingsLoader SettingsLoader { get; }
+
+        /// <summary>
+        /// Gets the <see cref="IMongoSessionManagerFactory"/> instance.
+        /// </summary>
+        private IMongoSessionManagerFactory MongoFactory { get; }
 
         /// <inheritdoc />
         public IHarnessManagerBuilder UsingSettings(string filepath)
@@ -131,17 +137,12 @@ namespace Harness
 
         /// <inheritdoc />
         Dictionary<string, IMongoClient> IHarnessManagerBuilder.Build()
-            => this.MongoSessionManager().Build();
-
-
-        // TODO: Replace with injected IMongoSessionManagerFactory
-        /// <summary>
-        /// Internal factory method to return live implementation of 
-        /// IMongoSessionManager that can be overridden and mocked for 
-        /// unit testing.
-        /// </summary>
-        internal virtual IMongoSessionManager MongoSessionManager()
-            => new MongoSessionManager(this.Configuration);
+        {
+            return this
+                .MongoFactory
+                .GetMongoSessionManager(this.Configuration)
+                .Build();
+        }
     }
 
     /// <summary>
