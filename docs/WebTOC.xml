@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpTOC>
+
+  <HelpTOCNode Title="Welcome to Harness" Url="html/3dfd16d8-ec65-4abb-beae-96142f9d2172.htm" />
+  <HelpTOCNode Id="435c638c-5be8-47a4-8ade-0f28b7afdcd9" Title="Harness" Url="html/c306edfe-5c5e-b933-d794-fef44c8f4ffc.htm">
+    <HelpTOCNode Id="4bfaac25-708d-439d-b8e1-e5a713de3264" Title="HarnessBase Class" Url="html/36459884-00cd-2c3d-acf5-b0cdf2a8da1b.htm">
+      <HelpTOCNode Title="HarnessBase Constructor " Url="html/8848388b-6acc-7d5f-9c98-b9b995320997.htm" />
+      <HelpTOCNode Id="639738e6-deeb-47cb-9874-3ae4305c045e" Title="HarnessBase Properties" Url="html/df0e93d7-beda-2eb7-0d36-9dc1efb48e67.htm">
+        <HelpTOCNode Title="MongoConnections Property " Url="html/dea745b2-ebcd-ad72-0b09-aaed533514bb.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="680a955f-89e5-4341-b554-446ab3a4c9e5" Title="HarnessBase Methods" Url="html/553a13ba-e1cd-6541-35c2-bea7a3c7bf58.htm">
+        <HelpTOCNode Title="Build Method " Url="html/a243debb-88a5-1672-bf58-ede1360b0d3a.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="85c415f4-a073-411e-a819-d67e296b6fe5" Title="HarnessManager Class" Url="html/a3e77946-5ee3-52a9-4064-afb16e38708c.htm">
+      <HelpTOCNode Title="HarnessManager Constructor " Url="html/e638b3fe-6f9e-9b74-575d-4b04047fbf8e.htm" />
+      <HelpTOCNode Id="98334207-4ce5-4749-abbd-fdfad1f1f025" Title="HarnessManager Methods" Url="html/88461063-b472-6ed9-0a40-a01e620272b3.htm">
+        <HelpTOCNode Title="IHarnessManagerBuilder.Build Method " Url="html/8c2ac038-de9d-6ceb-f6d1-b96d31a2ce42.htm" />
+        <HelpTOCNode Id="c6c8bdc5-23c1-4ded-bcab-c3ddfaab2fcd" Title="UsingSettings Method " Url="html/09651ceb-240e-d3f8-3c11-c4f73caa2f9f.htm">
+          <HelpTOCNode Title="UsingSettings Method (String)" Url="html/4c796c76-046a-8ad2-fd05-c065581707bb.htm" />
+          <HelpTOCNode Title="UsingSettings Method (HarnessConfiguration)" Url="html/e6a398f0-6dbb-bcb7-0029-e2d9a4b68d9a.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="51b910fc-be49-4e9d-9b3d-813475bce2c5" Title="IHarnessManager Interface" Url="html/65af0b62-aeb5-8b53-a24b-b47d882ed6de.htm">
+      <HelpTOCNode Id="2f4258ee-94e8-420b-b5dc-e791e312d488" Title="IHarnessManager Methods" Url="html/55a3ba18-3c07-90e4-cceb-729187d4f924.htm">
+        <HelpTOCNode Id="63accd6e-17c1-4626-9f47-50edb02e7a0d" Title="UsingSettings Method " Url="html/9ec70c87-e853-fe93-6358-c08ab88296a5.htm">
+          <HelpTOCNode Title="UsingSettings Method (String)" Url="html/a1e9857d-f67e-8e72-7d0a-97610a5ac05b.htm" />
+          <HelpTOCNode Title="UsingSettings Method (HarnessConfiguration)" Url="html/3e4df54f-33c8-0f32-fedf-689ae484bbff.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="691642dd-b4ff-4174-9bd4-a77ec57788d5" Title="IHarnessManagerBuilder Interface" Url="html/e69b32b0-f5a0-3f75-1d61-fd7a5c04c5a7.htm">
+      <HelpTOCNode Id="a5e8be46-1953-4022-896b-5efe6d522259" Title="IHarnessManagerBuilder Methods" Url="html/dcf7e4b7-12bb-c579-2504-a36b50418765.htm">
+        <HelpTOCNode Title="Build Method " Url="html/eef6cadd-654f-bbdc-4de6-9295e9691fff.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="a8b674ff-6954-4b32-bcfa-2e383f5aad00" Title="Harness.Attributes" Url="html/e9acb697-e625-8aa0-4332-46fa91ea9cda.htm">
+    <HelpTOCNode Id="f906e442-5429-476c-b9d7-b872c95e1532" Title="HarnessConfigAttribute Class" Url="html/55e51d1d-dcc4-a189-4721-f8dcf43921a2.htm">
+      <HelpTOCNode Title="HarnessConfigAttribute Constructor " Url="html/97236df1-9d53-8825-84f3-a09e52cd2f00.htm" />
+      <HelpTOCNode Id="9aa7e7ad-4a6e-4229-b17e-3f0894087a07" Title="HarnessConfigAttribute Properties" Url="html/517edf31-8b22-1b79-b9ce-91e0af84f8b6.htm">
+        <HelpTOCNode Title="AutoRun Property " Url="html/3160db8a-65a6-d135-8843-785708d3f2f4.htm" />
+        <HelpTOCNode Title="ConfigFilePath Property " Url="html/59b87135-bc1f-19f5-6d51-fc4961432112.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="73452f88-d5ca-4f63-9a32-ff006dbb1e80" Title="Harness.Settings" Url="html/71b20054-d355-35ae-710d-5484ba2d4fce.htm">
+    <HelpTOCNode Id="f51eef16-1956-42cd-ab62-73c5cebd16e6" Title="CollectionConfig Class" Url="html/c080f626-6c00-0282-1ac7-759a95102ddc.htm">
+      <HelpTOCNode Title="CollectionConfig Constructor " Url="html/30e0db72-8dc9-5fcc-e095-0e10997968c9.htm" />
+      <HelpTOCNode Id="b772415a-4fa3-4e60-a2b3-4c4c21866a67" Title="CollectionConfig Properties" Url="html/e4ca48a9-9016-8cb5-861b-a94219eb8e4d.htm">
+        <HelpTOCNode Title="CollectionName Property " Url="html/d154a326-e60c-6db5-9d37-92a495bb6f6f.htm" />
+        <HelpTOCNode Title="DataProvider Property " Url="html/57ac0859-e61b-7ed7-610d-e68888429c84.htm" />
+        <HelpTOCNode Title="DropFirst Property " Url="html/95ad7b23-ee68-5146-242b-be2227c02f8c.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="79acce06-8b7b-4951-909f-391773974df7" Title="ConventionConfig Class" Url="html/63d4a336-99a5-39ef-ddbb-f08709ec5f5f.htm">
+      <HelpTOCNode Title="ConventionConfig Constructor " Url="html/504f21bc-323b-b4cf-1535-ace64fbf2101.htm" />
+      <HelpTOCNode Id="49f09fe8-353d-4ad0-8f7c-03f6c45e9c31" Title="ConventionConfig Properties" Url="html/ecd37a1e-5d0c-bfb0-687f-21ae1099826d.htm">
+        <HelpTOCNode Title="ConventionPack Property " Url="html/6e63686d-582a-29ee-539c-424c9148ed9a.htm" />
+        <HelpTOCNode Title="Filter Property " Url="html/5e479f5f-7194-6f89-a9a4-5e965b8f28b0.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/f9bfc9c7-e2dd-26c0-f1a5-69a2467ca85f.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="53557be5-45b8-4b94-b5cb-3c76f2cac88f" Title="DatabaseConfig Class" Url="html/0251111e-ac33-57ce-023b-5c8f48c2bae0.htm">
+      <HelpTOCNode Title="DatabaseConfig Constructor " Url="html/f5b5a17a-5384-5b44-ca6b-7a03a317ef90.htm" />
+      <HelpTOCNode Id="271e9196-04b3-4340-ad0b-bf5199aa105e" Title="DatabaseConfig Properties" Url="html/b7ddf92b-cf3d-699d-0151-d172b893d32b.htm">
+        <HelpTOCNode Title="CollectionNameSuffix Property " Url="html/cbe88a26-ad67-0b89-73d5-33a91725ee2e.htm" />
+        <HelpTOCNode Title="Collections Property " Url="html/a3493899-0d90-f5bc-4d76-80d65d15b8a4.htm" />
+        <HelpTOCNode Title="ConnectionString Property " Url="html/d0dd4638-7ac1-e88f-b037-26a001301af9.htm" />
+        <HelpTOCNode Title="DatabaseName Property " Url="html/8000ddec-cbbf-66d0-e61d-4dc56e596fce.htm" />
+        <HelpTOCNode Title="DropFirst Property " Url="html/3580ba62-48bc-1b65-823b-f3855c7d2285.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="d958c94a-1fa1-4845-9e5f-218c79b5fa4a" Title="HarnessConfiguration Class" Url="html/aea1a0da-0211-3e8d-e69f-7300dd07906e.htm">
+      <HelpTOCNode Title="HarnessConfiguration Constructor " Url="html/0b329d34-62f2-297a-d45f-35dd48ba1492.htm" />
+      <HelpTOCNode Id="59c99be2-d8dc-447d-87bd-442a7ba020b7" Title="HarnessConfiguration Properties" Url="html/0feb83ca-35d3-e1d5-8189-07250b14c861.htm">
+        <HelpTOCNode Title="Conventions Property " Url="html/df2e3039-8fa9-5a7a-0896-54a4a40bfeff.htm" />
+        <HelpTOCNode Title="Databases Property " Url="html/38020602-3b79-0f89-8e4e-9cb7af784674.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="6aec4c75-173f-4a64-81f9-4b7f7a8e8aaf" Title="IDataProvider Interface" Url="html/0e19669b-8a02-a55f-297c-5a3d5f6ca10f.htm">
+      <HelpTOCNode Id="a3375b72-074f-45ab-90f4-3e26f7ef78a3" Title="IDataProvider Methods" Url="html/f2c7e749-3329-ca85-eaea-18219ea0848b.htm">
+        <HelpTOCNode Title="GetData Method " Url="html/f42d2769-0515-e40d-6957-7a9da43fe808.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="018d5a94-340c-44aa-ac4e-566d41a90307" Title="ISettingsBuilder Interface" Url="html/8d186952-b571-4059-d808-432456a6184e.htm">
+      <HelpTOCNode Id="aadcab58-87ca-43c4-b5fb-8eab9ab0b04e" Title="ISettingsBuilder Methods" Url="html/e24151a8-8632-09e9-14a6-ebb3cc6448ca.htm">
+        <HelpTOCNode Id="66d75f5d-64d2-471f-b5ca-62f8cd9e2540" Title="AddConvention Method " Url="html/0ec0d638-c70d-b2e5-488e-a4d0f33f2529.htm">
+          <HelpTOCNode Title="AddConvention Method (IConvention, Expression(Func(Type, Boolean)))" Url="html/08c1334b-7741-c21e-aa8f-0a56e98ff672.htm" />
+          <HelpTOCNode Title="AddConvention Method (IConventionPack, Expression(Func(Type, Boolean)))" Url="html/0e2243df-c7c7-0480-8db9-9151f9012209.htm" />
+          <HelpTOCNode Title="AddConvention Method (IList(IConvention), Expression(Func(Type, Boolean)))" Url="html/bbf93007-ee5b-4a04-8f65-f2324d851e13.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="AddDatabase Method " Url="html/1d4e13d1-2b3d-2a3d-b26a-db590c89c73c.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="ec902796-f8a0-49f1-b34e-ac76612ce2ef" Title="ISettingsBuilderAddMoreCollections Interface" Url="html/773efabe-376f-f220-735b-f6d5d61c89f3.htm">
+      <HelpTOCNode Id="0000e042-cc27-4b6a-881d-63b86110337f" Title="ISettingsBuilderAddMoreCollections Methods" Url="html/8fec7170-ea5a-b9cc-a362-59b67a05ce52.htm">
+        <HelpTOCNode Id="ee635b8f-5b40-4ff7-97f0-f072fec6af7f" Title="AddCollection Method " Url="html/73bbfcf3-9028-de63-264b-761649d9bfb3.htm">
+          <HelpTOCNode Title="AddCollection(T) Method (String, Boolean, IDataProvider)" Url="html/a7f80065-4210-ff95-00cc-a1c4f873d125.htm" />
+          <HelpTOCNode Title="AddCollection Method (String, Boolean, String)" Url="html/9d17780b-cb13-13c0-a162-a9b4d8af2f9c.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="AddDatabase Method " Url="html/d25f58c3-646b-7631-4195-6922933a8933.htm" />
+        <HelpTOCNode Title="Build Method " Url="html/f6eb675e-be04-7dd5-16fd-ceef8bc83239.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="951b2571-9e84-4c3c-832f-42964bb86ba8" Title="ISettingsBuilderConnectionString Interface" Url="html/f2f6da3f-37e0-8c04-2eed-1ce4b36c52bf.htm">
+      <HelpTOCNode Id="a5baf15a-04a3-48fa-a642-779e15b5af0c" Title="ISettingsBuilderConnectionString Methods" Url="html/1cf14e48-c9b4-7501-5b1f-1f91dc124a36.htm">
+        <HelpTOCNode Title="WithConnectionString Method " Url="html/5c2fc51e-59f0-2308-4e95-eb2199a0f637.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="b740ee31-608c-419d-a823-b1af80ccf268" Title="ISettingsBuilderDatabase Interface" Url="html/75d9f247-455c-fa92-5173-9d41d14c2b82.htm">
+      <HelpTOCNode Id="6a561f75-02b7-4c0b-96f6-a45f928ba075" Title="ISettingsBuilderDatabase Methods" Url="html/3cdba881-3a17-6a13-b6b2-fc273523bd39.htm">
+        <HelpTOCNode Title="AddDatabase Method " Url="html/9266817d-6a21-8345-19eb-ea610453284b.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="d564e118-d956-4c44-aafa-ee3a96b00926" Title="ISettingsBuilderDatabaseOptions Interface" Url="html/bda69e80-b233-8107-a5a8-67a104a3bfed.htm">
+      <HelpTOCNode Id="958e74a5-84dc-4826-b280-674d360f27ae" Title="ISettingsBuilderDatabaseOptions Methods" Url="html/33821ecf-b10a-e8cd-ef12-f0926f3d7585.htm">
+        <HelpTOCNode Id="26e1a984-bdcf-4abe-92ac-32706397f291" Title="AddCollection Method " Url="html/6b3bda71-e370-fda7-14e0-0d0a622dd6c4.htm">
+          <HelpTOCNode Title="AddCollection(T) Method (String, Boolean, IDataProvider)" Url="html/c95c70e6-17f1-143e-20a0-59d8d0615d0f.htm" />
+          <HelpTOCNode Title="AddCollection Method (String, Boolean, String)" Url="html/31f15a80-6e05-b6f2-ca02-e625e9be1298.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="DropDatabaseFirst Method " Url="html/68e4e847-af5e-6de3-5b62-88d4c472a686.htm" />
+        <HelpTOCNode Title="WithCollectionNameSuffix Method " Url="html/9bfe53d7-f800-de26-0683-1efa7f90b2d7.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="bd5adbd3-0aa1-401e-be88-2ea08bb956fc" Title="SettingsBuilder Class" Url="html/4372e2fd-49d0-eab3-c580-8409deaf89ae.htm">
+      <HelpTOCNode Title="SettingsBuilder Constructor " Url="html/4ad01359-1f23-401e-dc85-7a0dd3c18230.htm" />
+      <HelpTOCNode Id="ddd447d1-9d6b-4515-823e-b479b42ed9ed" Title="SettingsBuilder Methods" Url="html/ac8fe46b-cf45-3712-0f1d-74de03ceebbb.htm">
+        <HelpTOCNode Id="02a8d63f-71ea-44a6-87ae-4003a1e2716f" Title="AddCollection Method " Url="html/df9a2af9-79da-350c-fec5-af608b89de44.htm">
+          <HelpTOCNode Title="ISettingsBuilderAddMoreCollections.AddCollection Method (String, Boolean, IDataProvider)" Url="html/2136fa4d-6be0-d1b8-7a0e-59fcc296407a.htm" />
+          <HelpTOCNode Title="ISettingsBuilderAddMoreCollections.AddCollection Method (String, Boolean, String)" Url="html/aa24f97b-5b8c-e46a-77b6-15250db6eb6b.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="1c780331-b5d9-4a50-b24b-3482d119309d" Title="AddCollection Method " Url="html/02736581-bf25-05e6-572f-ae52dd54356f.htm">
+          <HelpTOCNode Title="ISettingsBuilderDatabaseOptions.AddCollection Method (String, Boolean, IDataProvider)" Url="html/134d06fd-6abe-f417-69ef-3455d6f0f74f.htm" />
+          <HelpTOCNode Title="ISettingsBuilderDatabaseOptions.AddCollection Method (String, Boolean, String)" Url="html/cce29d2b-f685-1ba7-d1a3-661e97781e4e.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="4f90ab9c-310d-43c8-9c23-bc3037ccb27f" Title="AddConvention Method " Url="html/b401323b-437d-e3d1-7a58-b9086b62e968.htm">
+          <HelpTOCNode Title="AddConvention Method (IConvention, Expression(Func(Type, Boolean)))" Url="html/b498cbfd-dc3d-3188-018c-a15b9f3d7853.htm" />
+          <HelpTOCNode Title="AddConvention Method (IConventionPack, Expression(Func(Type, Boolean)))" Url="html/05dbb2f8-0915-3f2f-a417-2dbebb8a5b36.htm" />
+          <HelpTOCNode Title="AddConvention Method (IList(IConvention), Expression(Func(Type, Boolean)))" Url="html/feb93314-9890-b8f4-4af9-c075bd2a04f2.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="AddDatabase Method " Url="html/cacc1e8a-db14-38f8-f98c-0daec736f8c8.htm" />
+        <HelpTOCNode Title="ISettingsBuilderAddMoreCollections.AddDatabase Method " Url="html/3f46dcd9-afc9-ddc0-c6e3-ff1d0c389ee5.htm" />
+        <HelpTOCNode Title="ISettingsBuilderAddMoreCollections.Build Method " Url="html/741262df-c47b-48c1-7f52-aaa7faecdcbb.htm" />
+        <HelpTOCNode Title="ISettingsBuilderConnectionString.WithConnectionString Method " Url="html/cd4d9361-e76f-e2f3-da94-ccd1a826098a.htm" />
+        <HelpTOCNode Title="ISettingsBuilderDatabaseOptions.DropDatabaseFirst Method " Url="html/64a157ad-c03b-2f20-5a54-acc860ce11e2.htm" />
+        <HelpTOCNode Title="ISettingsBuilderDatabaseOptions.WithCollectionNameSuffix Method " Url="html/aea65b83-7b2d-cee2-11ae-29bd3f40457a.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="334fe74c-d227-4bca-ad50-438ec61852f8" Title="SettingsBuilderException Class" Url="html/656f8df6-f354-9e8e-7fb6-c7ea4ae9df01.htm">
+      <HelpTOCNode Title="SettingsBuilderException Constructor " Url="html/37d7f199-c725-d2bf-be18-c0e62675acdc.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="29998d6d-19da-48a4-b466-d0202e93ac59" Title="SettingsLoaderException Class" Url="html/00d2e9ec-6ebe-cd2b-9a61-b3e883c327f3.htm">
+      <HelpTOCNode Id="a1638b43-5464-43d3-860e-25ec939ef46d" Title="SettingsLoaderException Constructor " Url="html/60e58f79-985e-73a2-74c0-03ca71d4ac8d.htm">
+        <HelpTOCNode Title="SettingsLoaderException Constructor (String)" Url="html/feefaec1-0193-a425-be94-e4845402a8d8.htm" />
+        <HelpTOCNode Title="SettingsLoaderException Constructor (String, Exception)" Url="html/bd94e6e5-c826-3d3a-f779-8f9abc188ca6.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+</HelpTOC>

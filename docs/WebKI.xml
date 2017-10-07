@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="AddCollection method">
+    <HelpKINode Title="ISettingsBuilderAddMoreCollections.AddCollection Method " Url="html/73bbfcf3-9028-de63-264b-761649d9bfb3.htm" />
+    <HelpKINode Title="ISettingsBuilderDatabaseOptions.AddCollection Method " Url="html/6b3bda71-e370-fda7-14e0-0d0a622dd6c4.htm" />
+    <HelpKINode Title="SettingsBuilder.AddCollection Method " Url="html/df9a2af9-79da-350c-fec5-af608b89de44.htm" />
+    <HelpKINode Title="SettingsBuilder.AddCollection Method " Url="html/02736581-bf25-05e6-572f-ae52dd54356f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AddConvention method">
+    <HelpKINode Title="ISettingsBuilder.AddConvention Method " Url="html/0ec0d638-c70d-b2e5-488e-a4d0f33f2529.htm" />
+    <HelpKINode Title="SettingsBuilder.AddConvention Method " Url="html/b401323b-437d-e3d1-7a58-b9086b62e968.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AddDatabase method">
+    <HelpKINode Title="ISettingsBuilder.AddDatabase Method " Url="html/1d4e13d1-2b3d-2a3d-b26a-db590c89c73c.htm" />
+    <HelpKINode Title="ISettingsBuilderAddMoreCollections.AddDatabase Method " Url="html/d25f58c3-646b-7631-4195-6922933a8933.htm" />
+    <HelpKINode Title="ISettingsBuilderDatabase.AddDatabase Method " Url="html/9266817d-6a21-8345-19eb-ea610453284b.htm" />
+    <HelpKINode Title="SettingsBuilder.AddDatabase Method " Url="html/cacc1e8a-db14-38f8-f98c-0daec736f8c8.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AutoRun property" Url="html/3160db8a-65a6-d135-8843-785708d3f2f4.htm" />
+  <HelpKINode Title="Build method">
+    <HelpKINode Title="HarnessBase.Build Method " Url="html/a243debb-88a5-1672-bf58-ede1360b0d3a.htm" />
+    <HelpKINode Title="IHarnessManagerBuilder.Build Method " Url="html/eef6cadd-654f-bbdc-4de6-9295e9691fff.htm" />
+    <HelpKINode Title="ISettingsBuilderAddMoreCollections.Build Method " Url="html/f6eb675e-be04-7dd5-16fd-ceef8bc83239.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CollectionConfig class">
+    <HelpKINode Title="CollectionConfig Class" Url="html/c080f626-6c00-0282-1ac7-759a95102ddc.htm" />
+    <HelpKINode Title="about CollectionConfig class" Url="html/c080f626-6c00-0282-1ac7-759a95102ddc.htm" />
+    <HelpKINode Title="constructor" Url="html/30e0db72-8dc9-5fcc-e095-0e10997968c9.htm" />
+    <HelpKINode Title="properties" Url="html/e4ca48a9-9016-8cb5-861b-a94219eb8e4d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CollectionConfig.CollectionConfig constructor" Url="html/30e0db72-8dc9-5fcc-e095-0e10997968c9.htm" />
+  <HelpKINode Title="CollectionConfig.CollectionName property" Url="html/d154a326-e60c-6db5-9d37-92a495bb6f6f.htm" />
+  <HelpKINode Title="CollectionConfig.DataProvider property" Url="html/57ac0859-e61b-7ed7-610d-e68888429c84.htm" />
+  <HelpKINode Title="CollectionConfig.DropFirst property" Url="html/95ad7b23-ee68-5146-242b-be2227c02f8c.htm" />
+  <HelpKINode Title="CollectionName property" Url="html/d154a326-e60c-6db5-9d37-92a495bb6f6f.htm" />
+  <HelpKINode Title="CollectionNameSuffix property" Url="html/cbe88a26-ad67-0b89-73d5-33a91725ee2e.htm" />
+  <HelpKINode Title="Collections property" Url="html/a3493899-0d90-f5bc-4d76-80d65d15b8a4.htm" />
+  <HelpKINode Title="ConfigFilePath property" Url="html/59b87135-bc1f-19f5-6d51-fc4961432112.htm" />
+  <HelpKINode Title="ConnectionString property" Url="html/d0dd4638-7ac1-e88f-b037-26a001301af9.htm" />
+  <HelpKINode Title="ConventionConfig class">
+    <HelpKINode Title="ConventionConfig Class" Url="html/63d4a336-99a5-39ef-ddbb-f08709ec5f5f.htm" />
+    <HelpKINode Title="about ConventionConfig class" Url="html/63d4a336-99a5-39ef-ddbb-f08709ec5f5f.htm" />
+    <HelpKINode Title="constructor" Url="html/504f21bc-323b-b4cf-1535-ace64fbf2101.htm" />
+    <HelpKINode Title="properties" Url="html/ecd37a1e-5d0c-bfb0-687f-21ae1099826d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ConventionConfig.ConventionConfig constructor" Url="html/504f21bc-323b-b4cf-1535-ace64fbf2101.htm" />
+  <HelpKINode Title="ConventionConfig.ConventionPack property" Url="html/6e63686d-582a-29ee-539c-424c9148ed9a.htm" />
+  <HelpKINode Title="ConventionConfig.Filter property" Url="html/5e479f5f-7194-6f89-a9a4-5e965b8f28b0.htm" />
+  <HelpKINode Title="ConventionConfig.Name property" Url="html/f9bfc9c7-e2dd-26c0-f1a5-69a2467ca85f.htm" />
+  <HelpKINode Title="ConventionPack property" Url="html/6e63686d-582a-29ee-539c-424c9148ed9a.htm" />
+  <HelpKINode Title="Conventions property" Url="html/df2e3039-8fa9-5a7a-0896-54a4a40bfeff.htm" />
+  <HelpKINode Title="DatabaseConfig class">
+    <HelpKINode Title="DatabaseConfig Class" Url="html/0251111e-ac33-57ce-023b-5c8f48c2bae0.htm" />
+    <HelpKINode Title="about DatabaseConfig class" Url="html/0251111e-ac33-57ce-023b-5c8f48c2bae0.htm" />
+    <HelpKINode Title="constructor" Url="html/f5b5a17a-5384-5b44-ca6b-7a03a317ef90.htm" />
+    <HelpKINode Title="properties" Url="html/b7ddf92b-cf3d-699d-0151-d172b893d32b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DatabaseConfig.CollectionNameSuffix property" Url="html/cbe88a26-ad67-0b89-73d5-33a91725ee2e.htm" />
+  <HelpKINode Title="DatabaseConfig.Collections property" Url="html/a3493899-0d90-f5bc-4d76-80d65d15b8a4.htm" />
+  <HelpKINode Title="DatabaseConfig.ConnectionString property" Url="html/d0dd4638-7ac1-e88f-b037-26a001301af9.htm" />
+  <HelpKINode Title="DatabaseConfig.DatabaseConfig constructor" Url="html/f5b5a17a-5384-5b44-ca6b-7a03a317ef90.htm" />
+  <HelpKINode Title="DatabaseConfig.DatabaseName property" Url="html/8000ddec-cbbf-66d0-e61d-4dc56e596fce.htm" />
+  <HelpKINode Title="DatabaseConfig.DropFirst property" Url="html/3580ba62-48bc-1b65-823b-f3855c7d2285.htm" />
+  <HelpKINode Title="DatabaseName property" Url="html/8000ddec-cbbf-66d0-e61d-4dc56e596fce.htm" />
+  <HelpKINode Title="Databases property" Url="html/38020602-3b79-0f89-8e4e-9cb7af784674.htm" />
+  <HelpKINode Title="DataProvider property" Url="html/57ac0859-e61b-7ed7-610d-e68888429c84.htm" />
+  <HelpKINode Title="DropDatabaseFirst method" Url="html/68e4e847-af5e-6de3-5b62-88d4c472a686.htm" />
+  <HelpKINode Title="DropFirst property">
+    <HelpKINode Title="CollectionConfig.DropFirst Property " Url="html/95ad7b23-ee68-5146-242b-be2227c02f8c.htm" />
+    <HelpKINode Title="DatabaseConfig.DropFirst Property " Url="html/3580ba62-48bc-1b65-823b-f3855c7d2285.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Filter property" Url="html/5e479f5f-7194-6f89-a9a4-5e965b8f28b0.htm" />
+  <HelpKINode Title="GetData method" Url="html/f42d2769-0515-e40d-6957-7a9da43fe808.htm" />
+  <HelpKINode Title="Harness namespace" Url="html/c306edfe-5c5e-b933-d794-fef44c8f4ffc.htm" />
+  <HelpKINode Title="Harness.Attributes namespace" Url="html/e9acb697-e625-8aa0-4332-46fa91ea9cda.htm" />
+  <HelpKINode Title="Harness.Attributes.HarnessConfigAttribute class" Url="html/55e51d1d-dcc4-a189-4721-f8dcf43921a2.htm" />
+  <HelpKINode Title="Harness.HarnessBase class" Url="html/36459884-00cd-2c3d-acf5-b0cdf2a8da1b.htm" />
+  <HelpKINode Title="Harness.HarnessManager class" Url="html/a3e77946-5ee3-52a9-4064-afb16e38708c.htm" />
+  <HelpKINode Title="Harness.IHarnessManager interface" Url="html/65af0b62-aeb5-8b53-a24b-b47d882ed6de.htm" />
+  <HelpKINode Title="Harness.IHarnessManagerBuilder interface" Url="html/e69b32b0-f5a0-3f75-1d61-fd7a5c04c5a7.htm" />
+  <HelpKINode Title="Harness.Settings namespace" Url="html/71b20054-d355-35ae-710d-5484ba2d4fce.htm" />
+  <HelpKINode Title="Harness.Settings.CollectionConfig class" Url="html/c080f626-6c00-0282-1ac7-759a95102ddc.htm" />
+  <HelpKINode Title="Harness.Settings.ConventionConfig class" Url="html/63d4a336-99a5-39ef-ddbb-f08709ec5f5f.htm" />
+  <HelpKINode Title="Harness.Settings.DatabaseConfig class" Url="html/0251111e-ac33-57ce-023b-5c8f48c2bae0.htm" />
+  <HelpKINode Title="Harness.Settings.HarnessConfiguration class" Url="html/aea1a0da-0211-3e8d-e69f-7300dd07906e.htm" />
+  <HelpKINode Title="Harness.Settings.IDataProvider interface" Url="html/0e19669b-8a02-a55f-297c-5a3d5f6ca10f.htm" />
+  <HelpKINode Title="Harness.Settings.ISettingsBuilder interface" Url="html/8d186952-b571-4059-d808-432456a6184e.htm" />
+  <HelpKINode Title="Harness.Settings.ISettingsBuilderAddMoreCollections interface" Url="html/773efabe-376f-f220-735b-f6d5d61c89f3.htm" />
+  <HelpKINode Title="Harness.Settings.ISettingsBuilderConnectionString interface" Url="html/f2f6da3f-37e0-8c04-2eed-1ce4b36c52bf.htm" />
+  <HelpKINode Title="Harness.Settings.ISettingsBuilderDatabase interface" Url="html/75d9f247-455c-fa92-5173-9d41d14c2b82.htm" />
+  <HelpKINode Title="Harness.Settings.ISettingsBuilderDatabaseOptions interface" Url="html/bda69e80-b233-8107-a5a8-67a104a3bfed.htm" />
+  <HelpKINode Title="Harness.Settings.SettingsBuilder class" Url="html/4372e2fd-49d0-eab3-c580-8409deaf89ae.htm" />
+  <HelpKINode Title="Harness.Settings.SettingsBuilderException class" Url="html/656f8df6-f354-9e8e-7fb6-c7ea4ae9df01.htm" />
+  <HelpKINode Title="Harness.Settings.SettingsLoaderException class" Url="html/00d2e9ec-6ebe-cd2b-9a61-b3e883c327f3.htm" />
+  <HelpKINode Title="HarnessBase class">
+    <HelpKINode Title="HarnessBase Class" Url="html/36459884-00cd-2c3d-acf5-b0cdf2a8da1b.htm" />
+    <HelpKINode Title="about HarnessBase class" Url="html/36459884-00cd-2c3d-acf5-b0cdf2a8da1b.htm" />
+    <HelpKINode Title="constructor" Url="html/8848388b-6acc-7d5f-9c98-b9b995320997.htm" />
+    <HelpKINode Title="methods" Url="html/553a13ba-e1cd-6541-35c2-bea7a3c7bf58.htm" />
+    <HelpKINode Title="properties" Url="html/df0e93d7-beda-2eb7-0d36-9dc1efb48e67.htm" />
+  </HelpKINode>
+  <HelpKINode Title="HarnessBase.Build method" Url="html/a243debb-88a5-1672-bf58-ede1360b0d3a.htm" />
+  <HelpKINode Title="HarnessBase.HarnessBase constructor" Url="html/8848388b-6acc-7d5f-9c98-b9b995320997.htm" />
+  <HelpKINode Title="HarnessBase.MongoConnections property" Url="html/dea745b2-ebcd-ad72-0b09-aaed533514bb.htm" />
+  <HelpKINode Title="HarnessConfigAttribute class">
+    <HelpKINode Title="HarnessConfigAttribute Class" Url="html/55e51d1d-dcc4-a189-4721-f8dcf43921a2.htm" />
+    <HelpKINode Title="about HarnessConfigAttribute class" Url="html/55e51d1d-dcc4-a189-4721-f8dcf43921a2.htm" />
+    <HelpKINode Title="constructor" Url="html/97236df1-9d53-8825-84f3-a09e52cd2f00.htm" />
+    <HelpKINode Title="properties" Url="html/517edf31-8b22-1b79-b9ce-91e0af84f8b6.htm" />
+  </HelpKINode>
+  <HelpKINode Title="HarnessConfigAttribute.AutoRun property" Url="html/3160db8a-65a6-d135-8843-785708d3f2f4.htm" />
+  <HelpKINode Title="HarnessConfigAttribute.ConfigFilePath property" Url="html/59b87135-bc1f-19f5-6d51-fc4961432112.htm" />
+  <HelpKINode Title="HarnessConfigAttribute.HarnessConfigAttribute constructor" Url="html/97236df1-9d53-8825-84f3-a09e52cd2f00.htm" />
+  <HelpKINode Title="HarnessConfiguration class">
+    <HelpKINode Title="HarnessConfiguration Class" Url="html/aea1a0da-0211-3e8d-e69f-7300dd07906e.htm" />
+    <HelpKINode Title="about HarnessConfiguration class" Url="html/aea1a0da-0211-3e8d-e69f-7300dd07906e.htm" />
+    <HelpKINode Title="constructor" Url="html/0b329d34-62f2-297a-d45f-35dd48ba1492.htm" />
+    <HelpKINode Title="properties" Url="html/0feb83ca-35d3-e1d5-8189-07250b14c861.htm" />
+  </HelpKINode>
+  <HelpKINode Title="HarnessConfiguration.Conventions property" Url="html/df2e3039-8fa9-5a7a-0896-54a4a40bfeff.htm" />
+  <HelpKINode Title="HarnessConfiguration.Databases property" Url="html/38020602-3b79-0f89-8e4e-9cb7af784674.htm" />
+  <HelpKINode Title="HarnessConfiguration.HarnessConfiguration constructor" Url="html/0b329d34-62f2-297a-d45f-35dd48ba1492.htm" />
+  <HelpKINode Title="HarnessManager class">
+    <HelpKINode Title="HarnessManager Class" Url="html/a3e77946-5ee3-52a9-4064-afb16e38708c.htm" />
+    <HelpKINode Title="about HarnessManager class" Url="html/a3e77946-5ee3-52a9-4064-afb16e38708c.htm" />
+    <HelpKINode Title="constructor" Url="html/e638b3fe-6f9e-9b74-575d-4b04047fbf8e.htm" />
+    <HelpKINode Title="methods" Url="html/88461063-b472-6ed9-0a40-a01e620272b3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="HarnessManager.HarnessManager constructor" Url="html/e638b3fe-6f9e-9b74-575d-4b04047fbf8e.htm" />
+  <HelpKINode Title="HarnessManager.IHarnessManagerBuilder.Build explicitly implemented method" Url="html/8c2ac038-de9d-6ceb-f6d1-b96d31a2ce42.htm" />
+  <HelpKINode Title="HarnessManager.UsingSettings method" Url="html/09651ceb-240e-d3f8-3c11-c4f73caa2f9f.htm" />
+  <HelpKINode Title="IDataProvider interface">
+    <HelpKINode Title="IDataProvider Interface" Url="html/0e19669b-8a02-a55f-297c-5a3d5f6ca10f.htm" />
+    <HelpKINode Title="about IDataProvider interface" Url="html/0e19669b-8a02-a55f-297c-5a3d5f6ca10f.htm" />
+    <HelpKINode Title="methods" Url="html/f2c7e749-3329-ca85-eaea-18219ea0848b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IDataProvider.GetData method" Url="html/f42d2769-0515-e40d-6957-7a9da43fe808.htm" />
+  <HelpKINode Title="IHarnessManager interface">
+    <HelpKINode Title="IHarnessManager Interface" Url="html/65af0b62-aeb5-8b53-a24b-b47d882ed6de.htm" />
+    <HelpKINode Title="about IHarnessManager interface" Url="html/65af0b62-aeb5-8b53-a24b-b47d882ed6de.htm" />
+    <HelpKINode Title="methods" Url="html/55a3ba18-3c07-90e4-cceb-729187d4f924.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IHarnessManager.UsingSettings method" Url="html/9ec70c87-e853-fe93-6358-c08ab88296a5.htm" />
+  <HelpKINode Title="IHarnessManagerBuilder interface">
+    <HelpKINode Title="IHarnessManagerBuilder Interface" Url="html/e69b32b0-f5a0-3f75-1d61-fd7a5c04c5a7.htm" />
+    <HelpKINode Title="about IHarnessManagerBuilder interface" Url="html/e69b32b0-f5a0-3f75-1d61-fd7a5c04c5a7.htm" />
+    <HelpKINode Title="methods" Url="html/dcf7e4b7-12bb-c579-2504-a36b50418765.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IHarnessManagerBuilder.Build explicitly implemented method" Url="html/8c2ac038-de9d-6ceb-f6d1-b96d31a2ce42.htm" />
+  <HelpKINode Title="IHarnessManagerBuilder.Build method" Url="html/eef6cadd-654f-bbdc-4de6-9295e9691fff.htm" />
+  <HelpKINode Title="ISettingsBuilder interface">
+    <HelpKINode Title="ISettingsBuilder Interface" Url="html/8d186952-b571-4059-d808-432456a6184e.htm" />
+    <HelpKINode Title="about ISettingsBuilder interface" Url="html/8d186952-b571-4059-d808-432456a6184e.htm" />
+    <HelpKINode Title="methods" Url="html/e24151a8-8632-09e9-14a6-ebb3cc6448ca.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ISettingsBuilder.AddConvention method" Url="html/0ec0d638-c70d-b2e5-488e-a4d0f33f2529.htm" />
+  <HelpKINode Title="ISettingsBuilder.AddDatabase method" Url="html/1d4e13d1-2b3d-2a3d-b26a-db590c89c73c.htm" />
+  <HelpKINode Title="ISettingsBuilderAddMoreCollections interface">
+    <HelpKINode Title="ISettingsBuilderAddMoreCollections Interface" Url="html/773efabe-376f-f220-735b-f6d5d61c89f3.htm" />
+    <HelpKINode Title="about ISettingsBuilderAddMoreCollections interface" Url="html/773efabe-376f-f220-735b-f6d5d61c89f3.htm" />
+    <HelpKINode Title="methods" Url="html/8fec7170-ea5a-b9cc-a362-59b67a05ce52.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ISettingsBuilderAddMoreCollections.AddCollection method" Url="html/73bbfcf3-9028-de63-264b-761649d9bfb3.htm" />
+  <HelpKINode Title="ISettingsBuilderAddMoreCollections.AddDatabase explicitly implemented method" Url="html/3f46dcd9-afc9-ddc0-c6e3-ff1d0c389ee5.htm" />
+  <HelpKINode Title="ISettingsBuilderAddMoreCollections.AddDatabase method" Url="html/d25f58c3-646b-7631-4195-6922933a8933.htm" />
+  <HelpKINode Title="ISettingsBuilderAddMoreCollections.Build explicitly implemented method" Url="html/741262df-c47b-48c1-7f52-aaa7faecdcbb.htm" />
+  <HelpKINode Title="ISettingsBuilderAddMoreCollections.Build method" Url="html/f6eb675e-be04-7dd5-16fd-ceef8bc83239.htm" />
+  <HelpKINode Title="ISettingsBuilderConnectionString interface">
+    <HelpKINode Title="ISettingsBuilderConnectionString Interface" Url="html/f2f6da3f-37e0-8c04-2eed-1ce4b36c52bf.htm" />
+    <HelpKINode Title="about ISettingsBuilderConnectionString interface" Url="html/f2f6da3f-37e0-8c04-2eed-1ce4b36c52bf.htm" />
+    <HelpKINode Title="methods" Url="html/1cf14e48-c9b4-7501-5b1f-1f91dc124a36.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ISettingsBuilderConnectionString.WithConnectionString explicitly implemented method" Url="html/cd4d9361-e76f-e2f3-da94-ccd1a826098a.htm" />
+  <HelpKINode Title="ISettingsBuilderConnectionString.WithConnectionString method" Url="html/5c2fc51e-59f0-2308-4e95-eb2199a0f637.htm" />
+  <HelpKINode Title="ISettingsBuilderDatabase interface">
+    <HelpKINode Title="ISettingsBuilderDatabase Interface" Url="html/75d9f247-455c-fa92-5173-9d41d14c2b82.htm" />
+    <HelpKINode Title="about ISettingsBuilderDatabase interface" Url="html/75d9f247-455c-fa92-5173-9d41d14c2b82.htm" />
+    <HelpKINode Title="methods" Url="html/3cdba881-3a17-6a13-b6b2-fc273523bd39.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ISettingsBuilderDatabase.AddDatabase method" Url="html/9266817d-6a21-8345-19eb-ea610453284b.htm" />
+  <HelpKINode Title="ISettingsBuilderDatabaseOptions interface">
+    <HelpKINode Title="ISettingsBuilderDatabaseOptions Interface" Url="html/bda69e80-b233-8107-a5a8-67a104a3bfed.htm" />
+    <HelpKINode Title="about ISettingsBuilderDatabaseOptions interface" Url="html/bda69e80-b233-8107-a5a8-67a104a3bfed.htm" />
+    <HelpKINode Title="methods" Url="html/33821ecf-b10a-e8cd-ef12-f0926f3d7585.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ISettingsBuilderDatabaseOptions.AddCollection method" Url="html/6b3bda71-e370-fda7-14e0-0d0a622dd6c4.htm" />
+  <HelpKINode Title="ISettingsBuilderDatabaseOptions.DropDatabaseFirst explicitly implemented method" Url="html/64a157ad-c03b-2f20-5a54-acc860ce11e2.htm" />
+  <HelpKINode Title="ISettingsBuilderDatabaseOptions.DropDatabaseFirst method" Url="html/68e4e847-af5e-6de3-5b62-88d4c472a686.htm" />
+  <HelpKINode Title="ISettingsBuilderDatabaseOptions.WithCollectionNameSuffix explicitly implemented method" Url="html/aea65b83-7b2d-cee2-11ae-29bd3f40457a.htm" />
+  <HelpKINode Title="ISettingsBuilderDatabaseOptions.WithCollectionNameSuffix method" Url="html/9bfe53d7-f800-de26-0683-1efa7f90b2d7.htm" />
+  <HelpKINode Title="MongoConnections property" Url="html/dea745b2-ebcd-ad72-0b09-aaed533514bb.htm" />
+  <HelpKINode Title="Name property" Url="html/f9bfc9c7-e2dd-26c0-f1a5-69a2467ca85f.htm" />
+  <HelpKINode Title="SettingsBuilder class">
+    <HelpKINode Title="SettingsBuilder Class" Url="html/4372e2fd-49d0-eab3-c580-8409deaf89ae.htm" />
+    <HelpKINode Title="about SettingsBuilder class" Url="html/4372e2fd-49d0-eab3-c580-8409deaf89ae.htm" />
+    <HelpKINode Title="constructor" Url="html/4ad01359-1f23-401e-dc85-7a0dd3c18230.htm" />
+    <HelpKINode Title="methods" Url="html/ac8fe46b-cf45-3712-0f1d-74de03ceebbb.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SettingsBuilder.AddCollection method">
+    <HelpKINode Title="SettingsBuilder.AddCollection Method " Url="html/02736581-bf25-05e6-572f-ae52dd54356f.htm" />
+    <HelpKINode Title="SettingsBuilder.AddCollection Method " Url="html/df9a2af9-79da-350c-fec5-af608b89de44.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SettingsBuilder.AddConvention method" Url="html/b401323b-437d-e3d1-7a58-b9086b62e968.htm" />
+  <HelpKINode Title="SettingsBuilder.AddDatabase method" Url="html/cacc1e8a-db14-38f8-f98c-0daec736f8c8.htm" />
+  <HelpKINode Title="SettingsBuilder.ISettingsBuilderAddMoreCollections.AddDatabase explicitly implemented method" Url="html/3f46dcd9-afc9-ddc0-c6e3-ff1d0c389ee5.htm" />
+  <HelpKINode Title="SettingsBuilder.ISettingsBuilderAddMoreCollections.Build explicitly implemented method" Url="html/741262df-c47b-48c1-7f52-aaa7faecdcbb.htm" />
+  <HelpKINode Title="SettingsBuilder.ISettingsBuilderConnectionString.WithConnectionString explicitly implemented method" Url="html/cd4d9361-e76f-e2f3-da94-ccd1a826098a.htm" />
+  <HelpKINode Title="SettingsBuilder.ISettingsBuilderDatabaseOptions.DropDatabaseFirst explicitly implemented method" Url="html/64a157ad-c03b-2f20-5a54-acc860ce11e2.htm" />
+  <HelpKINode Title="SettingsBuilder.ISettingsBuilderDatabaseOptions.WithCollectionNameSuffix explicitly implemented method" Url="html/aea65b83-7b2d-cee2-11ae-29bd3f40457a.htm" />
+  <HelpKINode Title="SettingsBuilder.SettingsBuilder constructor" Url="html/4ad01359-1f23-401e-dc85-7a0dd3c18230.htm" />
+  <HelpKINode Title="SettingsBuilderException class">
+    <HelpKINode Title="SettingsBuilderException Class" Url="html/656f8df6-f354-9e8e-7fb6-c7ea4ae9df01.htm" />
+    <HelpKINode Title="about SettingsBuilderException class" Url="html/656f8df6-f354-9e8e-7fb6-c7ea4ae9df01.htm" />
+    <HelpKINode Title="constructor" Url="html/37d7f199-c725-d2bf-be18-c0e62675acdc.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SettingsBuilderException.SettingsBuilderException constructor" Url="html/37d7f199-c725-d2bf-be18-c0e62675acdc.htm" />
+  <HelpKINode Title="SettingsLoaderException class">
+    <HelpKINode Title="SettingsLoaderException Class" Url="html/00d2e9ec-6ebe-cd2b-9a61-b3e883c327f3.htm" />
+    <HelpKINode Title="about SettingsLoaderException class" Url="html/00d2e9ec-6ebe-cd2b-9a61-b3e883c327f3.htm" />
+    <HelpKINode Title="constructor" Url="html/60e58f79-985e-73a2-74c0-03ca71d4ac8d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SettingsLoaderException.SettingsLoaderException constructor" Url="html/60e58f79-985e-73a2-74c0-03ca71d4ac8d.htm" />
+  <HelpKINode Title="UsingSettings method">
+    <HelpKINode Title="HarnessManager.UsingSettings Method " Url="html/09651ceb-240e-d3f8-3c11-c4f73caa2f9f.htm" />
+    <HelpKINode Title="IHarnessManager.UsingSettings Method " Url="html/9ec70c87-e853-fe93-6358-c08ab88296a5.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Welcome" Url="html/3dfd16d8-ec65-4abb-beae-96142f9d2172.htm" />
+  <HelpKINode Title="WithCollectionNameSuffix method" Url="html/9bfe53d7-f800-de26-0683-1efa7f90b2d7.htm" />
+  <HelpKINode Title="WithConnectionString method" Url="html/5c2fc51e-59f0-2308-4e95-eb2199a0f637.htm" />
+</HelpKI>
