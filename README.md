@@ -413,3 +413,5 @@ public class SettingsBuilderWithDataFiles
 }
 ```
 
+## API Documentation
+You can find the API documentation [here](http://amcn41r.github.io/harness).
