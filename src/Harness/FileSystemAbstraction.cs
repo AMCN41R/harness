@@ -3,7 +3,7 @@
 namespace Harness
 {
     /// <inheritdoc />
-    public class FileSystem : IFileSystem
+    internal class FileSystem : IFileSystem
     {
         /// <inheritdoc />
         public string GetFileExtension(string path)

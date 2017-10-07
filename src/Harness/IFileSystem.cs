@@ -3,7 +3,7 @@ namespace Harness
     /// <summary>
     /// An abstaction of methods from the <see cref="System.IO"/> class.
     /// </summary>
-    public interface IFileSystem
+    internal interface IFileSystem
     {
         /// <summary>
         /// Returns the extension of the specified path string.

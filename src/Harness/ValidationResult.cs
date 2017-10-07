@@ -1,6 +1,6 @@
 namespace Harness
 {
-    public class ValidationResult
+    internal class ValidationResult
     {
         /// <summary>
         /// Gets or sets a value indicating if the operation is valid or not.
