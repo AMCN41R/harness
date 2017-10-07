@@ -133,7 +133,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AttributesTests\HarnessConfigAttributeTests.cs" />
+    <Compile Include="HarnessConfigAttributeTests.cs" />
     <Compile Include="Comparers.cs" />
     <Compile Include="ExtensionsTests.cs" />
     <Compile Include="GenericComparer.cs" />

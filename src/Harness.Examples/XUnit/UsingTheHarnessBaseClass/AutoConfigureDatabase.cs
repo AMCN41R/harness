@@ -1,5 +1,4 @@
-﻿using Harness.Attributes;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using Xunit;
 
 namespace Harness.Examples.XUnit.UsingTheHarnessBaseClass

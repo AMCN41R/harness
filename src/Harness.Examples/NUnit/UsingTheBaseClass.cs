@@ -1,5 +1,4 @@
-﻿using Harness.Attributes;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using NUnit.Framework;
 
 namespace Harness.Examples.NUnit
@@ -27,7 +26,7 @@ namespace Harness.Examples.NUnit
         {
             // Arrange
             var classUnderTest = new ClassUnderTest();
-            var mongoClient = base.MongoConnections["mongodb://localhost:27017"];
+            var mongoClient = this.MongoConnections["mongodb://localhost:27017"];
 
             // Act
             var result = classUnderTest.GetCollectionRecordCount<BsonDocument>(mongoClient, "TestCollection1");

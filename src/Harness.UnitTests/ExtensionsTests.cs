@@ -1,7 +1,6 @@
 ﻿using System;
-using Xunit;
-using Harness.Attributes;
 using NSubstitute;
+using Xunit;
 
 namespace Harness.UnitTests
 {
@@ -97,7 +96,7 @@ namespace Harness.UnitTests
             Assert.True(result.IsValid);
         }
 
-        [HarnessConfigAttribute]
+        [HarnessConfig]
         private class ExtensionsTestClass
         {
         }

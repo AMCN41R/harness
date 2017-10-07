@@ -1,5 +1,4 @@
 ﻿using System;
-using Harness.Attributes;
 using MongoDB.Bson;
 using Xunit;
 
@@ -23,6 +22,7 @@ namespace Harness.Examples.XUnit.UsingTheHarnessBaseClass
     [HarnessConfig(ConfigFilePath = "ExampleSettings.json")]
     public class DatabaseFixture : HarnessBase, IDisposable
     {
+        // ReSharper disable once EmptyConstructor
         public DatabaseFixture()
         {
             // Any other setup stuff...

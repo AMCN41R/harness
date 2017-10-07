@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Harness.Attributes
+namespace Harness
 {
     /// <summary>
     /// An attribute that can be added to a test class or text fixture class to 

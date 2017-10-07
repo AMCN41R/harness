@@ -26,20 +26,22 @@ namespace Harness.UnitTests.Integration.DataProviders
         public string LastName { get; set; }
 
         public int Age { get; set; }
+    }
 
-        public override bool Equals(object obj)
+    public static class EqualityExtensions
+    {
+        public static bool IsEqual(this Person a, Person b)
         {
-            if (obj?.GetType() != typeof(Person))
+            if (a == null && b == null)
             {
-                return false;
+                return true;
             }
 
-            var person = (Person)obj;
-
             return
-                string.Equals(person.FirstName, this.FirstName)
-                && string.Equals(person.LastName, this.LastName)
-                && person.Age == this.Age;
+                a != null 
+                && string.Equals(a.FirstName, b.FirstName)
+                && string.Equals(a.LastName, b.LastName)
+                && a.Age == b.Age;
         }
     }
 }

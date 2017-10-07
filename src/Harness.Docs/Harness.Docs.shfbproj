@@ -51,9 +51,7 @@
     </RootNamespaceTitle>
     <NamespaceSummaries>
       <NamespaceSummaryItem name="Harness" isDocumented="True">The Harness namespace contains classes and types theat allow the configuration and population of one or more mongo databases.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="Harness.Attributes" isDocumented="True">The Harness.Attributes namespace contains attributes to support Harness.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="Harness.Settings" isDocumented="True">The Harness.Settings namespace contains classes and types that allow the creation of  configuration for Harness.</NamespaceSummaryItem>
-    </NamespaceSummaries>
+<NamespaceSummaryItem name="Harness.Settings" isDocumented="True">The Harness.Settings namespace contains classes and types that allow the creation of  configuration for Harness.</NamespaceSummaryItem></NamespaceSummaries>
     <VisibleItems>ExplicitInterfaceImplementations, InheritedMembers, Protected, ProtectedInternalAsProtected</VisibleItems>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform

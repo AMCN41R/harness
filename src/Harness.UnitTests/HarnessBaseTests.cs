@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Xunit;
 using NSubstitute;
-using Harness.Attributes;
+using Xunit;
 
 namespace Harness.UnitTests
 {

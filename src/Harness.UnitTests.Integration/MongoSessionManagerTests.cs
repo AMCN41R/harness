@@ -63,9 +63,9 @@ namespace Harness.UnitTests.Integration
             var people = (await peopleCol.FindAsync<Person>(new BsonDocument())).ToList();
             Assert.Equal(3, people.Count);
             var data = new PersonDataProvider().GetData().ToList();
-            Assert.True(people[0].Equals(data[0]));
-            Assert.True(people[1].Equals(data[1]));
-            Assert.True(people[2].Equals(data[2]));
+            Assert.True(people[0].IsEqual(data[0] as Person));
+            Assert.True(people[1].IsEqual(data[1] as Person));
+            Assert.True(people[2].IsEqual(data[2] as Person));
 
             var test2 = this.Client.GetDatabase("test2");
             var col2 = test2.GetCollection<BsonDocument>("col2");

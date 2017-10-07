@@ -1,7 +1,6 @@
-﻿using Harness.Attributes;
-using Xunit;
+﻿using Xunit;
 
-namespace Harness.UnitTests.AttributesTests
+namespace Harness.UnitTests
 {
     public class HarnessConfigAttributeTests
     {
