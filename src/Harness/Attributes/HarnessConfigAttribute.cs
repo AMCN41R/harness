@@ -6,7 +6,6 @@ namespace Harness.Attributes
     /// An attribute that can be added to a test class or text fixture class to 
     /// set options for the <see cref="HarnessBase"/> class.
     /// </summary>
-    /// <remarks>
     /// <example>
     /// <code lang="C#">
     /// [HarnessConfig(ConfigFilePath = "HarnessConfig.json")]
@@ -33,7 +32,6 @@ namespace Harness.Attributes
     /// }
     /// </code>
     /// </example>
-    /// </remarks>
     [AttributeUsage(AttributeTargets.Class)]
     public class HarnessConfigAttribute : Attribute
     {

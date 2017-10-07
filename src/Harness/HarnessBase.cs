@@ -15,6 +15,7 @@ namespace Harness
     /// put any specified databases into the required state.
     /// If the attribute is not present, or there is no valid filepath for the
     /// configuration file, a default value of [ClassName].json will be used.
+    /// </remarks>
     /// <example>
     /// <code lang="C#">
     /// [HarnessConfig(ConfigFilePath = "HarnessConfig.json")]
@@ -41,7 +42,6 @@ namespace Harness
     /// }
     /// </code>
     /// </example>
-    /// </remarks>
     public abstract class HarnessBase
     {
         /// <summary>
@@ -105,7 +105,6 @@ namespace Harness
         /// This method can only be called if the <see cref="HarnessConfigAttribute"/>
         /// AutoRun property is set to false.
         /// </summary>
-        /// <remarks>
         /// <example>
         /// <code lang="C#">
         /// [HarnessConfig(ConfigFilePath = "HarnessConfig.json", AutoRun = false)]
@@ -121,7 +120,6 @@ namespace Harness
         /// }
         /// </code>
         /// </example>
-        /// </remarks>
         /// <exception cref="InvalidOperationException">Thrown if the method is called when the <see cref="AutoRun"/> property is set to true.</exception>
         public void Build()
         {

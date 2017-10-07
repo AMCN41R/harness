@@ -50,11 +50,11 @@
     <RootNamespaceTitle>
     </RootNamespaceTitle>
     <NamespaceSummaries>
-      <NamespaceSummaryItem name="Harness" isDocumented="True" xmlns="">Harness Summary</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="Harness.Attributes" isDocumented="True" xmlns="">Harness Attributes Summary</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="Harness.Settings" isDocumented="True" xmlns="">Harness Settings Summary</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Harness" isDocumented="True">The Harness namespace contains classes and types theat allow the configuration and population of one or more mongo databases.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Harness.Attributes" isDocumented="True">The Harness.Attributes namespace contains attributes to support Harness.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Harness.Settings" isDocumented="True">The Harness.Settings namespace contains classes and types that allow the creation of  configuration for Harness.</NamespaceSummaryItem>
     </NamespaceSummaries>
-    <VisibleItems>InheritedMembers, Protected, ProtectedInternalAsProtected</VisibleItems>
+    <VisibleItems>ExplicitInterfaceImplementations, InheritedMembers, Protected, ProtectedInternalAsProtected</VisibleItems>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
 			 the build.  The others are optional common platform types that may appear. -->
@@ -76,13 +76,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Content" />
-    <Folder Include="Content\VersionHistory" />
     <Folder Include="icons" />
     <Folder Include="media" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\VersionHistory\v1.0.0.0.aml" />
-    <None Include="Content\VersionHistory\VersionHistory.aml" />
     <None Include="Content\Welcome.aml" />
   </ItemGroup>
   <ItemGroup>
