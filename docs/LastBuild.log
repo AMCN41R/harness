@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shfbBuild product="Sandcastle Help File Builder and Tools" version="2017.5.15.0" projectFile="C:\Dev\harness\src\Harness.Docs\Harness.Docs.shfbproj" started="07/10/2017 20:22:48">
+<shfbBuild product="Sandcastle Help File Builder and Tools" version="2017.5.15.0" projectFile="C:\Dev\harness\src\Harness.Docs\Harness.Docs.shfbproj" started="07/10/2017 21:08:53">
 <buildStep step="Initializing">
 Finding tools...
 The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\&#39;
@@ -42,12 +42,12 @@ Generating shared content files (en-US, English (United States))...
 </buildStep>
 <buildStep step="GenerateApiFilter">
 Generating API filter for MRefBuilder...
-    Last step completed in 00:00:00.0040
+    Last step completed in 00:00:00.0010
 </buildStep>
 <buildStep step="GenerateReflectionInfo">
 Generating reflection information...
 [C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\MSBuild.exe - GenerateRefInfo.proj]
-Build started 07/10/2017 20:22:49.
+Build started 07/10/2017 21:08:54.
 Project &quot;C:\Dev\harness\src\Harness.Docs\Help\Working\GenerateRefInfo.proj&quot; on node 1 (default targets).
 PrepareForBuild:
   Creating directory &quot;obj\Debug\&quot;.
@@ -57,7 +57,7 @@ GenerateRefInfo:
   Portions Copyright &#184; 2006-2016, Eric Woodruff, All Rights Reserved.
   No source code context base path specified.  Source context information is unavailable.
   Loaded 1 assemblies for reflection and 60 dependency assemblies.
-  Wrote information on 3 namespaces, 18 types, and 62 members
+  Wrote information on 2 namespaces, 18 types, and 62 members
   Copying file from &quot;reflection.org&quot; to &quot;reflection.all&quot;.
   XslTransform (v2017.5.15.0)
   Copyright &#184; 2006-2017, Microsoft Corporation, All Rights Reserved.
@@ -67,13 +67,13 @@ Done Building Project &quot;C:\Dev\harness\src\Harness.Docs\Help\Working\Generat
 
 Build succeeded.
 
-Time Elapsed 00:00:00.48
-    Last step completed in 00:00:00.6030
+Time Elapsed 00:00:00.55
+    Last step completed in 00:00:00.6930
 </buildStep>
 <buildStep step="TransformReflectionInfo">
 Transforming reflection output...
 [C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\MSBuild.exe - TransformManifest.proj]
-Build started 07/10/2017 20:22:49.
+Build started 07/10/2017 21:08:55.
 Project &quot;C:\Dev\harness\src\Harness.Docs\Help\Working\TransformManifest.proj&quot; on node 1 (default targets).
 TransformManifest:
   XslTransform (v2017.5.15.0)
@@ -93,12 +93,12 @@ Done Building Project &quot;C:\Dev\harness\src\Harness.Docs\Help\Working\Transfo
 
 Build succeeded.
 
-Time Elapsed 00:00:00.31
-    Last step completed in 00:00:00.4320
+Time Elapsed 00:00:00.32
+    Last step completed in 00:00:00.4301
 </buildStep>
 <buildStep step="GenerateNamespaceSummaries">
 Generating namespace summary information...
-    Last step completed in 00:00:00.0690
+    Last step completed in 00:00:00.0790
 </buildStep>
 <buildStep step="GenerateInheritedDocumentation">
 Generating inherited documentation...
@@ -116,12 +116,12 @@ Indexing C:\Dev\harness\src\Harness.Docs\Help\Working\MongoDB.Driver.Core.xml
 Indexing C:\Dev\harness\src\Harness.Docs\Help\Working\MongoDB.Driver.xml
 Indexing C:\Dev\harness\src\Harness.Docs\Help\Working\MongoDB.Bson.xml
 Indexing C:\Dev\harness\src\Harness.Docs\Help\Working\Harness.xml
-Indexed 11357 members in 116 file(s).  5 file(s) to scan for &lt;inheritdoc /&gt; tags.
+Indexed 11356 members in 126 file(s).  5 file(s) to scan for &lt;inheritdoc /&gt; tags.
 Merging inherited documentation...
 
 
 Documentation merged successfully
-    Last step completed in 00:00:00.2521
+    Last step completed in 00:00:00.2330
 </buildStep>
 <buildStep step="CopyConceptualContent">
 Copying conceptual content...
@@ -144,16 +144,16 @@ Creating conceptual topic configuration files...
 <buildStep step="CopyAdditionalContent">
 Copying additional content files...
 C:\Dev\harness\src\Harness.Docs\icons\Help.png -&gt; C:\Dev\harness\src\Harness.Docs\Help\Working\Output\Website\icons\Help.png
-    Last step completed in 00:00:00.0020
+    Last step completed in 00:00:00.0030
 </buildStep>
 <buildStep step="MergeTablesOfContents">
 Merging conceptual and additional tables of contents...
-    Last step completed in 00:00:00.0010
+    Last step completed in 00:00:00.0000
 </buildStep>
 <buildStep step="GenerateIntermediateTableOfContents">
 Generating intermediate table of contents file...
 [C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\MSBuild.exe - GenerateIntermediateTOC.proj]
-Build started 07/10/2017 20:22:50.
+Build started 07/10/2017 21:08:55.
 Project &quot;C:\Dev\harness\src\Harness.Docs\Help\Working\GenerateIntermediateTOC.proj&quot; on node 1 (default targets).
 GenerateIntermediateTOC:
   XslTransform (v2017.5.15.0)
@@ -164,14 +164,14 @@ Done Building Project &quot;C:\Dev\harness\src\Harness.Docs\Help\Working\Generat
 
 Build succeeded.
 
-Time Elapsed 00:00:00.07
+Time Elapsed 00:00:00.10
 Generating conceptual content intermediate TOC file...
-    Last step completed in 00:00:00.1700
+    Last step completed in 00:00:00.2070
 </buildStep>
 <buildStep step="CreateBuildAssemblerConfigs">
 Creating Sandcastle configuration files...
     sandcastle.config
-    Last step completed in 00:00:00.0730
+    Last step completed in 00:00:00.2070
 </buildStep>
 <buildStep step="MergeCustomConfigs">
 Merging custom build component configurations
@@ -184,7 +184,7 @@ C:\Dev\harness\src\Harness.Docs\Help\Working\sandcastle.config
 <buildStep step="BuildTopics">
 Building help topics...
 [C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\MSBuild.exe - BuildTopics.proj]
-Build started 07/10/2017 20:22:50.
+Build started 07/10/2017 21:08:56.
 Project &quot;C:\Dev\harness\src\Harness.Docs\Help\Working\BuildTopics.proj&quot; on node 1 (default targets).
 BuildTopics:
   BuildAssembler (v2017.5.15.0)
@@ -205,7 +205,7 @@ BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Harness.Settings.S
 BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Harness.Settings.SettingsBuilder.AddConvention(MongoDB.Bson.Serialization.Conventions.IConventionPack,System.Linq.Expressions.Expression{System.Func{System.Type,System.Boolean}})] Unknown reference link target &#39;T:MongoDB.Bson.Serialization.Conventions.IConventionPack&#39;. [C:\Dev\harness\src\Harness.Docs\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Harness.Settings.SettingsBuilder.AddConvention(System.Collections.Generic.IList{MongoDB.Bson.Serialization.Conventions.IConvention},System.Linq.Expressions.Expression{System.Func{System.Type,System.Boolean}})] Unknown reference link target &#39;T:MongoDB.Bson.Serialization.Conventions.IConvention&#39;. [C:\Dev\harness\src\Harness.Docs\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:Harness.Settings.SettingsLoaderException] Unknown reference link target &#39;T:Harness.Settings.ISettingsLoader&#39;. [C:\Dev\harness\src\Harness.Docs\Help\Working\BuildTopics.proj]
-  Processed 110 topic(s)
+  Processed 109 topic(s)
   13 warning(s)
   CopyFromIndexComponent: &quot;metadata&quot; in-memory cache entries used: 1 of 15.
   ResolveArtLinksComponent: Copying media files...
@@ -215,8 +215,8 @@ Done Building Project &quot;C:\Dev\harness\src\Harness.Docs\Help\Working\BuildTo
 
 Build succeeded.
 
-Time Elapsed 00:00:03.93
-    Last step completed in 00:00:04.0390
+Time Elapsed 00:00:03.90
+    Last step completed in 00:00:04.0121
 </buildStep>
 <buildStep step="CombiningIntermediateTocFiles">
 Combining conceptual and API intermediate TOC files...
@@ -232,11 +232,11 @@ E-Mail: Eric@EWoodruff.us
 Using LCID &#39;1033&#39;, code page &#39;65001&#39;, encoding charset &#39;UTF-8&#39;.
 
 Processing website files in C:\Dev\harness\src\Harness.Docs\Help\Working\Output\Website
-Processed 110 HTML files
+Processed 109 HTML files
 Sorting keywords and generating See Also indices
 Saving website keyword index to C:\Dev\harness\src\Harness.Docs\Help\Working\WebKI.xml
 Saving website table of contents to C:\Dev\harness\src\Harness.Docs\Help\Working\WebTOC.xml
-    Last step completed in 00:00:00.2720
+    Last step completed in 00:00:00.2670
 </buildStep>
 <buildStep step="CopyStandardHelpContent">
 Copying standard help content...
@@ -318,7 +318,7 @@ C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyle
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\Web\scripts\branding-Website.js -&gt; C:\Dev\harness\src\Harness.Docs\Help\Working\Output\Website\scripts\branding-Website.js
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\Web\scripts\clipboard.min.js -&gt; C:\Dev\harness\src\Harness.Docs\Help\Working\Output\Website\scripts\clipboard.min.js
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\Web\scripts\jquery-1.11.0.min.js -&gt; C:\Dev\harness\src\Harness.Docs\Help\Working\Output\Website\scripts\jquery-1.11.0.min.js
-    Last step completed in 00:00:00.2360
+    Last step completed in 00:00:00.2520
 </buildStep>
 <buildStep step="GenerateHelpFormatTableOfContents">
 Generating website table of contents file...
@@ -329,21 +329,21 @@ Generating full-text index for the website...
 
 <plugIn name="Lightweight Website Style" behavior="After" priority="1000">
 Adding lightweight search and TOC elements to each topic...
-</plugIn>    Last step completed in 00:00:00.1780
+</plugIn>    Last step completed in 00:00:00.2680
 </buildStep>
 <buildStep step="CopyingWebsiteFiles">
 Copying website files to output folder...
 
-Copied 263 files for the website content
-    Last step completed in 00:00:00.2050
+Copied 261 files for the website content
+    Last step completed in 00:00:00.2130
 </buildStep>
 <buildStep step="CleanIntermediates">
 Removing intermediate files...
-    Last step completed in 00:00:00.1000
+    Last step completed in 00:00:00.1090
 </buildStep>
 <buildStep step="Completed">
 
-Build completed successfully at 07/10/2017 20:22:55.  Total time: 00:00:07.3643
+Build completed successfully at 07/10/2017 21:09:01.  Total time: 00:00:07.8152
 
 </buildStep>
 </shfbBuild>
