@@ -1,0 +1,418 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/Dev/harness/src/Harness.Docs/docfx_project",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Harness.HarnessBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Harness.HarnessBase.html",
+          "hash": "Un3sqI8RAFHYyXPVHody7w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Harness.HarnessConfigAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Harness.HarnessConfigAttribute.html",
+          "hash": "IAtsTKvM2u/PIoVqrGHYGg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Harness.HarnessManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Harness.HarnessManager.html",
+          "hash": "o038jcPZp+PtrWwSS3jUwQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Harness.IHarnessManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Harness.IHarnessManager.html",
+          "hash": "DHEJNrLi3P29lCgWTqiDJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Harness.IHarnessManagerBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Harness.IHarnessManagerBuilder.html",
+          "hash": "AkAyfZTYgau3ZVV5NblVrA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Harness.Settings.CollectionConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Harness.Settings.CollectionConfig.html",
+          "hash": "BTaoh30CFnxUESzaqHw0Hg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Harness.Settings.ConventionConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Harness.Settings.ConventionConfig.html",
+          "hash": "vdbO47lPGgTJE34ucm+WGA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Harness.Settings.DatabaseConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Harness.Settings.DatabaseConfig.html",
+          "hash": "OxWwfP620egqUOzLWa9F2g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Harness.Settings.HarnessConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Harness.Settings.HarnessConfiguration.html",
+          "hash": "6I++gToo6hKB7Y0KDWIZtg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Harness.Settings.IDataProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Harness.Settings.IDataProvider.html",
+          "hash": "TI425TU5TlduFE+AamXqRg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Harness.Settings.ISettingsBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Harness.Settings.ISettingsBuilder.html",
+          "hash": "UPBj3ncGlnKt+ipD7lu/6Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Harness.Settings.ISettingsBuilderAddMoreCollections.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Harness.Settings.ISettingsBuilderAddMoreCollections.html",
+          "hash": "t1IzmzIC79hBAvJUGAXyGg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Harness.Settings.ISettingsBuilderConnectionString.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Harness.Settings.ISettingsBuilderConnectionString.html",
+          "hash": "23CAwrF/YmB4IL6qwP3M4g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Harness.Settings.ISettingsBuilderDatabase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Harness.Settings.ISettingsBuilderDatabase.html",
+          "hash": "UHYa9yhp1pSS+ghCqR6o0A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Harness.Settings.ISettingsBuilderDatabaseOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Harness.Settings.ISettingsBuilderDatabaseOptions.html",
+          "hash": "wXPk7cD+/P6ISm/x+J6G4A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Harness.Settings.SettingsBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Harness.Settings.SettingsBuilder.html",
+          "hash": "rseZRZOJ7EJJ5h15jqaLxg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Harness.Settings.SettingsBuilderException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Harness.Settings.SettingsBuilderException.html",
+          "hash": "eV+/i6Xv1ulqimWpNw5fEQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Harness.Settings.SettingsLoaderException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Harness.Settings.SettingsLoaderException.html",
+          "hash": "0hZGa0Lsq5vm+4gYVa19QA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Harness.Settings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Harness.Settings.html",
+          "hash": "mXwsXQOQtjfcaQjU7quAFg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Harness.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Harness.html",
+          "hash": "ulYYvcRPTqDs8xujkdlBDQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "HKNT+qqRLiC+PwuYW6DkjA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "NKsb22JJKF/C8+ZGUbhw+Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/creating-a-logo.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/creating-a-logo.html",
+          "hash": "jTOGf4xlGnLgU3LZyDxvIA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "DaPBd3CcUGey8M/Lr/OyMg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "St3CbsJNDqzcYLmKOyYNYg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/black.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/black.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/d1.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/d1.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/d2.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/d2.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/white.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/white.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "G+Tb3KlV1U2Z/8kbylxtjg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "4P4PCg53GwVDCUxoYggYhg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build"
+      },
+      "processors": {
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build"
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build"
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
+        "incrementalPhase": "postProcessing"
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

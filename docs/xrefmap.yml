@@ -1,0 +1,815 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: Harness
+  name: Harness
+  href: api/Harness.html
+  commentId: N:Harness
+  fullName: Harness
+  nameWithType: Harness
+- uid: Harness.HarnessBase
+  name: HarnessBase
+  href: api/Harness.HarnessBase.html
+  commentId: T:Harness.HarnessBase
+  fullName: Harness.HarnessBase
+  nameWithType: HarnessBase
+- uid: Harness.HarnessBase.#ctor
+  name: HarnessBase()
+  href: api/Harness.HarnessBase.html#Harness_HarnessBase__ctor
+  commentId: M:Harness.HarnessBase.#ctor
+  fullName: Harness.HarnessBase.HarnessBase()
+  nameWithType: HarnessBase.HarnessBase()
+- uid: Harness.HarnessBase.#ctor*
+  name: HarnessBase
+  href: api/Harness.HarnessBase.html#Harness_HarnessBase__ctor_
+  commentId: Overload:Harness.HarnessBase.#ctor
+  fullName: Harness.HarnessBase.HarnessBase
+  nameWithType: HarnessBase.HarnessBase
+- uid: Harness.HarnessBase.Build
+  name: Build()
+  href: api/Harness.HarnessBase.html#Harness_HarnessBase_Build
+  commentId: M:Harness.HarnessBase.Build
+  fullName: Harness.HarnessBase.Build()
+  nameWithType: HarnessBase.Build()
+- uid: Harness.HarnessBase.Build*
+  name: Build
+  href: api/Harness.HarnessBase.html#Harness_HarnessBase_Build_
+  commentId: Overload:Harness.HarnessBase.Build
+  fullName: Harness.HarnessBase.Build
+  nameWithType: HarnessBase.Build
+- uid: Harness.HarnessBase.MongoConnections
+  name: MongoConnections
+  href: api/Harness.HarnessBase.html#Harness_HarnessBase_MongoConnections
+  commentId: P:Harness.HarnessBase.MongoConnections
+  fullName: Harness.HarnessBase.MongoConnections
+  nameWithType: HarnessBase.MongoConnections
+- uid: Harness.HarnessBase.MongoConnections*
+  name: MongoConnections
+  href: api/Harness.HarnessBase.html#Harness_HarnessBase_MongoConnections_
+  commentId: Overload:Harness.HarnessBase.MongoConnections
+  fullName: Harness.HarnessBase.MongoConnections
+  nameWithType: HarnessBase.MongoConnections
+- uid: Harness.HarnessConfigAttribute
+  name: HarnessConfigAttribute
+  href: api/Harness.HarnessConfigAttribute.html
+  commentId: T:Harness.HarnessConfigAttribute
+  fullName: Harness.HarnessConfigAttribute
+  nameWithType: HarnessConfigAttribute
+- uid: Harness.HarnessConfigAttribute.#ctor
+  name: HarnessConfigAttribute()
+  href: api/Harness.HarnessConfigAttribute.html#Harness_HarnessConfigAttribute__ctor
+  commentId: M:Harness.HarnessConfigAttribute.#ctor
+  fullName: Harness.HarnessConfigAttribute.HarnessConfigAttribute()
+  nameWithType: HarnessConfigAttribute.HarnessConfigAttribute()
+- uid: Harness.HarnessConfigAttribute.#ctor*
+  name: HarnessConfigAttribute
+  href: api/Harness.HarnessConfigAttribute.html#Harness_HarnessConfigAttribute__ctor_
+  commentId: Overload:Harness.HarnessConfigAttribute.#ctor
+  fullName: Harness.HarnessConfigAttribute.HarnessConfigAttribute
+  nameWithType: HarnessConfigAttribute.HarnessConfigAttribute
+- uid: Harness.HarnessConfigAttribute.AutoRun
+  name: AutoRun
+  href: api/Harness.HarnessConfigAttribute.html#Harness_HarnessConfigAttribute_AutoRun
+  commentId: P:Harness.HarnessConfigAttribute.AutoRun
+  fullName: Harness.HarnessConfigAttribute.AutoRun
+  nameWithType: HarnessConfigAttribute.AutoRun
+- uid: Harness.HarnessConfigAttribute.AutoRun*
+  name: AutoRun
+  href: api/Harness.HarnessConfigAttribute.html#Harness_HarnessConfigAttribute_AutoRun_
+  commentId: Overload:Harness.HarnessConfigAttribute.AutoRun
+  fullName: Harness.HarnessConfigAttribute.AutoRun
+  nameWithType: HarnessConfigAttribute.AutoRun
+- uid: Harness.HarnessConfigAttribute.ConfigFilePath
+  name: ConfigFilePath
+  href: api/Harness.HarnessConfigAttribute.html#Harness_HarnessConfigAttribute_ConfigFilePath
+  commentId: P:Harness.HarnessConfigAttribute.ConfigFilePath
+  fullName: Harness.HarnessConfigAttribute.ConfigFilePath
+  nameWithType: HarnessConfigAttribute.ConfigFilePath
+- uid: Harness.HarnessConfigAttribute.ConfigFilePath*
+  name: ConfigFilePath
+  href: api/Harness.HarnessConfigAttribute.html#Harness_HarnessConfigAttribute_ConfigFilePath_
+  commentId: Overload:Harness.HarnessConfigAttribute.ConfigFilePath
+  fullName: Harness.HarnessConfigAttribute.ConfigFilePath
+  nameWithType: HarnessConfigAttribute.ConfigFilePath
+- uid: Harness.HarnessManager
+  name: HarnessManager
+  href: api/Harness.HarnessManager.html
+  commentId: T:Harness.HarnessManager
+  fullName: Harness.HarnessManager
+  nameWithType: HarnessManager
+- uid: Harness.HarnessManager.#ctor
+  name: HarnessManager()
+  href: api/Harness.HarnessManager.html#Harness_HarnessManager__ctor
+  commentId: M:Harness.HarnessManager.#ctor
+  fullName: Harness.HarnessManager.HarnessManager()
+  nameWithType: HarnessManager.HarnessManager()
+- uid: Harness.HarnessManager.#ctor*
+  name: HarnessManager
+  href: api/Harness.HarnessManager.html#Harness_HarnessManager__ctor_
+  commentId: Overload:Harness.HarnessManager.#ctor
+  fullName: Harness.HarnessManager.HarnessManager
+  nameWithType: HarnessManager.HarnessManager
+- uid: Harness.HarnessManager.Harness#IHarnessManagerBuilder#Build
+  name: IHarnessManagerBuilder.Build()
+  href: api/Harness.HarnessManager.html#Harness_HarnessManager_Harness_IHarnessManagerBuilder_Build
+  commentId: M:Harness.HarnessManager.Harness#IHarnessManagerBuilder#Build
+  name.vb: Harness.IHarnessManagerBuilder.Build()
+  fullName: Harness.HarnessManager.Harness.IHarnessManagerBuilder.Build()
+  nameWithType: HarnessManager.IHarnessManagerBuilder.Build()
+  nameWithType.vb: HarnessManager.Harness.IHarnessManagerBuilder.Build()
+- uid: Harness.HarnessManager.Harness#IHarnessManagerBuilder#Build*
+  name: IHarnessManagerBuilder.Build
+  href: api/Harness.HarnessManager.html#Harness_HarnessManager_Harness_IHarnessManagerBuilder_Build_
+  commentId: Overload:Harness.HarnessManager.Harness#IHarnessManagerBuilder#Build
+  name.vb: Harness.IHarnessManagerBuilder.Build
+  fullName: Harness.HarnessManager.Harness.IHarnessManagerBuilder.Build
+  nameWithType: HarnessManager.IHarnessManagerBuilder.Build
+  nameWithType.vb: HarnessManager.Harness.IHarnessManagerBuilder.Build
+- uid: Harness.HarnessManager.UsingSettings(Harness.Settings.HarnessConfiguration)
+  name: UsingSettings(HarnessConfiguration)
+  href: api/Harness.HarnessManager.html#Harness_HarnessManager_UsingSettings_Harness_Settings_HarnessConfiguration_
+  commentId: M:Harness.HarnessManager.UsingSettings(Harness.Settings.HarnessConfiguration)
+  fullName: Harness.HarnessManager.UsingSettings(Harness.Settings.HarnessConfiguration)
+  nameWithType: HarnessManager.UsingSettings(HarnessConfiguration)
+- uid: Harness.HarnessManager.UsingSettings(System.String)
+  name: UsingSettings(String)
+  href: api/Harness.HarnessManager.html#Harness_HarnessManager_UsingSettings_System_String_
+  commentId: M:Harness.HarnessManager.UsingSettings(System.String)
+  fullName: Harness.HarnessManager.UsingSettings(System.String)
+  nameWithType: HarnessManager.UsingSettings(String)
+- uid: Harness.HarnessManager.UsingSettings*
+  name: UsingSettings
+  href: api/Harness.HarnessManager.html#Harness_HarnessManager_UsingSettings_
+  commentId: Overload:Harness.HarnessManager.UsingSettings
+  fullName: Harness.HarnessManager.UsingSettings
+  nameWithType: HarnessManager.UsingSettings
+- uid: Harness.IHarnessManager
+  name: IHarnessManager
+  href: api/Harness.IHarnessManager.html
+  commentId: T:Harness.IHarnessManager
+  fullName: Harness.IHarnessManager
+  nameWithType: IHarnessManager
+- uid: Harness.IHarnessManager.UsingSettings(Harness.Settings.HarnessConfiguration)
+  name: UsingSettings(HarnessConfiguration)
+  href: api/Harness.IHarnessManager.html#Harness_IHarnessManager_UsingSettings_Harness_Settings_HarnessConfiguration_
+  commentId: M:Harness.IHarnessManager.UsingSettings(Harness.Settings.HarnessConfiguration)
+  fullName: Harness.IHarnessManager.UsingSettings(Harness.Settings.HarnessConfiguration)
+  nameWithType: IHarnessManager.UsingSettings(HarnessConfiguration)
+- uid: Harness.IHarnessManager.UsingSettings(System.String)
+  name: UsingSettings(String)
+  href: api/Harness.IHarnessManager.html#Harness_IHarnessManager_UsingSettings_System_String_
+  commentId: M:Harness.IHarnessManager.UsingSettings(System.String)
+  fullName: Harness.IHarnessManager.UsingSettings(System.String)
+  nameWithType: IHarnessManager.UsingSettings(String)
+- uid: Harness.IHarnessManager.UsingSettings*
+  name: UsingSettings
+  href: api/Harness.IHarnessManager.html#Harness_IHarnessManager_UsingSettings_
+  commentId: Overload:Harness.IHarnessManager.UsingSettings
+  fullName: Harness.IHarnessManager.UsingSettings
+  nameWithType: IHarnessManager.UsingSettings
+- uid: Harness.IHarnessManagerBuilder
+  name: IHarnessManagerBuilder
+  href: api/Harness.IHarnessManagerBuilder.html
+  commentId: T:Harness.IHarnessManagerBuilder
+  fullName: Harness.IHarnessManagerBuilder
+  nameWithType: IHarnessManagerBuilder
+- uid: Harness.IHarnessManagerBuilder.Build
+  name: Build()
+  href: api/Harness.IHarnessManagerBuilder.html#Harness_IHarnessManagerBuilder_Build
+  commentId: M:Harness.IHarnessManagerBuilder.Build
+  fullName: Harness.IHarnessManagerBuilder.Build()
+  nameWithType: IHarnessManagerBuilder.Build()
+- uid: Harness.IHarnessManagerBuilder.Build*
+  name: Build
+  href: api/Harness.IHarnessManagerBuilder.html#Harness_IHarnessManagerBuilder_Build_
+  commentId: Overload:Harness.IHarnessManagerBuilder.Build
+  fullName: Harness.IHarnessManagerBuilder.Build
+  nameWithType: IHarnessManagerBuilder.Build
+- uid: Harness.Settings
+  name: Harness.Settings
+  href: api/Harness.Settings.html
+  commentId: N:Harness.Settings
+  fullName: Harness.Settings
+  nameWithType: Harness.Settings
+- uid: Harness.Settings.CollectionConfig
+  name: CollectionConfig
+  href: api/Harness.Settings.CollectionConfig.html
+  commentId: T:Harness.Settings.CollectionConfig
+  fullName: Harness.Settings.CollectionConfig
+  nameWithType: CollectionConfig
+- uid: Harness.Settings.CollectionConfig.CollectionName
+  name: CollectionName
+  href: api/Harness.Settings.CollectionConfig.html#Harness_Settings_CollectionConfig_CollectionName
+  commentId: P:Harness.Settings.CollectionConfig.CollectionName
+  fullName: Harness.Settings.CollectionConfig.CollectionName
+  nameWithType: CollectionConfig.CollectionName
+- uid: Harness.Settings.CollectionConfig.CollectionName*
+  name: CollectionName
+  href: api/Harness.Settings.CollectionConfig.html#Harness_Settings_CollectionConfig_CollectionName_
+  commentId: Overload:Harness.Settings.CollectionConfig.CollectionName
+  fullName: Harness.Settings.CollectionConfig.CollectionName
+  nameWithType: CollectionConfig.CollectionName
+- uid: Harness.Settings.CollectionConfig.DataProvider
+  name: DataProvider
+  href: api/Harness.Settings.CollectionConfig.html#Harness_Settings_CollectionConfig_DataProvider
+  commentId: P:Harness.Settings.CollectionConfig.DataProvider
+  fullName: Harness.Settings.CollectionConfig.DataProvider
+  nameWithType: CollectionConfig.DataProvider
+- uid: Harness.Settings.CollectionConfig.DataProvider*
+  name: DataProvider
+  href: api/Harness.Settings.CollectionConfig.html#Harness_Settings_CollectionConfig_DataProvider_
+  commentId: Overload:Harness.Settings.CollectionConfig.DataProvider
+  fullName: Harness.Settings.CollectionConfig.DataProvider
+  nameWithType: CollectionConfig.DataProvider
+- uid: Harness.Settings.CollectionConfig.DropFirst
+  name: DropFirst
+  href: api/Harness.Settings.CollectionConfig.html#Harness_Settings_CollectionConfig_DropFirst
+  commentId: P:Harness.Settings.CollectionConfig.DropFirst
+  fullName: Harness.Settings.CollectionConfig.DropFirst
+  nameWithType: CollectionConfig.DropFirst
+- uid: Harness.Settings.CollectionConfig.DropFirst*
+  name: DropFirst
+  href: api/Harness.Settings.CollectionConfig.html#Harness_Settings_CollectionConfig_DropFirst_
+  commentId: Overload:Harness.Settings.CollectionConfig.DropFirst
+  fullName: Harness.Settings.CollectionConfig.DropFirst
+  nameWithType: CollectionConfig.DropFirst
+- uid: Harness.Settings.ConventionConfig
+  name: ConventionConfig
+  href: api/Harness.Settings.ConventionConfig.html
+  commentId: T:Harness.Settings.ConventionConfig
+  fullName: Harness.Settings.ConventionConfig
+  nameWithType: ConventionConfig
+- uid: Harness.Settings.ConventionConfig.ConventionPack
+  name: ConventionPack
+  href: api/Harness.Settings.ConventionConfig.html#Harness_Settings_ConventionConfig_ConventionPack
+  commentId: P:Harness.Settings.ConventionConfig.ConventionPack
+  fullName: Harness.Settings.ConventionConfig.ConventionPack
+  nameWithType: ConventionConfig.ConventionPack
+- uid: Harness.Settings.ConventionConfig.ConventionPack*
+  name: ConventionPack
+  href: api/Harness.Settings.ConventionConfig.html#Harness_Settings_ConventionConfig_ConventionPack_
+  commentId: Overload:Harness.Settings.ConventionConfig.ConventionPack
+  fullName: Harness.Settings.ConventionConfig.ConventionPack
+  nameWithType: ConventionConfig.ConventionPack
+- uid: Harness.Settings.ConventionConfig.Filter
+  name: Filter
+  href: api/Harness.Settings.ConventionConfig.html#Harness_Settings_ConventionConfig_Filter
+  commentId: P:Harness.Settings.ConventionConfig.Filter
+  fullName: Harness.Settings.ConventionConfig.Filter
+  nameWithType: ConventionConfig.Filter
+- uid: Harness.Settings.ConventionConfig.Filter*
+  name: Filter
+  href: api/Harness.Settings.ConventionConfig.html#Harness_Settings_ConventionConfig_Filter_
+  commentId: Overload:Harness.Settings.ConventionConfig.Filter
+  fullName: Harness.Settings.ConventionConfig.Filter
+  nameWithType: ConventionConfig.Filter
+- uid: Harness.Settings.ConventionConfig.Name
+  name: Name
+  href: api/Harness.Settings.ConventionConfig.html#Harness_Settings_ConventionConfig_Name
+  commentId: P:Harness.Settings.ConventionConfig.Name
+  fullName: Harness.Settings.ConventionConfig.Name
+  nameWithType: ConventionConfig.Name
+- uid: Harness.Settings.ConventionConfig.Name*
+  name: Name
+  href: api/Harness.Settings.ConventionConfig.html#Harness_Settings_ConventionConfig_Name_
+  commentId: Overload:Harness.Settings.ConventionConfig.Name
+  fullName: Harness.Settings.ConventionConfig.Name
+  nameWithType: ConventionConfig.Name
+- uid: Harness.Settings.DatabaseConfig
+  name: DatabaseConfig
+  href: api/Harness.Settings.DatabaseConfig.html
+  commentId: T:Harness.Settings.DatabaseConfig
+  fullName: Harness.Settings.DatabaseConfig
+  nameWithType: DatabaseConfig
+- uid: Harness.Settings.DatabaseConfig.CollectionNameSuffix
+  name: CollectionNameSuffix
+  href: api/Harness.Settings.DatabaseConfig.html#Harness_Settings_DatabaseConfig_CollectionNameSuffix
+  commentId: P:Harness.Settings.DatabaseConfig.CollectionNameSuffix
+  fullName: Harness.Settings.DatabaseConfig.CollectionNameSuffix
+  nameWithType: DatabaseConfig.CollectionNameSuffix
+- uid: Harness.Settings.DatabaseConfig.CollectionNameSuffix*
+  name: CollectionNameSuffix
+  href: api/Harness.Settings.DatabaseConfig.html#Harness_Settings_DatabaseConfig_CollectionNameSuffix_
+  commentId: Overload:Harness.Settings.DatabaseConfig.CollectionNameSuffix
+  fullName: Harness.Settings.DatabaseConfig.CollectionNameSuffix
+  nameWithType: DatabaseConfig.CollectionNameSuffix
+- uid: Harness.Settings.DatabaseConfig.Collections
+  name: Collections
+  href: api/Harness.Settings.DatabaseConfig.html#Harness_Settings_DatabaseConfig_Collections
+  commentId: P:Harness.Settings.DatabaseConfig.Collections
+  fullName: Harness.Settings.DatabaseConfig.Collections
+  nameWithType: DatabaseConfig.Collections
+- uid: Harness.Settings.DatabaseConfig.Collections*
+  name: Collections
+  href: api/Harness.Settings.DatabaseConfig.html#Harness_Settings_DatabaseConfig_Collections_
+  commentId: Overload:Harness.Settings.DatabaseConfig.Collections
+  fullName: Harness.Settings.DatabaseConfig.Collections
+  nameWithType: DatabaseConfig.Collections
+- uid: Harness.Settings.DatabaseConfig.ConnectionString
+  name: ConnectionString
+  href: api/Harness.Settings.DatabaseConfig.html#Harness_Settings_DatabaseConfig_ConnectionString
+  commentId: P:Harness.Settings.DatabaseConfig.ConnectionString
+  fullName: Harness.Settings.DatabaseConfig.ConnectionString
+  nameWithType: DatabaseConfig.ConnectionString
+- uid: Harness.Settings.DatabaseConfig.ConnectionString*
+  name: ConnectionString
+  href: api/Harness.Settings.DatabaseConfig.html#Harness_Settings_DatabaseConfig_ConnectionString_
+  commentId: Overload:Harness.Settings.DatabaseConfig.ConnectionString
+  fullName: Harness.Settings.DatabaseConfig.ConnectionString
+  nameWithType: DatabaseConfig.ConnectionString
+- uid: Harness.Settings.DatabaseConfig.DatabaseName
+  name: DatabaseName
+  href: api/Harness.Settings.DatabaseConfig.html#Harness_Settings_DatabaseConfig_DatabaseName
+  commentId: P:Harness.Settings.DatabaseConfig.DatabaseName
+  fullName: Harness.Settings.DatabaseConfig.DatabaseName
+  nameWithType: DatabaseConfig.DatabaseName
+- uid: Harness.Settings.DatabaseConfig.DatabaseName*
+  name: DatabaseName
+  href: api/Harness.Settings.DatabaseConfig.html#Harness_Settings_DatabaseConfig_DatabaseName_
+  commentId: Overload:Harness.Settings.DatabaseConfig.DatabaseName
+  fullName: Harness.Settings.DatabaseConfig.DatabaseName
+  nameWithType: DatabaseConfig.DatabaseName
+- uid: Harness.Settings.DatabaseConfig.DropFirst
+  name: DropFirst
+  href: api/Harness.Settings.DatabaseConfig.html#Harness_Settings_DatabaseConfig_DropFirst
+  commentId: P:Harness.Settings.DatabaseConfig.DropFirst
+  fullName: Harness.Settings.DatabaseConfig.DropFirst
+  nameWithType: DatabaseConfig.DropFirst
+- uid: Harness.Settings.DatabaseConfig.DropFirst*
+  name: DropFirst
+  href: api/Harness.Settings.DatabaseConfig.html#Harness_Settings_DatabaseConfig_DropFirst_
+  commentId: Overload:Harness.Settings.DatabaseConfig.DropFirst
+  fullName: Harness.Settings.DatabaseConfig.DropFirst
+  nameWithType: DatabaseConfig.DropFirst
+- uid: Harness.Settings.HarnessConfiguration
+  name: HarnessConfiguration
+  href: api/Harness.Settings.HarnessConfiguration.html
+  commentId: T:Harness.Settings.HarnessConfiguration
+  fullName: Harness.Settings.HarnessConfiguration
+  nameWithType: HarnessConfiguration
+- uid: Harness.Settings.HarnessConfiguration.Conventions
+  name: Conventions
+  href: api/Harness.Settings.HarnessConfiguration.html#Harness_Settings_HarnessConfiguration_Conventions
+  commentId: P:Harness.Settings.HarnessConfiguration.Conventions
+  fullName: Harness.Settings.HarnessConfiguration.Conventions
+  nameWithType: HarnessConfiguration.Conventions
+- uid: Harness.Settings.HarnessConfiguration.Conventions*
+  name: Conventions
+  href: api/Harness.Settings.HarnessConfiguration.html#Harness_Settings_HarnessConfiguration_Conventions_
+  commentId: Overload:Harness.Settings.HarnessConfiguration.Conventions
+  fullName: Harness.Settings.HarnessConfiguration.Conventions
+  nameWithType: HarnessConfiguration.Conventions
+- uid: Harness.Settings.HarnessConfiguration.Databases
+  name: Databases
+  href: api/Harness.Settings.HarnessConfiguration.html#Harness_Settings_HarnessConfiguration_Databases
+  commentId: P:Harness.Settings.HarnessConfiguration.Databases
+  fullName: Harness.Settings.HarnessConfiguration.Databases
+  nameWithType: HarnessConfiguration.Databases
+- uid: Harness.Settings.HarnessConfiguration.Databases*
+  name: Databases
+  href: api/Harness.Settings.HarnessConfiguration.html#Harness_Settings_HarnessConfiguration_Databases_
+  commentId: Overload:Harness.Settings.HarnessConfiguration.Databases
+  fullName: Harness.Settings.HarnessConfiguration.Databases
+  nameWithType: HarnessConfiguration.Databases
+- uid: Harness.Settings.IDataProvider
+  name: IDataProvider
+  href: api/Harness.Settings.IDataProvider.html
+  commentId: T:Harness.Settings.IDataProvider
+  fullName: Harness.Settings.IDataProvider
+  nameWithType: IDataProvider
+- uid: Harness.Settings.IDataProvider.GetData
+  name: GetData()
+  href: api/Harness.Settings.IDataProvider.html#Harness_Settings_IDataProvider_GetData
+  commentId: M:Harness.Settings.IDataProvider.GetData
+  fullName: Harness.Settings.IDataProvider.GetData()
+  nameWithType: IDataProvider.GetData()
+- uid: Harness.Settings.IDataProvider.GetData*
+  name: GetData
+  href: api/Harness.Settings.IDataProvider.html#Harness_Settings_IDataProvider_GetData_
+  commentId: Overload:Harness.Settings.IDataProvider.GetData
+  fullName: Harness.Settings.IDataProvider.GetData
+  nameWithType: IDataProvider.GetData
+- uid: Harness.Settings.ISettingsBuilder
+  name: ISettingsBuilder
+  href: api/Harness.Settings.ISettingsBuilder.html
+  commentId: T:Harness.Settings.ISettingsBuilder
+  fullName: Harness.Settings.ISettingsBuilder
+  nameWithType: ISettingsBuilder
+- uid: Harness.Settings.ISettingsBuilder.AddConvention(MongoDB.Bson.Serialization.Conventions.IConvention,System.Linq.Expressions.Expression{System.Func{System.Type,System.Boolean}})
+  name: AddConvention(IConvention, Expression<Func<Type, Boolean>>)
+  href: api/Harness.Settings.ISettingsBuilder.html#Harness_Settings_ISettingsBuilder_AddConvention_MongoDB_Bson_Serialization_Conventions_IConvention_System_Linq_Expressions_Expression_System_Func_System_Type_System_Boolean___
+  commentId: M:Harness.Settings.ISettingsBuilder.AddConvention(MongoDB.Bson.Serialization.Conventions.IConvention,System.Linq.Expressions.Expression{System.Func{System.Type,System.Boolean}})
+  name.vb: AddConvention(IConvention, Expression(Of Func(Of Type, Boolean)))
+  fullName: Harness.Settings.ISettingsBuilder.AddConvention(MongoDB.Bson.Serialization.Conventions.IConvention, System.Linq.Expressions.Expression<System.Func<System.Type, System.Boolean>>)
+  fullName.vb: Harness.Settings.ISettingsBuilder.AddConvention(MongoDB.Bson.Serialization.Conventions.IConvention, System.Linq.Expressions.Expression(Of System.Func(Of System.Type, System.Boolean)))
+  nameWithType: ISettingsBuilder.AddConvention(IConvention, Expression<Func<Type, Boolean>>)
+  nameWithType.vb: ISettingsBuilder.AddConvention(IConvention, Expression(Of Func(Of Type, Boolean)))
+- uid: Harness.Settings.ISettingsBuilder.AddConvention(MongoDB.Bson.Serialization.Conventions.IConventionPack,System.Linq.Expressions.Expression{System.Func{System.Type,System.Boolean}})
+  name: AddConvention(IConventionPack, Expression<Func<Type, Boolean>>)
+  href: api/Harness.Settings.ISettingsBuilder.html#Harness_Settings_ISettingsBuilder_AddConvention_MongoDB_Bson_Serialization_Conventions_IConventionPack_System_Linq_Expressions_Expression_System_Func_System_Type_System_Boolean___
+  commentId: M:Harness.Settings.ISettingsBuilder.AddConvention(MongoDB.Bson.Serialization.Conventions.IConventionPack,System.Linq.Expressions.Expression{System.Func{System.Type,System.Boolean}})
+  name.vb: AddConvention(IConventionPack, Expression(Of Func(Of Type, Boolean)))
+  fullName: Harness.Settings.ISettingsBuilder.AddConvention(MongoDB.Bson.Serialization.Conventions.IConventionPack, System.Linq.Expressions.Expression<System.Func<System.Type, System.Boolean>>)
+  fullName.vb: Harness.Settings.ISettingsBuilder.AddConvention(MongoDB.Bson.Serialization.Conventions.IConventionPack, System.Linq.Expressions.Expression(Of System.Func(Of System.Type, System.Boolean)))
+  nameWithType: ISettingsBuilder.AddConvention(IConventionPack, Expression<Func<Type, Boolean>>)
+  nameWithType.vb: ISettingsBuilder.AddConvention(IConventionPack, Expression(Of Func(Of Type, Boolean)))
+- uid: Harness.Settings.ISettingsBuilder.AddConvention(System.Collections.Generic.IList{MongoDB.Bson.Serialization.Conventions.IConvention},System.Linq.Expressions.Expression{System.Func{System.Type,System.Boolean}})
+  name: AddConvention(IList<IConvention>, Expression<Func<Type, Boolean>>)
+  href: api/Harness.Settings.ISettingsBuilder.html#Harness_Settings_ISettingsBuilder_AddConvention_System_Collections_Generic_IList_MongoDB_Bson_Serialization_Conventions_IConvention__System_Linq_Expressions_Expression_System_Func_System_Type_System_Boolean___
+  commentId: M:Harness.Settings.ISettingsBuilder.AddConvention(System.Collections.Generic.IList{MongoDB.Bson.Serialization.Conventions.IConvention},System.Linq.Expressions.Expression{System.Func{System.Type,System.Boolean}})
+  name.vb: AddConvention(IList(Of IConvention), Expression(Of Func(Of Type, Boolean)))
+  fullName: Harness.Settings.ISettingsBuilder.AddConvention(System.Collections.Generic.IList<MongoDB.Bson.Serialization.Conventions.IConvention>, System.Linq.Expressions.Expression<System.Func<System.Type, System.Boolean>>)
+  fullName.vb: Harness.Settings.ISettingsBuilder.AddConvention(System.Collections.Generic.IList(Of MongoDB.Bson.Serialization.Conventions.IConvention), System.Linq.Expressions.Expression(Of System.Func(Of System.Type, System.Boolean)))
+  nameWithType: ISettingsBuilder.AddConvention(IList<IConvention>, Expression<Func<Type, Boolean>>)
+  nameWithType.vb: ISettingsBuilder.AddConvention(IList(Of IConvention), Expression(Of Func(Of Type, Boolean)))
+- uid: Harness.Settings.ISettingsBuilder.AddConvention*
+  name: AddConvention
+  href: api/Harness.Settings.ISettingsBuilder.html#Harness_Settings_ISettingsBuilder_AddConvention_
+  commentId: Overload:Harness.Settings.ISettingsBuilder.AddConvention
+  fullName: Harness.Settings.ISettingsBuilder.AddConvention
+  nameWithType: ISettingsBuilder.AddConvention
+- uid: Harness.Settings.ISettingsBuilder.AddDatabase(System.String)
+  name: AddDatabase(String)
+  href: api/Harness.Settings.ISettingsBuilder.html#Harness_Settings_ISettingsBuilder_AddDatabase_System_String_
+  commentId: M:Harness.Settings.ISettingsBuilder.AddDatabase(System.String)
+  fullName: Harness.Settings.ISettingsBuilder.AddDatabase(System.String)
+  nameWithType: ISettingsBuilder.AddDatabase(String)
+- uid: Harness.Settings.ISettingsBuilder.AddDatabase*
+  name: AddDatabase
+  href: api/Harness.Settings.ISettingsBuilder.html#Harness_Settings_ISettingsBuilder_AddDatabase_
+  commentId: Overload:Harness.Settings.ISettingsBuilder.AddDatabase
+  fullName: Harness.Settings.ISettingsBuilder.AddDatabase
+  nameWithType: ISettingsBuilder.AddDatabase
+- uid: Harness.Settings.ISettingsBuilderAddMoreCollections
+  name: ISettingsBuilderAddMoreCollections
+  href: api/Harness.Settings.ISettingsBuilderAddMoreCollections.html
+  commentId: T:Harness.Settings.ISettingsBuilderAddMoreCollections
+  fullName: Harness.Settings.ISettingsBuilderAddMoreCollections
+  nameWithType: ISettingsBuilderAddMoreCollections
+- uid: Harness.Settings.ISettingsBuilderAddMoreCollections.AddCollection(System.String,System.Boolean,System.String)
+  name: AddCollection(String, Boolean, String)
+  href: api/Harness.Settings.ISettingsBuilderAddMoreCollections.html#Harness_Settings_ISettingsBuilderAddMoreCollections_AddCollection_System_String_System_Boolean_System_String_
+  commentId: M:Harness.Settings.ISettingsBuilderAddMoreCollections.AddCollection(System.String,System.Boolean,System.String)
+  fullName: Harness.Settings.ISettingsBuilderAddMoreCollections.AddCollection(System.String, System.Boolean, System.String)
+  nameWithType: ISettingsBuilderAddMoreCollections.AddCollection(String, Boolean, String)
+- uid: Harness.Settings.ISettingsBuilderAddMoreCollections.AddCollection*
+  name: AddCollection
+  href: api/Harness.Settings.ISettingsBuilderAddMoreCollections.html#Harness_Settings_ISettingsBuilderAddMoreCollections_AddCollection_
+  commentId: Overload:Harness.Settings.ISettingsBuilderAddMoreCollections.AddCollection
+  fullName: Harness.Settings.ISettingsBuilderAddMoreCollections.AddCollection
+  nameWithType: ISettingsBuilderAddMoreCollections.AddCollection
+- uid: Harness.Settings.ISettingsBuilderAddMoreCollections.AddCollection``1(System.String,System.Boolean,Harness.Settings.IDataProvider)
+  name: AddCollection<T>(String, Boolean, IDataProvider)
+  href: api/Harness.Settings.ISettingsBuilderAddMoreCollections.html#Harness_Settings_ISettingsBuilderAddMoreCollections_AddCollection__1_System_String_System_Boolean_Harness_Settings_IDataProvider_
+  commentId: M:Harness.Settings.ISettingsBuilderAddMoreCollections.AddCollection``1(System.String,System.Boolean,Harness.Settings.IDataProvider)
+  name.vb: AddCollection(Of T)(String, Boolean, IDataProvider)
+  fullName: Harness.Settings.ISettingsBuilderAddMoreCollections.AddCollection<T>(System.String, System.Boolean, Harness.Settings.IDataProvider)
+  fullName.vb: Harness.Settings.ISettingsBuilderAddMoreCollections.AddCollection(Of T)(System.String, System.Boolean, Harness.Settings.IDataProvider)
+  nameWithType: ISettingsBuilderAddMoreCollections.AddCollection<T>(String, Boolean, IDataProvider)
+  nameWithType.vb: ISettingsBuilderAddMoreCollections.AddCollection(Of T)(String, Boolean, IDataProvider)
+- uid: Harness.Settings.ISettingsBuilderAddMoreCollections.AddDatabase(System.String)
+  name: AddDatabase(String)
+  href: api/Harness.Settings.ISettingsBuilderAddMoreCollections.html#Harness_Settings_ISettingsBuilderAddMoreCollections_AddDatabase_System_String_
+  commentId: M:Harness.Settings.ISettingsBuilderAddMoreCollections.AddDatabase(System.String)
+  fullName: Harness.Settings.ISettingsBuilderAddMoreCollections.AddDatabase(System.String)
+  nameWithType: ISettingsBuilderAddMoreCollections.AddDatabase(String)
+- uid: Harness.Settings.ISettingsBuilderAddMoreCollections.AddDatabase*
+  name: AddDatabase
+  href: api/Harness.Settings.ISettingsBuilderAddMoreCollections.html#Harness_Settings_ISettingsBuilderAddMoreCollections_AddDatabase_
+  commentId: Overload:Harness.Settings.ISettingsBuilderAddMoreCollections.AddDatabase
+  fullName: Harness.Settings.ISettingsBuilderAddMoreCollections.AddDatabase
+  nameWithType: ISettingsBuilderAddMoreCollections.AddDatabase
+- uid: Harness.Settings.ISettingsBuilderAddMoreCollections.Build
+  name: Build()
+  href: api/Harness.Settings.ISettingsBuilderAddMoreCollections.html#Harness_Settings_ISettingsBuilderAddMoreCollections_Build
+  commentId: M:Harness.Settings.ISettingsBuilderAddMoreCollections.Build
+  fullName: Harness.Settings.ISettingsBuilderAddMoreCollections.Build()
+  nameWithType: ISettingsBuilderAddMoreCollections.Build()
+- uid: Harness.Settings.ISettingsBuilderAddMoreCollections.Build*
+  name: Build
+  href: api/Harness.Settings.ISettingsBuilderAddMoreCollections.html#Harness_Settings_ISettingsBuilderAddMoreCollections_Build_
+  commentId: Overload:Harness.Settings.ISettingsBuilderAddMoreCollections.Build
+  fullName: Harness.Settings.ISettingsBuilderAddMoreCollections.Build
+  nameWithType: ISettingsBuilderAddMoreCollections.Build
+- uid: Harness.Settings.ISettingsBuilderConnectionString
+  name: ISettingsBuilderConnectionString
+  href: api/Harness.Settings.ISettingsBuilderConnectionString.html
+  commentId: T:Harness.Settings.ISettingsBuilderConnectionString
+  fullName: Harness.Settings.ISettingsBuilderConnectionString
+  nameWithType: ISettingsBuilderConnectionString
+- uid: Harness.Settings.ISettingsBuilderConnectionString.WithConnectionString(System.String)
+  name: WithConnectionString(String)
+  href: api/Harness.Settings.ISettingsBuilderConnectionString.html#Harness_Settings_ISettingsBuilderConnectionString_WithConnectionString_System_String_
+  commentId: M:Harness.Settings.ISettingsBuilderConnectionString.WithConnectionString(System.String)
+  fullName: Harness.Settings.ISettingsBuilderConnectionString.WithConnectionString(System.String)
+  nameWithType: ISettingsBuilderConnectionString.WithConnectionString(String)
+- uid: Harness.Settings.ISettingsBuilderConnectionString.WithConnectionString*
+  name: WithConnectionString
+  href: api/Harness.Settings.ISettingsBuilderConnectionString.html#Harness_Settings_ISettingsBuilderConnectionString_WithConnectionString_
+  commentId: Overload:Harness.Settings.ISettingsBuilderConnectionString.WithConnectionString
+  fullName: Harness.Settings.ISettingsBuilderConnectionString.WithConnectionString
+  nameWithType: ISettingsBuilderConnectionString.WithConnectionString
+- uid: Harness.Settings.ISettingsBuilderDatabase
+  name: ISettingsBuilderDatabase
+  href: api/Harness.Settings.ISettingsBuilderDatabase.html
+  commentId: T:Harness.Settings.ISettingsBuilderDatabase
+  fullName: Harness.Settings.ISettingsBuilderDatabase
+  nameWithType: ISettingsBuilderDatabase
+- uid: Harness.Settings.ISettingsBuilderDatabase.AddDatabase(System.String)
+  name: AddDatabase(String)
+  href: api/Harness.Settings.ISettingsBuilderDatabase.html#Harness_Settings_ISettingsBuilderDatabase_AddDatabase_System_String_
+  commentId: M:Harness.Settings.ISettingsBuilderDatabase.AddDatabase(System.String)
+  fullName: Harness.Settings.ISettingsBuilderDatabase.AddDatabase(System.String)
+  nameWithType: ISettingsBuilderDatabase.AddDatabase(String)
+- uid: Harness.Settings.ISettingsBuilderDatabase.AddDatabase*
+  name: AddDatabase
+  href: api/Harness.Settings.ISettingsBuilderDatabase.html#Harness_Settings_ISettingsBuilderDatabase_AddDatabase_
+  commentId: Overload:Harness.Settings.ISettingsBuilderDatabase.AddDatabase
+  fullName: Harness.Settings.ISettingsBuilderDatabase.AddDatabase
+  nameWithType: ISettingsBuilderDatabase.AddDatabase
+- uid: Harness.Settings.ISettingsBuilderDatabaseOptions
+  name: ISettingsBuilderDatabaseOptions
+  href: api/Harness.Settings.ISettingsBuilderDatabaseOptions.html
+  commentId: T:Harness.Settings.ISettingsBuilderDatabaseOptions
+  fullName: Harness.Settings.ISettingsBuilderDatabaseOptions
+  nameWithType: ISettingsBuilderDatabaseOptions
+- uid: Harness.Settings.ISettingsBuilderDatabaseOptions.AddCollection(System.String,System.Boolean,System.String)
+  name: AddCollection(String, Boolean, String)
+  href: api/Harness.Settings.ISettingsBuilderDatabaseOptions.html#Harness_Settings_ISettingsBuilderDatabaseOptions_AddCollection_System_String_System_Boolean_System_String_
+  commentId: M:Harness.Settings.ISettingsBuilderDatabaseOptions.AddCollection(System.String,System.Boolean,System.String)
+  fullName: Harness.Settings.ISettingsBuilderDatabaseOptions.AddCollection(System.String, System.Boolean, System.String)
+  nameWithType: ISettingsBuilderDatabaseOptions.AddCollection(String, Boolean, String)
+- uid: Harness.Settings.ISettingsBuilderDatabaseOptions.AddCollection*
+  name: AddCollection
+  href: api/Harness.Settings.ISettingsBuilderDatabaseOptions.html#Harness_Settings_ISettingsBuilderDatabaseOptions_AddCollection_
+  commentId: Overload:Harness.Settings.ISettingsBuilderDatabaseOptions.AddCollection
+  fullName: Harness.Settings.ISettingsBuilderDatabaseOptions.AddCollection
+  nameWithType: ISettingsBuilderDatabaseOptions.AddCollection
+- uid: Harness.Settings.ISettingsBuilderDatabaseOptions.AddCollection``1(System.String,System.Boolean,Harness.Settings.IDataProvider)
+  name: AddCollection<T>(String, Boolean, IDataProvider)
+  href: api/Harness.Settings.ISettingsBuilderDatabaseOptions.html#Harness_Settings_ISettingsBuilderDatabaseOptions_AddCollection__1_System_String_System_Boolean_Harness_Settings_IDataProvider_
+  commentId: M:Harness.Settings.ISettingsBuilderDatabaseOptions.AddCollection``1(System.String,System.Boolean,Harness.Settings.IDataProvider)
+  name.vb: AddCollection(Of T)(String, Boolean, IDataProvider)
+  fullName: Harness.Settings.ISettingsBuilderDatabaseOptions.AddCollection<T>(System.String, System.Boolean, Harness.Settings.IDataProvider)
+  fullName.vb: Harness.Settings.ISettingsBuilderDatabaseOptions.AddCollection(Of T)(System.String, System.Boolean, Harness.Settings.IDataProvider)
+  nameWithType: ISettingsBuilderDatabaseOptions.AddCollection<T>(String, Boolean, IDataProvider)
+  nameWithType.vb: ISettingsBuilderDatabaseOptions.AddCollection(Of T)(String, Boolean, IDataProvider)
+- uid: Harness.Settings.ISettingsBuilderDatabaseOptions.DropDatabaseFirst
+  name: DropDatabaseFirst()
+  href: api/Harness.Settings.ISettingsBuilderDatabaseOptions.html#Harness_Settings_ISettingsBuilderDatabaseOptions_DropDatabaseFirst
+  commentId: M:Harness.Settings.ISettingsBuilderDatabaseOptions.DropDatabaseFirst
+  fullName: Harness.Settings.ISettingsBuilderDatabaseOptions.DropDatabaseFirst()
+  nameWithType: ISettingsBuilderDatabaseOptions.DropDatabaseFirst()
+- uid: Harness.Settings.ISettingsBuilderDatabaseOptions.DropDatabaseFirst*
+  name: DropDatabaseFirst
+  href: api/Harness.Settings.ISettingsBuilderDatabaseOptions.html#Harness_Settings_ISettingsBuilderDatabaseOptions_DropDatabaseFirst_
+  commentId: Overload:Harness.Settings.ISettingsBuilderDatabaseOptions.DropDatabaseFirst
+  fullName: Harness.Settings.ISettingsBuilderDatabaseOptions.DropDatabaseFirst
+  nameWithType: ISettingsBuilderDatabaseOptions.DropDatabaseFirst
+- uid: Harness.Settings.ISettingsBuilderDatabaseOptions.WithCollectionNameSuffix(System.String)
+  name: WithCollectionNameSuffix(String)
+  href: api/Harness.Settings.ISettingsBuilderDatabaseOptions.html#Harness_Settings_ISettingsBuilderDatabaseOptions_WithCollectionNameSuffix_System_String_
+  commentId: M:Harness.Settings.ISettingsBuilderDatabaseOptions.WithCollectionNameSuffix(System.String)
+  fullName: Harness.Settings.ISettingsBuilderDatabaseOptions.WithCollectionNameSuffix(System.String)
+  nameWithType: ISettingsBuilderDatabaseOptions.WithCollectionNameSuffix(String)
+- uid: Harness.Settings.ISettingsBuilderDatabaseOptions.WithCollectionNameSuffix*
+  name: WithCollectionNameSuffix
+  href: api/Harness.Settings.ISettingsBuilderDatabaseOptions.html#Harness_Settings_ISettingsBuilderDatabaseOptions_WithCollectionNameSuffix_
+  commentId: Overload:Harness.Settings.ISettingsBuilderDatabaseOptions.WithCollectionNameSuffix
+  fullName: Harness.Settings.ISettingsBuilderDatabaseOptions.WithCollectionNameSuffix
+  nameWithType: ISettingsBuilderDatabaseOptions.WithCollectionNameSuffix
+- uid: Harness.Settings.SettingsBuilder
+  name: SettingsBuilder
+  href: api/Harness.Settings.SettingsBuilder.html
+  commentId: T:Harness.Settings.SettingsBuilder
+  fullName: Harness.Settings.SettingsBuilder
+  nameWithType: SettingsBuilder
+- uid: Harness.Settings.SettingsBuilder.#ctor
+  name: SettingsBuilder()
+  href: api/Harness.Settings.SettingsBuilder.html#Harness_Settings_SettingsBuilder__ctor
+  commentId: M:Harness.Settings.SettingsBuilder.#ctor
+  fullName: Harness.Settings.SettingsBuilder.SettingsBuilder()
+  nameWithType: SettingsBuilder.SettingsBuilder()
+- uid: Harness.Settings.SettingsBuilder.#ctor*
+  name: SettingsBuilder
+  href: api/Harness.Settings.SettingsBuilder.html#Harness_Settings_SettingsBuilder__ctor_
+  commentId: Overload:Harness.Settings.SettingsBuilder.#ctor
+  fullName: Harness.Settings.SettingsBuilder.SettingsBuilder
+  nameWithType: SettingsBuilder.SettingsBuilder
+- uid: Harness.Settings.SettingsBuilder.AddConvention(MongoDB.Bson.Serialization.Conventions.IConvention,System.Linq.Expressions.Expression{System.Func{System.Type,System.Boolean}})
+  name: AddConvention(IConvention, Expression<Func<Type, Boolean>>)
+  href: api/Harness.Settings.SettingsBuilder.html#Harness_Settings_SettingsBuilder_AddConvention_MongoDB_Bson_Serialization_Conventions_IConvention_System_Linq_Expressions_Expression_System_Func_System_Type_System_Boolean___
+  commentId: M:Harness.Settings.SettingsBuilder.AddConvention(MongoDB.Bson.Serialization.Conventions.IConvention,System.Linq.Expressions.Expression{System.Func{System.Type,System.Boolean}})
+  name.vb: AddConvention(IConvention, Expression(Of Func(Of Type, Boolean)))
+  fullName: Harness.Settings.SettingsBuilder.AddConvention(MongoDB.Bson.Serialization.Conventions.IConvention, System.Linq.Expressions.Expression<System.Func<System.Type, System.Boolean>>)
+  fullName.vb: Harness.Settings.SettingsBuilder.AddConvention(MongoDB.Bson.Serialization.Conventions.IConvention, System.Linq.Expressions.Expression(Of System.Func(Of System.Type, System.Boolean)))
+  nameWithType: SettingsBuilder.AddConvention(IConvention, Expression<Func<Type, Boolean>>)
+  nameWithType.vb: SettingsBuilder.AddConvention(IConvention, Expression(Of Func(Of Type, Boolean)))
+- uid: Harness.Settings.SettingsBuilder.AddConvention(MongoDB.Bson.Serialization.Conventions.IConventionPack,System.Linq.Expressions.Expression{System.Func{System.Type,System.Boolean}})
+  name: AddConvention(IConventionPack, Expression<Func<Type, Boolean>>)
+  href: api/Harness.Settings.SettingsBuilder.html#Harness_Settings_SettingsBuilder_AddConvention_MongoDB_Bson_Serialization_Conventions_IConventionPack_System_Linq_Expressions_Expression_System_Func_System_Type_System_Boolean___
+  commentId: M:Harness.Settings.SettingsBuilder.AddConvention(MongoDB.Bson.Serialization.Conventions.IConventionPack,System.Linq.Expressions.Expression{System.Func{System.Type,System.Boolean}})
+  name.vb: AddConvention(IConventionPack, Expression(Of Func(Of Type, Boolean)))
+  fullName: Harness.Settings.SettingsBuilder.AddConvention(MongoDB.Bson.Serialization.Conventions.IConventionPack, System.Linq.Expressions.Expression<System.Func<System.Type, System.Boolean>>)
+  fullName.vb: Harness.Settings.SettingsBuilder.AddConvention(MongoDB.Bson.Serialization.Conventions.IConventionPack, System.Linq.Expressions.Expression(Of System.Func(Of System.Type, System.Boolean)))
+  nameWithType: SettingsBuilder.AddConvention(IConventionPack, Expression<Func<Type, Boolean>>)
+  nameWithType.vb: SettingsBuilder.AddConvention(IConventionPack, Expression(Of Func(Of Type, Boolean)))
+- uid: Harness.Settings.SettingsBuilder.AddConvention(System.Collections.Generic.IList{MongoDB.Bson.Serialization.Conventions.IConvention},System.Linq.Expressions.Expression{System.Func{System.Type,System.Boolean}})
+  name: AddConvention(IList<IConvention>, Expression<Func<Type, Boolean>>)
+  href: api/Harness.Settings.SettingsBuilder.html#Harness_Settings_SettingsBuilder_AddConvention_System_Collections_Generic_IList_MongoDB_Bson_Serialization_Conventions_IConvention__System_Linq_Expressions_Expression_System_Func_System_Type_System_Boolean___
+  commentId: M:Harness.Settings.SettingsBuilder.AddConvention(System.Collections.Generic.IList{MongoDB.Bson.Serialization.Conventions.IConvention},System.Linq.Expressions.Expression{System.Func{System.Type,System.Boolean}})
+  name.vb: AddConvention(IList(Of IConvention), Expression(Of Func(Of Type, Boolean)))
+  fullName: Harness.Settings.SettingsBuilder.AddConvention(System.Collections.Generic.IList<MongoDB.Bson.Serialization.Conventions.IConvention>, System.Linq.Expressions.Expression<System.Func<System.Type, System.Boolean>>)
+  fullName.vb: Harness.Settings.SettingsBuilder.AddConvention(System.Collections.Generic.IList(Of MongoDB.Bson.Serialization.Conventions.IConvention), System.Linq.Expressions.Expression(Of System.Func(Of System.Type, System.Boolean)))
+  nameWithType: SettingsBuilder.AddConvention(IList<IConvention>, Expression<Func<Type, Boolean>>)
+  nameWithType.vb: SettingsBuilder.AddConvention(IList(Of IConvention), Expression(Of Func(Of Type, Boolean)))
+- uid: Harness.Settings.SettingsBuilder.AddConvention*
+  name: AddConvention
+  href: api/Harness.Settings.SettingsBuilder.html#Harness_Settings_SettingsBuilder_AddConvention_
+  commentId: Overload:Harness.Settings.SettingsBuilder.AddConvention
+  fullName: Harness.Settings.SettingsBuilder.AddConvention
+  nameWithType: SettingsBuilder.AddConvention
+- uid: Harness.Settings.SettingsBuilder.AddDatabase(System.String)
+  name: AddDatabase(String)
+  href: api/Harness.Settings.SettingsBuilder.html#Harness_Settings_SettingsBuilder_AddDatabase_System_String_
+  commentId: M:Harness.Settings.SettingsBuilder.AddDatabase(System.String)
+  fullName: Harness.Settings.SettingsBuilder.AddDatabase(System.String)
+  nameWithType: SettingsBuilder.AddDatabase(String)
+- uid: Harness.Settings.SettingsBuilder.AddDatabase*
+  name: AddDatabase
+  href: api/Harness.Settings.SettingsBuilder.html#Harness_Settings_SettingsBuilder_AddDatabase_
+  commentId: Overload:Harness.Settings.SettingsBuilder.AddDatabase
+  fullName: Harness.Settings.SettingsBuilder.AddDatabase
+  nameWithType: SettingsBuilder.AddDatabase
+- uid: Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderAddMoreCollections#AddCollection(System.String,System.Boolean,System.String)
+  name: ISettingsBuilderAddMoreCollections.AddCollection(String, Boolean, String)
+  href: api/Harness.Settings.SettingsBuilder.html#Harness_Settings_SettingsBuilder_Harness_Settings_ISettingsBuilderAddMoreCollections_AddCollection_System_String_System_Boolean_System_String_
+  commentId: M:Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderAddMoreCollections#AddCollection(System.String,System.Boolean,System.String)
+  name.vb: Harness.Settings.ISettingsBuilderAddMoreCollections.AddCollection(String, Boolean, String)
+  fullName: Harness.Settings.SettingsBuilder.Harness.Settings.ISettingsBuilderAddMoreCollections.AddCollection(System.String, System.Boolean, System.String)
+  nameWithType: SettingsBuilder.ISettingsBuilderAddMoreCollections.AddCollection(String, Boolean, String)
+  nameWithType.vb: SettingsBuilder.Harness.Settings.ISettingsBuilderAddMoreCollections.AddCollection(String, Boolean, String)
+- uid: Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderAddMoreCollections#AddCollection*
+  name: ISettingsBuilderAddMoreCollections.AddCollection
+  href: api/Harness.Settings.SettingsBuilder.html#Harness_Settings_SettingsBuilder_Harness_Settings_ISettingsBuilderAddMoreCollections_AddCollection_
+  commentId: Overload:Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderAddMoreCollections#AddCollection
+  name.vb: Harness.Settings.ISettingsBuilderAddMoreCollections.AddCollection
+  fullName: Harness.Settings.SettingsBuilder.Harness.Settings.ISettingsBuilderAddMoreCollections.AddCollection
+  nameWithType: SettingsBuilder.ISettingsBuilderAddMoreCollections.AddCollection
+  nameWithType.vb: SettingsBuilder.Harness.Settings.ISettingsBuilderAddMoreCollections.AddCollection
+- uid: Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderAddMoreCollections#AddCollection``1(System.String,System.Boolean,Harness.Settings.IDataProvider)
+  name: ISettingsBuilderAddMoreCollections.AddCollection<T>(String, Boolean, IDataProvider)
+  href: api/Harness.Settings.SettingsBuilder.html#Harness_Settings_SettingsBuilder_Harness_Settings_ISettingsBuilderAddMoreCollections_AddCollection__1_System_String_System_Boolean_Harness_Settings_IDataProvider_
+  commentId: M:Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderAddMoreCollections#AddCollection``1(System.String,System.Boolean,Harness.Settings.IDataProvider)
+  name.vb: Harness.Settings.ISettingsBuilderAddMoreCollections.AddCollection(Of T)(String, Boolean, IDataProvider)
+  fullName: Harness.Settings.SettingsBuilder.Harness.Settings.ISettingsBuilderAddMoreCollections.AddCollection<T>(System.String, System.Boolean, Harness.Settings.IDataProvider)
+  fullName.vb: Harness.Settings.SettingsBuilder.Harness.Settings.ISettingsBuilderAddMoreCollections.AddCollection(Of T)(System.String, System.Boolean, Harness.Settings.IDataProvider)
+  nameWithType: SettingsBuilder.ISettingsBuilderAddMoreCollections.AddCollection<T>(String, Boolean, IDataProvider)
+  nameWithType.vb: SettingsBuilder.Harness.Settings.ISettingsBuilderAddMoreCollections.AddCollection(Of T)(String, Boolean, IDataProvider)
+- uid: Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderAddMoreCollections#AddDatabase(System.String)
+  name: ISettingsBuilderAddMoreCollections.AddDatabase(String)
+  href: api/Harness.Settings.SettingsBuilder.html#Harness_Settings_SettingsBuilder_Harness_Settings_ISettingsBuilderAddMoreCollections_AddDatabase_System_String_
+  commentId: M:Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderAddMoreCollections#AddDatabase(System.String)
+  name.vb: Harness.Settings.ISettingsBuilderAddMoreCollections.AddDatabase(String)
+  fullName: Harness.Settings.SettingsBuilder.Harness.Settings.ISettingsBuilderAddMoreCollections.AddDatabase(System.String)
+  nameWithType: SettingsBuilder.ISettingsBuilderAddMoreCollections.AddDatabase(String)
+  nameWithType.vb: SettingsBuilder.Harness.Settings.ISettingsBuilderAddMoreCollections.AddDatabase(String)
+- uid: Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderAddMoreCollections#AddDatabase*
+  name: ISettingsBuilderAddMoreCollections.AddDatabase
+  href: api/Harness.Settings.SettingsBuilder.html#Harness_Settings_SettingsBuilder_Harness_Settings_ISettingsBuilderAddMoreCollections_AddDatabase_
+  commentId: Overload:Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderAddMoreCollections#AddDatabase
+  name.vb: Harness.Settings.ISettingsBuilderAddMoreCollections.AddDatabase
+  fullName: Harness.Settings.SettingsBuilder.Harness.Settings.ISettingsBuilderAddMoreCollections.AddDatabase
+  nameWithType: SettingsBuilder.ISettingsBuilderAddMoreCollections.AddDatabase
+  nameWithType.vb: SettingsBuilder.Harness.Settings.ISettingsBuilderAddMoreCollections.AddDatabase
+- uid: Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderAddMoreCollections#Build
+  name: ISettingsBuilderAddMoreCollections.Build()
+  href: api/Harness.Settings.SettingsBuilder.html#Harness_Settings_SettingsBuilder_Harness_Settings_ISettingsBuilderAddMoreCollections_Build
+  commentId: M:Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderAddMoreCollections#Build
+  name.vb: Harness.Settings.ISettingsBuilderAddMoreCollections.Build()
+  fullName: Harness.Settings.SettingsBuilder.Harness.Settings.ISettingsBuilderAddMoreCollections.Build()
+  nameWithType: SettingsBuilder.ISettingsBuilderAddMoreCollections.Build()
+  nameWithType.vb: SettingsBuilder.Harness.Settings.ISettingsBuilderAddMoreCollections.Build()
+- uid: Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderAddMoreCollections#Build*
+  name: ISettingsBuilderAddMoreCollections.Build
+  href: api/Harness.Settings.SettingsBuilder.html#Harness_Settings_SettingsBuilder_Harness_Settings_ISettingsBuilderAddMoreCollections_Build_
+  commentId: Overload:Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderAddMoreCollections#Build
+  name.vb: Harness.Settings.ISettingsBuilderAddMoreCollections.Build
+  fullName: Harness.Settings.SettingsBuilder.Harness.Settings.ISettingsBuilderAddMoreCollections.Build
+  nameWithType: SettingsBuilder.ISettingsBuilderAddMoreCollections.Build
+  nameWithType.vb: SettingsBuilder.Harness.Settings.ISettingsBuilderAddMoreCollections.Build
+- uid: Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderConnectionString#WithConnectionString(System.String)
+  name: ISettingsBuilderConnectionString.WithConnectionString(String)
+  href: api/Harness.Settings.SettingsBuilder.html#Harness_Settings_SettingsBuilder_Harness_Settings_ISettingsBuilderConnectionString_WithConnectionString_System_String_
+  commentId: M:Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderConnectionString#WithConnectionString(System.String)
+  name.vb: Harness.Settings.ISettingsBuilderConnectionString.WithConnectionString(String)
+  fullName: Harness.Settings.SettingsBuilder.Harness.Settings.ISettingsBuilderConnectionString.WithConnectionString(System.String)
+  nameWithType: SettingsBuilder.ISettingsBuilderConnectionString.WithConnectionString(String)
+  nameWithType.vb: SettingsBuilder.Harness.Settings.ISettingsBuilderConnectionString.WithConnectionString(String)
+- uid: Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderConnectionString#WithConnectionString*
+  name: ISettingsBuilderConnectionString.WithConnectionString
+  href: api/Harness.Settings.SettingsBuilder.html#Harness_Settings_SettingsBuilder_Harness_Settings_ISettingsBuilderConnectionString_WithConnectionString_
+  commentId: Overload:Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderConnectionString#WithConnectionString
+  name.vb: Harness.Settings.ISettingsBuilderConnectionString.WithConnectionString
+  fullName: Harness.Settings.SettingsBuilder.Harness.Settings.ISettingsBuilderConnectionString.WithConnectionString
+  nameWithType: SettingsBuilder.ISettingsBuilderConnectionString.WithConnectionString
+  nameWithType.vb: SettingsBuilder.Harness.Settings.ISettingsBuilderConnectionString.WithConnectionString
+- uid: Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderDatabaseOptions#AddCollection(System.String,System.Boolean,System.String)
+  name: ISettingsBuilderDatabaseOptions.AddCollection(String, Boolean, String)
+  href: api/Harness.Settings.SettingsBuilder.html#Harness_Settings_SettingsBuilder_Harness_Settings_ISettingsBuilderDatabaseOptions_AddCollection_System_String_System_Boolean_System_String_
+  commentId: M:Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderDatabaseOptions#AddCollection(System.String,System.Boolean,System.String)
+  name.vb: Harness.Settings.ISettingsBuilderDatabaseOptions.AddCollection(String, Boolean, String)
+  fullName: Harness.Settings.SettingsBuilder.Harness.Settings.ISettingsBuilderDatabaseOptions.AddCollection(System.String, System.Boolean, System.String)
+  nameWithType: SettingsBuilder.ISettingsBuilderDatabaseOptions.AddCollection(String, Boolean, String)
+  nameWithType.vb: SettingsBuilder.Harness.Settings.ISettingsBuilderDatabaseOptions.AddCollection(String, Boolean, String)
+- uid: Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderDatabaseOptions#AddCollection*
+  name: ISettingsBuilderDatabaseOptions.AddCollection
+  href: api/Harness.Settings.SettingsBuilder.html#Harness_Settings_SettingsBuilder_Harness_Settings_ISettingsBuilderDatabaseOptions_AddCollection_
+  commentId: Overload:Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderDatabaseOptions#AddCollection
+  name.vb: Harness.Settings.ISettingsBuilderDatabaseOptions.AddCollection
+  fullName: Harness.Settings.SettingsBuilder.Harness.Settings.ISettingsBuilderDatabaseOptions.AddCollection
+  nameWithType: SettingsBuilder.ISettingsBuilderDatabaseOptions.AddCollection
+  nameWithType.vb: SettingsBuilder.Harness.Settings.ISettingsBuilderDatabaseOptions.AddCollection
+- uid: Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderDatabaseOptions#AddCollection``1(System.String,System.Boolean,Harness.Settings.IDataProvider)
+  name: ISettingsBuilderDatabaseOptions.AddCollection<T>(String, Boolean, IDataProvider)
+  href: api/Harness.Settings.SettingsBuilder.html#Harness_Settings_SettingsBuilder_Harness_Settings_ISettingsBuilderDatabaseOptions_AddCollection__1_System_String_System_Boolean_Harness_Settings_IDataProvider_
+  commentId: M:Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderDatabaseOptions#AddCollection``1(System.String,System.Boolean,Harness.Settings.IDataProvider)
+  name.vb: Harness.Settings.ISettingsBuilderDatabaseOptions.AddCollection(Of T)(String, Boolean, IDataProvider)
+  fullName: Harness.Settings.SettingsBuilder.Harness.Settings.ISettingsBuilderDatabaseOptions.AddCollection<T>(System.String, System.Boolean, Harness.Settings.IDataProvider)
+  fullName.vb: Harness.Settings.SettingsBuilder.Harness.Settings.ISettingsBuilderDatabaseOptions.AddCollection(Of T)(System.String, System.Boolean, Harness.Settings.IDataProvider)
+  nameWithType: SettingsBuilder.ISettingsBuilderDatabaseOptions.AddCollection<T>(String, Boolean, IDataProvider)
+  nameWithType.vb: SettingsBuilder.Harness.Settings.ISettingsBuilderDatabaseOptions.AddCollection(Of T)(String, Boolean, IDataProvider)
+- uid: Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderDatabaseOptions#DropDatabaseFirst
+  name: ISettingsBuilderDatabaseOptions.DropDatabaseFirst()
+  href: api/Harness.Settings.SettingsBuilder.html#Harness_Settings_SettingsBuilder_Harness_Settings_ISettingsBuilderDatabaseOptions_DropDatabaseFirst
+  commentId: M:Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderDatabaseOptions#DropDatabaseFirst
+  name.vb: Harness.Settings.ISettingsBuilderDatabaseOptions.DropDatabaseFirst()
+  fullName: Harness.Settings.SettingsBuilder.Harness.Settings.ISettingsBuilderDatabaseOptions.DropDatabaseFirst()
+  nameWithType: SettingsBuilder.ISettingsBuilderDatabaseOptions.DropDatabaseFirst()
+  nameWithType.vb: SettingsBuilder.Harness.Settings.ISettingsBuilderDatabaseOptions.DropDatabaseFirst()
+- uid: Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderDatabaseOptions#DropDatabaseFirst*
+  name: ISettingsBuilderDatabaseOptions.DropDatabaseFirst
+  href: api/Harness.Settings.SettingsBuilder.html#Harness_Settings_SettingsBuilder_Harness_Settings_ISettingsBuilderDatabaseOptions_DropDatabaseFirst_
+  commentId: Overload:Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderDatabaseOptions#DropDatabaseFirst
+  name.vb: Harness.Settings.ISettingsBuilderDatabaseOptions.DropDatabaseFirst
+  fullName: Harness.Settings.SettingsBuilder.Harness.Settings.ISettingsBuilderDatabaseOptions.DropDatabaseFirst
+  nameWithType: SettingsBuilder.ISettingsBuilderDatabaseOptions.DropDatabaseFirst
+  nameWithType.vb: SettingsBuilder.Harness.Settings.ISettingsBuilderDatabaseOptions.DropDatabaseFirst
+- uid: Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderDatabaseOptions#WithCollectionNameSuffix(System.String)
+  name: ISettingsBuilderDatabaseOptions.WithCollectionNameSuffix(String)
+  href: api/Harness.Settings.SettingsBuilder.html#Harness_Settings_SettingsBuilder_Harness_Settings_ISettingsBuilderDatabaseOptions_WithCollectionNameSuffix_System_String_
+  commentId: M:Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderDatabaseOptions#WithCollectionNameSuffix(System.String)
+  name.vb: Harness.Settings.ISettingsBuilderDatabaseOptions.WithCollectionNameSuffix(String)
+  fullName: Harness.Settings.SettingsBuilder.Harness.Settings.ISettingsBuilderDatabaseOptions.WithCollectionNameSuffix(System.String)
+  nameWithType: SettingsBuilder.ISettingsBuilderDatabaseOptions.WithCollectionNameSuffix(String)
+  nameWithType.vb: SettingsBuilder.Harness.Settings.ISettingsBuilderDatabaseOptions.WithCollectionNameSuffix(String)
+- uid: Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderDatabaseOptions#WithCollectionNameSuffix*
+  name: ISettingsBuilderDatabaseOptions.WithCollectionNameSuffix
+  href: api/Harness.Settings.SettingsBuilder.html#Harness_Settings_SettingsBuilder_Harness_Settings_ISettingsBuilderDatabaseOptions_WithCollectionNameSuffix_
+  commentId: Overload:Harness.Settings.SettingsBuilder.Harness#Settings#ISettingsBuilderDatabaseOptions#WithCollectionNameSuffix
+  name.vb: Harness.Settings.ISettingsBuilderDatabaseOptions.WithCollectionNameSuffix
+  fullName: Harness.Settings.SettingsBuilder.Harness.Settings.ISettingsBuilderDatabaseOptions.WithCollectionNameSuffix
+  nameWithType: SettingsBuilder.ISettingsBuilderDatabaseOptions.WithCollectionNameSuffix
+  nameWithType.vb: SettingsBuilder.Harness.Settings.ISettingsBuilderDatabaseOptions.WithCollectionNameSuffix
+- uid: Harness.Settings.SettingsBuilderException
+  name: SettingsBuilderException
+  href: api/Harness.Settings.SettingsBuilderException.html
+  commentId: T:Harness.Settings.SettingsBuilderException
+  fullName: Harness.Settings.SettingsBuilderException
+  nameWithType: SettingsBuilderException
+- uid: Harness.Settings.SettingsBuilderException.#ctor(System.String)
+  name: SettingsBuilderException(String)
+  href: api/Harness.Settings.SettingsBuilderException.html#Harness_Settings_SettingsBuilderException__ctor_System_String_
+  commentId: M:Harness.Settings.SettingsBuilderException.#ctor(System.String)
+  fullName: Harness.Settings.SettingsBuilderException.SettingsBuilderException(System.String)
+  nameWithType: SettingsBuilderException.SettingsBuilderException(String)
+- uid: Harness.Settings.SettingsBuilderException.#ctor*
+  name: SettingsBuilderException
+  href: api/Harness.Settings.SettingsBuilderException.html#Harness_Settings_SettingsBuilderException__ctor_
+  commentId: Overload:Harness.Settings.SettingsBuilderException.#ctor
+  fullName: Harness.Settings.SettingsBuilderException.SettingsBuilderException
+  nameWithType: SettingsBuilderException.SettingsBuilderException
+- uid: Harness.Settings.SettingsLoaderException
+  name: SettingsLoaderException
+  href: api/Harness.Settings.SettingsLoaderException.html
+  commentId: T:Harness.Settings.SettingsLoaderException
+  fullName: Harness.Settings.SettingsLoaderException
+  nameWithType: SettingsLoaderException
+- uid: Harness.Settings.SettingsLoaderException.#ctor(System.String)
+  name: SettingsLoaderException(String)
+  href: api/Harness.Settings.SettingsLoaderException.html#Harness_Settings_SettingsLoaderException__ctor_System_String_
+  commentId: M:Harness.Settings.SettingsLoaderException.#ctor(System.String)
+  fullName: Harness.Settings.SettingsLoaderException.SettingsLoaderException(System.String)
+  nameWithType: SettingsLoaderException.SettingsLoaderException(String)
+- uid: Harness.Settings.SettingsLoaderException.#ctor(System.String,System.Exception)
+  name: SettingsLoaderException(String, Exception)
+  href: api/Harness.Settings.SettingsLoaderException.html#Harness_Settings_SettingsLoaderException__ctor_System_String_System_Exception_
+  commentId: M:Harness.Settings.SettingsLoaderException.#ctor(System.String,System.Exception)
+  fullName: Harness.Settings.SettingsLoaderException.SettingsLoaderException(System.String, System.Exception)
+  nameWithType: SettingsLoaderException.SettingsLoaderException(String, Exception)
+- uid: Harness.Settings.SettingsLoaderException.#ctor*
+  name: SettingsLoaderException
+  href: api/Harness.Settings.SettingsLoaderException.html#Harness_Settings_SettingsLoaderException__ctor_
+  commentId: Overload:Harness.Settings.SettingsLoaderException.#ctor
+  fullName: Harness.Settings.SettingsLoaderException.SettingsLoaderException
+  nameWithType: SettingsLoaderException.SettingsLoaderException

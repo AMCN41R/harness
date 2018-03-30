@@ -1,0 +1,392 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class HarnessManager
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class HarnessManager
+   ">
+    <meta name="generator" content="docfx 2.32.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Harness.HarnessManager">
+  
+  
+  <h1 id="Harness_HarnessManager" data-uid="Harness.HarnessManager" class="text-break">Class HarnessManager
+  </h1>
+  <div class="markdown level0 summary"><p>
+The <a class="xref" href="Harness.HarnessManager.html">HarnessManager</a> class, alongside the <a class="xref" href="Harness.Settings.SettingsBuilder.html">SettingsBuilder</a>
+class, is used to configure and build one or more mongo databases, putting them
+into a known state.
+</p>
+<p>
+Once you have your <a class="xref" href="Harness.Settings.HarnessConfiguration.html">HarnessConfiguration</a> settings object, you can 
+pass it to the <a class="xref" href="Harness.HarnessManager.html">HarnessManager</a> and use build your databases. The 
+<a class="xref" href="Harness.IHarnessManagerBuilder.html#Harness_IHarnessManagerBuilder_Build">Build()</a> method returns a 
+<span class="xref">System.Collections.Generic.Dictionary&lt;TKey, TValue&gt;</span> containing the MongoClient instances 
+(one per unique connection string in the <a class="xref" href="Harness.Settings.HarnessConfiguration.html">HarnessConfiguration</a>) for re-use. 
+The dictionary key is the connection string.
+</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">HarnessManager</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Harness.IHarnessManager.html">IHarnessManager</a></div>
+    <div><a class="xref" href="Harness.IHarnessManagerBuilder.html">IHarnessManagerBuilder</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Harness.html">Harness</a></h6>
+  <h6><strong>Assembly</strong>: Harness.dll</h6>
+  <h5 id="Harness_HarnessManager_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class HarnessManager : IHarnessManager, IHarnessManagerBuilder</code></pre>
+  </div>
+  <h5 id="Harness_HarnessManager_examples"><strong>Examples</strong></h5>
+  <pre><code>var mongoClients =
+    new HarnessManager()
+        .UsingSettings(settings) // the settings object built using the SettingsBuilder
+        .Build();</code></pre>
+<p><p>
+The following is an example using XUnit. Here, we call build() in the test class constructor 
+which means the configuration will run before each test in the class is executed...
+</p></p>
+<pre><code>public class SettingsBuilderWithDataFiles
+{
+    public SettingsBuilderWithDataFiles()
+    {
+        var settings =
+            new SettingsBuilder()
+                .AddDatabase(&quot;TestDb1&quot;)
+                .WithConnectionString(&quot;mongodb://localhost:27017&quot;)
+                .DropDatabaseFirst()
+                .AddCollection(&quot;col1&quot;, true, &quot;path/to/Collection1.json&quot;)
+                .AddCollection(&quot;col2&quot;, true, &quot;path/to/Collection2.json&quot;)
+                .Build();
+
+        this.MongoConnections =
+            new HarnessManager()
+                .UsingSettings(settings)
+                .Build();
+    }
+
+    private Dictionary&lt;string, IMongoClient> MongoConnections { get; }
+
+    [Fact]
+    public void Test1()
+    {
+        // Arrange
+        var classUnderTest = new ClassUnderTest();
+
+        // Act
+        var result = classUnderTest.GetCollectionRecordCount(&quot;col1&quot;);
+
+        // Assert
+        Assert.Equal(2, result);
+    }
+
+    [Fact]
+    public void Test2()
+    {
+        // Arrange
+        var classUnderTest = new ClassUnderTest();
+        var mongoClient = this.MongoConnections[&quot;mongodb://localhost:27017&quot;];
+
+        // Act
+        var result = classUnderTest.GetCollectionRecordCount(mongoClient, &quot;col1&quot;);
+
+        // Assert
+        Assert.Equal(2, result);
+    }
+}</code></pre>
+
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/AMCN41R/Harness/new/v2.0-net-standard/apiSpec/new?filename=Harness_HarnessManager__ctor.md&amp;value=---%0Auid%3A%20Harness.HarnessManager.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/AMCN41R/Harness/tree/v2.0-net-standard/src/Harness/HarnessManager.cs/#L89">View Source</a>
+  </span>
+  <a id="Harness_HarnessManager__ctor_" data-uid="Harness.HarnessManager.#ctor*"></a>
+  <h4 id="Harness_HarnessManager__ctor" data-uid="Harness.HarnessManager.#ctor">HarnessManager()</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Harness.HarnessManager.html">HarnessManager</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HarnessManager()</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/AMCN41R/Harness/new/v2.0-net-standard/apiSpec/new?filename=Harness_HarnessManager_UsingSettings_Harness_Settings_HarnessConfiguration_.md&amp;value=---%0Auid%3A%20Harness.HarnessManager.UsingSettings(Harness.Settings.HarnessConfiguration)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/AMCN41R/Harness/tree/v2.0-net-standard/src/Harness/HarnessManager.cs/#L130">View Source</a>
+  </span>
+  <a id="Harness_HarnessManager_UsingSettings_" data-uid="Harness.HarnessManager.UsingSettings*"></a>
+  <h4 id="Harness_HarnessManager_UsingSettings_Harness_Settings_HarnessConfiguration_" data-uid="Harness.HarnessManager.UsingSettings(Harness.Settings.HarnessConfiguration)">UsingSettings(HarnessConfiguration)</h4>
+  <div class="markdown level1 summary"><p>The <a class="xref" href="Harness.Settings.HarnessConfiguration.html">HarnessConfiguration</a> to use.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IHarnessManagerBuilder UsingSettings(HarnessConfiguration configuration)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Harness.Settings.HarnessConfiguration.html">HarnessConfiguration</a></td>
+        <td><span class="parametername">configuration</span></td>
+        <td><p>The configuration.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Harness.IHarnessManagerBuilder.html">IHarnessManagerBuilder</a></td>
+        <td><p>The harness manager instance as an <a class="xref" href="Harness.IHarnessManagerBuilder.html">IHarnessManagerBuilder</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/AMCN41R/Harness/new/v2.0-net-standard/apiSpec/new?filename=Harness_HarnessManager_UsingSettings_System_String_.md&amp;value=---%0Auid%3A%20Harness.HarnessManager.UsingSettings(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/AMCN41R/Harness/tree/v2.0-net-standard/src/Harness/HarnessManager.cs/#L118">View Source</a>
+  </span>
+  <a id="Harness_HarnessManager_UsingSettings_" data-uid="Harness.HarnessManager.UsingSettings*"></a>
+  <h4 id="Harness_HarnessManager_UsingSettings_System_String_" data-uid="Harness.HarnessManager.UsingSettings(System.String)">UsingSettings(String)</h4>
+  <div class="markdown level1 summary"><p>The <a class="xref" href="Harness.Settings.HarnessConfiguration.html">HarnessConfiguration</a> to use.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IHarnessManagerBuilder UsingSettings(string filepath)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">filepath</span></td>
+        <td><p>The path of the file to load as the <a class="xref" href="Harness.Settings.HarnessConfiguration.html">HarnessConfiguration</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Harness.IHarnessManagerBuilder.html">IHarnessManagerBuilder</a></td>
+        <td><p>The harness manager instance as an <a class="xref" href="Harness.IHarnessManagerBuilder.html">IHarnessManagerBuilder</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/AMCN41R/Harness/new/v2.0-net-standard/apiSpec/new?filename=Harness_HarnessManager_Harness_IHarnessManagerBuilder_Build.md&amp;value=---%0Auid%3A%20Harness.HarnessManager.Harness%23IHarnessManagerBuilder%23Build%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/AMCN41R/Harness/tree/v2.0-net-standard/src/Harness/HarnessManager.cs/#L139">View Source</a>
+  </span>
+  <a id="Harness_HarnessManager_Harness_IHarnessManagerBuilder_Build_" data-uid="Harness.HarnessManager.Harness#IHarnessManagerBuilder#Build*"></a>
+  <h4 id="Harness_HarnessManager_Harness_IHarnessManagerBuilder_Build" data-uid="Harness.HarnessManager.Harness#IHarnessManagerBuilder#Build">IHarnessManagerBuilder.Build()</h4>
+  <div class="markdown level1 summary"><p>Builds an instance on <a class="xref" href="Harness.HarnessManager.html">HarnessManager</a> using the 
+options applied in the current instance of the <a class="xref" href="Harness.HarnessManager.html">HarnessManager</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Dictionary&lt;string, IMongoClient&gt; IHarnessManagerBuilder.Build()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">MongoDB.Driver.IMongoClient</span>&gt;</td>
+        <td><p>The configured <a class="xref" href="Harness.HarnessManager.html">HarnessManager</a> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Harness.IHarnessManager.html">IHarnessManager</a>
+  </div>
+  <div>
+      <a class="xref" href="Harness.IHarnessManagerBuilder.html">IHarnessManagerBuilder</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/AMCN41R/Harness/new/v2.0-net-standard/apiSpec/new?filename=Harness_HarnessManager.md&amp;value=---%0Auid%3A%20Harness.HarnessManager%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/AMCN41R/Harness/tree/v2.0-net-standard/src/Harness/HarnessManager.cs/#L84" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2015-2017 Microsoft<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

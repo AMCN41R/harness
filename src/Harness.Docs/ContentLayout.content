@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Topics>
-  <Topic id="3dfd16d8-ec65-4abb-beae-96142f9d2172" visible="True" isDefault="true" isSelected="true" title="Welcome to Harness">
-    <HelpKeywords>
-      <HelpKeyword index="K" term="Welcome" />
-    </HelpKeywords>
-  </Topic>
-</Topics>

@@ -1,5 +1,7 @@
 # Harness
 
+[![CircleCI](https://circleci.com/gh/AMCN41R/harness.svg?style=shield)](https://circleci.com/gh/AMCN41R/harness)
+
 Harness is a .NET library designed to manage the state of a Mongo database during testing.
 
 ## About
@@ -7,7 +9,8 @@ Harness is designed to aid unit and integration testing by putting a Mongo datab
 
 Harness is an open source project, licensed under the [MIT License](https://github.com/AMCN41R/Harness/blob/dev/LICENSE)
 
-Harness was inspired by [NDBUnit](https://github.com/NDbUnit/NDbUnit).
+## API Documentation
+You can find the API documentation [here](http://amcn41r.github.io/harness).
 
 ## Getting Harness
 Harness is availble on [nuget](https://www.nuget.org/packages/Harness) and can be installed with...
@@ -412,6 +415,3 @@ public class SettingsBuilderWithDataFiles
     }
 }
 ```
-
-## API Documentation
-You can find the API documentation [here](http://amcn41r.github.io/harness).

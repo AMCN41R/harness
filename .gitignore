@@ -3,6 +3,8 @@ obj/
 *.suo
 *.csproj.user
 .vs/
+.vscode/
 *.user
 packages
 src/Harness.Docs/Help/
+TestResults/

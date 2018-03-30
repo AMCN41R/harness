@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Using Harness. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Using Harness. ">
+    <meta name="generator" content="docfx 2.32.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="using-harness">Using Harness.</h1>
+
+<h2 id="whats-the-simplest-way-to-get-it-working">What&#39;s the simplest way to get it working?</h2>
+<p>Do you like config files or fluent configuration in code? Either way, Harness has you covered. You can find examples of both <a href="https://github.com/AMCN41R/Harness/blob/master/README.md">here</a>, or see below for a simple config file example...</p>
+<p>Once you have added Harness to you project, one way to get up and running is with 2 simple json files...</p>
+<h4 id="settings-file">Settings File</h4>
+<p>The settings file must have a <code>.json</code> extension. It is a json object that contains a <code>databases</code> property that is an array of <code>database</code> objects.</p>
+<h5 id="example-settings-file-examplesettingsjson">Example settings file, &#39;ExampleSettings.json&#39;</h5>
+<pre><code class="lang-json">{
+    &quot;databases&quot;: [
+        {
+            &quot;databaseName&quot;: &quot;TestDb1&quot;,
+            &quot;connectionString&quot;: &quot;mongodb://localhost:27017&quot;,
+            &quot;collectionNameSuffix&quot;: &quot;&quot;,
+            &quot;dropFirst&quot;: true,
+            &quot;collections&quot;: [
+                {
+                    &quot;collectionName&quot;: &quot;TestCollection1&quot;,
+                    &quot;dataFileLocation&quot;: &quot;Collection1.json&quot;, // this is the path to a data file described below
+                    &quot;dropFirst&quot;: false
+                },
+                {
+                    &quot;collectionName&quot;: &quot;TestCollection2&quot;,
+                    &quot;dataFileLocation&quot;: &quot;Collection2.json&quot;,
+                    &quot;dropFirst&quot;: false
+                }
+            ]
+        }
+    ]
+}
+</code></pre><h4 id="data-file">Data File</h4>
+<p>Test data files must have a .json extension and contain an array of json objects.</p>
+<h5 id="example-data-file-collection1json">Example data file, &#39;Collection1.json&#39;</h5>
+<pre><code class="lang-json">[
+    {
+        &quot;_id&quot;: { &quot;$oid&quot;: &quot;56a69c36d1894801d0ce3d05&quot; },
+        &quot;Col1b&quot;: &quot;Value1b&quot;,
+        &quot;Col2b&quot;: &quot;Value2b&quot;
+    },
+    {
+        &quot;_id&quot;: { &quot;$oid&quot;: &quot;56a69c36d1894801d0ce3d06&quot; },
+        &quot;Col1b&quot;: &quot;Value3b&quot;,
+        &quot;Col2b&quot;: &quot;Value4b&quot;
+    }
+]
+</code></pre><p>Once you have created the settings and data files, all you need to do is make your class of tests extend <code>HarnessBase</code>, and give it the <code>[HarnessConfig]</code> attribute with the path to your settings file...</p>
+<pre><code class="lang-csharp">using Harness;
+
+[HarnessConfig(ConfigFilePath = &quot;path/to/settings.json&quot;)]
+public class MyMongoIntegrationTests : HarnessBase {
+    // tests go here
+    ...
+}
+</code></pre><h2 id="are-there-more-examples">Are there more examples?</h2>
+<p>You can check out examples of how to get started with both the config files and fluent configuration, as well as several XUnit examples on the Harness <a href="https://github.com/AMCN41R/harness">GitHub</a> page.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/AMCN41R/Harness/tree/v2.0-net-standard/src/Harness.Docs/docfx_project/api/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2015-2017 Microsoft<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
