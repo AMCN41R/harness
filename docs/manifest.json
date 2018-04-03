@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "C:/Dev/harness/src/Harness.Docs/docfx_project",
+  "source_base_path": "C:/Dev/Harness/src/Harness.Docs/docfx_project",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Harness.HarnessBase.html",
-          "hash": "Un3sqI8RAFHYyXPVHody7w=="
+          "hash": "KJj+sn7bBltJvZSTU8wj1A=="
         }
       },
       "is_incremental": false,
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Harness.HarnessConfigAttribute.html",
-          "hash": "IAtsTKvM2u/PIoVqrGHYGg=="
+          "hash": "ZlkDkLToQHjRRyhmi3oryg=="
         }
       },
       "is_incremental": false,
@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Harness.HarnessManager.html",
-          "hash": "o038jcPZp+PtrWwSS3jUwQ=="
+          "hash": "m9xgcV6wbZNTy51a4+KTjw=="
         }
       },
       "is_incremental": false,
@@ -45,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Harness.IHarnessManager.html",
-          "hash": "DHEJNrLi3P29lCgWTqiDJA=="
+          "hash": "CVDssPnH+fqymqoECutdkQ=="
         }
       },
       "is_incremental": false,
@@ -57,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Harness.IHarnessManagerBuilder.html",
-          "hash": "AkAyfZTYgau3ZVV5NblVrA=="
+          "hash": "A0HlVBRaw6VTCsc5PH+ATg=="
         }
       },
       "is_incremental": false,
@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Harness.Settings.CollectionConfig.html",
-          "hash": "BTaoh30CFnxUESzaqHw0Hg=="
+          "hash": "1hOdcyBhpi7S+9Y4/ErSxA=="
         }
       },
       "is_incremental": false,
@@ -81,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Harness.Settings.ConventionConfig.html",
-          "hash": "vdbO47lPGgTJE34ucm+WGA=="
+          "hash": "EEEcusXn8f5YGBffHtByiA=="
         }
       },
       "is_incremental": false,
@@ -93,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Harness.Settings.DatabaseConfig.html",
-          "hash": "OxWwfP620egqUOzLWa9F2g=="
+          "hash": "bO5RXMZZdOeLgRD74noc/g=="
         }
       },
       "is_incremental": false,
@@ -105,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Harness.Settings.HarnessConfiguration.html",
-          "hash": "6I++gToo6hKB7Y0KDWIZtg=="
+          "hash": "D66lnhpCayNL4nONKThgVg=="
         }
       },
       "is_incremental": false,
@@ -117,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Harness.Settings.IDataProvider.html",
-          "hash": "TI425TU5TlduFE+AamXqRg=="
+          "hash": "YB5znM6tDk7CySk75YhPtQ=="
         }
       },
       "is_incremental": false,
@@ -129,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Harness.Settings.ISettingsBuilder.html",
-          "hash": "UPBj3ncGlnKt+ipD7lu/6Q=="
+          "hash": "TNwBICP+tX0BtCIeDMzHhA=="
         }
       },
       "is_incremental": false,
@@ -141,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Harness.Settings.ISettingsBuilderAddMoreCollections.html",
-          "hash": "t1IzmzIC79hBAvJUGAXyGg=="
+          "hash": "+8H05ySA3/G5CCNB+Nh6jg=="
         }
       },
       "is_incremental": false,
@@ -153,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Harness.Settings.ISettingsBuilderConnectionString.html",
-          "hash": "23CAwrF/YmB4IL6qwP3M4g=="
+          "hash": "VjJ1QPCxcK5wq3cNPc3Nzg=="
         }
       },
       "is_incremental": false,
@@ -165,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Harness.Settings.ISettingsBuilderDatabase.html",
-          "hash": "UHYa9yhp1pSS+ghCqR6o0A=="
+          "hash": "EcgemrSJn4IT5U3F9tErJw=="
         }
       },
       "is_incremental": false,
@@ -177,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Harness.Settings.ISettingsBuilderDatabaseOptions.html",
-          "hash": "wXPk7cD+/P6ISm/x+J6G4A=="
+          "hash": "FiQgYd25d+ZlShvlf4ljsA=="
         }
       },
       "is_incremental": false,
@@ -189,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Harness.Settings.SettingsBuilder.html",
-          "hash": "rseZRZOJ7EJJ5h15jqaLxg=="
+          "hash": "I8kkpuerGvAso5Zh4VvRiA=="
         }
       },
       "is_incremental": false,
@@ -201,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Harness.Settings.SettingsBuilderException.html",
-          "hash": "eV+/i6Xv1ulqimWpNw5fEQ=="
+          "hash": "3izQYOeNxPP1fREuEmMTUw=="
         }
       },
       "is_incremental": false,
@@ -213,7 +213,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Harness.Settings.SettingsLoaderException.html",
-          "hash": "0hZGa0Lsq5vm+4gYVa19QA=="
+          "hash": "XzKN7KrdGCgExYxPsU32jQ=="
         }
       },
       "is_incremental": false,
@@ -249,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "HKNT+qqRLiC+PwuYW6DkjA=="
+          "hash": "ZH6JOO3offksL1qQFF1yQA=="
         }
       },
       "is_incremental": false,
@@ -273,7 +273,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/creating-a-logo.html",
-          "hash": "jTOGf4xlGnLgU3LZyDxvIA=="
+          "hash": "roMr6dlsavDXNfaCOlSP1Q=="
         }
       },
       "is_incremental": false,
@@ -285,7 +285,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "DaPBd3CcUGey8M/Lr/OyMg=="
+          "hash": "FmAem/jso8s4n/C+wBOXow=="
         }
       },
       "is_incremental": false,
@@ -353,7 +353,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "G+Tb3KlV1U2Z/8kbylxtjg=="
+          "hash": "suxLn5ycmByEv+VMZMsT7Q=="
         }
       },
       "is_incremental": false,
@@ -380,22 +380,22 @@
         "incrementalPhase": "build"
       },
       "processors": {
-        "ResourceDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build"
-        },
         "TocDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
           "incrementalPhase": "build"
         },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build"
         },
-        "ConceptualDocumentProcessor": {
+        "ResourceDocumentProcessor": {
           "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         }
       }
