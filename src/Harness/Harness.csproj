@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Version>2.0.0-beta</Version>
+    <Version>2.0.0</Version>
     <Description>Harness is a .NET library designed to manage the state of one or more Mongo databases during testing.</Description>
     <Company>AMCN41R</Company>
     <Copyright>Copyright ©  2016</Copyright>
