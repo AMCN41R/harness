@@ -1,6 +1,7 @@
 # Harness
 
 [![CircleCI](https://circleci.com/gh/AMCN41R/harness.svg?style=shield)](https://circleci.com/gh/AMCN41R/harness)
+[![NuGet version](https://badge.fury.io/nu/harness.svg)](https://badge.fury.io/nu/harness)
 
 Harness is a .NET library designed to manage the state of a Mongo database during testing.
 
