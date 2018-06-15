@@ -1,5 +1,5 @@
 {
-  "Databases": [
+  "databases": [
     {
       "databaseName": "TestDb1",
       "connectionString": "mongodb://localhost:27017",

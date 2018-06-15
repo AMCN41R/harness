@@ -7,9 +7,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Harness", "Harness\Harness.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Harness.Examples", "Harness.Examples\Harness.Examples.csproj", "{D362AB4F-8B1B-4776-8368-EDA83B5F0CA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harness.Tests.Integration", "Harness.Tests.Integration\Harness.Tests.Integration.csproj", "{FC6DC7F7-932D-42E6-9877-EF5B9965F2CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Harness.Tests.Integration", "Harness.Tests.Integration\Harness.Tests.Integration.csproj", "{FC6DC7F7-932D-42E6-9877-EF5B9965F2CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harness.Tests.Unit", "Harness.Tests.Unit\Harness.Tests.Unit.csproj", "{C492CE48-A278-47F7-B36E-D159DDDF8D3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Harness.Tests.Unit", "Harness.Tests.Unit\Harness.Tests.Unit.csproj", "{C492CE48-A278-47F7-B36E-D159DDDF8D3A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Harness.CLI", "Harness.CLI\Harness.CLI.csproj", "{7DC235D7-887B-4EF9-9837-A8F2CDB4ADE3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{14A81F2E-C22E-4674-B6C1-CD000E77A2BA}"
+	ProjectSection(SolutionItems) = preProject
+		analysis.ruleset = analysis.ruleset
+		stylecop.json = stylecop.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +41,10 @@ Global
 		{C492CE48-A278-47F7-B36E-D159DDDF8D3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C492CE48-A278-47F7-B36E-D159DDDF8D3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C492CE48-A278-47F7-B36E-D159DDDF8D3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DC235D7-887B-4EF9-9837-A8F2CDB4ADE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DC235D7-887B-4EF9-9837-A8F2CDB4ADE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DC235D7-887B-4EF9-9837-A8F2CDB4ADE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DC235D7-887B-4EF9-9837-A8F2CDB4ADE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

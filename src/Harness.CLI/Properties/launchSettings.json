@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Harness.CLI": {
+      "commandName": "Project",
+      "commandLineArgs": "create"
+    }
+  }
+}
