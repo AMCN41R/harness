@@ -20,7 +20,7 @@ task Build {
 }
 
 task Test {
-    $testdlls = 
+    $testdlls =
         ".\src\Harness.Tests.Unit\bin\Release\netcoreapp2.0\Harness.Tests.Unit.dll",
         ".\src\Harness.Tests.Integration\bin\Release\netcoreapp2.0\Harness.Tests.Integration.dll"
 
@@ -44,7 +44,7 @@ task Docs {
 task Pack {
     "Packing deployables..."
     dotnet pack .\src\Harness\ --configuration Release --output ..\..\tools\nuget\versions
-    
+
     if ($lastexitcode -ne 0) {
         throw "Packing task failed! Build failed."
     }
