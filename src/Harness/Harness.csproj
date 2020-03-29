@@ -8,7 +8,7 @@
     <Company>AMCN41R</Company>
     <Copyright>Copyright ©  2016</Copyright>
     <PackageProjectUrl>https://github.com/AMCN41R/harness</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/AMCN41R/harness/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicense>https://github.com/AMCN41R/harness/blob/master/LICENSE</PackageLicense>
     <RepositoryUrl>https://github.com/AMCN41R/harness</RepositoryUrl>
   </PropertyGroup>
 
