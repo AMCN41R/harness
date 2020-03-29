@@ -3,16 +3,16 @@ jobs:
   build:
     working_directory: /temp
     docker:
-      - image: microsoft/dotnet:sdk
+      - image: mcr.microsoft.com/dotnet/core/sdk:3.1
     environment:
       DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
       DOTNET_CLI_TELEMETRY_OPTOUT: 1
     steps:
       - checkout
-      - run: 
+      - run:
           name: Building source
           command: |
-            cd src 
+            cd src
             dotnet build -c Release
       - run:
           name: Testing, Testing, 123
